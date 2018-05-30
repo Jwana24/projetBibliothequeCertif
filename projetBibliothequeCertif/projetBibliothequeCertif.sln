@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2018
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "projetBibliothequeCertif", "projetBibliothequeCertif\projetBibliothequeCertif.csproj", "{8F104D42-A52E-403F-AA51-D33006B7E6B3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8F104D42-A52E-403F-AA51-D33006B7E6B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F104D42-A52E-403F-AA51-D33006B7E6B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F104D42-A52E-403F-AA51-D33006B7E6B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F104D42-A52E-403F-AA51-D33006B7E6B3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7CF6EB9D-535B-4FB2-A900-2C7CB4632286}
+	EndGlobalSection
+EndGlobal
