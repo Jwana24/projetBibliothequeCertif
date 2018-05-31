@@ -40,6 +40,7 @@
             this.btnModifier.TabIndex = 26;
             this.btnModifier.Text = "Modifier";
             this.btnModifier.UseVisualStyleBackColor = true;
+            this.btnModifier.Click += new System.EventHandler(this.btnModifier_Click);
             // 
             // btnFermer
             // 
@@ -49,6 +50,7 @@
             this.btnFermer.TabIndex = 25;
             this.btnFermer.Text = "Fermer";
             this.btnFermer.UseVisualStyleBackColor = true;
+            this.btnFermer.Click += new System.EventHandler(this.btnFermer_Click);
             // 
             // frmConsultationLivre
             // 

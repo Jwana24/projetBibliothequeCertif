@@ -14,5 +14,21 @@ namespace projetBibliothequeCertif
         {
             InitializeComponent();
         }
+
+        private void btnFermer_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnOK_Click(object sender, EventArgs e)
+        {
+            frmModifierUsager modifierUsager = new frmModifierUsager();
+            this.Close();
+        }
+
+        private void btnEffacer_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

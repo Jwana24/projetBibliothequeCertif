@@ -35,13 +35,13 @@
             this.lblAuteur = new System.Windows.Forms.Label();
             this.lblEditeur = new System.Windows.Forms.Label();
             this.lblDateParution = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.txtbCodeLivre = new System.Windows.Forms.TextBox();
+            this.txtbISBN = new System.Windows.Forms.TextBox();
+            this.txtbTitre = new System.Windows.Forms.TextBox();
+            this.cbbCategorie = new System.Windows.Forms.ComboBox();
+            this.txtbAuteur = new System.Windows.Forms.TextBox();
+            this.txtbEditeur = new System.Windows.Forms.TextBox();
+            this.dateTimeParution = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // lblCodeLivre
@@ -107,68 +107,68 @@
             this.lblDateParution.TabIndex = 6;
             this.lblDateParution.Text = "Date de parution";
             // 
-            // textBox1
+            // txtbCodeLivre
             // 
-            this.textBox1.Location = new System.Drawing.Point(144, 38);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(174, 22);
-            this.textBox1.TabIndex = 7;
+            this.txtbCodeLivre.Location = new System.Drawing.Point(121, 38);
+            this.txtbCodeLivre.Name = "txtbCodeLivre";
+            this.txtbCodeLivre.Size = new System.Drawing.Size(174, 22);
+            this.txtbCodeLivre.TabIndex = 7;
             // 
-            // textBox2
+            // txtbISBN
             // 
-            this.textBox2.Location = new System.Drawing.Point(121, 87);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(424, 22);
-            this.textBox2.TabIndex = 8;
+            this.txtbISBN.Location = new System.Drawing.Point(121, 87);
+            this.txtbISBN.Name = "txtbISBN";
+            this.txtbISBN.Size = new System.Drawing.Size(424, 22);
+            this.txtbISBN.TabIndex = 8;
             // 
-            // textBox3
+            // txtbTitre
             // 
-            this.textBox3.Location = new System.Drawing.Point(121, 136);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(590, 22);
-            this.textBox3.TabIndex = 9;
+            this.txtbTitre.Location = new System.Drawing.Point(121, 136);
+            this.txtbTitre.Name = "txtbTitre";
+            this.txtbTitre.Size = new System.Drawing.Size(590, 22);
+            this.txtbTitre.TabIndex = 9;
             // 
-            // comboBox1
+            // cbbCategorie
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(156, 186);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(237, 24);
-            this.comboBox1.TabIndex = 10;
+            this.cbbCategorie.FormattingEnabled = true;
+            this.cbbCategorie.Location = new System.Drawing.Point(121, 183);
+            this.cbbCategorie.Name = "cbbCategorie";
+            this.cbbCategorie.Size = new System.Drawing.Size(237, 24);
+            this.cbbCategorie.TabIndex = 10;
             // 
-            // textBox4
+            // txtbAuteur
             // 
-            this.textBox4.Location = new System.Drawing.Point(156, 237);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(555, 22);
-            this.textBox4.TabIndex = 11;
+            this.txtbAuteur.Location = new System.Drawing.Point(121, 237);
+            this.txtbAuteur.Name = "txtbAuteur";
+            this.txtbAuteur.Size = new System.Drawing.Size(555, 22);
+            this.txtbAuteur.TabIndex = 11;
             // 
-            // textBox5
+            // txtbEditeur
             // 
-            this.textBox5.Location = new System.Drawing.Point(156, 287);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(555, 22);
-            this.textBox5.TabIndex = 12;
+            this.txtbEditeur.Location = new System.Drawing.Point(121, 287);
+            this.txtbEditeur.Name = "txtbEditeur";
+            this.txtbEditeur.Size = new System.Drawing.Size(555, 22);
+            this.txtbEditeur.TabIndex = 12;
             // 
-            // dateTimePicker1
+            // dateTimeParution
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(205, 338);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(258, 22);
-            this.dateTimePicker1.TabIndex = 13;
+            this.dateTimeParution.Location = new System.Drawing.Point(180, 338);
+            this.dateTimeParution.Name = "dateTimeParution";
+            this.dateTimeParution.Size = new System.Drawing.Size(258, 22);
+            this.dateTimeParution.TabIndex = 13;
             // 
             // frmLivres
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(758, 410);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.dateTimeParution);
+            this.Controls.Add(this.txtbEditeur);
+            this.Controls.Add(this.txtbAuteur);
+            this.Controls.Add(this.cbbCategorie);
+            this.Controls.Add(this.txtbTitre);
+            this.Controls.Add(this.txtbISBN);
+            this.Controls.Add(this.txtbCodeLivre);
             this.Controls.Add(this.lblDateParution);
             this.Controls.Add(this.lblEditeur);
             this.Controls.Add(this.lblAuteur);
@@ -192,12 +192,12 @@
         protected System.Windows.Forms.Label lblAuteur;
         protected System.Windows.Forms.Label lblEditeur;
         protected System.Windows.Forms.Label lblDateParution;
-        protected System.Windows.Forms.TextBox textBox1;
-        protected System.Windows.Forms.TextBox textBox2;
-        protected System.Windows.Forms.TextBox textBox3;
-        protected System.Windows.Forms.ComboBox comboBox1;
-        protected System.Windows.Forms.TextBox textBox4;
-        protected System.Windows.Forms.TextBox textBox5;
-        protected System.Windows.Forms.DateTimePicker dateTimePicker1;
+        protected System.Windows.Forms.TextBox txtbCodeLivre;
+        protected System.Windows.Forms.TextBox txtbISBN;
+        protected System.Windows.Forms.TextBox txtbTitre;
+        protected System.Windows.Forms.ComboBox cbbCategorie;
+        protected System.Windows.Forms.TextBox txtbAuteur;
+        protected System.Windows.Forms.TextBox txtbEditeur;
+        protected System.Windows.Forms.DateTimePicker dateTimeParution;
     }
 }

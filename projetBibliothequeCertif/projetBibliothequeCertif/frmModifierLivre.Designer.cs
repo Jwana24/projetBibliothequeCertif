@@ -30,36 +30,28 @@
         {
             this.btnEffacer = new System.Windows.Forms.Button();
             this.btnOK = new System.Windows.Forms.Button();
-            this.btnSupprimer = new System.Windows.Forms.Button();
             this.btnFermer = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnEffacer
             // 
-            this.btnEffacer.Location = new System.Drawing.Point(333, 409);
+            this.btnEffacer.Location = new System.Drawing.Point(392, 409);
             this.btnEffacer.Name = "btnEffacer";
-            this.btnEffacer.Size = new System.Drawing.Size(80, 29);
+            this.btnEffacer.Size = new System.Drawing.Size(154, 29);
             this.btnEffacer.TabIndex = 33;
-            this.btnEffacer.Text = "Effacer";
+            this.btnEffacer.Text = "Effacer modifications";
             this.btnEffacer.UseVisualStyleBackColor = true;
+            this.btnEffacer.Click += new System.EventHandler(this.btnEffacer_Click);
             // 
             // btnOK
             // 
-            this.btnOK.Location = new System.Drawing.Point(433, 409);
+            this.btnOK.Location = new System.Drawing.Point(558, 409);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(57, 29);
             this.btnOK.TabIndex = 32;
             this.btnOK.Text = "OK";
             this.btnOK.UseVisualStyleBackColor = true;
-            // 
-            // btnSupprimer
-            // 
-            this.btnSupprimer.Location = new System.Drawing.Point(509, 409);
-            this.btnSupprimer.Name = "btnSupprimer";
-            this.btnSupprimer.Size = new System.Drawing.Size(99, 29);
-            this.btnSupprimer.TabIndex = 31;
-            this.btnSupprimer.Text = "Supprimer";
-            this.btnSupprimer.UseVisualStyleBackColor = true;
+            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
             // btnFermer
             // 
@@ -69,6 +61,7 @@
             this.btnFermer.TabIndex = 30;
             this.btnFermer.Text = "Fermer";
             this.btnFermer.UseVisualStyleBackColor = true;
+            this.btnFermer.Click += new System.EventHandler(this.btnFermer_Click);
             // 
             // frmModifierLivre
             // 
@@ -76,12 +69,10 @@
             this.ClientSize = new System.Drawing.Size(758, 464);
             this.Controls.Add(this.btnEffacer);
             this.Controls.Add(this.btnOK);
-            this.Controls.Add(this.btnSupprimer);
             this.Controls.Add(this.btnFermer);
             this.Name = "frmModifierLivre";
             this.Text = "Modifier le livre :";
             this.Controls.SetChildIndex(this.btnFermer, 0);
-            this.Controls.SetChildIndex(this.btnSupprimer, 0);
             this.Controls.SetChildIndex(this.btnOK, 0);
             this.Controls.SetChildIndex(this.btnEffacer, 0);
             this.ResumeLayout(false);
@@ -93,7 +84,6 @@
 
         private System.Windows.Forms.Button btnEffacer;
         private System.Windows.Forms.Button btnOK;
-        private System.Windows.Forms.Button btnSupprimer;
         private System.Windows.Forms.Button btnFermer;
     }
 }

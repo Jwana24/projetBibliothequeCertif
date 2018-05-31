@@ -63,6 +63,7 @@
             this.btnFermer.TabIndex = 22;
             this.btnFermer.Text = "Fermer";
             this.btnFermer.UseVisualStyleBackColor = true;
+            this.btnFermer.Click += new System.EventHandler(this.btnFermer_Click);
             // 
             // btnSupprimerLivre
             // 
@@ -72,6 +73,7 @@
             this.btnSupprimerLivre.TabIndex = 23;
             this.btnSupprimerLivre.Text = "Supprimer livre";
             this.btnSupprimerLivre.UseVisualStyleBackColor = true;
+            this.btnSupprimerLivre.Click += new System.EventHandler(this.btnSupprimerLivre_Click);
             // 
             // btnModifierUsager
             // 
@@ -81,6 +83,7 @@
             this.btnModifierUsager.TabIndex = 24;
             this.btnModifierUsager.Text = "Modifier usager";
             this.btnModifierUsager.UseVisualStyleBackColor = true;
+            this.btnModifierUsager.Click += new System.EventHandler(this.btnModifierUsager_Click);
             // 
             // btnAjouterLivre
             // 
@@ -90,6 +93,7 @@
             this.btnAjouterLivre.TabIndex = 25;
             this.btnAjouterLivre.Text = "Ajouter livre";
             this.btnAjouterLivre.UseVisualStyleBackColor = true;
+            this.btnAjouterLivre.Click += new System.EventHandler(this.btnAjouterLivre_Click);
             // 
             // frmConsultationUsager
             // 

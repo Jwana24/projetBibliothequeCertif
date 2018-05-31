@@ -29,14 +29,15 @@
         private void InitializeComponent()
         {
             this.lblRecherche = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.grdUsagers = new System.Windows.Forms.DataGridView();
             this.txtbRecherche = new System.Windows.Forms.TextBox();
             this.btnRechercher = new System.Windows.Forms.Button();
             this.btnTous = new System.Windows.Forms.Button();
             this.btnAjouter = new System.Windows.Forms.Button();
             this.btnFermer = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.btnSupprimer = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.grdUsagers)).BeginInit();
             this.SuspendLayout();
             // 
             // lblRecherche
@@ -48,14 +49,14 @@
             this.lblRecherche.TabIndex = 0;
             this.lblRecherche.Text = "Recherche";
             // 
-            // dataGridView1
+            // grdUsagers
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(60, 81);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(781, 279);
-            this.dataGridView1.TabIndex = 1;
+            this.grdUsagers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdUsagers.Location = new System.Drawing.Point(60, 81);
+            this.grdUsagers.Name = "grdUsagers";
+            this.grdUsagers.RowTemplate.Height = 24;
+            this.grdUsagers.Size = new System.Drawing.Size(781, 279);
+            this.grdUsagers.TabIndex = 1;
             // 
             // txtbRecherche
             // 
@@ -72,24 +73,28 @@
             this.btnRechercher.TabIndex = 3;
             this.btnRechercher.Text = "Rechercher";
             this.btnRechercher.UseVisualStyleBackColor = true;
+            this.btnRechercher.Click += new System.EventHandler(this.btnRechercher_Click);
             // 
             // btnTous
             // 
+            this.btnTous.Enabled = false;
             this.btnTous.Location = new System.Drawing.Point(750, 31);
             this.btnTous.Name = "btnTous";
             this.btnTous.Size = new System.Drawing.Size(62, 30);
             this.btnTous.TabIndex = 4;
             this.btnTous.Text = "Tous";
             this.btnTous.UseVisualStyleBackColor = true;
+            this.btnTous.Click += new System.EventHandler(this.btnTous_Click);
             // 
             // btnAjouter
             // 
-            this.btnAjouter.Location = new System.Drawing.Point(634, 401);
+            this.btnAjouter.Location = new System.Drawing.Point(616, 401);
             this.btnAjouter.Name = "btnAjouter";
-            this.btnAjouter.Size = new System.Drawing.Size(88, 30);
+            this.btnAjouter.Size = new System.Drawing.Size(116, 30);
             this.btnAjouter.TabIndex = 5;
-            this.btnAjouter.Text = "Ajouter";
+            this.btnAjouter.Text = "Ajouter livre";
             this.btnAjouter.UseVisualStyleBackColor = true;
+            this.btnAjouter.Click += new System.EventHandler(this.btnAjouter_Click);
             // 
             // btnFermer
             // 
@@ -99,6 +104,7 @@
             this.btnFermer.TabIndex = 6;
             this.btnFermer.Text = "Fermer";
             this.btnFermer.UseVisualStyleBackColor = true;
+            this.btnFermer.Click += new System.EventHandler(this.btnFermer_Click);
             // 
             // label1
             // 
@@ -110,22 +116,33 @@
             this.label1.TabIndex = 7;
             this.label1.Text = "Double-clique pour ouvrir";
             // 
+            // btnSupprimer
+            // 
+            this.btnSupprimer.Location = new System.Drawing.Point(487, 401);
+            this.btnSupprimer.Name = "btnSupprimer";
+            this.btnSupprimer.Size = new System.Drawing.Size(113, 30);
+            this.btnSupprimer.TabIndex = 17;
+            this.btnSupprimer.Text = "Supprimer livre";
+            this.btnSupprimer.UseVisualStyleBackColor = true;
+            this.btnSupprimer.Click += new System.EventHandler(this.btnSupprimer_Click);
+            // 
             // frmListeUsagers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(900, 459);
+            this.Controls.Add(this.btnSupprimer);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnFermer);
             this.Controls.Add(this.btnAjouter);
             this.Controls.Add(this.btnTous);
             this.Controls.Add(this.btnRechercher);
             this.Controls.Add(this.txtbRecherche);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.grdUsagers);
             this.Controls.Add(this.lblRecherche);
             this.Name = "frmListeUsagers";
             this.Text = "Liste des usagers";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdUsagers)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -134,12 +151,13 @@
         #endregion
 
         private System.Windows.Forms.Label lblRecherche;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView grdUsagers;
         private System.Windows.Forms.TextBox txtbRecherche;
         private System.Windows.Forms.Button btnRechercher;
         private System.Windows.Forms.Button btnTous;
         private System.Windows.Forms.Button btnAjouter;
         private System.Windows.Forms.Button btnFermer;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnSupprimer;
     }
 }
