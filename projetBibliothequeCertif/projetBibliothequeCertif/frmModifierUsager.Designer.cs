@@ -65,6 +65,7 @@
             // 
             // frmModifierUsager
             // 
+            this.AcceptButton = this.btnOK;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.ClientSize = new System.Drawing.Size(800, 512);
             this.Controls.Add(this.btnEffacer);
@@ -72,6 +73,24 @@
             this.Controls.Add(this.btnFermer);
             this.Name = "frmModifierUsager";
             this.Text = "Modifier l\'usager : ";
+            this.Controls.SetChildIndex(this.lblNom, 0);
+            this.Controls.SetChildIndex(this.lblPrenom, 0);
+            this.Controls.SetChildIndex(this.lblCodePostal, 0);
+            this.Controls.SetChildIndex(this.lblVille, 0);
+            this.Controls.SetChildIndex(this.lblAdresse1, 0);
+            this.Controls.SetChildIndex(this.lblAdresse2, 0);
+            this.Controls.SetChildIndex(this.lblDateInscription, 0);
+            this.Controls.SetChildIndex(this.lblEmail, 0);
+            this.Controls.SetChildIndex(this.lblTelephone, 0);
+            this.Controls.SetChildIndex(this.textBox1, 0);
+            this.Controls.SetChildIndex(this.textBox2, 0);
+            this.Controls.SetChildIndex(this.textBox3, 0);
+            this.Controls.SetChildIndex(this.textBox4, 0);
+            this.Controls.SetChildIndex(this.textBox5, 0);
+            this.Controls.SetChildIndex(this.textBox6, 0);
+            this.Controls.SetChildIndex(this.textBox7, 0);
+            this.Controls.SetChildIndex(this.textBox8, 0);
+            this.Controls.SetChildIndex(this.dateTimePicker1, 0);
             this.Controls.SetChildIndex(this.btnFermer, 0);
             this.Controls.SetChildIndex(this.btnOK, 0);
             this.Controls.SetChildIndex(this.btnEffacer, 0);

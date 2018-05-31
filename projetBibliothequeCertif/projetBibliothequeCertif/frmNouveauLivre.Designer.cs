@@ -30,46 +30,57 @@
         {
             this.btnOK = new System.Windows.Forms.Button();
             this.btnAnnuler = new System.Windows.Forms.Button();
-            this.btnFermer = new System.Windows.Forms.Button();
             this.SuspendLayout();
+            // 
+            // cbbCategorie
+            // 
+            this.cbbCategorie.Size = new System.Drawing.Size(237, 24);
             // 
             // btnOK
             // 
-            this.btnOK.Location = new System.Drawing.Point(428, 418);
+            this.btnOK.Location = new System.Drawing.Point(554, 416);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(61, 29);
             this.btnOK.TabIndex = 23;
             this.btnOK.Text = "OK";
             this.btnOK.UseVisualStyleBackColor = true;
+            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
             // btnAnnuler
             // 
-            this.btnAnnuler.Location = new System.Drawing.Point(521, 418);
+            this.btnAnnuler.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnAnnuler.Location = new System.Drawing.Point(636, 416);
             this.btnAnnuler.Name = "btnAnnuler";
             this.btnAnnuler.Size = new System.Drawing.Size(75, 29);
             this.btnAnnuler.TabIndex = 22;
             this.btnAnnuler.Text = "Annuler";
             this.btnAnnuler.UseVisualStyleBackColor = true;
-            // 
-            // btnFermer
-            // 
-            this.btnFermer.Location = new System.Drawing.Point(626, 418);
-            this.btnFermer.Name = "btnFermer";
-            this.btnFermer.Size = new System.Drawing.Size(85, 29);
-            this.btnFermer.TabIndex = 21;
-            this.btnFermer.Text = "Fermer";
-            this.btnFermer.UseVisualStyleBackColor = true;
+            this.btnAnnuler.Click += new System.EventHandler(this.btnAnnuler_Click);
             // 
             // frmNouveauLivre
             // 
+            this.AcceptButton = this.btnOK;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.CancelButton = this.btnAnnuler;
             this.ClientSize = new System.Drawing.Size(758, 476);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.btnAnnuler);
-            this.Controls.Add(this.btnFermer);
             this.Name = "frmNouveauLivre";
             this.Text = "Nouveau livre";
-            this.Controls.SetChildIndex(this.btnFermer, 0);
+            this.Controls.SetChildIndex(this.lblCodeLivre, 0);
+            this.Controls.SetChildIndex(this.lblQrCode, 0);
+            this.Controls.SetChildIndex(this.lblTitre, 0);
+            this.Controls.SetChildIndex(this.lblCategorie, 0);
+            this.Controls.SetChildIndex(this.lblAuteur, 0);
+            this.Controls.SetChildIndex(this.lblEditeur, 0);
+            this.Controls.SetChildIndex(this.lblDateParution, 0);
+            this.Controls.SetChildIndex(this.txtbCodeLivre, 0);
+            this.Controls.SetChildIndex(this.txtbISBN, 0);
+            this.Controls.SetChildIndex(this.txtbTitre, 0);
+            this.Controls.SetChildIndex(this.cbbCategorie, 0);
+            this.Controls.SetChildIndex(this.txtbAuteur, 0);
+            this.Controls.SetChildIndex(this.txtbEditeur, 0);
+            this.Controls.SetChildIndex(this.dateTimeParution, 0);
             this.Controls.SetChildIndex(this.btnAnnuler, 0);
             this.Controls.SetChildIndex(this.btnOK, 0);
             this.ResumeLayout(false);
@@ -81,6 +92,5 @@
 
         private System.Windows.Forms.Button btnOK;
         private System.Windows.Forms.Button btnAnnuler;
-        private System.Windows.Forms.Button btnFermer;
     }
 }

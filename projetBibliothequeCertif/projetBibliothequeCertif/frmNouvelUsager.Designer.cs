@@ -28,48 +28,58 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnFermer = new System.Windows.Forms.Button();
             this.btnAnnuler = new System.Windows.Forms.Button();
             this.btnOK = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // btnFermer
-            // 
-            this.btnFermer.Location = new System.Drawing.Point(668, 460);
-            this.btnFermer.Name = "btnFermer";
-            this.btnFermer.Size = new System.Drawing.Size(85, 29);
-            this.btnFermer.TabIndex = 18;
-            this.btnFermer.Text = "Fermer";
-            this.btnFermer.UseVisualStyleBackColor = true;
-            // 
             // btnAnnuler
             // 
-            this.btnAnnuler.Location = new System.Drawing.Point(560, 460);
+            this.btnAnnuler.Location = new System.Drawing.Point(678, 458);
             this.btnAnnuler.Name = "btnAnnuler";
             this.btnAnnuler.Size = new System.Drawing.Size(75, 29);
             this.btnAnnuler.TabIndex = 19;
             this.btnAnnuler.Text = "Annuler";
             this.btnAnnuler.UseVisualStyleBackColor = true;
+            this.btnAnnuler.Click += new System.EventHandler(this.btnAnnuler_Click);
             // 
             // btnOK
             // 
-            this.btnOK.Location = new System.Drawing.Point(462, 460);
+            this.btnOK.Location = new System.Drawing.Point(597, 458);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(61, 29);
             this.btnOK.TabIndex = 20;
             this.btnOK.Text = "OK";
             this.btnOK.UseVisualStyleBackColor = true;
+            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
             // frmNouvelUsager
             // 
+            this.AcceptButton = this.btnOK;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.CancelButton = this.btnAnnuler;
             this.ClientSize = new System.Drawing.Size(800, 519);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.btnAnnuler);
-            this.Controls.Add(this.btnFermer);
             this.Name = "frmNouvelUsager";
             this.Text = "Nouvel usager";
-            this.Controls.SetChildIndex(this.btnFermer, 0);
+            this.Controls.SetChildIndex(this.lblNom, 0);
+            this.Controls.SetChildIndex(this.lblPrenom, 0);
+            this.Controls.SetChildIndex(this.lblCodePostal, 0);
+            this.Controls.SetChildIndex(this.lblVille, 0);
+            this.Controls.SetChildIndex(this.lblAdresse1, 0);
+            this.Controls.SetChildIndex(this.lblAdresse2, 0);
+            this.Controls.SetChildIndex(this.lblDateInscription, 0);
+            this.Controls.SetChildIndex(this.lblEmail, 0);
+            this.Controls.SetChildIndex(this.lblTelephone, 0);
+            this.Controls.SetChildIndex(this.textBox1, 0);
+            this.Controls.SetChildIndex(this.textBox2, 0);
+            this.Controls.SetChildIndex(this.textBox3, 0);
+            this.Controls.SetChildIndex(this.textBox4, 0);
+            this.Controls.SetChildIndex(this.textBox5, 0);
+            this.Controls.SetChildIndex(this.textBox6, 0);
+            this.Controls.SetChildIndex(this.textBox7, 0);
+            this.Controls.SetChildIndex(this.textBox8, 0);
+            this.Controls.SetChildIndex(this.dateTimePicker1, 0);
             this.Controls.SetChildIndex(this.btnAnnuler, 0);
             this.Controls.SetChildIndex(this.btnOK, 0);
             this.ResumeLayout(false);
@@ -78,8 +88,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnFermer;
         private System.Windows.Forms.Button btnAnnuler;
         private System.Windows.Forms.Button btnOK;
     }

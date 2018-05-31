@@ -14,5 +14,15 @@ namespace projetBibliothequeCertif
         {
             InitializeComponent();
         }
+
+        private void btnAnnuler_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
+        }
+
+        private void btnOK_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

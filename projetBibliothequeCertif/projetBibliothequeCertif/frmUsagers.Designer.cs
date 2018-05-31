@@ -166,9 +166,9 @@
             // 
             // textBox6
             // 
-            this.textBox6.Location = new System.Drawing.Point(239, 228);
+            this.textBox6.Location = new System.Drawing.Point(202, 228);
             this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(514, 22);
+            this.textBox6.Size = new System.Drawing.Size(551, 22);
             this.textBox6.TabIndex = 14;
             // 
             // textBox7
@@ -180,9 +180,9 @@
             // 
             // textBox8
             // 
-            this.textBox8.Location = new System.Drawing.Point(146, 391);
+            this.textBox8.Location = new System.Drawing.Point(111, 391);
             this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(387, 22);
+            this.textBox8.Size = new System.Drawing.Size(422, 22);
             this.textBox8.TabIndex = 16;
             // 
             // dateTimePicker1
