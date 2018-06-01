@@ -131,6 +131,36 @@
             // cbbCategorie
             // 
             this.cbbCategorie.FormattingEnabled = true;
+            this.cbbCategorie.Items.AddRange(new object[] {
+            "Science fiction",
+            "Fantastique",
+            "Policier",
+            "Romance",
+            "Jeunesse (13 ans et +)",
+            "Enfants (- 13 ans)",
+            "BD adultes",
+            "BD jeunesse",
+            "Art musique et cinéma",
+            "Cuisine",
+            "Droit et économie",
+            "Histoire",
+            "Sciences techniques et médecine",
+            "Sports loisirs et vie pratique",
+            "Développement personnel",
+            "Essai et documents",
+            "Littérature",
+            "Humour",
+            "Religion et spiritualité",
+            "Scolaire",
+            "Théâtre",
+            "Dictionnaires langues",
+            "Guides pratiques",
+            "Informatique et Internet",
+            "Sciences sociales",
+            "Tourisme et voyages",
+            "Contes",
+            "Poésies",
+            "Biographies"});
             this.cbbCategorie.Location = new System.Drawing.Point(121, 183);
             this.cbbCategorie.Name = "cbbCategorie";
             this.cbbCategorie.Size = new System.Drawing.Size(237, 24);
