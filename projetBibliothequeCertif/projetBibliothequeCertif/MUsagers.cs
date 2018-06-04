@@ -13,21 +13,21 @@ namespace projetBibliothequeCertif
     /// </summary>
     public class MUsagers
     {
-        /// <summary>
-        /// nombre d'usagers de la classe
-        /// </summary>
-        public static Int32 NUsagers;
+         /// <summary>
+         /// nombre d'usagers de la classe
+         /// </summary>
+         public static int NUsagers;
 
-        /// <summary>
-        /// rang de l'usager
-        /// </summary>
-        private Int32 iUsager;
+         /// <summary>
+         /// rang de l'usager
+         /// </summary>
+         private int iUsager;
 
-        public Int32 IUsager
-        {
-            get { return iUsager; }
-            set { value = iUsager; }
-        }
+         public Int32 IUsager
+         {
+             get { return iUsager; }
+             set { value = iUsager; }
+         }
 
         /// <summary>
         /// obtient le numéro de l'usager
@@ -37,7 +37,6 @@ namespace projetBibliothequeCertif
         public Int32 NumUsager
         {
             get { return numUsager; }
-            set { value = numUsager; }
         }
 
         /// <summary>
@@ -115,20 +114,20 @@ namespace projetBibliothequeCertif
             set { villeUsager = value.Trim().ToUpper(); }
         }
 
-        private String adresseUsager1;
+        private String adresse1Usager;
 
         public String Adresse1
         {
-            get { return adresseUsager1; }
-            set { value = adresseUsager1; }
+            get { return adresse1Usager; }
+            set { value = adresse1Usager; }
         }
 
-        private String adresseUsager2;
+        private String adresse2Usager;
 
         public String Adresse2
         {
-            get { return adresseUsager2; }
-            set { value = adresseUsager2; }
+            get { return adresse2Usager; }
+            set { value = adresse2Usager; }
         }
 
         static Regex ValidEmailRegex = CreateValidEmailRegex();
@@ -164,7 +163,7 @@ namespace projetBibliothequeCertif
             get { return telephoneUsager; }
             set
             {
-                Int32 i;
+                int i;
                 Boolean erreur = false;
 
                 // 10 caractères attendus : OK

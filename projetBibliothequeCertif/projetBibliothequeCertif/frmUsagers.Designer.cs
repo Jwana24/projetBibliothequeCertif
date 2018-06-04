@@ -37,15 +37,15 @@
             this.lblDateInscription = new System.Windows.Forms.Label();
             this.lblEmail = new System.Windows.Forms.Label();
             this.lblTelephone = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.txtbNom = new System.Windows.Forms.TextBox();
+            this.txtbPrenom = new System.Windows.Forms.TextBox();
+            this.txtbCodePostal = new System.Windows.Forms.TextBox();
+            this.txtbVille = new System.Windows.Forms.TextBox();
+            this.txtbAdresse = new System.Windows.Forms.TextBox();
+            this.txtbComplAdresse = new System.Windows.Forms.TextBox();
+            this.txtbEmail = new System.Windows.Forms.TextBox();
+            this.txtbTelephone = new System.Windows.Forms.TextBox();
+            this.dateTimeInscription = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // lblNom
@@ -129,83 +129,83 @@
             this.lblTelephone.TabIndex = 8;
             this.lblTelephone.Text = "Téléphone";
             // 
-            // textBox1
+            // txtbNom
             // 
-            this.textBox1.Location = new System.Drawing.Point(111, 33);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(422, 22);
-            this.textBox1.TabIndex = 9;
+            this.txtbNom.Location = new System.Drawing.Point(111, 33);
+            this.txtbNom.Name = "txtbNom";
+            this.txtbNom.Size = new System.Drawing.Size(422, 22);
+            this.txtbNom.TabIndex = 9;
             // 
-            // textBox2
+            // txtbPrenom
             // 
-            this.textBox2.Location = new System.Drawing.Point(111, 78);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(422, 22);
-            this.textBox2.TabIndex = 10;
+            this.txtbPrenom.Location = new System.Drawing.Point(111, 78);
+            this.txtbPrenom.Name = "txtbPrenom";
+            this.txtbPrenom.Size = new System.Drawing.Size(422, 22);
+            this.txtbPrenom.TabIndex = 10;
             // 
-            // textBox3
+            // txtbCodePostal
             // 
-            this.textBox3.Location = new System.Drawing.Point(111, 129);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(208, 22);
-            this.textBox3.TabIndex = 11;
+            this.txtbCodePostal.Location = new System.Drawing.Point(111, 129);
+            this.txtbCodePostal.Name = "txtbCodePostal";
+            this.txtbCodePostal.Size = new System.Drawing.Size(208, 22);
+            this.txtbCodePostal.TabIndex = 11;
             // 
-            // textBox4
+            // txtbVille
             // 
-            this.textBox4.Location = new System.Drawing.Point(462, 129);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(291, 22);
-            this.textBox4.TabIndex = 12;
+            this.txtbVille.Location = new System.Drawing.Point(462, 129);
+            this.txtbVille.Name = "txtbVille";
+            this.txtbVille.Size = new System.Drawing.Size(291, 22);
+            this.txtbVille.TabIndex = 12;
             // 
-            // textBox5
+            // txtbAdresse
             // 
-            this.textBox5.Location = new System.Drawing.Point(111, 179);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(642, 22);
-            this.textBox5.TabIndex = 13;
+            this.txtbAdresse.Location = new System.Drawing.Point(111, 179);
+            this.txtbAdresse.Name = "txtbAdresse";
+            this.txtbAdresse.Size = new System.Drawing.Size(642, 22);
+            this.txtbAdresse.TabIndex = 13;
             // 
-            // textBox6
+            // txtbComplAdresse
             // 
-            this.textBox6.Location = new System.Drawing.Point(202, 228);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(551, 22);
-            this.textBox6.TabIndex = 14;
+            this.txtbComplAdresse.Location = new System.Drawing.Point(202, 228);
+            this.txtbComplAdresse.Name = "txtbComplAdresse";
+            this.txtbComplAdresse.Size = new System.Drawing.Size(551, 22);
+            this.txtbComplAdresse.TabIndex = 14;
             // 
-            // textBox7
+            // txtbEmail
             // 
-            this.textBox7.Location = new System.Drawing.Point(111, 335);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(642, 22);
-            this.textBox7.TabIndex = 15;
+            this.txtbEmail.Location = new System.Drawing.Point(111, 335);
+            this.txtbEmail.Name = "txtbEmail";
+            this.txtbEmail.Size = new System.Drawing.Size(642, 22);
+            this.txtbEmail.TabIndex = 15;
             // 
-            // textBox8
+            // txtbTelephone
             // 
-            this.textBox8.Location = new System.Drawing.Point(111, 391);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(422, 22);
-            this.textBox8.TabIndex = 16;
+            this.txtbTelephone.Location = new System.Drawing.Point(111, 391);
+            this.txtbTelephone.Name = "txtbTelephone";
+            this.txtbTelephone.Size = new System.Drawing.Size(422, 22);
+            this.txtbTelephone.TabIndex = 16;
             // 
-            // dateTimePicker1
+            // dateTimeInscription
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(202, 281);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(257, 22);
-            this.dateTimePicker1.TabIndex = 17;
+            this.dateTimeInscription.Location = new System.Drawing.Point(202, 281);
+            this.dateTimeInscription.Name = "dateTimeInscription";
+            this.dateTimeInscription.Size = new System.Drawing.Size(257, 22);
+            this.dateTimeInscription.TabIndex = 17;
             // 
             // frmUsagers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.textBox8);
-            this.Controls.Add(this.textBox7);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.dateTimeInscription);
+            this.Controls.Add(this.txtbTelephone);
+            this.Controls.Add(this.txtbEmail);
+            this.Controls.Add(this.txtbComplAdresse);
+            this.Controls.Add(this.txtbAdresse);
+            this.Controls.Add(this.txtbVille);
+            this.Controls.Add(this.txtbCodePostal);
+            this.Controls.Add(this.txtbPrenom);
+            this.Controls.Add(this.txtbNom);
             this.Controls.Add(this.lblTelephone);
             this.Controls.Add(this.lblEmail);
             this.Controls.Add(this.lblDateInscription);
@@ -223,15 +223,15 @@
         }
 
         #endregion
-        protected System.Windows.Forms.TextBox textBox1;
-        protected System.Windows.Forms.TextBox textBox2;
-        protected System.Windows.Forms.TextBox textBox3;
-        protected System.Windows.Forms.TextBox textBox4;
-        protected System.Windows.Forms.TextBox textBox5;
-        protected System.Windows.Forms.TextBox textBox6;
-        protected System.Windows.Forms.TextBox textBox7;
-        protected System.Windows.Forms.TextBox textBox8;
-        protected System.Windows.Forms.DateTimePicker dateTimePicker1;
+        protected System.Windows.Forms.TextBox txtbNom;
+        protected System.Windows.Forms.TextBox txtbPrenom;
+        protected System.Windows.Forms.TextBox txtbCodePostal;
+        protected System.Windows.Forms.TextBox txtbVille;
+        protected System.Windows.Forms.TextBox txtbAdresse;
+        protected System.Windows.Forms.TextBox txtbComplAdresse;
+        protected System.Windows.Forms.TextBox txtbEmail;
+        protected System.Windows.Forms.TextBox txtbTelephone;
+        protected System.Windows.Forms.DateTimePicker dateTimeInscription;
         protected System.Windows.Forms.Label lblNom;
         protected System.Windows.Forms.Label lblPrenom;
         protected System.Windows.Forms.Label lblCodePostal;

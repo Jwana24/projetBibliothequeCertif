@@ -37,7 +37,7 @@ namespace projetBibliothequeCertif
             get { return isbnLivre; }
             set
             {
-                Int32 i;
+                int i;
                 Boolean erreur = false;
 
                 // 13 caractères attendus : OK
