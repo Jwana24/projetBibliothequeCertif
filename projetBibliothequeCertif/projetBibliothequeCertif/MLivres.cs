@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
+using MySql.Data.MySqlClient;
 
 namespace projetBibliothequeCertif
 {
@@ -28,6 +30,51 @@ namespace projetBibliothequeCertif
         {
             get { return codeLivre; }
             set { value = codeLivre; }
+        }
+
+        public MLivres(Int32 leCode, String unISBN, String leTitre, String unAuteur, String unEditeur)
+        {
+            leCode = this.CodeLivre;
+            unISBN = this.isbnLivre;
+            leTitre = this.Titre;
+            unAuteur = this.Auteur;
+            unEditeur = this.Editeur;
+        }
+
+        /// <summary>
+        /// datatable des livres pour affichages en datagridview et pour exporter/importer en XML
+        /// </summary>
+        private DataTable dtLivres;
+
+        /// <summary>
+        /// collection des livres de cette section sous forme de dictionnaire trié
+        /// </summary>
+        private SortedDictionary<Int32, MLivres> lesLivres;
+
+        /// <summary>
+        /// générer et retourner une datatable qui liste les codes, titre et auteur
+        /// de tous les livres de la collection
+        /// </summary>
+        /// <returns></returns>
+        public DataTable ListerLivres()
+        {
+            // vider la datatable pour la régénérer
+            this.dtLivres.Clear();
+            // boucle de remplissage de la datatable à partir de la collection
+            foreach (MLivres unLivre in this.lesLivres.Values)
+            {
+                // instanciation datarow (=ligne datatable)
+                DataRow dr;
+                dr = this.dtLivres.NewRow();
+                // affectation des 3 colonnes
+                dr[0] = unLivre.CodeLivre;
+                dr[1] = unLivre.Titre;
+                dr[2] = unLivre.Auteur;
+                // ajouter la ligne à la datatable
+                this.dtLivres.Rows.Add(dr);
+            } // fin de boucle remplissage datatable
+            // retourne la référence à la datatable
+            return this.dtLivres;
         }
 
         private String isbnLivre;
@@ -112,5 +159,52 @@ namespace projetBibliothequeCertif
             get { return parutionLivre; }
             set { value = parutionLivre; }
         }
+
+        public void Ajouter(MLivres unLivre)
+        {
+            this.lesLivres.Add(unLivre.CodeLivre, unLivre);
+        }
+
+        public void SupprimerLivres()
+        {
+            this.lesLivres.Clear();
+        }
+
+        public static void SelectLivres(MLivres unLivre)
+        {
+            string query = "SELECT * FROM livres";
+            unLivre.SupprimerLivres();
+
+            MySqlCommand cmd = ConnexionBase.GetConnexion().CreateCommand();
+            cmd.CommandText = query;
+
+            // créé un datareader et exécute la commande
+            MySqlDataReader dataReader = cmd.ExecuteReader();
+
+            // lit les données et les garde en mémoire dans la liste
+            while (dataReader.Read())
+            {
+                MLivres nouveauLivre;
+
+                nouveauLivre = new MLivres(
+                    int.Parse(dataReader["code"].ToString()),
+                    dataReader["isbn"].ToString(),
+                    dataReader["titre"].ToString(),
+                    dataReader["auteur"].ToString(),
+                    dataReader["editeur"].ToString());
+
+                unLivre.Ajouter(nouveauLivre);
+                nouveauLivre = null;
+            }
+            // ferme le datareader
+            dataReader.Close();
+        }
+
+
+
+
+
+
+
     }
 }

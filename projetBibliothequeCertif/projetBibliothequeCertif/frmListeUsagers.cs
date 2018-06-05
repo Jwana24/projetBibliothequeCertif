@@ -12,67 +12,26 @@ namespace projetBibliothequeCertif
 {
     public partial class frmListeUsagers : Form
     {
+        private MUsagers unUsager;
+
         public frmListeUsagers()
         {
             InitializeComponent();
         }
 
-        /// <summary>
-        /// collection des stagiaires de cette section sous forme de dictionnaire trié
-        /// </summary>
         private SortedDictionary<Int32, MUsagers> lesUsagers;
 
-        /// <summary>
-        /// datatable des stagiaires pour affichages en datagridview et pour exporter/importer en XML
-        /// </summary>
-        private DataTable dtUsagers;
-        
-        /// <summary>
-        /// Constructeur
-        /// </summary>
-        /// <param name="leNum"></param>
-        /// <param name="leNom"></param>
-        public frmListeUsagers(String leNum, String leNom)
+        private void afficheUsagers()
         {
-            // initialise numéro et nom de la section
-            this.NumUsager = leNum;
-            this.Nom = leNom;
-            // instancie un dictionnaire vide pour les usagers de cette section
-            lesUsagers = new SortedDictionary<int, MUsagers>();
-            // datatable : pour y copier les données usagers
-            // et à fournir aux composants de présentation 
-            dtUsagers = new DataTable();
+            MUsagers.SelectUsagers(unUsager);
 
-            // ajout à la datatable de 3 colonnes personnalisées 
-            this.dtUsagers.Columns.Add(new DataColumn("Numéro Usager", typeof(System.Int32)));
-            this.dtUsagers.Columns.Add(new DataColumn("Nom", typeof(System.String)));
-            this.dtUsagers.Columns.Add(new DataColumn("Prénom", typeof(System.String)));
-        }
-
-        /// <summary>
-        /// générer et retourner une datatable qui liste les numéro, nom et prenom
-        /// de tous les Usagers de la collection
-        /// </summary>
-        /// <returns></returns>
-        public DataTable ListerUsagers()
-        {
-            // vider la datatable pour la régénérer
-            this.dtUsagers.Clear();
-            // boucle de remplissage de la datatable à partir de la collection
-            foreach (MUsagers unUsager in this.lesUsagers.Values)
-            {
-                // instanciation datarow (=ligne datatable)
-                DataRow dr;
-                dr = this.dtUsagers.NewRow();
-                // affectation des 3 colonnes
-                dr[0] = unUsager.NumUsager;
-                dr[1] = unUsager.Nom;
-                dr[2] = unUsager.Prenom;
-                // ajouter la ligne à la datatable
-                this.dtUsagers.Rows.Add(dr);
-            } // fin de boucle remplissage datatable
-            // retourne la référence à la datatable
-            return this.dtUsagers;
+            // déterminer l'origine des données à afficher : 
+            // appel de la méthode de la classe MUsagers 
+            // qui alimente et retourne copie de sa 
+            // collection de usagers sous forme de datatable
+            this.grdUsagers.DataSource = unUsager.ListerUsagers();
+            // refraîchir l'affichage
+            this.grdUsagers.Refresh();
         }
 
         private void btnFermer_Click(object sender, EventArgs e)

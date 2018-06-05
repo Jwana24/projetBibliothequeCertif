@@ -12,12 +12,27 @@ namespace projetBibliothequeCertif
 {
     public partial class frmListeLivres : Form
     {
+        private MLivres unLivre;
+
         public frmListeLivres()
         {
             InitializeComponent();
         }
 
-        
+        private SortedDictionary<Int32, MLivres> lesLivres;
+
+        private void afficheLivres()
+        {
+            MLivres.SelectLivres(unLivre);
+
+            // déterminer l'origine des données à afficher : 
+            // appel de la méthode de la classe MLivres
+            // qui alimente et retourne copie de sa 
+            // collection de livres sous forme de datatable
+            this.grdLivres.DataSource = unLivre.ListerLivres();
+            // refraîchir l'affichage
+            this.grdLivres.Refresh();
+        }
 
         private void btnFermer_Click(object sender, EventArgs e)
         {
