@@ -51,8 +51,7 @@ namespace projetBibliothequeCertif
         private SortedDictionary<Int32, MLivres> lesLivres;
 
         /// <summary>
-        /// générer et retourner une datatable qui liste les codes, titre et auteur
-        /// de tous les livres de la collection
+        /// générer et retourner une datatable qui liste les codes, titre et auteur de tous les livres de la collection
         /// </summary>
         /// <returns></returns>
         public DataTable ListerLivres()
