@@ -30,11 +30,11 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fichierStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.nouvelUsagerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.nouvelAdherentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nouveauLivreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quitterLapplicationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fenetresStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.listeDesUsagersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.listeDesAdherentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listeDesLivresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -54,7 +54,7 @@
             // fichierStripMenuItem
             // 
             this.fichierStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.nouvelUsagerToolStripMenuItem,
+            this.nouvelAdherentToolStripMenuItem,
             this.nouveauLivreToolStripMenuItem,
             this.quitterLapplicationToolStripMenuItem});
             this.fichierStripMenuItem.Name = "fichierStripMenuItem";
@@ -63,10 +63,10 @@
             // 
             // nouvelUsagerToolStripMenuItem
             // 
-            this.nouvelUsagerToolStripMenuItem.Name = "nouvelUsagerToolStripMenuItem";
-            this.nouvelUsagerToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
-            this.nouvelUsagerToolStripMenuItem.Text = "Nouvel adhérent";
-            this.nouvelUsagerToolStripMenuItem.Click += new System.EventHandler(this.nouvelUsagerToolStripMenuItem_Click);
+            this.nouvelAdherentToolStripMenuItem.Name = "nouvelAdherentToolStripMenuItem";
+            this.nouvelAdherentToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.nouvelAdherentToolStripMenuItem.Text = "Nouvel adhérent";
+            this.nouvelAdherentToolStripMenuItem.Click += new System.EventHandler(this.nouvelAdherentToolStripMenuItem_Click);
             // 
             // nouveauLivreToolStripMenuItem
             // 
@@ -85,18 +85,18 @@
             // fenetresStripMenuItem
             // 
             this.fenetresStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.listeDesUsagersToolStripMenuItem,
+            this.listeDesAdherentsToolStripMenuItem,
             this.listeDesLivresToolStripMenuItem});
             this.fenetresStripMenuItem.Name = "fenetresStripMenuItem";
             this.fenetresStripMenuItem.Size = new System.Drawing.Size(76, 24);
             this.fenetresStripMenuItem.Text = "Fenêtres";
             // 
-            // listeDesUsagersToolStripMenuItem
+            // listeDesAdherentsToolStripMenuItem
             // 
-            this.listeDesUsagersToolStripMenuItem.Name = "listeDesUsagersToolStripMenuItem";
-            this.listeDesUsagersToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
-            this.listeDesUsagersToolStripMenuItem.Text = "Liste des adhérents";
-            this.listeDesUsagersToolStripMenuItem.Click += new System.EventHandler(this.listeDesUsagersToolStripMenuItem_Click);
+            this.listeDesAdherentsToolStripMenuItem.Name = "listeDesAdherentsToolStripMenuItem";
+            this.listeDesAdherentsToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.listeDesAdherentsToolStripMenuItem.Text = "Liste des adhérents";
+            this.listeDesAdherentsToolStripMenuItem.Click += new System.EventHandler(this.listeDesAdherentsToolStripMenuItem_Click);
             // 
             // listeDesLivresToolStripMenuItem
             // 
@@ -128,11 +128,11 @@
 
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fichierStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem nouvelUsagerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem nouvelAdherentToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem nouveauLivreToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem quitterLapplicationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fenetresStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem listeDesUsagersToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem listeDesAdherentsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem listeDesLivresToolStripMenuItem;
     }
 }
