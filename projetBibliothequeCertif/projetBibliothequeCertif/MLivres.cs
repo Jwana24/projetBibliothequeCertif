@@ -9,8 +9,7 @@ using MySql.Data.MySqlClient;
 namespace projetBibliothequeCertif
 {
     /// <summary>
-    /// classe des livres :
-    /// permet de mémoriser les informations concernant un livre
+    /// classe des livres : permet de mémoriser les informations concernant un livre
     /// </summary>
     public class MLivres
     {
