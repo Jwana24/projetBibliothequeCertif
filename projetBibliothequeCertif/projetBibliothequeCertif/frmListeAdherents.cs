@@ -10,28 +10,28 @@ using System.Windows.Forms;
 
 namespace projetBibliothequeCertif
 {
-    public partial class frmListeUsagers : Form
+    public partial class frmListeAdherents : Form
     {
-        private MUsagers unUsager;
+        private MAdherents unAdherent;
 
-        public frmListeUsagers()
+        public frmListeAdherents()
         {
             InitializeComponent();
         }
 
-        private SortedDictionary<Int32, MUsagers> lesUsagers;
+        private SortedDictionary<Int32, MAdherents> lesAdherents;
 
-        private void afficheUsagers()
+        private void afficheAdherents()
         {
-            MUsagers.SelectUsagers(unUsager);
+            MAdherents.SelectAdherents(unAdherent);
 
             // déterminer l'origine des données à afficher : 
-            // appel de la méthode de la classe MUsagers 
+            // appel de la méthode de la classe MAdherents
             // qui alimente et retourne copie de sa 
-            // collection de usagers sous forme de datatable
-            this.grdUsagers.DataSource = unUsager.ListerUsagers();
+            // collection des adherents sous forme de datatable
+            this.grdAdherents.DataSource = unAdherent.ListerAdherents();
             // refraîchir l'affichage
-            this.grdUsagers.Refresh();
+            this.grdAdherents.Refresh();
         }
 
         private void btnFermer_Click(object sender, EventArgs e)
@@ -39,16 +39,16 @@ namespace projetBibliothequeCertif
             this.Close();
         }
 
-        public void Ajouter(MUsagers unUsager)
+        public void Ajouter(MAdherents unAdherent)
         {
-            this.lesUsagers.Add(unUsager.NumUsager, unUsager);
+            this.lesAdherents.Add(unAdherent.NumAdherent, unAdherent);
         }
 
         private void btnRechercher_Click(object sender, EventArgs e)
         {
             if (this.txtbRecherche != null)
             {
-                ((DataView)(this.grdUsagers.DataSource)).RowFilter = "Nom like '%" + this.txtbRecherche.Text + "%'";
+                ((DataView)(this.grdAdherents.DataSource)).RowFilter = "Nom, Titre like '%" + this.txtbRecherche.Text + "%'";
             }
         }
 
@@ -61,14 +61,14 @@ namespace projetBibliothequeCertif
             {
                 this.btnTous.Enabled = true;
             }
-            // à partir du moment où il n'y a pas de recherche, tous les usagers sont affichés
+            // à partir du moment où il n'y a pas de recherche, tous les adherents sont affichés
             this.txtbRecherche.Text = null;
-            ((DataView)(this.grdUsagers.DataSource)).RowFilter = null;
+            ((DataView)(this.grdAdherents.DataSource)).RowFilter = null;
         }
 
         private void btnAjouter_Click(object sender, EventArgs e)
         {
-            frmNouvelUsager nouvelUsager = new frmNouvelUsager();
+            frmNouvelAdherent nouvelAdherent = new frmNouvelAdherent();
             //rajouter le changement dans la dataTable
 
             this.Close();
@@ -76,7 +76,7 @@ namespace projetBibliothequeCertif
 
         private void btnSupprimer_Click(object sender, EventArgs e)
         {
-            grdUsagers.Rows.Remove(grdUsagers.CurrentRow);
+            grdAdherents.Rows.Remove(grdAdherents.CurrentRow);
         }
     }
 }

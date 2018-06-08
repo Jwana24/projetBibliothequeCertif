@@ -1,6 +1,6 @@
 ﻿namespace projetBibliothequeCertif
 {
-    partial class frmListeUsagers
+    partial class frmListeAdherents
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.lblRecherche = new System.Windows.Forms.Label();
-            this.grdUsagers = new System.Windows.Forms.DataGridView();
+            this.grdAdherents = new System.Windows.Forms.DataGridView();
             this.txtbRecherche = new System.Windows.Forms.TextBox();
             this.btnRechercher = new System.Windows.Forms.Button();
             this.btnTous = new System.Windows.Forms.Button();
@@ -37,7 +37,7 @@
             this.btnFermer = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.btnSupprimer = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.grdUsagers)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdAdherents)).BeginInit();
             this.SuspendLayout();
             // 
             // lblRecherche
@@ -49,14 +49,14 @@
             this.lblRecherche.TabIndex = 0;
             this.lblRecherche.Text = "Recherche";
             // 
-            // grdUsagers
+            // grdAdherents
             // 
-            this.grdUsagers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grdUsagers.Location = new System.Drawing.Point(60, 81);
-            this.grdUsagers.Name = "grdUsagers";
-            this.grdUsagers.RowTemplate.Height = 24;
-            this.grdUsagers.Size = new System.Drawing.Size(781, 279);
-            this.grdUsagers.TabIndex = 1;
+            this.grdAdherents.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdAdherents.Location = new System.Drawing.Point(60, 81);
+            this.grdAdherents.Name = "grdAdherents";
+            this.grdAdherents.RowTemplate.Height = 24;
+            this.grdAdherents.Size = new System.Drawing.Size(781, 279);
+            this.grdAdherents.TabIndex = 1;
             // 
             // txtbRecherche
             // 
@@ -88,11 +88,11 @@
             // 
             // btnAjouter
             // 
-            this.btnAjouter.Location = new System.Drawing.Point(616, 401);
+            this.btnAjouter.Location = new System.Drawing.Point(605, 401);
             this.btnAjouter.Name = "btnAjouter";
-            this.btnAjouter.Size = new System.Drawing.Size(116, 30);
+            this.btnAjouter.Size = new System.Drawing.Size(127, 30);
             this.btnAjouter.TabIndex = 5;
-            this.btnAjouter.Text = "Ajouter livre";
+            this.btnAjouter.Text = "Ajouter adhérent";
             this.btnAjouter.UseVisualStyleBackColor = true;
             this.btnAjouter.Click += new System.EventHandler(this.btnAjouter_Click);
             // 
@@ -118,7 +118,7 @@
             // 
             // btnSupprimer
             // 
-            this.btnSupprimer.Location = new System.Drawing.Point(487, 401);
+            this.btnSupprimer.Location = new System.Drawing.Point(477, 401);
             this.btnSupprimer.Name = "btnSupprimer";
             this.btnSupprimer.Size = new System.Drawing.Size(113, 30);
             this.btnSupprimer.TabIndex = 17;
@@ -126,7 +126,7 @@
             this.btnSupprimer.UseVisualStyleBackColor = true;
             this.btnSupprimer.Click += new System.EventHandler(this.btnSupprimer_Click);
             // 
-            // frmListeUsagers
+            // frmListeAdherents
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -138,11 +138,11 @@
             this.Controls.Add(this.btnTous);
             this.Controls.Add(this.btnRechercher);
             this.Controls.Add(this.txtbRecherche);
-            this.Controls.Add(this.grdUsagers);
+            this.Controls.Add(this.grdAdherents);
             this.Controls.Add(this.lblRecherche);
-            this.Name = "frmListeUsagers";
-            this.Text = "Liste des usagers";
-            ((System.ComponentModel.ISupportInitialize)(this.grdUsagers)).EndInit();
+            this.Name = "frmListeAdherents";
+            this.Text = "Liste des adhérents";
+            ((System.ComponentModel.ISupportInitialize)(this.grdAdherents)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -151,7 +151,7 @@
         #endregion
 
         private System.Windows.Forms.Label lblRecherche;
-        private System.Windows.Forms.DataGridView grdUsagers;
+        private System.Windows.Forms.DataGridView grdAdherents;
         private System.Windows.Forms.TextBox txtbRecherche;
         private System.Windows.Forms.Button btnRechercher;
         private System.Windows.Forms.Button btnTous;

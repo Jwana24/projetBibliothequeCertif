@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace projetBibliothequeCertif
 {
-    public partial class frmUsagers : Form
+    public partial class frmAdherents : Form
     {
-        public frmUsagers()
+        public frmAdherents()
         {
             InitializeComponent();
         }

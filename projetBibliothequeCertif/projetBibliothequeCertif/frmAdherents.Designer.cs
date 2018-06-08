@@ -1,6 +1,6 @@
 ﻿namespace projetBibliothequeCertif
 {
-    partial class frmUsagers
+    partial class frmAdherents
     {
         /// <summary>
         /// Required designer variable.
@@ -46,6 +46,8 @@
             this.txtbEmail = new System.Windows.Forms.TextBox();
             this.txtbTelephone = new System.Windows.Forms.TextBox();
             this.dateTimeInscription = new System.Windows.Forms.DateTimePicker();
+            this.lblDateNaissance = new System.Windows.Forms.Label();
+            this.dateTimeNaissance = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // lblNom
@@ -192,11 +194,29 @@
             this.dateTimeInscription.Size = new System.Drawing.Size(257, 22);
             this.dateTimeInscription.TabIndex = 17;
             // 
-            // frmUsagers
+            // lblDateNaissance
+            // 
+            this.lblDateNaissance.AutoSize = true;
+            this.lblDateNaissance.Location = new System.Drawing.Point(24, 447);
+            this.lblDateNaissance.Name = "lblDateNaissance";
+            this.lblDateNaissance.Size = new System.Drawing.Size(126, 17);
+            this.lblDateNaissance.TabIndex = 18;
+            this.lblDateNaissance.Text = "Date de naissance";
+            // 
+            // dateTimeNaissance
+            // 
+            this.dateTimeNaissance.Location = new System.Drawing.Point(202, 447);
+            this.dateTimeNaissance.Name = "dateTimeNaissance";
+            this.dateTimeNaissance.Size = new System.Drawing.Size(257, 22);
+            this.dateTimeNaissance.TabIndex = 19;
+            // 
+            // frmAdherents
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 530);
+            this.Controls.Add(this.dateTimeNaissance);
+            this.Controls.Add(this.lblDateNaissance);
             this.Controls.Add(this.dateTimeInscription);
             this.Controls.Add(this.txtbTelephone);
             this.Controls.Add(this.txtbEmail);
@@ -215,8 +235,8 @@
             this.Controls.Add(this.lblCodePostal);
             this.Controls.Add(this.lblPrenom);
             this.Controls.Add(this.lblNom);
-            this.Name = "frmUsagers";
-            this.Text = "Usagers";
+            this.Name = "frmAdherents";
+            this.Text = "Adhérents";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -241,5 +261,7 @@
         protected System.Windows.Forms.Label lblDateInscription;
         protected System.Windows.Forms.Label lblEmail;
         protected System.Windows.Forms.Label lblTelephone;
+        protected System.Windows.Forms.Label lblDateNaissance;
+        protected System.Windows.Forms.DateTimePicker dateTimeNaissance;
     }
 }

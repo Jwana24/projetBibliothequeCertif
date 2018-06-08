@@ -32,10 +32,10 @@
             this.fichierStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nouvelUsagerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nouveauLivreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.quitterLapplicationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fenetresStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listeDesUsagersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listeDesLivresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.quitterLapplicationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -65,7 +65,7 @@
             // 
             this.nouvelUsagerToolStripMenuItem.Name = "nouvelUsagerToolStripMenuItem";
             this.nouvelUsagerToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
-            this.nouvelUsagerToolStripMenuItem.Text = "Nouvel usager";
+            this.nouvelUsagerToolStripMenuItem.Text = "Nouvel adhérent";
             this.nouvelUsagerToolStripMenuItem.Click += new System.EventHandler(this.nouvelUsagerToolStripMenuItem_Click);
             // 
             // nouveauLivreToolStripMenuItem
@@ -74,6 +74,13 @@
             this.nouveauLivreToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.nouveauLivreToolStripMenuItem.Text = "Nouveau livre";
             this.nouveauLivreToolStripMenuItem.Click += new System.EventHandler(this.nouveauLivreToolStripMenuItem_Click);
+            // 
+            // quitterLapplicationToolStripMenuItem
+            // 
+            this.quitterLapplicationToolStripMenuItem.Name = "quitterLapplicationToolStripMenuItem";
+            this.quitterLapplicationToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.quitterLapplicationToolStripMenuItem.Text = "Quitter l\'application";
+            this.quitterLapplicationToolStripMenuItem.Click += new System.EventHandler(this.quitterLapplicationToolStripMenuItem_Click);
             // 
             // fenetresStripMenuItem
             // 
@@ -88,7 +95,7 @@
             // 
             this.listeDesUsagersToolStripMenuItem.Name = "listeDesUsagersToolStripMenuItem";
             this.listeDesUsagersToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
-            this.listeDesUsagersToolStripMenuItem.Text = "Liste des usagers";
+            this.listeDesUsagersToolStripMenuItem.Text = "Liste des adhérents";
             this.listeDesUsagersToolStripMenuItem.Click += new System.EventHandler(this.listeDesUsagersToolStripMenuItem_Click);
             // 
             // listeDesLivresToolStripMenuItem
@@ -97,13 +104,6 @@
             this.listeDesLivresToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.listeDesLivresToolStripMenuItem.Text = "Liste des livres";
             this.listeDesLivresToolStripMenuItem.Click += new System.EventHandler(this.listeDesLivresToolStripMenuItem_Click);
-            // 
-            // quitterLapplicationToolStripMenuItem
-            // 
-            this.quitterLapplicationToolStripMenuItem.Name = "quitterLapplicationToolStripMenuItem";
-            this.quitterLapplicationToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
-            this.quitterLapplicationToolStripMenuItem.Text = "Quitter l\'application";
-            this.quitterLapplicationToolStripMenuItem.Click += new System.EventHandler(this.quitterLapplicationToolStripMenuItem_Click);
             // 
             // frmMDI
             // 

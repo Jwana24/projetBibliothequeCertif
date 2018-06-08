@@ -22,16 +22,16 @@ namespace projetBibliothequeCertif
             Application.Exit();
         }
 
-        private void nouvelUsagerToolStripMenuItem_Click(object sender, EventArgs e)
+        private void nouvelAdherentToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // on va instancier le form de saisie du nouveau client
-            frmNouvelUsager nouvelUsager = new frmNouvelUsager();
+            frmNouvelAdherent nouvelAdherent = new frmNouvelAdherent();
 
             // affichage en modal et contrôle que l'utilisateur
             // en sort par OK
-            if (nouvelUsager.ShowDialog() == DialogResult.OK)
+            if (nouvelAdherent.ShowDialog() == DialogResult.OK)
             {
-                // recherche rang du client saisi
+                // recherche rang de l'adhérent saisi
                 //this.iClient = MClients.NClients - 1;
             }
         }
@@ -50,10 +50,10 @@ namespace projetBibliothequeCertif
             }
         }
 
-        private void listeDesUsagersToolStripMenuItem_Click(object sender, EventArgs e)
+        private void listeDesAdherentsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmListeUsagers listeUsagers = new frmListeUsagers();
-            listeUsagers.Show();
+            frmListeAdherents listeAdherents = new frmListeAdherents();
+            listeAdherents.Show();
         }
 
         private void listeDesLivresToolStripMenuItem_Click(object sender, EventArgs e)

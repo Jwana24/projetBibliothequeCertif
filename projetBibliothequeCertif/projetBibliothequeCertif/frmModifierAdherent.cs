@@ -8,9 +8,9 @@ using System.Windows.Forms;
 
 namespace projetBibliothequeCertif
 {
-    public partial class frmModifierUsager : projetBibliothequeCertif.frmUsagers
+    public partial class frmModifierAdherent : projetBibliothequeCertif.frmAdherents
     {
-        public frmModifierUsager()
+        public frmModifierAdherent()
         {
             InitializeComponent();
         }
@@ -22,7 +22,7 @@ namespace projetBibliothequeCertif
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-            frmModifierUsager modifierUsager = new frmModifierUsager();
+            frmModifierAdherent modifierAdherent = new frmModifierAdherent();
             this.Close();
         }
 

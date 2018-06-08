@@ -8,9 +8,9 @@ using System.Windows.Forms;
 
 namespace projetBibliothequeCertif
 {
-    public partial class frmNouvelUsager : projetBibliothequeCertif.frmUsagers
+    public partial class frmNouvelAdherent : projetBibliothequeCertif.frmAdherents
     {
-        public frmNouvelUsager()
+        public frmNouvelAdherent()
         {
             InitializeComponent();
         }

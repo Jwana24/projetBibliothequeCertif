@@ -8,17 +8,17 @@ using System.Windows.Forms;
 
 namespace projetBibliothequeCertif
 {
-    public partial class frmConsultationUsager : projetBibliothequeCertif.frmUsagers
+    public partial class frmConsultationAdherent : projetBibliothequeCertif.frmAdherents
     {
-        public frmConsultationUsager()
+        public frmConsultationAdherent()
         {
             InitializeComponent();
         }
 
-        private void btnModifierUsager_Click(object sender, EventArgs e)
+        private void btnModifierAdherent_Click(object sender, EventArgs e)
         {
-            frmModifierUsager modifierUsager = new frmModifierUsager();
-            modifierUsager.Show();
+            frmModifierAdherent modifierAdherent = new frmModifierAdherent();
+            modifierAdherent.Show();
         }
 
         private void btnFermer_Click(object sender, EventArgs e)

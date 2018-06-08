@@ -54,11 +54,11 @@
     <Compile Include="frmConsultationLivre.Designer.cs">
       <DependentUpon>frmConsultationLivre.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmConsultationUsager.cs">
+    <Compile Include="frmConsultationAdherent.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmConsultationUsager.Designer.cs">
-      <DependentUpon>frmConsultationUsager.cs</DependentUpon>
+    <Compile Include="frmConsultationAdherent.Designer.cs">
+      <DependentUpon>frmConsultationAdherent.cs</DependentUpon>
     </Compile>
     <Compile Include="frmListeLivres.cs">
       <SubType>Form</SubType>
@@ -66,11 +66,11 @@
     <Compile Include="frmListeLivres.Designer.cs">
       <DependentUpon>frmListeLivres.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmListeUsagers.cs">
+    <Compile Include="frmListeAdherents.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmListeUsagers.Designer.cs">
-      <DependentUpon>frmListeUsagers.cs</DependentUpon>
+    <Compile Include="frmListeAdherents.Designer.cs">
+      <DependentUpon>frmListeAdherents.cs</DependentUpon>
     </Compile>
     <Compile Include="frmLivres.cs">
       <SubType>Form</SubType>
@@ -90,11 +90,11 @@
     <Compile Include="frmModifierLivre.Designer.cs">
       <DependentUpon>frmModifierLivre.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmModifierUsager.cs">
+    <Compile Include="frmModifierAdherent.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmModifierUsager.Designer.cs">
-      <DependentUpon>frmModifierUsager.cs</DependentUpon>
+    <Compile Include="frmModifierAdherent.Designer.cs">
+      <DependentUpon>frmModifierAdherent.cs</DependentUpon>
     </Compile>
     <Compile Include="frmNouveauLivre.cs">
       <SubType>Form</SubType>
@@ -102,33 +102,33 @@
     <Compile Include="frmNouveauLivre.Designer.cs">
       <DependentUpon>frmNouveauLivre.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmNouvelUsager.cs">
+    <Compile Include="frmNouvelAdherent.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmNouvelUsager.Designer.cs">
-      <DependentUpon>frmNouvelUsager.cs</DependentUpon>
+    <Compile Include="frmNouvelAdherent.Designer.cs">
+      <DependentUpon>frmNouvelAdherent.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmUsagers.cs">
+    <Compile Include="frmAdherents.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmUsagers.Designer.cs">
-      <DependentUpon>frmUsagers.cs</DependentUpon>
+    <Compile Include="frmAdherents.Designer.cs">
+      <DependentUpon>frmAdherents.cs</DependentUpon>
     </Compile>
     <Compile Include="MLivres.cs" />
-    <Compile Include="MUsagers.cs" />
+    <Compile Include="MAdherents.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmConsultationLivre.resx">
       <DependentUpon>frmConsultationLivre.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmConsultationUsager.resx">
-      <DependentUpon>frmConsultationUsager.cs</DependentUpon>
+    <EmbeddedResource Include="frmConsultationAdherent.resx">
+      <DependentUpon>frmConsultationAdherent.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmListeLivres.resx">
       <DependentUpon>frmListeLivres.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmListeUsagers.resx">
-      <DependentUpon>frmListeUsagers.cs</DependentUpon>
+    <EmbeddedResource Include="frmListeAdherents.resx">
+      <DependentUpon>frmListeAdherents.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLivres.resx">
       <DependentUpon>frmLivres.cs</DependentUpon>
@@ -139,17 +139,17 @@
     <EmbeddedResource Include="frmModifierLivre.resx">
       <DependentUpon>frmModifierLivre.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmModifierUsager.resx">
-      <DependentUpon>frmModifierUsager.cs</DependentUpon>
+    <EmbeddedResource Include="frmModifierAdherent.resx">
+      <DependentUpon>frmModifierAdherent.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmNouveauLivre.resx">
       <DependentUpon>frmNouveauLivre.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmNouvelUsager.resx">
-      <DependentUpon>frmNouvelUsager.cs</DependentUpon>
+    <EmbeddedResource Include="frmNouvelAdherent.resx">
+      <DependentUpon>frmNouvelAdherent.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmUsagers.resx">
-      <DependentUpon>frmUsagers.cs</DependentUpon>
+    <EmbeddedResource Include="frmAdherents.resx">
+      <DependentUpon>frmAdherents.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

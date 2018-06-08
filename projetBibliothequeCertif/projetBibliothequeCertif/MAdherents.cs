@@ -10,41 +10,41 @@ using MySql.Data.MySqlClient;
 namespace projetBibliothequeCertif
 {
     /// <summary>
-    /// classe des usagers :
-    /// permet de mémoriser les informations concernant un usager
+    /// classe des adhérents :
+    /// permet de mémoriser les informations concernant un adhérent
     /// </summary>
-    public class MUsagers
+    public class MAdherents
     {
-         /// <summary>
-         /// nombre d'usagers de la classe
-         /// </summary>
-         public static int NUsagers;
+        /// <summary>
+        /// nombre d'adhérents de la classe
+        /// </summary>
+        public static int NAdherents;
 
-         /// <summary>
-         /// rang de l'usager
-         /// </summary>
-         private int iUsager;
+        /// <summary>
+        /// rang de l'adhérent
+        /// </summary>
+        private int iAdherent;
 
-         public Int32 IUsager
-         {
-             get { return iUsager; }
-             set { value = iUsager; }
+         public Int32 IAdherent
+        {
+             get { return iAdherent; }
+             set { value = iAdherent; }
          }
 
         /// <summary>
-        /// obtient le numéro de l'usager
+        /// obtient le numéro de l'adhérent
         /// </summary>
-        private Int32 numUsager;
+        private Int32 numAdherent;
 
-        public Int32 NumUsager
+        public Int32 NumAdherent
         {
-            get { return numUsager; }
+            get { return numAdherent; }
         }
 
-        public MUsagers(Int32 leNumero, String leNom, String lePrenom, String leCodePostal, String laVille, String uneAdresse1, String uneAdresse2,
+        public MAdherents(Int32 leNumero, String leNom, String lePrenom, String leCodePostal, String laVille, String uneAdresse1, String uneAdresse2,
             String leTelephone)
         {
-            leNumero = this.NumUsager;
+            leNumero = this.NumAdherent;
             leNom = this.Nom;
             lePrenom = this.Prenom;
             leCodePostal = this.CodePostal;
@@ -55,71 +55,71 @@ namespace projetBibliothequeCertif
         }
 
         /// <summary>
-        /// datatable des usagers pour affichages en datagridview et pour exporter/importer en XML
+        /// datatable des adhérents pour affichages en datagridview et pour exporter/importer en XML
         /// </summary>
-        private DataTable dtUsagers;
+        private DataTable dtAdherents;
 
         /// <summary>
-        /// collection des usagers de cette section sous forme de dictionnaire trié
+        /// collection des adhérents de cette section sous forme de dictionnaire trié
         /// </summary>
-        private SortedDictionary<Int32, MUsagers> lesUsagers;
+        private SortedDictionary<Int32, MAdherents> lesAdherents;
 
         /// <summary>
         /// générer et retourner une datatable qui liste les numéro, nom et prenom
-        /// de tous les usagers de la collection
+        /// de tous les adhérents de la collection
         /// </summary>
         /// <returns></returns>
-        public DataTable ListerUsagers()
+        public DataTable ListerAdherents()
         {
             // vider la datatable pour la régénérer
-            this.dtUsagers.Clear();
+            this.dtAdherents.Clear();
             // boucle de remplissage de la datatable à partir de la collection
-            foreach (MUsagers unUsager in this.lesUsagers.Values)
+            foreach (MAdherents unAdherent in this.lesAdherents.Values)
             {
                 // instanciation datarow (=ligne datatable)
                 DataRow dr;
-                dr = this.dtUsagers.NewRow();
+                dr = this.dtAdherents.NewRow();
                 // affectation des 3 colonnes
-                dr[0] = unUsager.NumUsager;
-                dr[1] = unUsager.Nom;
-                dr[2] = unUsager.Prenom;
+                dr[0] = unAdherent.NumAdherent;
+                dr[1] = unAdherent.Nom;
+                dr[2] = unAdherent.Prenom;
                 // ajouter la ligne à la datatable
-                this.dtUsagers.Rows.Add(dr);
+                this.dtAdherents.Rows.Add(dr);
             } // fin de boucle remplissage datatable
             // retourne la référence à la datatable
-            return this.dtUsagers;
+            return this.dtAdherents;
         }
 
         /// <summary>
-        /// nom de l'usager forcé en majuscules
+        /// nom de l'adhérent forcé en majuscules
         /// </summary>
-        private String nomUsager;
+        private String nomAdherent;
 
         public String Nom
         {
-            get { return nomUsager; }
-            set { nomUsager = value.Trim().ToUpper(); }
+            get { return nomAdherent; }
+            set { nomAdherent = value.Trim().ToUpper(); }
         }
 
         /// <summary>
-        /// prenom de l'usager forcé en minuscule
+        /// prenom de l'adhérent forcé en minuscule
         /// </summary>
-        private String prenomUsager;
+        private String prenomAdherent;
 
         public String Prenom
         {
-            get { return prenomUsager; }
-            set { prenomUsager = value.Trim().ToLower(); }
+            get { return prenomAdherent; }
+            set { prenomAdherent = value.Trim().ToLower(); }
         }
 
         /// <summary>
         /// la gestion d'exception ne permettre à l'utilisateur de taper un code postal d'exactement 5 chiffres entiers
         /// </summary>
-        private String codePostalUsager;
+        private String codePostalAdherent;
 
         public String CodePostal
         {
-            get { return codePostalUsager; }
+            get { return codePostalAdherent; }
             set
             {
                 // variable de boucle
@@ -144,7 +144,7 @@ namespace projetBibliothequeCertif
                     else
                     {
                         // tout est bon on affecte la propriété
-                        codePostalUsager = value;
+                        codePostalAdherent = value;
                     }
                 }
                 else
@@ -157,28 +157,28 @@ namespace projetBibliothequeCertif
             }
         }
 
-        private String villeUsager;
+        private String villeAdherent;
 
         public String Ville
         {
-            get { return villeUsager; }
-            set { villeUsager = value.Trim().ToUpper(); }
+            get { return villeAdherent; }
+            set { villeAdherent = value.Trim().ToUpper(); }
         }
 
-        private String adresse1Usager;
+        private String adresse1Adherent;
 
         public String Adresse1
         {
-            get { return adresse1Usager; }
-            set { value = adresse1Usager; }
+            get { return adresse1Adherent; }
+            set { value = adresse1Adherent; }
         }
 
-        private String adresse2Usager;
+        private String adresse2Adherent;
 
         public String Adresse2
         {
-            get { return adresse2Usager; }
-            set { value = adresse2Usager; }
+            get { return adresse2Adherent; }
+            set { value = adresse2Adherent; }
         }
 
         private Boolean email;
@@ -213,19 +213,19 @@ namespace projetBibliothequeCertif
             }
         }
 
-        private DateTime inscriptionUsager;
+        private DateTime inscriptionAdherent;
 
         public DateTime Inscription
         {
-            get { return inscriptionUsager; }
-            set { value = inscriptionUsager; }
+            get { return inscriptionAdherent; }
+            set { value = inscriptionAdherent; }
         }
 
-        private String telephoneUsager;
+        private String telephoneAdherent;
 
         public String Telephone
         {
-            get { return telephoneUsager; }
+            get { return telephoneAdherent; }
             set
             {
                 int i;
@@ -251,7 +251,7 @@ namespace projetBibliothequeCertif
                     else
                     {
                         // tout est bon, on affecte la propriété
-                        telephoneUsager = value.ToString();
+                        telephoneAdherent = value.ToString();
                     }
                 }
                 // il n'y a pas 10 caractères
@@ -264,20 +264,20 @@ namespace projetBibliothequeCertif
             }
         }
 
-        public void Ajouter(MUsagers unUsager)
+        public void Ajouter(MAdherents unAdherent)
         {
-            this.lesUsagers.Add(unUsager.NumUsager, unUsager);
+            this.lesAdherents.Add(unAdherent.NumAdherent, unAdherent);
         }
 
-        public void SupprimerUsagers()
+        public void SupprimerAdherents()
         {
-            this.lesUsagers.Clear();
+            this.lesAdherents.Clear();
         }
 
-        public static void SelectUsagers(MUsagers unUsager)
+        public static void SelectAdherents(MAdherents unAdherent)
         {
-            string query = "SELECT * FROM usagers";
-            unUsager.SupprimerUsagers();
+            string query = "SELECT * FROM adherents";
+            unAdherent.SupprimerAdherents();
 
             MySqlCommand cmd = ConnexionBase.GetConnexion().CreateCommand();
             cmd.CommandText = query;
@@ -288,9 +288,9 @@ namespace projetBibliothequeCertif
             // lit les données et les garde en mémoire dans la liste
             while (dataReader.Read())
             {
-                MUsagers nouvelUsager;
+                MAdherents nouvelAdherent;
 
-                nouvelUsager = new MUsagers(
+                nouvelAdherent = new MAdherents(
                     int.Parse(dataReader["numero"].ToString()),
                     dataReader["nom"].ToString(),
                     dataReader["prenom"].ToString(),
@@ -300,8 +300,8 @@ namespace projetBibliothequeCertif
                     dataReader["adresse2"].ToString(),
                     dataReader["telephone"].ToString());
 
-                unUsager.Ajouter(nouvelUsager);
-                nouvelUsager = null;
+                unAdherent.Ajouter(nouvelAdherent);
+                nouvelAdherent = null;
             }
             // ferme le datareader
             dataReader.Close();
