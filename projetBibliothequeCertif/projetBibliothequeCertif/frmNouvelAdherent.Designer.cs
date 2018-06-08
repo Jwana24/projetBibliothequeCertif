@@ -32,6 +32,18 @@
             this.btnOK = new System.Windows.Forms.Button();
             this.chkAdultes = new System.Windows.Forms.CheckBox();
             this.chkScolaires = new System.Windows.Forms.CheckBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblEcole = new System.Windows.Forms.Label();
+            this.lblClasse = new System.Windows.Forms.Label();
+            this.txtbEcole = new System.Windows.Forms.TextBox();
+            this.cbbClasse = new System.Windows.Forms.ComboBox();
+            this.lblVilleEcole = new System.Windows.Forms.Label();
+            this.txtbVilleEcole = new System.Windows.Forms.TextBox();
+            this.lblNomProf = new System.Windows.Forms.Label();
+            this.lblPrenomProf = new System.Windows.Forms.Label();
+            this.txtbNomProf = new System.Windows.Forms.TextBox();
+            this.txtbPrenomProf = new System.Windows.Forms.TextBox();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtbNom
@@ -106,10 +118,18 @@
             // 
             this.lblTelephone.Location = new System.Drawing.Point(24, 400);
             // 
+            // lblDateNaissance
+            // 
+            this.lblDateNaissance.Location = new System.Drawing.Point(24, 490);
+            // 
+            // dateTimeNaissance
+            // 
+            this.dateTimeNaissance.Location = new System.Drawing.Point(202, 490);
+            // 
             // btnAnnuler
             // 
             this.btnAnnuler.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnAnnuler.Location = new System.Drawing.Point(678, 499);
+            this.btnAnnuler.Location = new System.Drawing.Point(678, 531);
             this.btnAnnuler.Name = "btnAnnuler";
             this.btnAnnuler.Size = new System.Drawing.Size(75, 29);
             this.btnAnnuler.TabIndex = 19;
@@ -119,7 +139,7 @@
             // 
             // btnOK
             // 
-            this.btnOK.Location = new System.Drawing.Point(597, 499);
+            this.btnOK.Location = new System.Drawing.Point(597, 531);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(61, 29);
             this.btnOK.TabIndex = 20;
@@ -147,18 +167,127 @@
             this.chkScolaires.Text = "scolaires";
             this.chkScolaires.UseVisualStyleBackColor = true;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.txtbPrenomProf);
+            this.groupBox1.Controls.Add(this.txtbNomProf);
+            this.groupBox1.Controls.Add(this.lblPrenomProf);
+            this.groupBox1.Controls.Add(this.lblNomProf);
+            this.groupBox1.Controls.Add(this.txtbVilleEcole);
+            this.groupBox1.Controls.Add(this.lblVilleEcole);
+            this.groupBox1.Controls.Add(this.cbbClasse);
+            this.groupBox1.Controls.Add(this.txtbEcole);
+            this.groupBox1.Controls.Add(this.lblClasse);
+            this.groupBox1.Controls.Add(this.lblEcole);
+            this.groupBox1.Enabled = false;
+            this.groupBox1.Location = new System.Drawing.Point(27, 55);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(744, 457);
+            this.groupBox1.TabIndex = 25;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Scolarité";
+            // 
+            // lblEcole
+            // 
+            this.lblEcole.AutoSize = true;
+            this.lblEcole.Location = new System.Drawing.Point(54, 155);
+            this.lblEcole.Name = "lblEcole";
+            this.lblEcole.Size = new System.Drawing.Size(149, 17);
+            this.lblEcole.TabIndex = 0;
+            this.lblEcole.Text = "Etablissement scolaire";
+            // 
+            // lblClasse
+            // 
+            this.lblClasse.AutoSize = true;
+            this.lblClasse.Location = new System.Drawing.Point(54, 209);
+            this.lblClasse.Name = "lblClasse";
+            this.lblClasse.Size = new System.Drawing.Size(50, 17);
+            this.lblClasse.TabIndex = 1;
+            this.lblClasse.Text = "Classe";
+            // 
+            // txtbEcole
+            // 
+            this.txtbEcole.Location = new System.Drawing.Point(247, 155);
+            this.txtbEcole.Name = "txtbEcole";
+            this.txtbEcole.Size = new System.Drawing.Size(370, 22);
+            this.txtbEcole.TabIndex = 2;
+            // 
+            // cbbClasse
+            // 
+            this.cbbClasse.FormattingEnabled = true;
+            this.cbbClasse.Items.AddRange(new object[] {
+            "6e",
+            "5e",
+            "4e",
+            "3e"});
+            this.cbbClasse.Location = new System.Drawing.Point(138, 206);
+            this.cbbClasse.Name = "cbbClasse";
+            this.cbbClasse.Size = new System.Drawing.Size(125, 24);
+            this.cbbClasse.TabIndex = 3;
+            // 
+            // lblVilleEcole
+            // 
+            this.lblVilleEcole.AutoSize = true;
+            this.lblVilleEcole.Location = new System.Drawing.Point(57, 110);
+            this.lblVilleEcole.Name = "lblVilleEcole";
+            this.lblVilleEcole.Size = new System.Drawing.Size(34, 17);
+            this.lblVilleEcole.TabIndex = 4;
+            this.lblVilleEcole.Text = "Ville";
+            // 
+            // txtbVilleEcole
+            // 
+            this.txtbVilleEcole.Location = new System.Drawing.Point(138, 110);
+            this.txtbVilleEcole.Name = "txtbVilleEcole";
+            this.txtbVilleEcole.Size = new System.Drawing.Size(320, 22);
+            this.txtbVilleEcole.TabIndex = 5;
+            // 
+            // lblNomProf
+            // 
+            this.lblNomProf.AutoSize = true;
+            this.lblNomProf.Location = new System.Drawing.Point(57, 268);
+            this.lblNomProf.Name = "lblNomProf";
+            this.lblNomProf.Size = new System.Drawing.Size(127, 17);
+            this.lblNomProf.TabIndex = 6;
+            this.lblNomProf.Text = "Nom professeur(e)";
+            // 
+            // lblPrenomProf
+            // 
+            this.lblPrenomProf.AutoSize = true;
+            this.lblPrenomProf.Location = new System.Drawing.Point(57, 325);
+            this.lblPrenomProf.Name = "lblPrenomProf";
+            this.lblPrenomProf.Size = new System.Drawing.Size(147, 17);
+            this.lblPrenomProf.TabIndex = 7;
+            this.lblPrenomProf.Text = "Prénom professeur(e)";
+            // 
+            // txtbNomProf
+            // 
+            this.txtbNomProf.Location = new System.Drawing.Point(247, 268);
+            this.txtbNomProf.Name = "txtbNomProf";
+            this.txtbNomProf.Size = new System.Drawing.Size(370, 22);
+            this.txtbNomProf.TabIndex = 8;
+            // 
+            // txtbPrenomProf
+            // 
+            this.txtbPrenomProf.Location = new System.Drawing.Point(247, 325);
+            this.txtbPrenomProf.Name = "txtbPrenomProf";
+            this.txtbPrenomProf.Size = new System.Drawing.Size(370, 22);
+            this.txtbPrenomProf.TabIndex = 9;
+            // 
             // frmNouvelAdherent
             // 
             this.AcceptButton = this.btnOK;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.CancelButton = this.btnAnnuler;
-            this.ClientSize = new System.Drawing.Size(800, 557);
+            this.ClientSize = new System.Drawing.Size(800, 577);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.chkScolaires);
             this.Controls.Add(this.chkAdultes);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.btnAnnuler);
             this.Name = "frmNouvelAdherent";
             this.Text = "Nouvel adhérent";
+            this.Controls.SetChildIndex(this.lblDateNaissance, 0);
+            this.Controls.SetChildIndex(this.dateTimeNaissance, 0);
             this.Controls.SetChildIndex(this.btnAnnuler, 0);
             this.Controls.SetChildIndex(this.btnOK, 0);
             this.Controls.SetChildIndex(this.chkAdultes, 0);
@@ -181,6 +310,9 @@
             this.Controls.SetChildIndex(this.txtbEmail, 0);
             this.Controls.SetChildIndex(this.txtbTelephone, 0);
             this.Controls.SetChildIndex(this.dateTimeInscription, 0);
+            this.Controls.SetChildIndex(this.groupBox1, 0);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -191,5 +323,16 @@
         private System.Windows.Forms.Button btnOK;
         private System.Windows.Forms.CheckBox chkAdultes;
         private System.Windows.Forms.CheckBox chkScolaires;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.ComboBox cbbClasse;
+        private System.Windows.Forms.TextBox txtbEcole;
+        private System.Windows.Forms.Label lblClasse;
+        private System.Windows.Forms.Label lblEcole;
+        private System.Windows.Forms.TextBox txtbPrenomProf;
+        private System.Windows.Forms.TextBox txtbNomProf;
+        private System.Windows.Forms.Label lblPrenomProf;
+        private System.Windows.Forms.Label lblNomProf;
+        private System.Windows.Forms.TextBox txtbVilleEcole;
+        private System.Windows.Forms.Label lblVilleEcole;
     }
 }
