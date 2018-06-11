@@ -57,6 +57,8 @@
             this.grdAdherents.RowTemplate.Height = 24;
             this.grdAdherents.Size = new System.Drawing.Size(781, 279);
             this.grdAdherents.TabIndex = 1;
+            this.grdAdherents.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdAdherents_CellContentClick);
+            this.grdAdherents.DoubleClick += new System.EventHandler(this.grdAdherents_DoubleClick);
             // 
             // txtbRecherche
             // 
@@ -88,7 +90,7 @@
             // 
             // btnAjouter
             // 
-            this.btnAjouter.Location = new System.Drawing.Point(605, 401);
+            this.btnAjouter.Location = new System.Drawing.Point(605, 384);
             this.btnAjouter.Name = "btnAjouter";
             this.btnAjouter.Size = new System.Drawing.Size(127, 30);
             this.btnAjouter.TabIndex = 5;
@@ -98,7 +100,7 @@
             // 
             // btnFermer
             // 
-            this.btnFermer.Location = new System.Drawing.Point(748, 401);
+            this.btnFermer.Location = new System.Drawing.Point(748, 436);
             this.btnFermer.Name = "btnFermer";
             this.btnFermer.Size = new System.Drawing.Size(93, 30);
             this.btnFermer.TabIndex = 6;
@@ -118,11 +120,11 @@
             // 
             // btnSupprimer
             // 
-            this.btnSupprimer.Location = new System.Drawing.Point(477, 401);
+            this.btnSupprimer.Location = new System.Drawing.Point(445, 384);
             this.btnSupprimer.Name = "btnSupprimer";
-            this.btnSupprimer.Size = new System.Drawing.Size(113, 30);
+            this.btnSupprimer.Size = new System.Drawing.Size(145, 30);
             this.btnSupprimer.TabIndex = 17;
-            this.btnSupprimer.Text = "Supprimer livre";
+            this.btnSupprimer.Text = "Supprimer adherent";
             this.btnSupprimer.UseVisualStyleBackColor = true;
             this.btnSupprimer.Click += new System.EventHandler(this.btnSupprimer_Click);
             // 
@@ -130,7 +132,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(900, 459);
+            this.ClientSize = new System.Drawing.Size(900, 488);
             this.Controls.Add(this.btnSupprimer);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnFermer);

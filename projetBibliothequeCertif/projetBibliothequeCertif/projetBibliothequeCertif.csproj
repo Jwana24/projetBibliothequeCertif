@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConnexionBase.cs" />
+    <Compile Include="Donnees.cs" />
     <Compile Include="frmConsultationLivre.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -59,6 +60,12 @@
     </Compile>
     <Compile Include="frmConsultationAdherent.Designer.cs">
       <DependentUpon>frmConsultationAdherent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmConsultationScolaire.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmConsultationScolaire.Designer.cs">
+      <DependentUpon>frmConsultationScolaire.cs</DependentUpon>
     </Compile>
     <Compile Include="frmListeLivres.cs">
       <SubType>Form</SubType>
@@ -96,6 +103,12 @@
     <Compile Include="frmModifierAdherent.Designer.cs">
       <DependentUpon>frmModifierAdherent.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmModifierScolaire.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmModifierScolaire.Designer.cs">
+      <DependentUpon>frmModifierScolaire.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmNouveauLivre.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -114,8 +127,16 @@
     <Compile Include="frmAdherents.Designer.cs">
       <DependentUpon>frmAdherents.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmScolaires.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmScolaires.Designer.cs">
+      <DependentUpon>frmScolaires.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MBiblio.cs" />
     <Compile Include="MLivres.cs" />
     <Compile Include="MAdherents.cs" />
+    <Compile Include="MScolaires.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmConsultationLivre.resx">
@@ -123,6 +144,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmConsultationAdherent.resx">
       <DependentUpon>frmConsultationAdherent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmConsultationScolaire.resx">
+      <DependentUpon>frmConsultationScolaire.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmListeLivres.resx">
       <DependentUpon>frmListeLivres.cs</DependentUpon>
@@ -142,6 +166,9 @@
     <EmbeddedResource Include="frmModifierAdherent.resx">
       <DependentUpon>frmModifierAdherent.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmModifierScolaire.resx">
+      <DependentUpon>frmModifierScolaire.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmNouveauLivre.resx">
       <DependentUpon>frmNouveauLivre.cs</DependentUpon>
     </EmbeddedResource>
@@ -150,6 +177,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmAdherents.resx">
       <DependentUpon>frmAdherents.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmScolaires.resx">
+      <DependentUpon>frmScolaires.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

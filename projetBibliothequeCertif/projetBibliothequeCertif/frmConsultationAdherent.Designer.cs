@@ -40,7 +40,7 @@
             // grdLivresEmpruntes
             // 
             this.grdLivresEmpruntes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grdLivresEmpruntes.Location = new System.Drawing.Point(27, 515);
+            this.grdLivresEmpruntes.Location = new System.Drawing.Point(27, 570);
             this.grdLivresEmpruntes.Name = "grdLivresEmpruntes";
             this.grdLivresEmpruntes.RowTemplate.Height = 24;
             this.grdLivresEmpruntes.Size = new System.Drawing.Size(726, 204);
@@ -49,7 +49,7 @@
             // lblLivresEmprunt
             // 
             this.lblLivresEmprunt.AutoSize = true;
-            this.lblLivresEmprunt.Location = new System.Drawing.Point(24, 495);
+            this.lblLivresEmprunt.Location = new System.Drawing.Point(24, 551);
             this.lblLivresEmprunt.Name = "lblLivresEmprunt";
             this.lblLivresEmprunt.Size = new System.Drawing.Size(117, 17);
             this.lblLivresEmprunt.TabIndex = 19;
@@ -57,7 +57,7 @@
             // 
             // btnFermer
             // 
-            this.btnFermer.Location = new System.Drawing.Point(668, 753);
+            this.btnFermer.Location = new System.Drawing.Point(668, 815);
             this.btnFermer.Name = "btnFermer";
             this.btnFermer.Size = new System.Drawing.Size(85, 29);
             this.btnFermer.TabIndex = 22;
@@ -67,7 +67,7 @@
             // 
             // btnSupprimerLivre
             // 
-            this.btnSupprimerLivre.Location = new System.Drawing.Point(27, 736);
+            this.btnSupprimerLivre.Location = new System.Drawing.Point(27, 791);
             this.btnSupprimerLivre.Name = "btnSupprimerLivre";
             this.btnSupprimerLivre.Size = new System.Drawing.Size(124, 29);
             this.btnSupprimerLivre.TabIndex = 23;
@@ -87,7 +87,7 @@
             // 
             // btnAjouterLivre
             // 
-            this.btnAjouterLivre.Location = new System.Drawing.Point(167, 736);
+            this.btnAjouterLivre.Location = new System.Drawing.Point(167, 791);
             this.btnAjouterLivre.Name = "btnAjouterLivre";
             this.btnAjouterLivre.Size = new System.Drawing.Size(101, 29);
             this.btnAjouterLivre.TabIndex = 25;
@@ -98,7 +98,7 @@
             // frmConsultationAdherent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.ClientSize = new System.Drawing.Size(789, 800);
+            this.ClientSize = new System.Drawing.Size(789, 863);
             this.Controls.Add(this.btnAjouterLivre);
             this.Controls.Add(this.btnModifierAdherent);
             this.Controls.Add(this.btnSupprimerLivre);
@@ -107,6 +107,10 @@
             this.Controls.Add(this.grdLivresEmpruntes);
             this.Name = "frmConsultationAdherent";
             this.Text = "Consultation de l\'adherent";
+            this.Controls.SetChildIndex(this.lblDateNaissance, 0);
+            this.Controls.SetChildIndex(this.dateTimeNaissance, 0);
+            this.Controls.SetChildIndex(this.lblNumAdherent, 0);
+            this.Controls.SetChildIndex(this.txtbNumAdherent, 0);
             this.Controls.SetChildIndex(this.lblNom, 0);
             this.Controls.SetChildIndex(this.lblPrenom, 0);
             this.Controls.SetChildIndex(this.lblCodePostal, 0);

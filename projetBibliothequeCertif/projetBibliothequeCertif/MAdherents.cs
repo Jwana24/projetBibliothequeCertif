@@ -39,6 +39,7 @@ namespace projetBibliothequeCertif
         public Int32 NumAdherent
         {
             get { return numAdherent; }
+            set { value = numAdherent; }
         }
 
         public MAdherents(Int32 leNumero, String leNom, String lePrenom, String leCodePostal, String laVille, String uneAdresse1, String uneAdresse2,
@@ -181,7 +182,7 @@ namespace projetBibliothequeCertif
             set { value = adresse2Adherent; }
         }
 
-        private Boolean email;
+        private String email;
 
         static Regex EmailValideRegex = CreerEmailValideRegex();
 
@@ -201,16 +202,10 @@ namespace projetBibliothequeCertif
             return estValide;
         }
 
-        public Boolean Email
+        public String Email
         {
             get { return email; }
-            set
-            {
-                if (Email == true)
-                {
-                    value = email;
-                }
-            }
+            set { value = email; }
         }
 
         private DateTime inscriptionAdherent;
@@ -262,6 +257,14 @@ namespace projetBibliothequeCertif
                         "ErreurClasse MUsagers", System.Windows.Forms.MessageBoxButtons.OK);
                 }
             }
+        }
+
+        private DateTime naissanceAdherent;
+
+        public DateTime Naissance
+        {
+            get { return naissanceAdherent; }
+            set { value = naissanceAdherent; }
         }
 
         public void Ajouter(MAdherents unAdherent)

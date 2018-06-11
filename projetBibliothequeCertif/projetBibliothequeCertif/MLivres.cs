@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using MySql.Data.MySqlClient;
+using System.Globalization;
 
 namespace projetBibliothequeCertif
 {
@@ -31,13 +32,14 @@ namespace projetBibliothequeCertif
             set { value = codeLivre; }
         }
 
-        public MLivres(Int32 leCode, String unISBN, String leTitre, String unAuteur, String unEditeur)
+        public MLivres(Int32 leCode, String unISBN, String leTitre, String unAuteur, String unEditeur, DateTime laParution)
         {
             leCode = this.CodeLivre;
             unISBN = this.isbnLivre;
             leTitre = this.Titre;
             unAuteur = this.Auteur;
             unEditeur = this.Editeur;
+            laParution = this.Parution;
         }
 
         /// <summary>
@@ -189,7 +191,8 @@ namespace projetBibliothequeCertif
                     dataReader["isbn"].ToString(),
                     dataReader["titre"].ToString(),
                     dataReader["auteur"].ToString(),
-                    dataReader["editeur"].ToString());
+                    dataReader["editeur"].ToString(),
+                    DateTime.ParseExact(dataReader["date_parution"].ToString(), "dd/MM/yyyy hh:mm:ss", CultureInfo.InvariantCulture));
 
                 unLivre.Ajouter(nouveauLivre);
                 nouveauLivre = null;

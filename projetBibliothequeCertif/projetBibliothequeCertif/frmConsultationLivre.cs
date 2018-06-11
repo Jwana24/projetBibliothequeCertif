@@ -10,8 +10,12 @@ namespace projetBibliothequeCertif
 {
     public partial class frmConsultationLivre : projetBibliothequeCertif.frmLivres
     {
-        public frmConsultationLivre()
+        protected MLivres leLivre;
+
+        public frmConsultationLivre(MLivres livre)
         {
+            // on crée une référence d'objet livre pointant vers le livre d'origine de la collection
+            this.leLivre = livre;
             InitializeComponent();
         }
 

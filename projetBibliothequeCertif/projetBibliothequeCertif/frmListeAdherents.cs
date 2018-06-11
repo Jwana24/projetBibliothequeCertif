@@ -21,7 +21,7 @@ namespace projetBibliothequeCertif
 
         private SortedDictionary<Int32, MAdherents> lesAdherents;
 
-        private void afficheAdherents()
+        public void afficheAdherents()
         {
             MAdherents.SelectAdherents(unAdherent);
 
@@ -69,14 +69,39 @@ namespace projetBibliothequeCertif
         private void btnAjouter_Click(object sender, EventArgs e)
         {
             frmNouvelAdherent nouvelAdherent = new frmNouvelAdherent();
-            //rajouter le changement dans la dataTable
 
+            // Si on sort de la saisie par OK, regenere l'affichage du datagrid
+            if (nouvelAdherent.ShowDialog() == DialogResult.OK)
+            {
+                this.afficheAdherents();
+            }
             this.Close();
         }
 
         private void btnSupprimer_Click(object sender, EventArgs e)
         {
             grdAdherents.Rows.Remove(grdAdherents.CurrentRow);
+        }
+
+        private void grdAdherents_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void grdAdherents_DoubleClick(object sender, EventArgs e)
+        {
+            Int32 iAdherent;
+            iAdherent = this.grdAdherents.CurrentRow.Index;
+
+            // instancie un objet livre vers le form de consultation livre d'origine dans la collection
+            MAdherents unAdherent = Donnees.getAdherentById(iAdherent) as MAdherents;
+            // instancie le form "Nouveau Livre" qui correspond à la création du livre
+            frmConsultationAdherent consultationAdherent = new frmConsultationAdherent(unAdherent);
+            // affiche le form de la création de contact en modal
+            consultationAdherent.ShowDialog();
+
+            // rafaichit la datagriedview quand le form est fermé
+            this.afficheAdherents();
         }
     }
 }

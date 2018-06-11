@@ -52,7 +52,7 @@
             // 
             // btnFermer
             // 
-            this.btnFermer.Location = new System.Drawing.Point(757, 395);
+            this.btnFermer.Location = new System.Drawing.Point(757, 442);
             this.btnFermer.Name = "btnFermer";
             this.btnFermer.Size = new System.Drawing.Size(93, 30);
             this.btnFermer.TabIndex = 14;
@@ -62,9 +62,9 @@
             // 
             // btnAjouter
             // 
-            this.btnAjouter.Location = new System.Drawing.Point(641, 395);
+            this.btnAjouter.Location = new System.Drawing.Point(622, 376);
             this.btnAjouter.Name = "btnAjouter";
-            this.btnAjouter.Size = new System.Drawing.Size(99, 30);
+            this.btnAjouter.Size = new System.Drawing.Size(118, 30);
             this.btnAjouter.TabIndex = 13;
             this.btnAjouter.Text = "Ajouter livre";
             this.btnAjouter.UseVisualStyleBackColor = true;
@@ -106,6 +106,7 @@
             this.grdLivres.RowTemplate.Height = 24;
             this.grdLivres.Size = new System.Drawing.Size(781, 279);
             this.grdLivres.TabIndex = 9;
+            this.grdLivres.DoubleClick += new System.EventHandler(this.grdLivres_DoubleClick);
             // 
             // lblRecherche
             // 
@@ -118,7 +119,7 @@
             // 
             // btnSupprimer
             // 
-            this.btnSupprimer.Location = new System.Drawing.Point(512, 395);
+            this.btnSupprimer.Location = new System.Drawing.Point(492, 376);
             this.btnSupprimer.Name = "btnSupprimer";
             this.btnSupprimer.Size = new System.Drawing.Size(113, 30);
             this.btnSupprimer.TabIndex = 16;
@@ -130,7 +131,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(927, 455);
+            this.ClientSize = new System.Drawing.Size(927, 502);
             this.Controls.Add(this.btnSupprimer);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnFermer);
@@ -156,8 +157,8 @@
         private System.Windows.Forms.Button btnTous;
         private System.Windows.Forms.Button btnRechercher;
         private System.Windows.Forms.TextBox txtbRecherche;
-        private System.Windows.Forms.DataGridView grdLivres;
         private System.Windows.Forms.Label lblRecherche;
         private System.Windows.Forms.Button btnSupprimer;
+        private System.Windows.Forms.DataGridView grdLivres;
     }
 }

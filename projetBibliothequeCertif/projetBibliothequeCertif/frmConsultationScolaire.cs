@@ -8,14 +8,12 @@ using System.Windows.Forms;
 
 namespace projetBibliothequeCertif
 {
-    public partial class frmConsultationAdherent : projetBibliothequeCertif.frmAdherents
+    public partial class frmConsultationScolaire : projetBibliothequeCertif.frmScolaires
     {
-        protected MAdherents unAdherent;
         private MLivres unLivre;
 
-        public frmConsultationAdherent(MAdherents adherent)
+        public frmConsultationScolaire()
         {
-            this.unAdherent = adherent;
             InitializeComponent();
         }
 
@@ -31,15 +29,15 @@ namespace projetBibliothequeCertif
             this.grdLivresEmpruntes.Refresh();
         }
 
-        private void btnModifierAdherent_Click(object sender, EventArgs e)
-        {
-            frmModifierAdherent modifierAdherent = new frmModifierAdherent();
-            modifierAdherent.Show();
-        }
-
         private void btnFermer_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnModifierScolaire_Click(object sender, EventArgs e)
+        {
+            frmModifierScolaire modifierScolaire = new frmModifierScolaire();
+            modifierScolaire.Show();
         }
 
         private void btnSupprimerLivre_Click(object sender, EventArgs e)
