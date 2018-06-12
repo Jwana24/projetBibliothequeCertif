@@ -58,5 +58,13 @@ namespace projetBibliothequeCertif
             }
             this.Close();
         }
+
+        private void frmConsultationAdherent_Load(object sender, EventArgs e)
+        {
+            /*if (dateTimeCotisations. > 1)
+            {
+                this.lblRetard.Visible = true;
+            }*/
+        }
     }
 }

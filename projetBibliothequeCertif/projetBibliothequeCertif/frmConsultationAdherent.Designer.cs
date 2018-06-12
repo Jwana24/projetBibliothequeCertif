@@ -124,6 +124,7 @@
             this.Controls.Add(this.grdLivresEmpruntes);
             this.Name = "frmConsultationAdherent";
             this.Text = "Consultation de l\'adherent";
+            this.Load += new System.EventHandler(this.frmConsultationAdherent_Load);
             this.Controls.SetChildIndex(this.grpCotisations, 0);
             this.Controls.SetChildIndex(this.lblDateNaissance, 0);
             this.Controls.SetChildIndex(this.dateTimeNaissance, 0);
