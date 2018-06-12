@@ -18,10 +18,12 @@ namespace projetBibliothequeCertif
             if(chkScolaires.Checked == true)
             {
                 grpScolarite.Visible = true;
+                chkAdultes.Visible = false;
             }
             else
             {
                 grpScolarite.Visible = false;
+                chkAdultes.Visible = true;
             }
         }
 
@@ -52,6 +54,7 @@ namespace projetBibliothequeCertif
                 lblDateNaissance.Visible = true;
                 dateTimeNaissance.Visible = true;
                 grpCotisations.Visible = true;
+                chkScolaires.Visible = false;
             }
             else
             {
@@ -78,6 +81,7 @@ namespace projetBibliothequeCertif
                 lblDateNaissance.Visible = false;
                 dateTimeNaissance.Visible = false;
                 grpCotisations.Visible = false;
+                chkScolaires.Visible = true;
             }
         }
 

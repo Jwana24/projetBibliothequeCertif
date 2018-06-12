@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMDI));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fichierStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nouvelAdherentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -61,7 +62,7 @@
             this.fichierStripMenuItem.Size = new System.Drawing.Size(64, 24);
             this.fichierStripMenuItem.Text = "Fichier";
             // 
-            // nouvelUsagerToolStripMenuItem
+            // nouvelAdherentToolStripMenuItem
             // 
             this.nouvelAdherentToolStripMenuItem.Name = "nouvelAdherentToolStripMenuItem";
             this.nouvelAdherentToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
@@ -94,14 +95,14 @@
             // listeDesAdherentsToolStripMenuItem
             // 
             this.listeDesAdherentsToolStripMenuItem.Name = "listeDesAdherentsToolStripMenuItem";
-            this.listeDesAdherentsToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.listeDesAdherentsToolStripMenuItem.Size = new System.Drawing.Size(210, 26);
             this.listeDesAdherentsToolStripMenuItem.Text = "Liste des adhérents";
             this.listeDesAdherentsToolStripMenuItem.Click += new System.EventHandler(this.listeDesAdherentsToolStripMenuItem_Click);
             // 
             // listeDesLivresToolStripMenuItem
             // 
             this.listeDesLivresToolStripMenuItem.Name = "listeDesLivresToolStripMenuItem";
-            this.listeDesLivresToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.listeDesLivresToolStripMenuItem.Size = new System.Drawing.Size(210, 26);
             this.listeDesLivresToolStripMenuItem.Text = "Liste des livres";
             this.listeDesLivresToolStripMenuItem.Click += new System.EventHandler(this.listeDesLivresToolStripMenuItem_Click);
             // 
@@ -109,6 +110,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(918, 596);
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
