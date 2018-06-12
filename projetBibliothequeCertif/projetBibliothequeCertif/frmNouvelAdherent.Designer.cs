@@ -43,101 +43,106 @@
             this.txtbEcole = new System.Windows.Forms.TextBox();
             this.lblClasse = new System.Windows.Forms.Label();
             this.lblEcole = new System.Windows.Forms.Label();
+            this.grpCotisations.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtbNom
             // 
-            this.txtbNom.Location = new System.Drawing.Point(111, 96);
+            this.txtbNom.Location = new System.Drawing.Point(111, 114);
             // 
             // txtbPrenom
             // 
-            this.txtbPrenom.Location = new System.Drawing.Point(111, 141);
+            this.txtbPrenom.Location = new System.Drawing.Point(111, 159);
             // 
             // txtbCodePostal
             // 
-            this.txtbCodePostal.Location = new System.Drawing.Point(111, 192);
+            this.txtbCodePostal.Location = new System.Drawing.Point(111, 210);
             // 
             // txtbVille
             // 
-            this.txtbVille.Location = new System.Drawing.Point(462, 192);
+            this.txtbVille.Location = new System.Drawing.Point(462, 210);
             // 
             // txtbAdresse
             // 
-            this.txtbAdresse.Location = new System.Drawing.Point(111, 242);
+            this.txtbAdresse.Location = new System.Drawing.Point(111, 260);
             // 
             // txtbComplAdresse
             // 
-            this.txtbComplAdresse.Location = new System.Drawing.Point(202, 291);
+            this.txtbComplAdresse.Location = new System.Drawing.Point(202, 309);
             // 
             // txtbEmail
             // 
-            this.txtbEmail.Location = new System.Drawing.Point(111, 385);
+            this.txtbEmail.Location = new System.Drawing.Point(111, 403);
             // 
             // txtbTelephone
             // 
-            this.txtbTelephone.Location = new System.Drawing.Point(111, 441);
+            this.txtbTelephone.Location = new System.Drawing.Point(111, 459);
             // 
             // dateTimeInscription
             // 
-            this.dateTimeInscription.Location = new System.Drawing.Point(202, 341);
+            this.dateTimeInscription.Location = new System.Drawing.Point(202, 359);
             // 
             // lblNom
             // 
-            this.lblNom.Location = new System.Drawing.Point(24, 96);
+            this.lblNom.Location = new System.Drawing.Point(24, 114);
             // 
             // lblPrenom
             // 
-            this.lblPrenom.Location = new System.Drawing.Point(24, 141);
+            this.lblPrenom.Location = new System.Drawing.Point(24, 159);
             // 
             // lblCodePostal
             // 
-            this.lblCodePostal.Location = new System.Drawing.Point(24, 192);
+            this.lblCodePostal.Location = new System.Drawing.Point(24, 210);
             // 
             // lblVille
             // 
-            this.lblVille.Location = new System.Drawing.Point(378, 192);
+            this.lblVille.Location = new System.Drawing.Point(378, 210);
             // 
             // lblAdresse1
             // 
-            this.lblAdresse1.Location = new System.Drawing.Point(24, 242);
+            this.lblAdresse1.Location = new System.Drawing.Point(24, 260);
             // 
             // lblAdresse2
             // 
-            this.lblAdresse2.Location = new System.Drawing.Point(24, 291);
+            this.lblAdresse2.Location = new System.Drawing.Point(24, 309);
             // 
             // lblDateInscription
             // 
-            this.lblDateInscription.Location = new System.Drawing.Point(24, 341);
+            this.lblDateInscription.Location = new System.Drawing.Point(24, 359);
             // 
             // lblEmail
             // 
-            this.lblEmail.Location = new System.Drawing.Point(24, 385);
+            this.lblEmail.Location = new System.Drawing.Point(24, 403);
             // 
             // lblTelephone
             // 
-            this.lblTelephone.Location = new System.Drawing.Point(24, 441);
+            this.lblTelephone.Location = new System.Drawing.Point(24, 459);
             // 
             // lblDateNaissance
             // 
-            this.lblDateNaissance.Location = new System.Drawing.Point(24, 490);
+            this.lblDateNaissance.Location = new System.Drawing.Point(24, 508);
             // 
             // dateTimeNaissance
             // 
-            this.dateTimeNaissance.Location = new System.Drawing.Point(202, 490);
+            this.dateTimeNaissance.Location = new System.Drawing.Point(202, 508);
             // 
             // lblNumAdherent
             // 
-            this.lblNumAdherent.Location = new System.Drawing.Point(24, 61);
+            this.lblNumAdherent.Location = new System.Drawing.Point(24, 66);
             // 
             // txtbNumAdherent
             // 
-            this.txtbNumAdherent.Location = new System.Drawing.Point(202, 61);
+            this.txtbNumAdherent.Location = new System.Drawing.Point(202, 66);
+            // 
+            // grpCotisations
+            // 
+            this.grpCotisations.Location = new System.Drawing.Point(550, 56);
             // 
             // btnAnnuler
             // 
             this.btnAnnuler.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnAnnuler.Location = new System.Drawing.Point(678, 531);
+            this.btnAnnuler.Location = new System.Drawing.Point(792, 548);
             this.btnAnnuler.Name = "btnAnnuler";
             this.btnAnnuler.Size = new System.Drawing.Size(75, 29);
             this.btnAnnuler.TabIndex = 19;
@@ -147,7 +152,7 @@
             // 
             // btnOK
             // 
-            this.btnOK.Location = new System.Drawing.Point(597, 531);
+            this.btnOK.Location = new System.Drawing.Point(711, 548);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(61, 29);
             this.btnOK.TabIndex = 20;
@@ -158,7 +163,7 @@
             // chkAdultes
             // 
             this.chkAdultes.AutoSize = true;
-            this.chkAdultes.Location = new System.Drawing.Point(202, 12);
+            this.chkAdultes.Location = new System.Drawing.Point(282, 29);
             this.chkAdultes.Name = "chkAdultes";
             this.chkAdultes.Size = new System.Drawing.Size(76, 21);
             this.chkAdultes.TabIndex = 22;
@@ -168,7 +173,7 @@
             // chkScolaires
             // 
             this.chkScolaires.AutoSize = true;
-            this.chkScolaires.Location = new System.Drawing.Point(478, 12);
+            this.chkScolaires.Location = new System.Drawing.Point(558, 29);
             this.chkScolaires.Name = "chkScolaires";
             this.chkScolaires.Size = new System.Drawing.Size(86, 21);
             this.chkScolaires.TabIndex = 24;
@@ -188,9 +193,9 @@
             this.groupBox1.Controls.Add(this.lblClasse);
             this.groupBox1.Controls.Add(this.lblEcole);
             this.groupBox1.Enabled = false;
-            this.groupBox1.Location = new System.Drawing.Point(27, 61);
+            this.groupBox1.Location = new System.Drawing.Point(27, 56);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(744, 457);
+            this.groupBox1.Size = new System.Drawing.Size(857, 474);
             this.groupBox1.TabIndex = 25;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Scolarité";
@@ -286,7 +291,7 @@
             this.AcceptButton = this.btnOK;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.CancelButton = this.btnAnnuler;
-            this.ClientSize = new System.Drawing.Size(800, 589);
+            this.ClientSize = new System.Drawing.Size(911, 606);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.chkScolaires);
             this.Controls.Add(this.chkAdultes);
@@ -294,6 +299,7 @@
             this.Controls.Add(this.btnAnnuler);
             this.Name = "frmNouvelAdherent";
             this.Text = "Nouvel adhérent";
+            this.Controls.SetChildIndex(this.grpCotisations, 0);
             this.Controls.SetChildIndex(this.lblNumAdherent, 0);
             this.Controls.SetChildIndex(this.txtbNumAdherent, 0);
             this.Controls.SetChildIndex(this.lblDateNaissance, 0);
@@ -321,6 +327,8 @@
             this.Controls.SetChildIndex(this.txtbTelephone, 0);
             this.Controls.SetChildIndex(this.dateTimeInscription, 0);
             this.Controls.SetChildIndex(this.groupBox1, 0);
+            this.grpCotisations.ResumeLayout(false);
+            this.grpCotisations.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

@@ -40,49 +40,57 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Location = new System.Drawing.Point(28, 27);
+            this.groupBox1.Location = new System.Drawing.Point(28, 17);
             this.groupBox1.Size = new System.Drawing.Size(744, 328);
             // 
             // txtbPrenomProf
             // 
-            this.txtbPrenomProf.Location = new System.Drawing.Point(247, 267);
+            this.txtbPrenomProf.Location = new System.Drawing.Point(247, 287);
             // 
             // txtbNomProf
             // 
-            this.txtbNomProf.Location = new System.Drawing.Point(247, 210);
+            this.txtbNomProf.Location = new System.Drawing.Point(247, 239);
             // 
             // lblPrenomProf
             // 
-            this.lblPrenomProf.Location = new System.Drawing.Point(57, 267);
+            this.lblPrenomProf.Location = new System.Drawing.Point(57, 287);
             // 
             // lblNomProf
             // 
-            this.lblNomProf.Location = new System.Drawing.Point(57, 210);
+            this.lblNomProf.Location = new System.Drawing.Point(57, 239);
             // 
             // txtbVilleEcole
             // 
-            this.txtbVilleEcole.Location = new System.Drawing.Point(138, 52);
+            this.txtbVilleEcole.Location = new System.Drawing.Point(138, 40);
             // 
             // lblVilleEcole
             // 
-            this.lblVilleEcole.Location = new System.Drawing.Point(57, 52);
+            this.lblVilleEcole.Location = new System.Drawing.Point(57, 40);
             // 
             // cbbClasse
             // 
-            this.cbbClasse.Location = new System.Drawing.Point(138, 148);
+            this.cbbClasse.Location = new System.Drawing.Point(138, 189);
             this.cbbClasse.Size = new System.Drawing.Size(125, 24);
             // 
             // txtbEcole
             // 
-            this.txtbEcole.Location = new System.Drawing.Point(247, 97);
+            this.txtbEcole.Location = new System.Drawing.Point(247, 140);
             // 
             // lblClasse
             // 
-            this.lblClasse.Location = new System.Drawing.Point(54, 151);
+            this.lblClasse.Location = new System.Drawing.Point(57, 189);
             // 
             // lblEcole
             // 
-            this.lblEcole.Location = new System.Drawing.Point(54, 97);
+            this.lblEcole.Location = new System.Drawing.Point(57, 140);
+            // 
+            // txtbCodeSco
+            // 
+            this.txtbCodeSco.Location = new System.Drawing.Point(189, 89);
+            // 
+            // lblCode
+            // 
+            this.lblCode.Location = new System.Drawing.Point(57, 89);
             // 
             // btnModifierScolaire
             // 

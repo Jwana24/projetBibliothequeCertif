@@ -50,6 +50,11 @@
             this.dateTimeNaissance = new System.Windows.Forms.DateTimePicker();
             this.lblNumAdherent = new System.Windows.Forms.Label();
             this.txtbNumAdherent = new System.Windows.Forms.TextBox();
+            this.grpCotisations = new System.Windows.Forms.GroupBox();
+            this.lblRetard = new System.Windows.Forms.Label();
+            this.dateTimeCotisations = new System.Windows.Forms.DateTimePicker();
+            this.lblCotisations = new System.Windows.Forms.Label();
+            this.grpCotisations.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblNom
@@ -228,11 +233,52 @@
             this.txtbNumAdherent.Size = new System.Drawing.Size(331, 22);
             this.txtbNumAdherent.TabIndex = 21;
             // 
+            // grpCotisations
+            // 
+            this.grpCotisations.Controls.Add(this.lblRetard);
+            this.grpCotisations.Controls.Add(this.dateTimeCotisations);
+            this.grpCotisations.Controls.Add(this.lblCotisations);
+            this.grpCotisations.Location = new System.Drawing.Point(550, 32);
+            this.grpCotisations.Name = "grpCotisations";
+            this.grpCotisations.Size = new System.Drawing.Size(319, 147);
+            this.grpCotisations.TabIndex = 22;
+            this.grpCotisations.TabStop = false;
+            this.grpCotisations.Text = "Cotisations";
+            // 
+            // lblRetard
+            // 
+            this.lblRetard.AutoSize = true;
+            this.lblRetard.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRetard.ForeColor = System.Drawing.Color.Red;
+            this.lblRetard.Location = new System.Drawing.Point(37, 107);
+            this.lblRetard.Name = "lblRetard";
+            this.lblRetard.Size = new System.Drawing.Size(245, 24);
+            this.lblRetard.TabIndex = 2;
+            this.lblRetard.Text = "En retard dans la cotisation !";
+            // 
+            // dateTimeCotisations
+            // 
+            this.dateTimeCotisations.Location = new System.Drawing.Point(26, 68);
+            this.dateTimeCotisations.Name = "dateTimeCotisations";
+            this.dateTimeCotisations.Size = new System.Drawing.Size(257, 22);
+            this.dateTimeCotisations.TabIndex = 1;
+            // 
+            // lblCotisations
+            // 
+            this.lblCotisations.AutoSize = true;
+            this.lblCotisations.Location = new System.Drawing.Point(23, 33);
+            this.lblCotisations.Name = "lblCotisations";
+            this.lblCotisations.Size = new System.Drawing.Size(80, 17);
+            this.lblCotisations.TabIndex = 0;
+            this.lblCotisations.Text = "à cotisé le :";
+            this.lblCotisations.Click += new System.EventHandler(this.label1_Click);
+            // 
             // frmAdherents
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 562);
+            this.ClientSize = new System.Drawing.Size(897, 562);
+            this.Controls.Add(this.grpCotisations);
             this.Controls.Add(this.txtbNumAdherent);
             this.Controls.Add(this.lblNumAdherent);
             this.Controls.Add(this.dateTimeNaissance);
@@ -257,6 +303,8 @@
             this.Controls.Add(this.lblNom);
             this.Name = "frmAdherents";
             this.Text = "Adhérents";
+            this.grpCotisations.ResumeLayout(false);
+            this.grpCotisations.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -285,5 +333,9 @@
         protected System.Windows.Forms.DateTimePicker dateTimeNaissance;
         protected System.Windows.Forms.Label lblNumAdherent;
         protected System.Windows.Forms.TextBox txtbNumAdherent;
+        protected System.Windows.Forms.GroupBox grpCotisations;
+        protected System.Windows.Forms.Label lblCotisations;
+        protected System.Windows.Forms.Label lblRetard;
+        protected System.Windows.Forms.DateTimePicker dateTimeCotisations;
     }
 }

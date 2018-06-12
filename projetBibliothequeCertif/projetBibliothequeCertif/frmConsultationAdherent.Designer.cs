@@ -34,8 +34,25 @@
             this.btnSupprimerLivre = new System.Windows.Forms.Button();
             this.btnModifierAdherent = new System.Windows.Forms.Button();
             this.btnAjouterLivre = new System.Windows.Forms.Button();
+            this.grpCotisations.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdLivresEmpruntes)).BeginInit();
             this.SuspendLayout();
+            // 
+            // txtbVille
+            // 
+            this.txtbVille.Size = new System.Drawing.Size(407, 22);
+            // 
+            // txtbAdresse
+            // 
+            this.txtbAdresse.Size = new System.Drawing.Size(758, 22);
+            // 
+            // txtbComplAdresse
+            // 
+            this.txtbComplAdresse.Size = new System.Drawing.Size(667, 22);
+            // 
+            // txtbEmail
+            // 
+            this.txtbEmail.Size = new System.Drawing.Size(758, 22);
             // 
             // grdLivresEmpruntes
             // 
@@ -43,7 +60,7 @@
             this.grdLivresEmpruntes.Location = new System.Drawing.Point(27, 570);
             this.grdLivresEmpruntes.Name = "grdLivresEmpruntes";
             this.grdLivresEmpruntes.RowTemplate.Height = 24;
-            this.grdLivresEmpruntes.Size = new System.Drawing.Size(726, 204);
+            this.grdLivresEmpruntes.Size = new System.Drawing.Size(842, 204);
             this.grdLivresEmpruntes.TabIndex = 18;
             // 
             // lblLivresEmprunt
@@ -57,7 +74,7 @@
             // 
             // btnFermer
             // 
-            this.btnFermer.Location = new System.Drawing.Point(668, 815);
+            this.btnFermer.Location = new System.Drawing.Point(784, 822);
             this.btnFermer.Name = "btnFermer";
             this.btnFermer.Size = new System.Drawing.Size(85, 29);
             this.btnFermer.TabIndex = 22;
@@ -77,7 +94,7 @@
             // 
             // btnModifierAdherent
             // 
-            this.btnModifierAdherent.Location = new System.Drawing.Point(621, 424);
+            this.btnModifierAdherent.Location = new System.Drawing.Point(737, 435);
             this.btnModifierAdherent.Name = "btnModifierAdherent";
             this.btnModifierAdherent.Size = new System.Drawing.Size(132, 29);
             this.btnModifierAdherent.TabIndex = 24;
@@ -98,7 +115,7 @@
             // frmConsultationAdherent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.ClientSize = new System.Drawing.Size(789, 863);
+            this.ClientSize = new System.Drawing.Size(905, 863);
             this.Controls.Add(this.btnAjouterLivre);
             this.Controls.Add(this.btnModifierAdherent);
             this.Controls.Add(this.btnSupprimerLivre);
@@ -107,6 +124,7 @@
             this.Controls.Add(this.grdLivresEmpruntes);
             this.Name = "frmConsultationAdherent";
             this.Text = "Consultation de l\'adherent";
+            this.Controls.SetChildIndex(this.grpCotisations, 0);
             this.Controls.SetChildIndex(this.lblDateNaissance, 0);
             this.Controls.SetChildIndex(this.dateTimeNaissance, 0);
             this.Controls.SetChildIndex(this.lblNumAdherent, 0);
@@ -135,6 +153,8 @@
             this.Controls.SetChildIndex(this.btnSupprimerLivre, 0);
             this.Controls.SetChildIndex(this.btnModifierAdherent, 0);
             this.Controls.SetChildIndex(this.btnAjouterLivre, 0);
+            this.grpCotisations.ResumeLayout(false);
+            this.grpCotisations.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdLivresEmpruntes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

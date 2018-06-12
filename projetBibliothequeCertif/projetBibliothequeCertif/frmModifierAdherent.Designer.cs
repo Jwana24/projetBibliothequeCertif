@@ -31,6 +31,7 @@
             this.btnFermer = new System.Windows.Forms.Button();
             this.btnOK = new System.Windows.Forms.Button();
             this.btnEffacer = new System.Windows.Forms.Button();
+            this.grpCotisations.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtbNom
@@ -121,9 +122,13 @@
             // 
             this.txtbNumAdherent.Location = new System.Drawing.Point(202, 31);
             // 
+            // grpCotisations
+            // 
+            this.grpCotisations.Location = new System.Drawing.Point(550, 23);
+            // 
             // btnFermer
             // 
-            this.btnFermer.Location = new System.Drawing.Point(668, 545);
+            this.btnFermer.Location = new System.Drawing.Point(788, 540);
             this.btnFermer.Name = "btnFermer";
             this.btnFermer.Size = new System.Drawing.Size(85, 29);
             this.btnFermer.TabIndex = 26;
@@ -133,7 +138,7 @@
             // 
             // btnOK
             // 
-            this.btnOK.Location = new System.Drawing.Point(598, 545);
+            this.btnOK.Location = new System.Drawing.Point(718, 540);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(57, 29);
             this.btnOK.TabIndex = 28;
@@ -143,7 +148,7 @@
             // 
             // btnEffacer
             // 
-            this.btnEffacer.Location = new System.Drawing.Point(430, 545);
+            this.btnEffacer.Location = new System.Drawing.Point(550, 540);
             this.btnEffacer.Name = "btnEffacer";
             this.btnEffacer.Size = new System.Drawing.Size(154, 29);
             this.btnEffacer.TabIndex = 34;
@@ -155,12 +160,13 @@
             // 
             this.AcceptButton = this.btnOK;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.ClientSize = new System.Drawing.Size(800, 597);
+            this.ClientSize = new System.Drawing.Size(896, 586);
             this.Controls.Add(this.btnEffacer);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.btnFermer);
             this.Name = "frmModifierAdherent";
             this.Text = "Modifier l\'adhérent : ";
+            this.Controls.SetChildIndex(this.grpCotisations, 0);
             this.Controls.SetChildIndex(this.lblNumAdherent, 0);
             this.Controls.SetChildIndex(this.txtbNumAdherent, 0);
             this.Controls.SetChildIndex(this.btnFermer, 0);
@@ -186,6 +192,8 @@
             this.Controls.SetChildIndex(this.txtbEmail, 0);
             this.Controls.SetChildIndex(this.txtbTelephone, 0);
             this.Controls.SetChildIndex(this.dateTimeInscription, 0);
+            this.grpCotisations.ResumeLayout(false);
+            this.grpCotisations.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
