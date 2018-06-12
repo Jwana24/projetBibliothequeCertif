@@ -32,7 +32,7 @@
             this.btnOK = new System.Windows.Forms.Button();
             this.chkAdultes = new System.Windows.Forms.CheckBox();
             this.chkScolaires = new System.Windows.Forms.CheckBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.grpScolarite = new System.Windows.Forms.GroupBox();
             this.txtbPrenomProf = new System.Windows.Forms.TextBox();
             this.txtbNomProf = new System.Windows.Forms.TextBox();
             this.lblPrenomProf = new System.Windows.Forms.Label();
@@ -44,7 +44,7 @@
             this.lblClasse = new System.Windows.Forms.Label();
             this.lblEcole = new System.Windows.Forms.Label();
             this.grpCotisations.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.grpScolarite.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtbNom
@@ -200,6 +200,7 @@
             this.chkAdultes.TabIndex = 22;
             this.chkAdultes.Text = "adultes";
             this.chkAdultes.UseVisualStyleBackColor = true;
+            this.chkAdultes.CheckedChanged += new System.EventHandler(this.chkAdultes_CheckedChanged);
             // 
             // chkScolaires
             // 
@@ -210,27 +211,27 @@
             this.chkScolaires.TabIndex = 24;
             this.chkScolaires.Text = "scolaires";
             this.chkScolaires.UseVisualStyleBackColor = true;
+            this.chkScolaires.CheckedChanged += new System.EventHandler(this.chkScolaires_CheckedChanged);
             // 
-            // groupBox1
+            // grpScolarite
             // 
-            this.groupBox1.Controls.Add(this.txtbPrenomProf);
-            this.groupBox1.Controls.Add(this.txtbNomProf);
-            this.groupBox1.Controls.Add(this.lblPrenomProf);
-            this.groupBox1.Controls.Add(this.lblNomProf);
-            this.groupBox1.Controls.Add(this.txtbVilleEcole);
-            this.groupBox1.Controls.Add(this.lblVilleEcole);
-            this.groupBox1.Controls.Add(this.cbbClasse);
-            this.groupBox1.Controls.Add(this.txtbEcole);
-            this.groupBox1.Controls.Add(this.lblClasse);
-            this.groupBox1.Controls.Add(this.lblEcole);
-            this.groupBox1.Enabled = false;
-            this.groupBox1.Location = new System.Drawing.Point(27, 56);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(857, 474);
-            this.groupBox1.TabIndex = 25;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Scolarité";
-            this.groupBox1.Visible = false;
+            this.grpScolarite.Controls.Add(this.txtbPrenomProf);
+            this.grpScolarite.Controls.Add(this.txtbNomProf);
+            this.grpScolarite.Controls.Add(this.lblPrenomProf);
+            this.grpScolarite.Controls.Add(this.lblNomProf);
+            this.grpScolarite.Controls.Add(this.txtbVilleEcole);
+            this.grpScolarite.Controls.Add(this.lblVilleEcole);
+            this.grpScolarite.Controls.Add(this.cbbClasse);
+            this.grpScolarite.Controls.Add(this.txtbEcole);
+            this.grpScolarite.Controls.Add(this.lblClasse);
+            this.grpScolarite.Controls.Add(this.lblEcole);
+            this.grpScolarite.Location = new System.Drawing.Point(27, 56);
+            this.grpScolarite.Name = "grpScolarite";
+            this.grpScolarite.Size = new System.Drawing.Size(857, 474);
+            this.grpScolarite.TabIndex = 25;
+            this.grpScolarite.TabStop = false;
+            this.grpScolarite.Text = "Scolarité";
+            this.grpScolarite.Visible = false;
             // 
             // txtbPrenomProf
             // 
@@ -324,13 +325,14 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.CancelButton = this.btnAnnuler;
             this.ClientSize = new System.Drawing.Size(911, 606);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.grpScolarite);
             this.Controls.Add(this.chkScolaires);
             this.Controls.Add(this.chkAdultes);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.btnAnnuler);
             this.Name = "frmNouvelAdherent";
             this.Text = "Nouvel adhérent";
+            this.Load += new System.EventHandler(this.frmNouvelAdherent_Load);
             this.Controls.SetChildIndex(this.grpCotisations, 0);
             this.Controls.SetChildIndex(this.lblNumAdherent, 0);
             this.Controls.SetChildIndex(this.txtbNumAdherent, 0);
@@ -358,11 +360,11 @@
             this.Controls.SetChildIndex(this.txtbEmail, 0);
             this.Controls.SetChildIndex(this.txtbTelephone, 0);
             this.Controls.SetChildIndex(this.dateTimeInscription, 0);
-            this.Controls.SetChildIndex(this.groupBox1, 0);
+            this.Controls.SetChildIndex(this.grpScolarite, 0);
             this.grpCotisations.ResumeLayout(false);
             this.grpCotisations.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.grpScolarite.ResumeLayout(false);
+            this.grpScolarite.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -373,7 +375,7 @@
         private System.Windows.Forms.Button btnOK;
         private System.Windows.Forms.CheckBox chkAdultes;
         private System.Windows.Forms.CheckBox chkScolaires;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox grpScolarite;
         private System.Windows.Forms.ComboBox cbbClasse;
         private System.Windows.Forms.TextBox txtbEcole;
         private System.Windows.Forms.Label lblClasse;

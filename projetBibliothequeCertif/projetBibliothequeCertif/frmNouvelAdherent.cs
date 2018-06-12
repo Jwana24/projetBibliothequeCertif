@@ -13,6 +13,79 @@ namespace projetBibliothequeCertif
         Int32 leNumero;
         String leNom, lePrenom, leCodePostal, laVille, uneAdresse1, uneAdresse2, leTelephone;
 
+        private void chkScolaires_CheckedChanged(object sender, EventArgs e)
+        {
+            if(chkScolaires.Checked == true)
+            {
+                grpScolarite.Visible = true;
+            }
+            else
+            {
+                grpScolarite.Visible = false;
+            }
+        }
+
+        private void chkAdultes_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkAdultes.Checked == true)
+            {
+                lblNumAdherent.Visible = true;
+                txtbNumAdherent.Visible = true;
+                lblNom.Visible = true;
+                txtbNom.Visible = true;
+                lblPrenom.Visible = true;
+                txtbPrenom.Visible = true;
+                lblCodePostal.Visible = true;
+                txtbCodePostal.Visible = true;
+                lblVille.Visible = true;
+                txtbVille.Visible = true;
+                lblAdresse1.Visible = true;
+                txtbAdresse.Visible = true;
+                lblAdresse2.Visible = true;
+                txtbComplAdresse.Visible = true;
+                lblDateInscription.Visible = true;
+                dateTimeInscription.Visible = true;
+                lblEmail.Visible = true;
+                txtbEmail.Visible = true;
+                lblTelephone.Visible = true;
+                txtbTelephone.Visible = true;
+                lblDateNaissance.Visible = true;
+                dateTimeNaissance.Visible = true;
+                grpCotisations.Visible = true;
+            }
+            else
+            {
+                lblNumAdherent.Visible = false;
+                txtbNumAdherent.Visible = false;
+                lblNom.Visible = false;
+                txtbNom.Visible = false;
+                lblPrenom.Visible = false;
+                txtbPrenom.Visible = false;
+                lblCodePostal.Visible = false;
+                txtbCodePostal.Visible = false;
+                lblVille.Visible = false;
+                txtbVille.Visible = false;
+                lblAdresse1.Visible = false;
+                txtbAdresse.Visible = false;
+                lblAdresse2.Visible = false;
+                txtbComplAdresse.Visible = false;
+                lblDateInscription.Visible = false;
+                dateTimeInscription.Visible = false;
+                lblEmail.Visible = false;
+                txtbEmail.Visible = false;
+                lblTelephone.Visible = false;
+                txtbTelephone.Visible = false;
+                lblDateNaissance.Visible = false;
+                dateTimeNaissance.Visible = false;
+                grpCotisations.Visible = false;
+            }
+        }
+
+        private void frmNouvelAdherent_Load(object sender, EventArgs e)
+        {
+            
+        }
+
         public frmNouvelAdherent()
         {
             InitializeComponent();
