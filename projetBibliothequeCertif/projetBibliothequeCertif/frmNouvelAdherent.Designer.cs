@@ -50,94 +50,125 @@
             // txtbNom
             // 
             this.txtbNom.Location = new System.Drawing.Point(111, 114);
+            this.txtbNom.Visible = false;
             // 
             // txtbPrenom
             // 
             this.txtbPrenom.Location = new System.Drawing.Point(111, 159);
+            this.txtbPrenom.Visible = false;
             // 
             // txtbCodePostal
             // 
             this.txtbCodePostal.Location = new System.Drawing.Point(111, 210);
+            this.txtbCodePostal.Visible = false;
             // 
             // txtbVille
             // 
             this.txtbVille.Location = new System.Drawing.Point(462, 210);
+            this.txtbVille.Size = new System.Drawing.Size(405, 22);
+            this.txtbVille.Visible = false;
             // 
             // txtbAdresse
             // 
             this.txtbAdresse.Location = new System.Drawing.Point(111, 260);
+            this.txtbAdresse.Size = new System.Drawing.Size(758, 22);
+            this.txtbAdresse.Visible = false;
             // 
             // txtbComplAdresse
             // 
             this.txtbComplAdresse.Location = new System.Drawing.Point(202, 309);
+            this.txtbComplAdresse.Size = new System.Drawing.Size(665, 22);
+            this.txtbComplAdresse.Visible = false;
             // 
             // txtbEmail
             // 
             this.txtbEmail.Location = new System.Drawing.Point(111, 403);
+            this.txtbEmail.Size = new System.Drawing.Size(756, 22);
+            this.txtbEmail.Visible = false;
             // 
             // txtbTelephone
             // 
             this.txtbTelephone.Location = new System.Drawing.Point(111, 459);
+            this.txtbTelephone.Visible = false;
             // 
             // dateTimeInscription
             // 
             this.dateTimeInscription.Location = new System.Drawing.Point(202, 359);
+            this.dateTimeInscription.Visible = false;
             // 
             // lblNom
             // 
             this.lblNom.Location = new System.Drawing.Point(24, 114);
+            this.lblNom.Visible = false;
             // 
             // lblPrenom
             // 
             this.lblPrenom.Location = new System.Drawing.Point(24, 159);
+            this.lblPrenom.Visible = false;
             // 
             // lblCodePostal
             // 
             this.lblCodePostal.Location = new System.Drawing.Point(24, 210);
+            this.lblCodePostal.Visible = false;
             // 
             // lblVille
             // 
             this.lblVille.Location = new System.Drawing.Point(378, 210);
+            this.lblVille.Visible = false;
             // 
             // lblAdresse1
             // 
             this.lblAdresse1.Location = new System.Drawing.Point(24, 260);
+            this.lblAdresse1.Visible = false;
             // 
             // lblAdresse2
             // 
             this.lblAdresse2.Location = new System.Drawing.Point(24, 309);
+            this.lblAdresse2.Visible = false;
             // 
             // lblDateInscription
             // 
             this.lblDateInscription.Location = new System.Drawing.Point(24, 359);
+            this.lblDateInscription.Visible = false;
             // 
             // lblEmail
             // 
             this.lblEmail.Location = new System.Drawing.Point(24, 403);
+            this.lblEmail.Visible = false;
             // 
             // lblTelephone
             // 
             this.lblTelephone.Location = new System.Drawing.Point(24, 459);
+            this.lblTelephone.Visible = false;
             // 
             // lblDateNaissance
             // 
             this.lblDateNaissance.Location = new System.Drawing.Point(24, 508);
+            this.lblDateNaissance.Visible = false;
             // 
             // dateTimeNaissance
             // 
             this.dateTimeNaissance.Location = new System.Drawing.Point(202, 508);
+            this.dateTimeNaissance.Visible = false;
             // 
             // lblNumAdherent
             // 
             this.lblNumAdherent.Location = new System.Drawing.Point(24, 66);
+            this.lblNumAdherent.Visible = false;
             // 
             // txtbNumAdherent
             // 
             this.txtbNumAdherent.Location = new System.Drawing.Point(202, 66);
+            this.txtbNumAdherent.Visible = false;
             // 
             // grpCotisations
             // 
             this.grpCotisations.Location = new System.Drawing.Point(550, 56);
+            this.grpCotisations.Visible = false;
+            // 
+            // lblRetard
+            // 
+            this.lblRetard.Visible = false;
             // 
             // btnAnnuler
             // 
@@ -163,7 +194,7 @@
             // chkAdultes
             // 
             this.chkAdultes.AutoSize = true;
-            this.chkAdultes.Location = new System.Drawing.Point(282, 29);
+            this.chkAdultes.Location = new System.Drawing.Point(282, 26);
             this.chkAdultes.Name = "chkAdultes";
             this.chkAdultes.Size = new System.Drawing.Size(76, 21);
             this.chkAdultes.TabIndex = 22;
@@ -173,7 +204,7 @@
             // chkScolaires
             // 
             this.chkScolaires.AutoSize = true;
-            this.chkScolaires.Location = new System.Drawing.Point(558, 29);
+            this.chkScolaires.Location = new System.Drawing.Point(558, 26);
             this.chkScolaires.Name = "chkScolaires";
             this.chkScolaires.Size = new System.Drawing.Size(86, 21);
             this.chkScolaires.TabIndex = 24;
@@ -199,6 +230,7 @@
             this.groupBox1.TabIndex = 25;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Scolarité";
+            this.groupBox1.Visible = false;
             // 
             // txtbPrenomProf
             // 
