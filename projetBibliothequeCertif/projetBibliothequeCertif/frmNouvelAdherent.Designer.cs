@@ -30,7 +30,7 @@
         {
             this.btnAnnuler = new System.Windows.Forms.Button();
             this.btnOK = new System.Windows.Forms.Button();
-            this.chkAdultes = new System.Windows.Forms.CheckBox();
+            this.chkParticuliers = new System.Windows.Forms.CheckBox();
             this.chkScolaires = new System.Windows.Forms.CheckBox();
             this.grpScolarite = new System.Windows.Forms.GroupBox();
             this.txtbPrenomProf = new System.Windows.Forms.TextBox();
@@ -163,8 +163,9 @@
             // 
             // grpCotisations
             // 
-            this.grpCotisations.Location = new System.Drawing.Point(550, 56);
+            this.grpCotisations.Location = new System.Drawing.Point(550, 57);
             this.grpCotisations.Visible = false;
+            this.grpCotisations.Enter += new System.EventHandler(this.grpCotisations_Enter);
             // 
             // lblRetard
             // 
@@ -191,16 +192,16 @@
             this.btnOK.UseVisualStyleBackColor = true;
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
-            // chkAdultes
+            // chkParticuliers
             // 
-            this.chkAdultes.AutoSize = true;
-            this.chkAdultes.Location = new System.Drawing.Point(282, 26);
-            this.chkAdultes.Name = "chkAdultes";
-            this.chkAdultes.Size = new System.Drawing.Size(76, 21);
-            this.chkAdultes.TabIndex = 22;
-            this.chkAdultes.Text = "adultes";
-            this.chkAdultes.UseVisualStyleBackColor = true;
-            this.chkAdultes.CheckedChanged += new System.EventHandler(this.chkAdultes_CheckedChanged);
+            this.chkParticuliers.AutoSize = true;
+            this.chkParticuliers.Location = new System.Drawing.Point(282, 26);
+            this.chkParticuliers.Name = "chkParticuliers";
+            this.chkParticuliers.Size = new System.Drawing.Size(99, 21);
+            this.chkParticuliers.TabIndex = 22;
+            this.chkParticuliers.Text = "particuliers";
+            this.chkParticuliers.UseVisualStyleBackColor = true;
+            this.chkParticuliers.CheckedChanged += new System.EventHandler(this.chkParticuliers_CheckedChanged);
             // 
             // chkScolaires
             // 
@@ -225,7 +226,7 @@
             this.grpScolarite.Controls.Add(this.txtbEcole);
             this.grpScolarite.Controls.Add(this.lblClasse);
             this.grpScolarite.Controls.Add(this.lblEcole);
-            this.grpScolarite.Location = new System.Drawing.Point(27, 56);
+            this.grpScolarite.Location = new System.Drawing.Point(27, 57);
             this.grpScolarite.Name = "grpScolarite";
             this.grpScolarite.Size = new System.Drawing.Size(857, 474);
             this.grpScolarite.TabIndex = 25;
@@ -327,7 +328,7 @@
             this.ClientSize = new System.Drawing.Size(911, 606);
             this.Controls.Add(this.grpScolarite);
             this.Controls.Add(this.chkScolaires);
-            this.Controls.Add(this.chkAdultes);
+            this.Controls.Add(this.chkParticuliers);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.btnAnnuler);
             this.Name = "frmNouvelAdherent";
@@ -340,7 +341,7 @@
             this.Controls.SetChildIndex(this.dateTimeNaissance, 0);
             this.Controls.SetChildIndex(this.btnAnnuler, 0);
             this.Controls.SetChildIndex(this.btnOK, 0);
-            this.Controls.SetChildIndex(this.chkAdultes, 0);
+            this.Controls.SetChildIndex(this.chkParticuliers, 0);
             this.Controls.SetChildIndex(this.chkScolaires, 0);
             this.Controls.SetChildIndex(this.lblNom, 0);
             this.Controls.SetChildIndex(this.lblPrenom, 0);
@@ -373,7 +374,7 @@
         #endregion
         private System.Windows.Forms.Button btnAnnuler;
         private System.Windows.Forms.Button btnOK;
-        private System.Windows.Forms.CheckBox chkAdultes;
+        private System.Windows.Forms.CheckBox chkParticuliers;
         private System.Windows.Forms.CheckBox chkScolaires;
         private System.Windows.Forms.GroupBox grpScolarite;
         private System.Windows.Forms.ComboBox cbbClasse;

@@ -52,8 +52,8 @@
             this.txtbNumAdherent = new System.Windows.Forms.TextBox();
             this.grpCotisations = new System.Windows.Forms.GroupBox();
             this.lblRetard = new System.Windows.Forms.Label();
-            this.dateTimeCotisations = new System.Windows.Forms.DateTimePicker();
             this.lblCotisations = new System.Windows.Forms.Label();
+            this.mtxtbCotisation = new System.Windows.Forms.MaskedTextBox();
             this.grpCotisations.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -235,8 +235,8 @@
             // 
             // grpCotisations
             // 
+            this.grpCotisations.Controls.Add(this.mtxtbCotisation);
             this.grpCotisations.Controls.Add(this.lblRetard);
-            this.grpCotisations.Controls.Add(this.dateTimeCotisations);
             this.grpCotisations.Controls.Add(this.lblCotisations);
             this.grpCotisations.Location = new System.Drawing.Point(550, 32);
             this.grpCotisations.Name = "grpCotisations";
@@ -256,13 +256,6 @@
             this.lblRetard.TabIndex = 2;
             this.lblRetard.Text = "En retard dans la cotisation !";
             // 
-            // dateTimeCotisations
-            // 
-            this.dateTimeCotisations.Location = new System.Drawing.Point(26, 68);
-            this.dateTimeCotisations.Name = "dateTimeCotisations";
-            this.dateTimeCotisations.Size = new System.Drawing.Size(257, 22);
-            this.dateTimeCotisations.TabIndex = 1;
-            // 
             // lblCotisations
             // 
             this.lblCotisations.AutoSize = true;
@@ -272,6 +265,15 @@
             this.lblCotisations.TabIndex = 0;
             this.lblCotisations.Text = "à cotisé le :";
             this.lblCotisations.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // mtxtbCotisation
+            // 
+            this.mtxtbCotisation.Location = new System.Drawing.Point(41, 70);
+            this.mtxtbCotisation.Mask = "00/00/0000";
+            this.mtxtbCotisation.Name = "mtxtbCotisation";
+            this.mtxtbCotisation.Size = new System.Drawing.Size(241, 22);
+            this.mtxtbCotisation.TabIndex = 3;
+            this.mtxtbCotisation.ValidatingType = typeof(System.DateTime);
             // 
             // frmAdherents
             // 
@@ -336,6 +338,6 @@
         protected System.Windows.Forms.GroupBox grpCotisations;
         protected System.Windows.Forms.Label lblCotisations;
         protected System.Windows.Forms.Label lblRetard;
-        protected System.Windows.Forms.DateTimePicker dateTimeCotisations;
+        private System.Windows.Forms.MaskedTextBox mtxtbCotisation;
     }
 }

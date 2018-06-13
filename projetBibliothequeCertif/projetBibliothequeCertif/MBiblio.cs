@@ -44,10 +44,10 @@ namespace projetBibliothequeCertif
         }
 
         // renvoit un booléen si le livre recherché est disponible ou non
-        public bool isBookAvailable(string isbn, bool dispo)
+        public bool isBookAvailable(string isbn, bool L)
         {
             RechercheLivre(isbn);
-            return dispo;
+            return L;   // L pour "libre"
         }
     }
 }

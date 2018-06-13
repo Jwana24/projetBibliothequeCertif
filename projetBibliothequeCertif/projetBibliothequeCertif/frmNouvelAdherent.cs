@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using System.Globalization;
 
 namespace projetBibliothequeCertif
 {
@@ -13,23 +14,33 @@ namespace projetBibliothequeCertif
         Int32 leNumero;
         String leNom, lePrenom, leCodePostal, laVille, uneAdresse1, uneAdresse2, leTelephone;
 
+        private void grpCotisations_Enter(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void txtbDateCotisation_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
         private void chkScolaires_CheckedChanged(object sender, EventArgs e)
         {
             if(chkScolaires.Checked == true)
             {
                 grpScolarite.Visible = true;
-                chkAdultes.Visible = false;
+                chkParticuliers.Visible = false;
             }
             else
             {
                 grpScolarite.Visible = false;
-                chkAdultes.Visible = true;
+                chkParticuliers.Visible = true;
             }
         }
 
-        private void chkAdultes_CheckedChanged(object sender, EventArgs e)
+        private void chkParticuliers_CheckedChanged(object sender, EventArgs e)
         {
-            if (chkAdultes.Checked == true)
+            if (chkParticuliers.Checked == true)
             {
                 lblNumAdherent.Visible = true;
                 txtbNumAdherent.Visible = true;
