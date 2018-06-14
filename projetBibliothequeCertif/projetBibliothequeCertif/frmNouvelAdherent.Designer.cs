@@ -43,6 +43,7 @@
             this.txtbEcole = new System.Windows.Forms.TextBox();
             this.lblClasse = new System.Windows.Forms.Label();
             this.lblEcole = new System.Windows.Forms.Label();
+            this.dateTimeCotis = new System.Windows.Forms.DateTimePicker();
             this.grpCotisations.SuspendLayout();
             this.grpScolarite.SuspendLayout();
             this.SuspendLayout();
@@ -163,9 +164,14 @@
             // 
             // grpCotisations
             // 
+            this.grpCotisations.Controls.Add(this.dateTimeCotis);
             this.grpCotisations.Location = new System.Drawing.Point(550, 57);
             this.grpCotisations.Visible = false;
             this.grpCotisations.Enter += new System.EventHandler(this.grpCotisations_Enter);
+            this.grpCotisations.Controls.SetChildIndex(this.lblCotisations, 0);
+            this.grpCotisations.Controls.SetChildIndex(this.lblRetard, 0);
+            this.grpCotisations.Controls.SetChildIndex(this.mtxtbCotisation, 0);
+            this.grpCotisations.Controls.SetChildIndex(this.dateTimeCotis, 0);
             // 
             // lblRetard
             // 
@@ -226,7 +232,7 @@
             this.grpScolarite.Controls.Add(this.txtbEcole);
             this.grpScolarite.Controls.Add(this.lblClasse);
             this.grpScolarite.Controls.Add(this.lblEcole);
-            this.grpScolarite.Location = new System.Drawing.Point(27, 57);
+            this.grpScolarite.Location = new System.Drawing.Point(27, 164);
             this.grpScolarite.Name = "grpScolarite";
             this.grpScolarite.Size = new System.Drawing.Size(857, 474);
             this.grpScolarite.TabIndex = 25;
@@ -320,6 +326,13 @@
             this.lblEcole.TabIndex = 0;
             this.lblEcole.Text = "Etablissement scolaire";
             // 
+            // dateTimeCotis
+            // 
+            this.dateTimeCotis.Location = new System.Drawing.Point(113, 33);
+            this.dateTimeCotis.Name = "dateTimeCotis";
+            this.dateTimeCotis.Size = new System.Drawing.Size(200, 22);
+            this.dateTimeCotis.TabIndex = 4;
+            // 
             // frmNouvelAdherent
             // 
             this.AcceptButton = this.btnOK;
@@ -387,5 +400,6 @@
         private System.Windows.Forms.Label lblNomProf;
         private System.Windows.Forms.TextBox txtbVilleEcole;
         private System.Windows.Forms.Label lblVilleEcole;
+        private System.Windows.Forms.DateTimePicker dateTimeCotis;
     }
 }

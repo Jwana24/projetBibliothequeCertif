@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using System.Globalization;
 
 namespace projetBibliothequeCertif
 {
@@ -61,10 +62,10 @@ namespace projetBibliothequeCertif
 
         private void frmConsultationAdherent_Load(object sender, EventArgs e)
         {
-            /*if (dateTimeCotisations. > 1)
-            {
-                this.lblRetard.Visible = true;
-            }*/
+            DateTime myDateTime = DateTime.Parse(mtxtbCotisation.ToString());
+            int totalDays = Convert.ToInt32((DateTime.UtcNow.Date - myDateTime.Date).TotalDays);
+            MessageBox.Show("Vous avez cotisé il y a " + " jours");
+            
         }
     }
 }

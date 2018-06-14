@@ -48,5 +48,12 @@ namespace projetBibliothequeCertif
             // réafficher l'adhérent d'origine
             this.afficheAdherent();
         }
+
+        private void frmModifierAdherent_Load(object sender, EventArgs e)
+        {
+            DateTime myDateTime = DateTime.Parse(mtxtbCotisation.ToString());
+            int totalDays = Convert.ToInt32((DateTime.UtcNow.Date - myDateTime.Date).TotalDays);
+            MessageBox.Show("Vous avez cotisé il y a " + " jours");
+        }
     }
 }

@@ -267,6 +267,14 @@ namespace projetBibliothequeCertif
             set { value = naissanceAdherent; }
         }
 
+        private String dateCotisation;
+
+        public String Cotisation
+        {
+            get { return dateCotisation; }
+            set { value = dateCotisation; }
+        }
+
         public void Ajouter(MAdherents unAdherent)
         {
             this.lesAdherents.Add(unAdherent.NumAdherent, unAdherent);

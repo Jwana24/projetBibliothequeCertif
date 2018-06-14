@@ -51,9 +51,9 @@
             this.lblNumAdherent = new System.Windows.Forms.Label();
             this.txtbNumAdherent = new System.Windows.Forms.TextBox();
             this.grpCotisations = new System.Windows.Forms.GroupBox();
+            this.mtxtbCotisation = new System.Windows.Forms.MaskedTextBox();
             this.lblRetard = new System.Windows.Forms.Label();
             this.lblCotisations = new System.Windows.Forms.Label();
-            this.mtxtbCotisation = new System.Windows.Forms.MaskedTextBox();
             this.grpCotisations.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -245,6 +245,15 @@
             this.grpCotisations.TabStop = false;
             this.grpCotisations.Text = "Cotisations";
             // 
+            // mtxtbCotisation
+            // 
+            this.mtxtbCotisation.Location = new System.Drawing.Point(41, 70);
+            this.mtxtbCotisation.Mask = "00/00/0000";
+            this.mtxtbCotisation.Name = "mtxtbCotisation";
+            this.mtxtbCotisation.Size = new System.Drawing.Size(241, 22);
+            this.mtxtbCotisation.TabIndex = 3;
+            this.mtxtbCotisation.ValidatingType = typeof(System.DateTime);
+            // 
             // lblRetard
             // 
             this.lblRetard.AutoSize = true;
@@ -265,15 +274,6 @@
             this.lblCotisations.TabIndex = 0;
             this.lblCotisations.Text = "à cotisé le :";
             this.lblCotisations.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // mtxtbCotisation
-            // 
-            this.mtxtbCotisation.Location = new System.Drawing.Point(41, 70);
-            this.mtxtbCotisation.Mask = "00/00/0000";
-            this.mtxtbCotisation.Name = "mtxtbCotisation";
-            this.mtxtbCotisation.Size = new System.Drawing.Size(241, 22);
-            this.mtxtbCotisation.TabIndex = 3;
-            this.mtxtbCotisation.ValidatingType = typeof(System.DateTime);
             // 
             // frmAdherents
             // 
@@ -338,6 +338,6 @@
         protected System.Windows.Forms.GroupBox grpCotisations;
         protected System.Windows.Forms.Label lblCotisations;
         protected System.Windows.Forms.Label lblRetard;
-        private System.Windows.Forms.MaskedTextBox mtxtbCotisation;
+        protected System.Windows.Forms.MaskedTextBox mtxtbCotisation;
     }
 }

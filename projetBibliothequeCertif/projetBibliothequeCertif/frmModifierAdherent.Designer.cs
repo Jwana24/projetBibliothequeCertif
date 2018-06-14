@@ -166,6 +166,7 @@
             this.Controls.Add(this.btnFermer);
             this.Name = "frmModifierAdherent";
             this.Text = "Modifier l\'adhérent : ";
+            this.Load += new System.EventHandler(this.frmModifierAdherent_Load);
             this.Controls.SetChildIndex(this.grpCotisations, 0);
             this.Controls.SetChildIndex(this.lblNumAdherent, 0);
             this.Controls.SetChildIndex(this.txtbNumAdherent, 0);
