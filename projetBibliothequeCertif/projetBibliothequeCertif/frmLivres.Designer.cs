@@ -41,13 +41,15 @@
             this.cbbCategorie = new System.Windows.Forms.ComboBox();
             this.txtbAuteur = new System.Windows.Forms.TextBox();
             this.txtbEditeur = new System.Windows.Forms.TextBox();
-            this.dateTimeParution = new System.Windows.Forms.DateTimePicker();
+            this.dateTimeSortie = new System.Windows.Forms.DateTimePicker();
+            this.lblIdLivre = new System.Windows.Forms.Label();
+            this.txtbIdLivre = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // lblCodeLivre
             // 
             this.lblCodeLivre.AutoSize = true;
-            this.lblCodeLivre.Location = new System.Drawing.Point(37, 38);
+            this.lblCodeLivre.Location = new System.Drawing.Point(37, 84);
             this.lblCodeLivre.Name = "lblCodeLivre";
             this.lblCodeLivre.Size = new System.Drawing.Size(71, 17);
             this.lblCodeLivre.TabIndex = 0;
@@ -56,7 +58,7 @@
             // lblQrCode
             // 
             this.lblQrCode.AutoSize = true;
-            this.lblQrCode.Location = new System.Drawing.Point(37, 87);
+            this.lblQrCode.Location = new System.Drawing.Point(37, 133);
             this.lblQrCode.Name = "lblQrCode";
             this.lblQrCode.Size = new System.Drawing.Size(39, 17);
             this.lblQrCode.TabIndex = 1;
@@ -65,7 +67,7 @@
             // lblTitre
             // 
             this.lblTitre.AutoSize = true;
-            this.lblTitre.Location = new System.Drawing.Point(37, 136);
+            this.lblTitre.Location = new System.Drawing.Point(37, 182);
             this.lblTitre.Name = "lblTitre";
             this.lblTitre.Size = new System.Drawing.Size(37, 17);
             this.lblTitre.TabIndex = 2;
@@ -74,7 +76,7 @@
             // lblCategorie
             // 
             this.lblCategorie.AutoSize = true;
-            this.lblCategorie.Location = new System.Drawing.Point(37, 186);
+            this.lblCategorie.Location = new System.Drawing.Point(37, 232);
             this.lblCategorie.Name = "lblCategorie";
             this.lblCategorie.Size = new System.Drawing.Size(69, 17);
             this.lblCategorie.TabIndex = 3;
@@ -83,7 +85,7 @@
             // lblAuteur
             // 
             this.lblAuteur.AutoSize = true;
-            this.lblAuteur.Location = new System.Drawing.Point(37, 237);
+            this.lblAuteur.Location = new System.Drawing.Point(37, 283);
             this.lblAuteur.Name = "lblAuteur";
             this.lblAuteur.Size = new System.Drawing.Size(68, 17);
             this.lblAuteur.TabIndex = 4;
@@ -92,7 +94,7 @@
             // lblEditeur
             // 
             this.lblEditeur.AutoSize = true;
-            this.lblEditeur.Location = new System.Drawing.Point(37, 287);
+            this.lblEditeur.Location = new System.Drawing.Point(37, 333);
             this.lblEditeur.Name = "lblEditeur";
             this.lblEditeur.Size = new System.Drawing.Size(53, 17);
             this.lblEditeur.TabIndex = 5;
@@ -101,7 +103,7 @@
             // lblDateParution
             // 
             this.lblDateParution.AutoSize = true;
-            this.lblDateParution.Location = new System.Drawing.Point(37, 338);
+            this.lblDateParution.Location = new System.Drawing.Point(37, 384);
             this.lblDateParution.Name = "lblDateParution";
             this.lblDateParution.Size = new System.Drawing.Size(114, 17);
             this.lblDateParution.TabIndex = 6;
@@ -109,21 +111,21 @@
             // 
             // txtbCodeLivre
             // 
-            this.txtbCodeLivre.Location = new System.Drawing.Point(121, 38);
+            this.txtbCodeLivre.Location = new System.Drawing.Point(121, 84);
             this.txtbCodeLivre.Name = "txtbCodeLivre";
             this.txtbCodeLivre.Size = new System.Drawing.Size(174, 22);
             this.txtbCodeLivre.TabIndex = 7;
             // 
             // txtbISBN
             // 
-            this.txtbISBN.Location = new System.Drawing.Point(121, 87);
+            this.txtbISBN.Location = new System.Drawing.Point(121, 133);
             this.txtbISBN.Name = "txtbISBN";
             this.txtbISBN.Size = new System.Drawing.Size(424, 22);
             this.txtbISBN.TabIndex = 8;
             // 
             // txtbTitre
             // 
-            this.txtbTitre.Location = new System.Drawing.Point(121, 136);
+            this.txtbTitre.Location = new System.Drawing.Point(121, 182);
             this.txtbTitre.Name = "txtbTitre";
             this.txtbTitre.Size = new System.Drawing.Size(590, 22);
             this.txtbTitre.TabIndex = 9;
@@ -161,38 +163,56 @@
             "Contes",
             "Poésies",
             "Biographies"});
-            this.cbbCategorie.Location = new System.Drawing.Point(121, 183);
+            this.cbbCategorie.Location = new System.Drawing.Point(121, 229);
             this.cbbCategorie.Name = "cbbCategorie";
             this.cbbCategorie.Size = new System.Drawing.Size(237, 24);
             this.cbbCategorie.TabIndex = 10;
             // 
             // txtbAuteur
             // 
-            this.txtbAuteur.Location = new System.Drawing.Point(121, 237);
+            this.txtbAuteur.Location = new System.Drawing.Point(121, 283);
             this.txtbAuteur.Name = "txtbAuteur";
             this.txtbAuteur.Size = new System.Drawing.Size(555, 22);
             this.txtbAuteur.TabIndex = 11;
             // 
             // txtbEditeur
             // 
-            this.txtbEditeur.Location = new System.Drawing.Point(121, 287);
+            this.txtbEditeur.Location = new System.Drawing.Point(121, 333);
             this.txtbEditeur.Name = "txtbEditeur";
             this.txtbEditeur.Size = new System.Drawing.Size(555, 22);
             this.txtbEditeur.TabIndex = 12;
             // 
-            // dateTimeParution
+            // dateTimeSortie
             // 
-            this.dateTimeParution.Location = new System.Drawing.Point(180, 338);
-            this.dateTimeParution.Name = "dateTimeParution";
-            this.dateTimeParution.Size = new System.Drawing.Size(258, 22);
-            this.dateTimeParution.TabIndex = 13;
+            this.dateTimeSortie.Location = new System.Drawing.Point(180, 384);
+            this.dateTimeSortie.Name = "dateTimeSortie";
+            this.dateTimeSortie.Size = new System.Drawing.Size(258, 22);
+            this.dateTimeSortie.TabIndex = 13;
+            // 
+            // lblIdLivre
+            // 
+            this.lblIdLivre.AutoSize = true;
+            this.lblIdLivre.Location = new System.Drawing.Point(37, 34);
+            this.lblIdLivre.Name = "lblIdLivre";
+            this.lblIdLivre.Size = new System.Drawing.Size(49, 17);
+            this.lblIdLivre.TabIndex = 14;
+            this.lblIdLivre.Text = "id livre";
+            // 
+            // txtbIdLivre
+            // 
+            this.txtbIdLivre.Location = new System.Drawing.Point(121, 34);
+            this.txtbIdLivre.Name = "txtbIdLivre";
+            this.txtbIdLivre.Size = new System.Drawing.Size(174, 22);
+            this.txtbIdLivre.TabIndex = 15;
             // 
             // frmLivres
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(758, 410);
-            this.Controls.Add(this.dateTimeParution);
+            this.ClientSize = new System.Drawing.Size(758, 457);
+            this.Controls.Add(this.txtbIdLivre);
+            this.Controls.Add(this.lblIdLivre);
+            this.Controls.Add(this.dateTimeSortie);
             this.Controls.Add(this.txtbEditeur);
             this.Controls.Add(this.txtbAuteur);
             this.Controls.Add(this.cbbCategorie);
@@ -228,6 +248,8 @@
         protected System.Windows.Forms.ComboBox cbbCategorie;
         protected System.Windows.Forms.TextBox txtbAuteur;
         protected System.Windows.Forms.TextBox txtbEditeur;
-        protected System.Windows.Forms.DateTimePicker dateTimeParution;
+        protected System.Windows.Forms.DateTimePicker dateTimeSortie;
+        protected System.Windows.Forms.Label lblIdLivre;
+        protected System.Windows.Forms.TextBox txtbIdLivre;
     }
 }

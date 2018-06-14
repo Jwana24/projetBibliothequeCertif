@@ -12,7 +12,7 @@ namespace projetBibliothequeCertif
 {
     public partial class frmListeAdherents : Form
     {
-        private MAdherents unAdherent;
+        private MLivres unAdherent;
 
         public frmListeAdherents()
         {
@@ -23,7 +23,7 @@ namespace projetBibliothequeCertif
 
         public void afficheAdherents()
         {
-            MAdherents.SelectAdherents(unAdherent);
+            MLivres.SelectAdherents(unAdherent);
 
             // déterminer l'origine des données à afficher : 
             // appel de la méthode de la classe MAdherents

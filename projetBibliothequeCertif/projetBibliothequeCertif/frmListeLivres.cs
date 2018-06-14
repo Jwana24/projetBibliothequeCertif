@@ -12,7 +12,7 @@ namespace projetBibliothequeCertif
 {
     public partial class frmListeLivres : Form
     {
-        private MLivres unLivre;
+        private MBiblio unLivre;
 
         public frmListeLivres()
         {
@@ -23,7 +23,7 @@ namespace projetBibliothequeCertif
 
         public void afficheLivres()
         {
-            MLivres.SelectLivres(unLivre);
+            MBiblio.SelectLivre(unLivre);
 
             // déterminer l'origine des données à afficher : appel de la méthode de la classe MLivres
             // qui alimente et retourne copie de sa collection de livres sous forme de datatable

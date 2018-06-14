@@ -43,7 +43,7 @@ namespace projetBibliothequeCertif
         }
 
         public MAdherents(Int32 leNumero, String leNom, String lePrenom, String leCodePostal, String laVille, String uneAdresse1, String uneAdresse2,
-            String leTelephone)
+            String leTelephone, String unEmail)
         {
             leNumero = this.NumAdherent;
             leNom = this.Nom;
@@ -53,42 +53,7 @@ namespace projetBibliothequeCertif
             uneAdresse1 = this.Adresse1;
             uneAdresse2 = this.Adresse2;
             leTelephone = this.Telephone;
-        }
-
-        /// <summary>
-        /// datatable des adhérents pour affichages en datagridview et pour exporter/importer en XML
-        /// </summary>
-        private DataTable dtAdherents;
-
-        /// <summary>
-        /// collection des adhérents de cette section sous forme de dictionnaire trié
-        /// </summary>
-        private SortedDictionary<Int32, MAdherents> lesAdherents;
-
-        /// <summary>
-        /// générer et retourner une datatable qui liste les numéro, nom et prenom
-        /// de tous les adhérents de la collection
-        /// </summary>
-        /// <returns></returns>
-        public DataTable ListerAdherents()
-        {
-            // vider la datatable pour la régénérer
-            this.dtAdherents.Clear();
-            // boucle de remplissage de la datatable à partir de la collection
-            foreach (MAdherents unAdherent in this.lesAdherents.Values)
-            {
-                // instanciation datarow (=ligne datatable)
-                DataRow dr;
-                dr = this.dtAdherents.NewRow();
-                // affectation des 3 colonnes
-                dr[0] = unAdherent.NumAdherent;
-                dr[1] = unAdherent.Nom;
-                dr[2] = unAdherent.Prenom;
-                // ajouter la ligne à la datatable
-                this.dtAdherents.Rows.Add(dr);
-            } // fin de boucle remplissage datatable
-            // retourne la référence à la datatable
-            return this.dtAdherents;
+            unEmail = this.Email;
         }
 
         /// <summary>
@@ -275,47 +240,13 @@ namespace projetBibliothequeCertif
             set { value = dateCotisation; }
         }
 
-        public void Ajouter(MAdherents unAdherent)
+        /// <summary>
+        /// obtient un libellé en clair (numAdherent + date_inscription et date_cotisation)
+        /// </summary>
+        /// <returns></returns>
+        public override String ToString()
         {
-            this.lesAdherents.Add(unAdherent.NumAdherent, unAdherent);
-        }
-
-        public void SupprimerAdherents()
-        {
-            this.lesAdherents.Clear();
-        }
-
-        public static void SelectAdherents(MAdherents unAdherent)
-        {
-            string query = "SELECT * FROM adherents";
-            unAdherent.SupprimerAdherents();
-
-            MySqlCommand cmd = ConnexionBase.GetConnexion().CreateCommand();
-            cmd.CommandText = query;
-
-            // créé un datareader et exécute la commande
-            MySqlDataReader dataReader = cmd.ExecuteReader();
-
-            // lit les données et les garde en mémoire dans la liste
-            while (dataReader.Read())
-            {
-                MAdherents nouvelAdherent;
-
-                nouvelAdherent = new MAdherents(
-                    int.Parse(dataReader["numero"].ToString()),
-                    dataReader["nom"].ToString(),
-                    dataReader["prenom"].ToString(),
-                    dataReader["codepostal"].ToString(),
-                    dataReader["ville"].ToString(),
-                    dataReader["adresse1"].ToString(),
-                    dataReader["adresse2"].ToString(),
-                    dataReader["telephone"].ToString());
-
-                unAdherent.Ajouter(nouvelAdherent);
-                nouvelAdherent = null;
-            }
-            // ferme le datareader
-            dataReader.Close();
+            return "Adherent " + this.NumAdherent + " : " + this.Inscription + " " + this.Cotisation;
         }
     }
 }

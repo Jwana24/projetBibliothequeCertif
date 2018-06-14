@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using MySql.Data.MySqlClient;
-using System.Globalization;
+using System.Windows.Forms;
 
 namespace projetBibliothequeCertif
 {
@@ -24,57 +24,65 @@ namespace projetBibliothequeCertif
             set { value = iLivre; }
         }
 
-        private Int32 codeLivre;
+        private String codeLivre;
 
-        public Int32 CodeLivre
+        public String CodeLivre
         {
             get { return codeLivre; }
             set { value = codeLivre; }
         }
 
-        public MLivres(Int32 leCode, String unISBN, String leTitre, String unAuteur, String unEditeur, DateTime laParution)
+        public int idLivre;
+
+        public int IdLivre
         {
-            leCode = this.CodeLivre;
-            unISBN = this.isbnLivre;
-            leTitre = this.Titre;
-            unAuteur = this.Auteur;
-            unEditeur = this.Editeur;
-            laParution = this.Parution;
+            get { return idLivre; }
+            set { idLivre = value; }
         }
 
         /// <summary>
-        /// datatable des livres pour affichages en datagridview et pour exporter/importer en XML
+        /// constructeur 
         /// </summary>
-        private DataTable dtLivres;
-
-        /// <summary>
-        /// collection des livres de cette section sous forme de dictionnaire trié
-        /// </summary>
-        private SortedDictionary<Int32, MLivres> lesLivres;
-
-        /// <summary>
-        /// générer et retourner une datatable qui liste les codes, titre et auteur de tous les livres de la collection
-        /// </summary>
-        /// <returns></returns>
-        public DataTable ListerLivres()
+        /// <param name="leCode">le code de la section</param>
+        /// <param name="leNom">le libellé de la section</param>
+        public MLivres(String leCode, String leTitre, int idLivre)
         {
-            // vider la datatable pour la régénérer
-            this.dtLivres.Clear();
-            // boucle de remplissage de la datatable à partir de la collection
-            foreach (MLivres unLivre in this.lesLivres.Values)
-            {
-                // instanciation datarow (=ligne datatable)
-                DataRow dr;
-                dr = this.dtLivres.NewRow();
-                // affectation des 3 colonnes
-                dr[0] = unLivre.CodeLivre;
-                dr[1] = unLivre.Titre;
-                dr[2] = unLivre.Auteur;
-                // ajouter la ligne à la datatable
-                this.dtLivres.Rows.Add(dr);
-            } // fin de boucle remplissage datatable
-            // retourne la référence à la datatable
-            return this.dtLivres;
+            // initialise code et nom de la section
+            this.CodeLivre = leCode;
+            this.Titre = leTitre;
+            this.IdLivre = idLivre;
+            // instancie un dictionnaire vide pour les stagiaires de cette section
+            lesAdherents = new SortedDictionary<int, MAdherents>();
+            // datatable : pour y copier les données stagiaires
+            // et à fournir aux composants de présentation 
+            dtAdherents = new DataTable();
+
+            // ajout à la datatable de 3 colonnes personnalisées 
+            this.dtAdherents.Columns.Add(new DataColumn("Numéro adhérent", typeof(System.Int32)));
+            this.dtAdherents.Columns.Add(new DataColumn("Nom", typeof(System.String)));
+            this.dtAdherents.Columns.Add(new DataColumn("Prénom", typeof(System.String)));
+        }
+
+        public MLivres(String leCode, String unIsbn, String leTitre, String unAuteur, String unEditeur, DateTime laSortie, int idLivre)
+        {
+            // initialise code et nom de la section
+            this.CodeLivre = leCode;
+            this.Isbn = unIsbn;
+            this.Titre = leTitre;
+            this.Auteur = unAuteur;
+            this.Editeur = unEditeur;
+            this.Sortie = laSortie;
+            this.IdLivre = idLivre;
+
+            // instancie un dictionnaire vide pour la liste des adhérents
+            lesAdherents = new SortedDictionary<int, MAdherents>();
+            // datatable : pour y copier les données adhérents et à fournir aux composants de présentation 
+            dtAdherents = new DataTable();
+
+            // ajout à la datatable de 3 colonnes personnalisées 
+            this.dtAdherents.Columns.Add(new DataColumn("Numéro adhérent", typeof(System.Int32)));
+            this.dtAdherents.Columns.Add(new DataColumn("Nom", typeof(System.String)));
+            this.dtAdherents.Columns.Add(new DataColumn("Prénom", typeof(System.String)));
         }
 
         private String isbnLivre;
@@ -152,28 +160,122 @@ namespace projetBibliothequeCertif
             set { editeurLivre = value.Trim().ToUpper(); }
         }
 
-        private DateTime parutionLivre;
+        private DateTime sortieLivre;
 
-        public DateTime Parution
+        public DateTime Sortie
         {
-            get { return parutionLivre; }
-            set { value = parutionLivre; }
+            get { return sortieLivre; }
+            set { value = sortieLivre; }
         }
 
-        public void Ajouter(MLivres unLivre)
+        /// <summary>
+        /// datatable des adhérents pour affichages en datagridview et pour exporter/importer en XML
+        /// </summary>
+        private DataTable dtAdherents;
+
+        /// <summary>
+        /// collection des adhérents de cette section sous forme de dictionnaire trié
+        /// </summary>
+        private SortedDictionary<Int32, MAdherents> lesAdherents;
+
+        /// <summary>
+        /// générer et retourner une datatable qui liste les numéro, nom et prenom
+        /// de tous les adhérents de la collection
+        /// </summary>
+        /// <returns></returns>
+        public DataTable ListerAdherents()
         {
-            this.lesLivres.Add(unLivre.CodeLivre, unLivre);
+            // vider la datatable pour la régénérer
+            this.dtAdherents.Clear();
+            // boucle de remplissage de la datatable à partir de la collection
+            foreach (MAdherents unAdherent in this.lesAdherents.Values)
+            {
+                // instanciation datarow (=ligne datatable)
+                DataRow dr;
+                dr = this.dtAdherents.NewRow();
+                // affectation des 3 colonnes
+                dr[0] = unAdherent.NumAdherent;
+                dr[1] = unAdherent.Nom;
+                dr[2] = unAdherent.Prenom;
+                // ajouter la ligne à la datatable
+                this.dtAdherents.Rows.Add(dr);
+            } // fin de boucle remplissage datatable
+            // retourne la référence à la datatable
+            return this.dtAdherents;
         }
 
-        public void SupprimerLivres()
+        /// <summary>
+        /// ajouter un adhérent à la collection
+        /// (reçoit la référence à l'adhérent et en déduit la clé (= numAdherent) pour la collection)
+        /// </summary>
+        /// <param name="unAdherent">la référence de l'adhérent à ajouter</param>
+        public void Ajouter(MAdherents unAdherent)
         {
-            this.lesLivres.Clear();
+            this.lesAdherents.Add(unAdherent.NumAdherent, unAdherent);
         }
 
-        public static void SelectLivres(MLivres unLivre)
+        /// <summary>
+        /// supprimer un adhérent de la collection
+        /// (reçoit la clé de l'adhérent (= numAdherent) pour la collection)
+        /// </summary>
+        /// <param name="unNumOSIA">la clé (= numAdherent) de l'adhérent à supprimer</param>
+        /// <exception cref="Exception">Si numAdherent reçu non trouvé en collection</exception>
+        public void Supprimer(Int32 unNumAdherent)
         {
-            string query = "SELECT * FROM livres";
-            unLivre.SupprimerLivres();
+            // suppression sécurisée
+            if (this.lesAdherents.ContainsKey(unNumAdherent))
+            {
+                this.lesAdherents.Remove(unNumAdherent);
+            }
+            else
+            {
+                throw new Exception("Erreur : numéro adhérent non trouvé dans la collection");
+            }
+        }
+
+        /// <summary>
+        /// modifier les données de l'adhérent
+        /// tout est modifiable sauf le numAdherent (= clé de la collection)
+        /// </summary>
+        /// <param name="unAdherent">la référence au nouvel objet MAdherents pour cette clé</param>
+        public void Remplacer(MAdherents unAdherent)
+        {
+            // modifie la référence de l'adhérent stockée dans la collection            
+            this.lesAdherents[unAdherent.NumAdherent] = unAdherent;
+        }
+
+        /// <summary>
+        /// Rechercher un adhérent dans la liste en connaissant sa clé
+        /// </summary>
+        /// <param name="unNumAdherent">le numéro (=la clé) de l'adhérent à rechercher</param>
+        /// <returns>la référence à l'adhérent (ou bien lève une erreur)</returns>
+        public MAdherents RestituerAdherent(Int32 unNumAdherent)
+        {
+            MAdherents unAdherent;
+            unAdherent = this.lesAdherents[unNumAdherent];
+            if (unAdherent == null)
+            {
+                throw new Exception("Aucun adhérent pour le numéro " + unNumAdherent.ToString());
+            }
+            else
+            {
+                return unAdherent;
+            }
+        }
+
+        public void SupprimerAdherents()
+        {
+            this.lesAdherents.Clear();
+        }
+
+        /// <summary>
+        /// méthode qui permet de sélectionner un adhérent dans l'application (lié à la base de données)
+        /// </summary>
+        /// <param name="unAdherent"></param>
+        public static void SelectAdherents(MLivres leLivre)
+        {
+            string query = "SELECT * FROM adherents WHERE id_livre=@livre";
+            leLivre.SupprimerAdherents();
 
             MySqlCommand cmd = ConnexionBase.GetConnexion().CreateCommand();
             cmd.CommandText = query;
@@ -184,28 +286,84 @@ namespace projetBibliothequeCertif
             // lit les données et les garde en mémoire dans la liste
             while (dataReader.Read())
             {
-                MLivres nouveauLivre;
+                MAdherents nouvelAdherent;
 
-                nouveauLivre = new MLivres(
-                    int.Parse(dataReader["code"].ToString()),
-                    dataReader["isbn"].ToString(),
-                    dataReader["titre"].ToString(),
-                    dataReader["auteur"].ToString(),
-                    dataReader["editeur"].ToString(),
-                    DateTime.ParseExact(dataReader["date_parution"].ToString(), "dd/MM/yyyy hh:mm:ss", CultureInfo.InvariantCulture));
+                nouvelAdherent = new MAdherents(
+                    int.Parse(dataReader["numero"].ToString()),
+                    dataReader["nom"].ToString(),
+                    dataReader["prenom"].ToString(),
+                    dataReader["codepostal"].ToString(),
+                    dataReader["ville"].ToString(),
+                    dataReader["adresse1"].ToString(),
+                    dataReader["adresse2"].ToString(),
+                    dataReader["telephone"].ToString(),
+                    dataReader["email"].ToString());
 
-                unLivre.Ajouter(nouveauLivre);
-                nouveauLivre = null;
+                 leLivre.Ajouter(nouvelAdherent);
+                nouvelAdherent = null;
             }
             // ferme le datareader
             dataReader.Close();
         }
 
+            /// <summary>
+            /// méthode pour insérer un adhérent dans l'application ainsi que dans la base de données
+            /// </summary>
+            /// <param name="ad"></param>
+        public static void InsertAdherent(MAdherents ad, MLivres lvr)
+        {
+            string query = "INSERT INTO adherents(`num_adherent`, `id_livres`, `date_inscription`, `date_cotisation`) VALUES (Null, @livre," +
+                "@dateInscription, @dateCotisation)";
 
+            // crée la commande sql
+            MySqlCommand cmd = ConnexionBase.GetConnexion().CreateCommand();
+            cmd.CommandText = query;
+            // exécute la commande
+            cmd.Parameters.AddWithValue("@livre", lvr.IdLivre);
+            cmd.Parameters.AddWithValue("@dateInscription", ad.Inscription);
+            cmd.Parameters.AddWithValue("@dateCotisation", ad.Cotisation);
+            // exécute la requête
+            cmd.ExecuteNonQuery();
+        }
 
+        /// <summary>
+        /// méthode pour mettre à jour l'adhérent dans l'application et également dans la base de données
+        /// </summary>
+        /// <param name="ad"></param>
+        public static void UpdateAdherent(MAdherents ad)
+        {
+            string query = "UPDATE adherents SET date_cotisation=@dateCotisation WHERE num_adherent=@NumAdherent";
 
+            MySqlCommand cmd = ConnexionBase.GetConnexion().CreateCommand();
+            cmd.CommandText = query;
+            cmd.Parameters.AddWithValue("@dateCotisation", ad.Cotisation);
+            cmd.ExecuteNonQuery();
+        }
 
+        /// <summary>
+        /// méthode pour supprimer un adhérent dans l'application ainsi que dans la base de données
+        /// </summary>
+        /// <param name="num"></param>
+        public static void DeleteAdherent(Int32 num)
+        {
+            string query = "DELETE FROM adherents WHERE num_adherent=@NumAdherent";
 
+            MySqlCommand cmd = ConnexionBase.GetConnexion().CreateCommand();
+            cmd.CommandText = query;
+            cmd.Parameters.AddWithValue("@NumAdherent", num);
+            cmd.ExecuteNonQuery();
+        }
 
+        public static void AlimenterCombobox(string query, ComboBox cbbCategorie, string contenuAAfficher)
+        {
+            MySqlCommand cmd = ConnexionBase.GetConnexion().CreateCommand();
+            cmd.CommandText = query;
+            MySqlDataReader dataReader = cmd.ExecuteReader();
+            while (dataReader.Read())
+            {
+                cbbCategorie.Items.Add(dataReader[contenuAAfficher]);
+            }
+            dataReader.Close();
+        }
     }
 }

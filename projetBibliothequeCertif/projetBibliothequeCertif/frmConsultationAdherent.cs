@@ -12,7 +12,7 @@ namespace projetBibliothequeCertif
     public partial class frmConsultationAdherent : projetBibliothequeCertif.frmAdherents
     {
         protected MAdherents unAdherent;
-        private MLivres unLivre;
+        private MBiblio unLivre;
 
         public frmConsultationAdherent(MAdherents adherent)
         {
@@ -22,7 +22,7 @@ namespace projetBibliothequeCertif
 
         private void afficheLivres()
         {
-            MLivres.SelectLivres(unLivre);
+            MBiblio.SelectLivre(unLivre);
 
             // déterminer l'origine des données à afficher : 
             // appel de la méthode de la classe MLivres qui alimente et retourne copie de sa 

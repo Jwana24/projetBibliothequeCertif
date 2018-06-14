@@ -80,7 +80,7 @@
             this.Controls.SetChildIndex(this.cbbCategorie, 0);
             this.Controls.SetChildIndex(this.txtbAuteur, 0);
             this.Controls.SetChildIndex(this.txtbEditeur, 0);
-            this.Controls.SetChildIndex(this.dateTimeParution, 0);
+            this.Controls.SetChildIndex(this.dateTimeSortie, 0);
             this.Controls.SetChildIndex(this.btnAnnuler, 0);
             this.Controls.SetChildIndex(this.btnOK, 0);
             this.ResumeLayout(false);

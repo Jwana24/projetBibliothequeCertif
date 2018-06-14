@@ -26,7 +26,7 @@ namespace projetBibliothequeCertif
             this.cbbCategorie.Text = this.unLivre.Categorie.ToString();
             this.txtbAuteur.Text = this.unLivre.Auteur.ToString();
             this.txtbEditeur.Text = this.unLivre.Editeur.ToString();
-            this.dateTimeParution.Text = this.unLivre.Parution.ToString();
+            this.dateTimeSortie.Text = this.unLivre.Sortie.ToString();
         }
 
         private void btnFermer_Click(object sender, EventArgs e)
