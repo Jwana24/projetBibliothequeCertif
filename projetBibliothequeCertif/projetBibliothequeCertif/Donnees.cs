@@ -13,6 +13,11 @@ namespace projetBibliothequeCertif
         /// <summary>
         /// collection d'objets MLivres
         /// </summary>
+        public static MLivres Livres;
+
+        /// <summary>
+        /// collection d'objets MLivres
+        /// </summary>
         public static ArrayList arrayLivres = new ArrayList();
 
         public ArrayList ArrayLivres

@@ -13,13 +13,25 @@ namespace projetBibliothequeCertif
     public partial class frmListeAdherents : Form
     {
         private MLivres unAdherent;
+        String leCode, leTitre;
+        int idLivre;
 
         public frmListeAdherents()
         {
+            Donnees.Livres = new MLivres(leCode, leTitre, idLivre);
             InitializeComponent();
+            this.init();
+            this.afficheAdherents();
         }
 
-        private SortedDictionary<Int32, MAdherents> lesAdherents;
+        /// <summary>
+        /// initialisation du jeu d'essai 
+        /// </summary>
+        private void init()
+        {
+            // ajoute l'adhérent instancié à la collection de la liste livres
+            MLivres.SelectAdherents(unAdherent);
+        }
 
         public void afficheAdherents()
         {
@@ -37,11 +49,6 @@ namespace projetBibliothequeCertif
         private void btnFermer_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        public void Ajouter(MAdherents unAdherent)
-        {
-            this.lesAdherents.Add(unAdherent.NumAdherent, unAdherent);
         }
 
         private void btnRechercher_Click(object sender, EventArgs e)
@@ -70,17 +77,31 @@ namespace projetBibliothequeCertif
         {
             frmNouvelAdherent nouvelAdherent = new frmNouvelAdherent();
 
-            // Si on sort de la saisie par OK, regenere l'affichage du datagrid
+            // si on sort de la saisie par le bouton OK, régénère l'affichage de la datagridview
             if (nouvelAdherent.ShowDialog() == DialogResult.OK)
             {
                 this.afficheAdherents();
             }
-            this.Close();
+            //this.Close();
         }
 
         private void btnSupprimer_Click(object sender, EventArgs e)
         {
-            grdAdherents.Rows.Remove(grdAdherents.CurrentRow);
+            // si un adhérent est pointé dans la datagridview
+            if (this.grdAdherents.CurrentRow != null)
+            {
+                // récupère la clé de l'adhérent pointé
+                Int32 cleAdherent;
+                cleAdherent = (Int32)this.grdAdherents.CurrentRow.Cells[0].Value;
+                // demande confirmation de la suppression
+                if (MessageBox.Show("Voulez-vous supprimer l'adhérent numéro :" + cleAdherent.ToString(), "Suppression", MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    MLivres.DeleteAdherent(cleAdherent);
+                    // réaffiche la datagridview
+                    afficheAdherents();
+                }
+            }
         }
 
         private void grdAdherents_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -90,17 +111,27 @@ namespace projetBibliothequeCertif
 
         private void grdAdherents_DoubleClick(object sender, EventArgs e)
         {
-            Int32 iAdherent;
-            iAdherent = this.grdAdherents.CurrentRow.Index;
+            // ouvrir la feuille détail en y affichant le stagiaire correspondant à la ligne double-cliquée
 
-            // instancie un objet livre vers le form de consultation livre d'origine dans la collection
-            MAdherents unAdherent = Donnees.getAdherentById(iAdherent) as MAdherents;
-            // instancie le form "Nouveau Livre" qui correspond à la création du livre
-            frmConsultationAdherent consultationAdherent = new frmConsultationAdherent(unAdherent);
-            // affiche le form de la création de contact en modal
+            /* Int32 iAdherent;
+             iAdherent = this.grdAdherents.CurrentRow.Index;*/
+
+            MAdherents adherent;
+            // clé primaire (numAdherent) de l'adhérent dans la collection
+            Int32 clePrimaire;
+
+            // récupère la clé de l'adhérent cliqué en DataGridView
+            clePrimaire = (Int32)this.grdAdherents.CurrentRow.Cells[0].Value;
+            // instancie un objet adherant pointant vers l'adhérent d'origine dans la collection
+            adherent = this.unAdherent.RestituerAdherent(clePrimaire);
+            // instancier un form détail pour ce stagiaire
+            frmConsultationAdherent consultationAdherent = new frmConsultationAdherent(adherent);
+            // personnaliser le titre du form
+            consultationAdherent.Text = unAdherent.ToString();
+            // afficher le form détail en modal
             consultationAdherent.ShowDialog();
 
-            // rafaichit la datagriedview quand le form est fermé
+            // en sortie du form détail, refraichir la datagridview
             this.afficheAdherents();
         }
     }
