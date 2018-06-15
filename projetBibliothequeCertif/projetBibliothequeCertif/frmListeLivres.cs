@@ -12,22 +12,35 @@ namespace projetBibliothequeCertif
 {
     public partial class frmListeLivres : Form
     {
-        private MBiblio unLivre;
+        /// <summary>
+        /// la section du livre gérée par ce form
+        /// </summary>
+        private MLivres leLivre;
 
         public frmListeLivres()
         {
             InitializeComponent();
+            // initialisation de la collection de livres
+            Donnees.Livres = new MLivres();
+            this.init();
+            this.afficheLivres();
         }
 
-        private SortedDictionary<Int32, MLivres> lesLivres;
+        // initialisation du jeu d'essai
+        private void init()
+        {
+            // l'ajoute dans la collection des livres gérée par la classe de collection
+            Donnees.Livres.Ajouter(this.leLivre);
+            MLivres.SelectLivre(leLivre);
+        }
 
         public void afficheLivres()
         {
-            MBiblio.SelectLivre(unLivre);
+            MLivres.SelectLivre(leLivre);
 
             // déterminer l'origine des données à afficher : appel de la méthode de la classe MLivres
             // qui alimente et retourne copie de sa collection de livres sous forme de datatable
-            this.grdLivres.DataSource = unLivre.ListerLivres();
+            this.grdLivres.DataSource = leLivre.ListerLivres();
             // refraîchir l'affichage
             this.grdLivres.Refresh();
         }
@@ -61,7 +74,7 @@ namespace projetBibliothequeCertif
 
         private void btnAjouter_Click(object sender, EventArgs e)
         {
-            frmNouveauLivre nouveauLivre = new frmNouveauLivre();
+            frmNouveauLivre nouveauLivre = new frmNouveauLivre(this.leLivre);
             if (nouveauLivre.ShowDialog() == DialogResult.OK)
             {
                 this.afficheLivres();

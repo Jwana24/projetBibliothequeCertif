@@ -12,15 +12,16 @@ namespace projetBibliothequeCertif
 {
     public partial class frmListeAdherents : Form
     {
-        private MLivres unAdherent;
+        private MAdherents unAdherent;
         String leCode, leTitre;
         int idLivre;
 
         public frmListeAdherents()
         {
-            Donnees.Livres = new MLivres(leCode, leTitre, idLivre);
+            Donnees.Livres = new MLivres(leCode, leTitre);
             InitializeComponent();
             this.init();
+            // affiche la liste des adhérents de la section
             this.afficheAdherents();
         }
 
@@ -30,19 +31,17 @@ namespace projetBibliothequeCertif
         private void init()
         {
             // ajoute l'adhérent instancié à la collection de la liste livres
-            MLivres.SelectAdherents(unAdherent);
+            MAdherents.SelectAdherents(unAdherent);
         }
 
         public void afficheAdherents()
         {
-            MLivres.SelectAdherents(unAdherent);
+            MAdherents.SelectAdherents(unAdherent);
 
-            // déterminer l'origine des données à afficher : 
-            // appel de la méthode de la classe MAdherents
-            // qui alimente et retourne copie de sa 
-            // collection des adherents sous forme de datatable
+            // déterminer l'origine des données à afficher : appel de la méthode de la classe MAdherents qui alimente
+            // et retourne une copie de sa collection des adherents sous forme de datatable
             this.grdAdherents.DataSource = unAdherent.ListerAdherents();
-            // refraîchir l'affichage
+            // rafraîchit l'affichage
             this.grdAdherents.Refresh();
         }
 
@@ -97,7 +96,7 @@ namespace projetBibliothequeCertif
                 if (MessageBox.Show("Voulez-vous supprimer l'adhérent numéro :" + cleAdherent.ToString(), "Suppression", MessageBoxButtons.YesNo,
                     MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    MLivres.DeleteAdherent(cleAdherent);
+                    MAdherents.DeleteAdherent(cleAdherent);
                     // réaffiche la datagridview
                     afficheAdherents();
                 }

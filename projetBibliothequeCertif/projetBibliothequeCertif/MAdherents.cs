@@ -6,6 +6,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Data;
 using MySql.Data.MySqlClient;
+using System.Windows.Forms;
 
 namespace projetBibliothequeCertif
 {
@@ -16,6 +17,11 @@ namespace projetBibliothequeCertif
     public class MAdherents
     {
         /// <summary>
+        /// collection des adhérents de cette section sous forme de dictionnaire trié
+        /// </summary>
+        private SortedDictionary<Int32, MAdherents> lesAdherents;
+
+        /// <summary>
         /// nombre d'adhérents de la classe
         /// </summary>
         public static int NAdherents;
@@ -25,11 +31,11 @@ namespace projetBibliothequeCertif
         /// </summary>
         private int iAdherent;
 
-         public Int32 IAdherent
+        public Int32 IAdherent
         {
-             get { return iAdherent; }
-             set { value = iAdherent; }
-         }
+            get { return iAdherent; }
+            set { value = iAdherent; }
+        }
 
         /// <summary>
         /// obtient le numéro de l'adhérent
@@ -247,6 +253,214 @@ namespace projetBibliothequeCertif
         public override String ToString()
         {
             return "Adherent " + this.NumAdherent + " : " + this.Inscription + " " + this.Cotisation;
+        }
+
+        /// <summary>
+        /// datatable des adhérents pour affichages en datagridview et pour exporter/importer en XML
+        /// </summary>
+        private DataTable dtAdherents;
+
+        /// <summary>
+        /// Constructeur par défaut
+        /// (initialise la collection et le datatable)
+        /// </summary>
+        public MAdherents()
+        {
+            // instancie la collection des adhérents
+            lesAdherents = new SortedDictionary<int, MAdherents>();
+            // prépare la DataTable pour restituer la liste des adhérents
+            dtAdherents = new DataTable();
+            // ajout à la datatable de 3 colonnes personnalisées pour les adhérents
+            this.dtAdherents.Columns.Add(new DataColumn("Numéro adhérent", typeof(System.Int32)));
+            this.dtAdherents.Columns.Add(new DataColumn("Nom", typeof(System.String)));
+            this.dtAdherents.Columns.Add(new DataColumn("Prénom", typeof(System.String)));
+        }
+
+        /// <summary>
+        /// ajouter un adhérent à la collection
+        /// (reçoit la référence à l'adhérent et en déduit la clé (= numAdherent) pour la collection)
+        /// </summary>
+        /// <param name="unAdherent">la référence de l'adhérent à ajouter</param>
+        public void Ajouter(MAdherents unAdherent)
+        {
+            this.lesAdherents.Add(unAdherent.NumAdherent, unAdherent);
+        }
+
+        /// <summary>
+        /// supprimer un adhérent de la collection
+        /// (reçoit la clé de l'adhérent (= numAdherent) pour la collection)
+        /// </summary>
+        /// <param name="unNumOSIA">la clé (= numAdherent) de l'adhérent à supprimer</param>
+        /// <exception cref="Exception">Si numAdherent reçu non trouvé en collection</exception>
+        public void Supprimer(Int32 unNumAdherent)
+        {
+            // suppression sécurisée
+            if (this.lesAdherents.ContainsKey(unNumAdherent))
+            {
+                this.lesAdherents.Remove(unNumAdherent);
+            }
+            else
+            {
+                throw new Exception("Erreur : numéro adhérent non trouvé dans la collection");
+            }
+        }
+
+        /// <summary>
+        /// modifier les données de l'adhérent
+        /// tout est modifiable sauf le numAdherent (= clé de la collection)
+        /// </summary>
+        /// <param name="unAdherent">la référence au nouvel objet MAdherents pour cette clé</param>
+        public void Remplacer(MAdherents unAdherent)
+        {
+            // modifie la référence de l'adhérent stockée dans la collection            
+            this.lesAdherents[unAdherent.NumAdherent] = unAdherent;
+        }
+
+        /// <summary>
+        /// Rechercher un adhérent dans la liste en connaissant sa clé
+        /// </summary>
+        /// <param name="unNumAdherent">le numéro (=la clé) de l'adhérent à rechercher</param>
+        /// <returns>la référence à l'adhérent (ou bien lève une erreur)</returns>
+        public MAdherents RestituerAdherent(Int32 unNumAdherent)
+        {
+            MAdherents unAdherent;
+            unAdherent = this.lesAdherents[unNumAdherent];
+            if (unAdherent == null)
+            {
+                throw new Exception("Aucun adhérent pour le numéro " + unNumAdherent.ToString());
+            }
+            else
+            {
+                return unAdherent;
+            }
+        }
+
+        /// <summary>
+        /// générer et retourner une datatable qui liste les numéro, nom et prenom
+        /// de tous les adhérents de la collection
+        /// </summary>
+        /// <returns></returns>
+        public DataTable ListerAdherents()
+        {
+            // vider la datatable pour la régénérer
+            this.dtAdherents.Clear();
+            // boucle de remplissage de la datatable à partir de la collection
+            foreach (MAdherents unAdherent in this.lesAdherents.Values)
+            {
+                // instanciation datarow (=ligne datatable)
+                DataRow dr;
+                dr = this.dtAdherents.NewRow();
+                // affectation des 3 colonnes
+                dr[0] = unAdherent.NumAdherent;
+                dr[1] = unAdherent.Nom;
+                dr[2] = unAdherent.Prenom;
+                // ajouter la ligne à la datatable
+                this.dtAdherents.Rows.Add(dr);
+            } // fin de boucle remplissage datatable
+            // retourne la référence à la datatable
+            return this.dtAdherents;
+        }
+
+        public void SupprimerAdherents()
+        {
+            this.lesAdherents.Clear();
+        }
+
+        /// <summary>
+        /// méthode qui permet de sélectionner un adhérent dans l'application (lié à la base de données)
+        /// </summary>
+        public static void SelectAdherents(MAdherents unAdherent)
+        {
+            string query = "SELECT * FROM adherents WHERE num_adherent=@NumAdherent";
+            unAdherent.SupprimerAdherents();
+
+            MySqlCommand cmd = ConnexionBase.GetConnexion().CreateCommand();
+            cmd.Parameters.AddWithValue("@NumAdherent", unAdherent.NumAdherent);
+            cmd.CommandText = query;
+
+            // créé un datareader et exécute la commande
+            MySqlDataReader dataReader = cmd.ExecuteReader();
+
+            // lit les données et les garde en mémoire dans la liste
+            while (dataReader.Read())
+            {
+                MAdherents nouvelAdherent;
+
+                nouvelAdherent = new MAdherents(
+                    int.Parse(dataReader["numero"].ToString()),
+                    dataReader["nom"].ToString(),
+                    dataReader["prenom"].ToString(),
+                    dataReader["codepostal"].ToString(),
+                    dataReader["ville"].ToString(),
+                    dataReader["adresse1"].ToString(),
+                    dataReader["adresse2"].ToString(),
+                    dataReader["telephone"].ToString(),
+                    dataReader["email"].ToString());
+
+                unAdherent.Ajouter(nouvelAdherent);
+                nouvelAdherent = null;
+            }
+            // ferme le datareader
+            dataReader.Close();
+        }
+
+        /// <summary>
+        /// méthode pour insérer un adhérent dans l'application ainsi que dans la base de données
+        /// </summary>
+        /// <param name="ad"></param>
+        public static void InsertAdherent(MAdherents ad)
+        {
+            string query = "INSERT INTO adherents(`num_adherent`, `id_livres`, `date_inscription`, `date_cotisation`) VALUES (Null," +
+                "@dateInscription, @dateCotisation)";
+
+            // crée la commande sql
+            MySqlCommand cmd = ConnexionBase.GetConnexion().CreateCommand();
+            cmd.CommandText = query;
+            // exécute la commande
+            cmd.Parameters.AddWithValue("@dateInscription", ad.Inscription);
+            cmd.Parameters.AddWithValue("@dateCotisation", ad.Cotisation);
+            // exécute la requête
+            cmd.ExecuteNonQuery();
+        }
+
+        /// <summary>
+        /// méthode pour mettre à jour l'adhérent dans l'application et également dans la base de données
+        /// </summary>
+        /// <param name="ad"></param>
+        public static void UpdateAdherent(MAdherents ad)
+        {
+            string query = "UPDATE adherents SET date_cotisation=@dateCotisation WHERE num_adherent=@NumAdherent";
+
+            MySqlCommand cmd = ConnexionBase.GetConnexion().CreateCommand();
+            cmd.CommandText = query;
+            cmd.Parameters.AddWithValue("@dateCotisation", ad.Cotisation);
+            cmd.ExecuteNonQuery();
+        }
+
+        /// <summary>
+        /// méthode pour supprimer un adhérent dans l'application ainsi que dans la base de données
+        /// </summary>
+        /// <param name="num"></param>
+        public static void DeleteAdherent(Int32 num)
+        {
+            string query = "DELETE FROM adherents WHERE num_adherent=@NumAdherent";
+
+            MySqlCommand cmd = ConnexionBase.GetConnexion().CreateCommand();
+            cmd.CommandText = query;
+            cmd.Parameters.AddWithValue("@NumAdherent", num);
+            cmd.ExecuteNonQuery();
+        }
+
+        public static void AlimenterCombobox(string query, ComboBox cbbCategorie, string contenuAAfficher)
+        {
+            MySqlCommand cmd = ConnexionBase.GetConnexion().CreateCommand();
+            cmd.CommandText = query;
+            MySqlDataReader dataReader = cmd.ExecuteReader();
+            while (dataReader.Read())
+            {
+                cbbCategorie.Items.Add(dataReader[contenuAAfficher]);
+            }
+            dataReader.Close();
         }
     }
 }

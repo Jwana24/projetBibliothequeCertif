@@ -49,18 +49,5 @@ namespace projetBibliothequeCertif
 
             }
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
 }

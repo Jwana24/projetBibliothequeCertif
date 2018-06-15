@@ -137,6 +137,7 @@
     <Compile Include="MLivres.cs" />
     <Compile Include="MAdherents.cs" />
     <Compile Include="MScolaires.cs" />
+    <Compile Include="Outils.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmConsultationLivre.resx">

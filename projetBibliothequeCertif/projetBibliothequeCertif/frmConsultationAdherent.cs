@@ -12,7 +12,7 @@ namespace projetBibliothequeCertif
     public partial class frmConsultationAdherent : projetBibliothequeCertif.frmAdherents
     {
         protected MAdherents unAdherent;
-        private MBiblio unLivre;
+        private MLivres unLivre;
 
         public frmConsultationAdherent(MAdherents adherent)
         {
@@ -22,7 +22,7 @@ namespace projetBibliothequeCertif
 
         private void afficheLivres()
         {
-            MBiblio.SelectLivre(unLivre);
+            MLivres.SelectLivre(unLivre);
 
             // déterminer l'origine des données à afficher : 
             // appel de la méthode de la classe MLivres qui alimente et retourne copie de sa 
@@ -50,7 +50,7 @@ namespace projetBibliothequeCertif
 
         private void btnAjouterLivre_Click(object sender, EventArgs e)
         {
-            frmNouveauLivre nouveauLivre = new frmNouveauLivre();
+            frmNouveauLivre nouveauLivre = new frmNouveauLivre(unLivre);
 
             // Si on sort de la saisie par OK, régénère l'affichage du datagrid
             if (nouveauLivre.ShowDialog() == DialogResult.OK)

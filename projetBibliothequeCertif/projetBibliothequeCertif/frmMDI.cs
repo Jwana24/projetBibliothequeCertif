@@ -12,6 +12,8 @@ namespace projetBibliothequeCertif
 {
     public partial class frmMDI : Form
     {
+        private MLivres unLivre;
+
         public frmMDI()
         {
             InitializeComponent();
@@ -39,7 +41,7 @@ namespace projetBibliothequeCertif
         private void nouveauLivreToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // on va instancier le form de saisie du nouveau client
-            frmNouveauLivre nouveauLivre = new frmNouveauLivre();
+            frmNouveauLivre nouveauLivre = new frmNouveauLivre(unLivre);
 
             // affichage en modal et contrôle que l'utilisateur
             // en sort par OK
