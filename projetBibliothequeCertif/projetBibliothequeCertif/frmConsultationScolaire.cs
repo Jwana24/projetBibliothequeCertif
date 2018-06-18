@@ -24,7 +24,7 @@ namespace projetBibliothequeCertif
             // déterminer l'origine des données à afficher : 
             // appel de la méthode de la classe MLivres qui alimente et retourne copie de sa 
             // collection de livres sous forme de datatable
-            this.grdLivresEmpruntes.DataSource = unLivre.ListerLivres();
+           // this.grdLivresEmpruntes.DataSource = unLivre.ListerLivres();
             // refraîchir l'affichage
             this.grdLivresEmpruntes.Refresh();
         }

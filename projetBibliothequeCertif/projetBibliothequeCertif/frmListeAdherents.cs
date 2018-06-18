@@ -18,7 +18,7 @@ namespace projetBibliothequeCertif
 
         public frmListeAdherents()
         {
-            Donnees.Livres = new MLivres(leCode, leTitre);
+           // Donnees.Livres = new MLivres(leCode, leTitre);
             InitializeComponent();
             this.init();
             // affiche la liste des adhérents de la section
@@ -108,13 +108,13 @@ namespace projetBibliothequeCertif
 
         }
 
+        /// <summary>
+        /// ouvre la feuille détail en y affichant l'adhérent correspondant à la ligne double-cliquée
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void grdAdherents_DoubleClick(object sender, EventArgs e)
         {
-            // ouvrir la feuille détail en y affichant le stagiaire correspondant à la ligne double-cliquée
-
-            /* Int32 iAdherent;
-             iAdherent = this.grdAdherents.CurrentRow.Index;*/
-
             MAdherents adherent;
             // clé primaire (numAdherent) de l'adhérent dans la collection
             Int32 clePrimaire;
@@ -123,14 +123,14 @@ namespace projetBibliothequeCertif
             clePrimaire = (Int32)this.grdAdherents.CurrentRow.Cells[0].Value;
             // instancie un objet adherant pointant vers l'adhérent d'origine dans la collection
             adherent = this.unAdherent.RestituerAdherent(clePrimaire);
-            // instancier un form détail pour ce stagiaire
+            // instancie un form détail pour cet adhérent
             frmConsultationAdherent consultationAdherent = new frmConsultationAdherent(adherent);
-            // personnaliser le titre du form
+            // personnalise le titre du form
             consultationAdherent.Text = unAdherent.ToString();
-            // afficher le form détail en modal
+            // affiche le form détail en modal
             consultationAdherent.ShowDialog();
 
-            // en sortie du form détail, refraichir la datagridview
+            // en sortie du form détail, rafraîchit la datagridview
             this.afficheAdherents();
         }
     }

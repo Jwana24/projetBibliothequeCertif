@@ -20,27 +20,14 @@ namespace projetBibliothequeCertif
         public frmListeLivres()
         {
             InitializeComponent();
-            // initialisation de la collection de livres
-            Donnees.Livres = new MLivres();
-            this.init();
             this.afficheLivres();
-        }
-
-        // initialisation du jeu d'essai
-        private void init()
-        {
-            // l'ajoute dans la collection des livres gérée par la classe de collection
-            Donnees.Livres.Ajouter(this.leLivre);
-            MLivres.SelectLivre(leLivre);
         }
 
         public void afficheLivres()
         {
-            MLivres.SelectLivre(leLivre);
-
             // déterminer l'origine des données à afficher : appel de la méthode de la classe MLivres
             // qui alimente et retourne copie de sa collection de livres sous forme de datatable
-            this.grdLivres.DataSource = leLivre.ListerLivres();
+            this.grdLivres.DataSource = MLivres.ListerLivres();
             // refraîchir l'affichage
             this.grdLivres.Refresh();
         }
@@ -77,7 +64,7 @@ namespace projetBibliothequeCertif
             frmNouveauLivre nouveauLivre = new frmNouveauLivre(this.leLivre);
             if (nouveauLivre.ShowDialog() == DialogResult.OK)
             {
-                this.afficheLivres();
+                afficheLivres();
             }
 
             this.Close();
@@ -85,22 +72,47 @@ namespace projetBibliothequeCertif
 
         private void btnSupprimer_Click(object sender, EventArgs e)
         {
-            grdLivres.Rows.Remove(grdLivres.CurrentRow);
+            // si un livre est pointé dans la datagridview
+            if (this.grdLivres.CurrentRow != null)
+            {
+                // récupère la clé du livre pointé
+                Int32 cleLivre;
+                cleLivre = (Int32)this.grdLivres.CurrentRow.Cells[0].Value;
+                // demande confirmation de la suppression
+                if (MessageBox.Show("Voulez-vous supprimer le livre numéro :" + cleLivre.ToString(), "Suppression", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+
+                {
+                    MLivres.DeleteLivre(cleLivre.ToString());
+
+                    // réaffiche la datagridview
+                    afficheLivres();
+                }
+            }
         }
 
+        /// <summary>
+        /// ouvre la feuille détail en y affichant le livre correspondant à la ligne double-cliquée
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void grdLivres_DoubleClick(object sender, EventArgs e)
         {
-            Int32 iLivre;
-            iLivre = this.grdLivres.CurrentRow.Index;
+            MLivres livre;
+            // clé primaire (codeLivre) du livre dans la collection
+            Int32 clePrimaire;
 
-            // instancie un objet livre vers le form de consultation livre d'origine dans la collection
-            MLivres leLivre = Donnees.getLivreById(iLivre) as MLivres;
-            // instancie le form "Nouveau Livre" qui correspond à la création du livre
-            frmConsultationLivre consultationLivre = new frmConsultationLivre(leLivre);
-            // affiche le form de la création de contact en modal
+            // récupère la clé du livre cliqué en DataGridView
+            clePrimaire = (Int32)this.grdLivres.CurrentRow.Cells[0].Value;
+            // instancie un objet livre pointant vers le livre d'origine dans la collection
+            livre = this.leLivre.RestituerLivre(clePrimaire.ToString());
+            // instancie un form détail pour ce livre
+            frmConsultationLivre consultationLivre = new frmConsultationLivre(livre);
+            // personnalise le titre du form
+            consultationLivre.Text = leLivre.ToString();
+            // affiche le form détail en modal
             consultationLivre.ShowDialog();
 
-            // rafaichit la datagriedview quand le form est fermé
+            // en sortie du form détail, rafraîchit la datagridview
             this.afficheLivres();
         }
     }

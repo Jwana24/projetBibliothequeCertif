@@ -43,6 +43,15 @@ namespace projetBibliothequeCertif
             // initialise code et nom de la section
             this.CodeLivre = leCode;
             this.Titre = leTitre;
+            // instancie la collection des livres
+            lesLivres = new SortedDictionary<string, MLivres>();
+
+            // prépare la DataTable pour restituer la liste des livres
+            dtLivres = new DataTable();
+
+            // ajoute à la datatable 2 colonnes personnalisées pour les livres
+            this.dtLivres.Columns.Add(new DataColumn("Code livre", typeof(System.String)));
+            this.dtLivres.Columns.Add(new DataColumn("Titre", typeof(System.String)));
         }
 
         public MLivres(String leCode, String unIsbn, String leTitre, String laCategorie, String unAuteur, String unEditeur, DateTime laSortie)
@@ -55,6 +64,18 @@ namespace projetBibliothequeCertif
             this.Auteur = unAuteur;
             this.Editeur = unEditeur;
             this.Sortie = laSortie;
+
+            // instancie la collection des livres
+            lesLivres = new SortedDictionary<string, MLivres>();
+
+            // prépare la DataTable pour restituer la liste des livres
+            dtLivres = new DataTable();
+
+            // ajoute à la datatable 2 colonnes personnalisées pour les livres
+            this.dtLivres.Columns.Add(new DataColumn("Code livre", typeof(System.String)));
+            this.dtLivres.Columns.Add(new DataColumn("Titre", typeof(System.String)));
+            this.dtLivres.Columns.Add(new DataColumn("Categorie", typeof(System.String)));
+            this.dtLivres.Columns.Add(new DataColumn("Auteur", typeof(System.String)));
         }
 
         private String isbnLivre;
@@ -150,19 +171,6 @@ namespace projetBibliothequeCertif
         /// </summary>
         private DataTable dtLivres;
 
-        public MLivres()
-        {
-            // instancie la collection des livres
-            lesLivres = new SortedDictionary<string, MLivres>();
-
-            // prépare la DataTable pour restituer la liste des livres
-            dtLivres = new DataTable();
-
-            // ajoute à la datatable 2 colonnes personnalisées pour les livres
-            this.dtLivres.Columns.Add(new DataColumn("Code livre", typeof(System.String)));
-            this.dtLivres.Columns.Add(new DataColumn("Titre livre", typeof(System.String)));
-        }
-
         /// <summary>
         /// ajouter un livre à la collection
         /// (reçoit la référence au livre et en déduit la clé (= codeLivre) pour la collection)
@@ -170,16 +178,7 @@ namespace projetBibliothequeCertif
         /// <param name="unLivre">la référence du livre à ajouter</param>
         public void Ajouter(MLivres unLivre)
         {
-            String codeLivre;
-            codeLivre = this.lesLivres[unLivre] as MLivres;
-            if (codeLivre == null)
-            {
-                throw new Exception("Aucun livre trouvé pour le code livre " + codeLivre);
-            }
-            else
-            {
-                lesLivres.Add(codeLivre, unLivre);
-            }
+            this.lesLivres.Add(unLivre.CodeLivre, unLivre);
         }
 
         /// <summary>
@@ -218,7 +217,7 @@ namespace projetBibliothequeCertif
         /// <param name="unCodeLivre">le codeLivre (=la clé) du livre à rechercher</param>
         /// <exception cref="Exception">Si codeLivre reçu non trouvé en collection</exception>
         /// <returns>la référence à un livre</returns>
-        public MLivres RestituerSection(String codeLivre)
+        public MLivres RestituerLivre(String codeLivre)
         {
             MLivres leLivre;
             leLivre = this.lesLivres[codeLivre] as MLivres;
@@ -232,84 +231,87 @@ namespace projetBibliothequeCertif
             }
         }
 
-        /// <summary>
-        /// générer et retourner une datatable
-        /// qui liste les codeLivre et titreLivre
-        /// de tous les livres de la collection
-        /// </summary>
-        /// <returns>une référence de datatable à 2 colonnes</returns>
-        public DataTable ListerLivres()
-        {
-            // ligne de la datatable
-            DataRow dr;
-            // vide la datatable pour la régénérer
-            this.dtLivres.Clear();
-            // boucle de remplissage de la datatable à partir de la collection
-            foreach (MLivres unLivre in this.lesLivres.Values)
-            {
-                // instanciation de la datarow (=ligne)
-                dr = this.dtLivres.NewRow();
-                // affectation des 2 colonnes
-                // récupère le valeur de la clé
-                dr[0] = unLivre.CodeLivre;
-                // affecte l'autre colonne des valeurs de propriété de l'objet MLivres
-                dr[1] = unLivre.Titre;
-                // ajoute la ligne à la datatable
-                this.dtLivres.Rows.Add(dr);
-            } // fin de la boucle de remplissage de la datatable
-            // retourne la référence à la datatable
-            return this.dtLivres;
-        }
-
         public void SupprimerLivres()
         {
             this.lesLivres.Clear();
         }
 
-        public static void SelectLivre(MLivres livres)
+        public static void AlimenterCombobox(string query, ComboBox cbbCategorie, string contenuAAfficher)
         {
-            string query = "SELECT * FROM livres";
-            livres.SupprimerLivres();
-
             MySqlCommand cmd = ConnexionBase.GetConnexion().CreateCommand();
             cmd.CommandText = query;
+            MySqlDataReader dataReader = cmd.ExecuteReader();
+            while (dataReader.Read())
+            {
+                cbbCategorie.Items.Add(dataReader[contenuAAfficher]);
+            }
+            dataReader.Close();
+        }
 
+        /// <summary>
+        /// générer et retourner une datatable
+        /// qui liste les codeLivre, titreLivre, categorieLivre et auteurLivre
+        /// de tous les livres de la collection
+        /// </summary>
+        /// <returns>une référence de datatable à 2 colonnes</returns>
+        public static DataTable ListerLivres()
+        {
+            DataTable dtLvr = new DataTable();
+
+            // ajoute à la datatable 4 colonnes personnalisées pour les livres
+            dtLvr.Columns.Add(new DataColumn("Code livre", typeof(System.String)));
+            dtLvr.Columns.Add(new DataColumn("Titre", typeof(System.String)));
+            dtLvr.Columns.Add(new DataColumn("Categorie", typeof(System.String)));
+            dtLvr.Columns.Add(new DataColumn("Auteur", typeof(System.String)));
+
+            MySqlCommand cmd = ConnexionBase.GetConnexion().CreateCommand();
+            cmd.CommandText = "SELECT * FROM livres";
+            MySqlDataReader reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                DataRow dr;
+                dr = dtLvr.NewRow();
+                // affectation des 4 colonnes
+                dr[0] = reader.GetString(0);
+                dr[1] = reader.GetString(2);
+                dr[2] = reader.GetString(3);
+                dr[3] = reader.GetString(4);
+                // ajoute la ligne à la datatable
+                dtLvr.Rows.Add(dr);
+            }
+            reader.Close();
+
+            // fin de la boucle de remplissage de la datatable
+            // retourne la référence à la datatable
+            return dtLvr;
+        }
+
+        public static void SelectLivre(MLivres livres)
+        {
+            MySqlCommand cmd = ConnexionBase.GetConnexion().CreateCommand();
+            cmd.CommandText = "SELECT * FROM livres WHERE num_categorie=@NumCategorie AND num_editeur=@NumEditeur";
+            livres.SupprimerLivres();
+            cmd.Parameters.AddWithValue("@NumCategorie", livres.CodeLivre);
+            cmd.Parameters.AddWithValue("@NumEditeur", livres.CodeLivre);
             // crée un dataReader et exécute la commande
             MySqlDataReader dataReader = cmd.ExecuteReader();
 
             // lit les données et les stocks dans la liste
             while (dataReader.Read())
             {
-                // MAdherent nouvelAdherent;
-                Console.WriteLine(dataReader["date_inscription"].ToString());
-                Console.Read();
+                MLivres nvLivre = new MLivres(
+                dataReader["code"].ToString(),
+                dataReader["isbn"].ToString(),
+                dataReader["titre"].ToString(),
+                dataReader["categorie"].ToString(),
+                dataReader["auteur"].ToString(),
+                dataReader["editeur"].ToString(),
+                DateTime.ParseExact(dataReader["date_sortie"].ToString(), "dd/MM/yyyy hh:mm:ss", CultureInfo.InvariantCulture));
 
-                if (dataReader["date_inscription"].ToString() != "")
-                {
-
-                    MLivres nvlAdherent = new MLivres(
-                    dataReader["code"].ToString(),
-                    dataReader["isbn"].ToString(),
-                    dataReader["titre"].ToString(),
-                    dataReader["categorie"].ToString(),
-                    dataReader["auteur"].ToString(),
-                    dataReader["editeur"].ToString(),
-                    DateTime.ParseExact(dataReader["date_sortie"].ToString(), "dd/MM/yyyy hh:mm:ss", CultureInfo.InvariantCulture));
-
-                    // ajout du nouvel adhérent à la liste de livres
-                    livres.Ajouter(nvlAdherent);
-                    nvlAdherent = null;
-                }
-                else
-                {
-                    MLivres nvlAdherent = new MLivres(
-                    dataReader["code"].ToString(),
-                    dataReader["titre"].ToString());
-
-                    // ajout du nouvel adhérent à la liste de livres
-                    livres.Ajouter(nvlAdherent);
-                    nvlAdherent = null;
-                }
+                // ajout du nouveau livre
+                livres.Ajouter(nvLivre);
+                nvLivre = null;
             }
             // ferme le dataReader
             dataReader.Close();
@@ -321,11 +323,9 @@ namespace projetBibliothequeCertif
         /// <param name="ad"></param>
         public static void InsertLivre(MLivres lvr)
         {
-            string query = "INSERT INTO livres(`code_livre`, `isbn`, `titre`, `date_sortie`) VALUES (@codeLivre, @isbn, @titre, @dateSortie)";
-
             // crée la commande sql
             MySqlCommand cmd = ConnexionBase.GetConnexion().CreateCommand();
-            cmd.CommandText = query;
+            cmd.CommandText = "INSERT INTO livres(`code_livre`, `isbn`, `titre`, `date_sortie`) VALUES (@codeLivre, @isbn, @titre, @dateSortie)";
             // exécute la commande
             cmd.Parameters.AddWithValue("@codeLivre", lvr.CodeLivre);
             cmd.Parameters.AddWithValue("@isbn", lvr.Isbn);
@@ -341,11 +341,11 @@ namespace projetBibliothequeCertif
         /// <param name="ad"></param>
         public static void UpdateLivre(MLivres lvr)
         {
-            string query = "UPDATE livres SET isbn=@isbn WHERE num_categorie=@NumCategorie AND num_editeur=@NumEditeur";
-
             MySqlCommand cmd = ConnexionBase.GetConnexion().CreateCommand();
-            cmd.CommandText = query;
-            cmd.Parameters.AddWithValue("@isbn", lvr.Isbn);
+            cmd.CommandText = "UPDATE livres SET titre=@Titre, isbn=@Isbn WHERE num_categorie=@NumCategorie AND num_editeur=@NumEditeur";
+
+            cmd.Parameters.AddWithValue("@Titre", lvr.Titre);
+            cmd.Parameters.AddWithValue("@Isbn", lvr.Isbn);
             cmd.ExecuteNonQuery();
         }
 
@@ -355,24 +355,11 @@ namespace projetBibliothequeCertif
         /// <param name="num"></param>
         public static void DeleteLivre(String code)
         {
-            string query = "DELETE FROM livres WHERE code_livre=@CodeLivre";
-
             MySqlCommand cmd = ConnexionBase.GetConnexion().CreateCommand();
-            cmd.CommandText = query;
+            cmd.CommandText = "DELETE FROM livres WHERE code_livre=@CodeLivre";
+
             cmd.Parameters.AddWithValue("@CodeLivre", code);
             cmd.ExecuteNonQuery();
-        }
-
-        public static void AlimenterCombobox(string query, ComboBox cbbCategorie, string contenuAAfficher)
-        {
-            MySqlCommand cmd = ConnexionBase.GetConnexion().CreateCommand();
-            cmd.CommandText = query;
-            MySqlDataReader dataReader = cmd.ExecuteReader();
-            while (dataReader.Read())
-            {
-                cbbCategorie.Items.Add(dataReader[contenuAAfficher]);
-            }
-            dataReader.Close();
         }
     }
 }

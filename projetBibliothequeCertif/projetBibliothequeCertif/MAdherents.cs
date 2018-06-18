@@ -371,13 +371,12 @@ namespace projetBibliothequeCertif
         /// </summary>
         public static void SelectAdherents(MAdherents unAdherent)
         {
-            string query = "SELECT * FROM adherents WHERE num_adherent=@NumAdherent";
+            MySqlCommand cmd = ConnexionBase.GetConnexion().CreateCommand();
+            cmd.CommandText = "SELECT * FROM adherents WHERE num_adherent=@NumAdherent";
             unAdherent.SupprimerAdherents();
 
-            MySqlCommand cmd = ConnexionBase.GetConnexion().CreateCommand();
             cmd.Parameters.AddWithValue("@NumAdherent", unAdherent.NumAdherent);
-            cmd.CommandText = query;
-
+            
             // créé un datareader et exécute la commande
             MySqlDataReader dataReader = cmd.ExecuteReader();
 
@@ -410,12 +409,11 @@ namespace projetBibliothequeCertif
         /// <param name="ad"></param>
         public static void InsertAdherent(MAdherents ad)
         {
-            string query = "INSERT INTO adherents(`num_adherent`, `id_livres`, `date_inscription`, `date_cotisation`) VALUES (Null," +
-                "@dateInscription, @dateCotisation)";
-
             // crée la commande sql
             MySqlCommand cmd = ConnexionBase.GetConnexion().CreateCommand();
-            cmd.CommandText = query;
+            cmd.CommandText = "INSERT INTO adherents(`num_adherent`, `id_livres`, `date_inscription`, `date_cotisation`) VALUES (Null," +
+                "@dateInscription, @dateCotisation)";
+            
             // exécute la commande
             cmd.Parameters.AddWithValue("@dateInscription", ad.Inscription);
             cmd.Parameters.AddWithValue("@dateCotisation", ad.Cotisation);
@@ -429,10 +427,9 @@ namespace projetBibliothequeCertif
         /// <param name="ad"></param>
         public static void UpdateAdherent(MAdherents ad)
         {
-            string query = "UPDATE adherents SET date_cotisation=@dateCotisation WHERE num_adherent=@NumAdherent";
-
             MySqlCommand cmd = ConnexionBase.GetConnexion().CreateCommand();
-            cmd.CommandText = query;
+            cmd.CommandText = "UPDATE adherents SET date_cotisation=@dateCotisation WHERE num_adherent=@NumAdherent";
+            
             cmd.Parameters.AddWithValue("@dateCotisation", ad.Cotisation);
             cmd.ExecuteNonQuery();
         }
@@ -443,24 +440,11 @@ namespace projetBibliothequeCertif
         /// <param name="num"></param>
         public static void DeleteAdherent(Int32 num)
         {
-            string query = "DELETE FROM adherents WHERE num_adherent=@NumAdherent";
-
             MySqlCommand cmd = ConnexionBase.GetConnexion().CreateCommand();
-            cmd.CommandText = query;
+            cmd.CommandText = "DELETE FROM adherents WHERE num_adherent=@NumAdherent";
+            
             cmd.Parameters.AddWithValue("@NumAdherent", num);
             cmd.ExecuteNonQuery();
-        }
-
-        public static void AlimenterCombobox(string query, ComboBox cbbCategorie, string contenuAAfficher)
-        {
-            MySqlCommand cmd = ConnexionBase.GetConnexion().CreateCommand();
-            cmd.CommandText = query;
-            MySqlDataReader dataReader = cmd.ExecuteReader();
-            while (dataReader.Read())
-            {
-                cbbCategorie.Items.Add(dataReader[contenuAAfficher]);
-            }
-            dataReader.Close();
         }
     }
 }
