@@ -133,7 +133,7 @@ namespace projetBibliothequeCertif
             nouvelAdherent.IAdherent++;
 
             //ajouter la référence d'objet MLivres dans la collection
-            Donnees.arrayAdherents.Add(nouvelAdherent);
+            Donnees.tableAdherents.Rows.Add(nouvelAdherent);
             // incrémentation compteur de clients
             MAdherents.NAdherents++;
 

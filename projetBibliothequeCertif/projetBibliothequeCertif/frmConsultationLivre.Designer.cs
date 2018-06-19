@@ -32,6 +32,10 @@
             this.btnFermer = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
+            // cbbCategorie
+            // 
+            this.cbbCategorie.Size = new System.Drawing.Size(237, 24);
+            // 
             // btnModifier
             // 
             this.btnModifier.Location = new System.Drawing.Point(510, 407);
@@ -60,6 +64,23 @@
             this.Controls.Add(this.btnFermer);
             this.Name = "frmConsultationLivre";
             this.Text = "Consultation du livre";
+            this.Load += new System.EventHandler(this.frmConsultationLivre_Load);
+            this.Controls.SetChildIndex(this.lblCodeLivre, 0);
+            this.Controls.SetChildIndex(this.lblQrCode, 0);
+            this.Controls.SetChildIndex(this.lblTitre, 0);
+            this.Controls.SetChildIndex(this.lblCategorie, 0);
+            this.Controls.SetChildIndex(this.lblAuteur, 0);
+            this.Controls.SetChildIndex(this.lblEditeur, 0);
+            this.Controls.SetChildIndex(this.lblDateParution, 0);
+            this.Controls.SetChildIndex(this.txtbCodeLivre, 0);
+            this.Controls.SetChildIndex(this.txtbISBN, 0);
+            this.Controls.SetChildIndex(this.txtbTitre, 0);
+            this.Controls.SetChildIndex(this.cbbCategorie, 0);
+            this.Controls.SetChildIndex(this.txtbAuteur, 0);
+            this.Controls.SetChildIndex(this.txtbEditeur, 0);
+            this.Controls.SetChildIndex(this.dateTimeSortie, 0);
+            this.Controls.SetChildIndex(this.lblIdLivre, 0);
+            this.Controls.SetChildIndex(this.txtbIdLivre, 0);
             this.Controls.SetChildIndex(this.btnFermer, 0);
             this.Controls.SetChildIndex(this.btnModifier, 0);
             this.ResumeLayout(false);

@@ -29,5 +29,22 @@ namespace projetBibliothequeCertif
             frmModifierLivre modifierLivre = new frmModifierLivre();
             modifierLivre.Show();
         }
+
+        private void frmConsultationLivre_Load(object sender, EventArgs e)
+        {
+            this.afficheLivres();
+        }
+
+        public void afficheLivres()
+        {
+            // affecter les textbox
+            this.txtbCodeLivre.Text = this.leLivre.CodeLivre;
+            this.txtbISBN.Text = this.leLivre.Isbn;
+            this.txtbTitre.Text = this.leLivre.Titre;
+            this.cbbCategorie.Text = this.leLivre.Categorie;
+            this.txtbAuteur.Text = this.leLivre.Auteur;
+            this.txtbEditeur.Text = this.leLivre.Editeur;
+            this.dateTimeSortie.Text = this.leLivre.Sortie.ToString();
+        }
     }
 }

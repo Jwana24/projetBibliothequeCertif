@@ -31,8 +31,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnFermer = new System.Windows.Forms.Button();
             this.btnAjouter = new System.Windows.Forms.Button();
-            this.btnTous = new System.Windows.Forms.Button();
-            this.btnRechercher = new System.Windows.Forms.Button();
             this.txtbRecherche = new System.Windows.Forms.TextBox();
             this.grdLivres = new System.Windows.Forms.DataGridView();
             this.lblRecherche = new System.Windows.Forms.Label();
@@ -70,33 +68,13 @@
             this.btnAjouter.UseVisualStyleBackColor = true;
             this.btnAjouter.Click += new System.EventHandler(this.btnAjouter_Click);
             // 
-            // btnTous
-            // 
-            this.btnTous.Enabled = false;
-            this.btnTous.Location = new System.Drawing.Point(759, 25);
-            this.btnTous.Name = "btnTous";
-            this.btnTous.Size = new System.Drawing.Size(62, 30);
-            this.btnTous.TabIndex = 12;
-            this.btnTous.Text = "Tous";
-            this.btnTous.UseVisualStyleBackColor = true;
-            this.btnTous.Click += new System.EventHandler(this.btnTous_Click);
-            // 
-            // btnRechercher
-            // 
-            this.btnRechercher.Location = new System.Drawing.Point(641, 25);
-            this.btnRechercher.Name = "btnRechercher";
-            this.btnRechercher.Size = new System.Drawing.Size(98, 30);
-            this.btnRechercher.TabIndex = 11;
-            this.btnRechercher.Text = "Rechercher";
-            this.btnRechercher.UseVisualStyleBackColor = true;
-            this.btnRechercher.Click += new System.EventHandler(this.btnRechercher_Click);
-            // 
             // txtbRecherche
             // 
             this.txtbRecherche.Location = new System.Drawing.Point(207, 29);
             this.txtbRecherche.Name = "txtbRecherche";
-            this.txtbRecherche.Size = new System.Drawing.Size(391, 22);
+            this.txtbRecherche.Size = new System.Drawing.Size(533, 22);
             this.txtbRecherche.TabIndex = 10;
+            this.txtbRecherche.TextChanged += new System.EventHandler(this.txtbRecherche_TextChanged);
             // 
             // grdLivres
             // 
@@ -136,11 +114,10 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnFermer);
             this.Controls.Add(this.btnAjouter);
-            this.Controls.Add(this.btnTous);
-            this.Controls.Add(this.btnRechercher);
             this.Controls.Add(this.txtbRecherche);
             this.Controls.Add(this.grdLivres);
             this.Controls.Add(this.lblRecherche);
+            this.KeyPreview = true;
             this.Name = "frmListeLivres";
             this.Text = "Liste des livres";
             ((System.ComponentModel.ISupportInitialize)(this.grdLivres)).EndInit();
@@ -154,8 +131,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnFermer;
         private System.Windows.Forms.Button btnAjouter;
-        private System.Windows.Forms.Button btnTous;
-        private System.Windows.Forms.Button btnRechercher;
         private System.Windows.Forms.TextBox txtbRecherche;
         private System.Windows.Forms.Label lblRecherche;
         private System.Windows.Forms.Button btnSupprimer;

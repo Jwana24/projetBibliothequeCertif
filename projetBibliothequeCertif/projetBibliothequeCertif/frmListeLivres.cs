@@ -27,7 +27,7 @@ namespace projetBibliothequeCertif
         {
             // déterminer l'origine des données à afficher : appel de la méthode de la classe MLivres
             // qui alimente et retourne copie de sa collection de livres sous forme de datatable
-            this.grdLivres.DataSource = MLivres.ListerLivres();
+            this.grdLivres.DataSource = MLivres.ListerLivres(txtbRecherche.Text);
             // refraîchir l'affichage
             this.grdLivres.Refresh();
         }
@@ -35,28 +35,6 @@ namespace projetBibliothequeCertif
         private void btnFermer_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void btnRechercher_Click(object sender, EventArgs e)
-        {
-            if (this.txtbRecherche != null)
-            {
-                ((DataView)(this.grdLivres.DataSource)).RowFilter = "Titre like '%" + this.txtbRecherche.Text + "%'";
-            }
-        }
-
-        private void btnTous_Click(object sender, EventArgs e)
-        {
-            // le bouton "tous" est grisé dès l'ouverture de la fenêtre
-            this.btnTous.Enabled = false;
-            // si l'utilisateur tape une recherche, le bouton "tous" est dégrisé
-            if (this.txtbRecherche != null)
-            {
-                this.btnTous.Enabled = true;
-            }
-            // à partir du moment où il n'y a pas de recherche, tous les livres sont affichés
-            this.txtbRecherche.Text = null;
-            ((DataView)(this.grdLivres.DataSource)).RowFilter = null;
         }
 
         private void btnAjouter_Click(object sender, EventArgs e)
@@ -97,23 +75,23 @@ namespace projetBibliothequeCertif
         /// <param name="e"></param>
         private void grdLivres_DoubleClick(object sender, EventArgs e)
         {
-            MLivres livre;
-            // clé primaire (codeLivre) du livre dans la collection
-            Int32 clePrimaire;
+            Int32 iLivre;
+            iLivre = this.grdLivres.CurrentRow.Index;
 
-            // récupère la clé du livre cliqué en DataGridView
-            clePrimaire = (Int32)this.grdLivres.CurrentRow.Cells[0].Value;
-            // instancie un objet livre pointant vers le livre d'origine dans la collection
-            livre = this.leLivre.RestituerLivre(clePrimaire.ToString());
-            // instancie un form détail pour ce livre
-            frmConsultationLivre consultationLivre = new frmConsultationLivre(livre);
-            // personnalise le titre du form
-            consultationLivre.Text = leLivre.ToString();
-            // affiche le form détail en modal
-            consultationLivre.ShowDialog();
+            MLivres entrees = Donnees.getLivreById(iLivre) as MLivres;
+            // Instancie form consultation recette
 
-            // en sortie du form détail, rafraîchit la datagridview
+            frmConsultationLivre frmConsulter = new frmConsultationLivre(leLivre);
+            // affiche le form de consultation d'une recette
+            frmConsulter.ShowDialog();
+            // rafaichit la datagriedview quand le form est fermée
             this.afficheLivres();
+        }
+
+        private void txtbRecherche_TextChanged(object sender, EventArgs e)
+        {
+            MLivres.ListerLivres(txtbRecherche.Text);
+            afficheLivres();
         }
     }
 }

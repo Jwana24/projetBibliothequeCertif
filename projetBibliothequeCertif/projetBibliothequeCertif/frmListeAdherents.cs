@@ -18,29 +18,16 @@ namespace projetBibliothequeCertif
 
         public frmListeAdherents()
         {
-           // Donnees.Livres = new MLivres(leCode, leTitre);
             InitializeComponent();
-            this.init();
             // affiche la liste des adhérents de la section
             this.afficheAdherents();
         }
 
-        /// <summary>
-        /// initialisation du jeu d'essai 
-        /// </summary>
-        private void init()
-        {
-            // ajoute l'adhérent instancié à la collection de la liste livres
-            MAdherents.SelectAdherents(unAdherent);
-        }
-
         public void afficheAdherents()
         {
-            MAdherents.SelectAdherents(unAdherent);
-
             // déterminer l'origine des données à afficher : appel de la méthode de la classe MAdherents qui alimente
             // et retourne une copie de sa collection des adherents sous forme de datatable
-            this.grdAdherents.DataSource = unAdherent.ListerAdherents();
+            this.grdAdherents.DataSource = MAdherents.ListerAdherents();
             // rafraîchit l'affichage
             this.grdAdherents.Refresh();
         }

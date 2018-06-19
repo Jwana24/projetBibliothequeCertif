@@ -335,41 +335,51 @@ namespace projetBibliothequeCertif
             }
         }
 
-        /// <summary>
-        /// générer et retourner une datatable qui liste les numéro, nom et prenom
-        /// de tous les adhérents de la collection
-        /// </summary>
-        /// <returns></returns>
-        public DataTable ListerAdherents()
-        {
-            // vider la datatable pour la régénérer
-            this.dtAdherents.Clear();
-            // boucle de remplissage de la datatable à partir de la collection
-            foreach (MAdherents unAdherent in this.lesAdherents.Values)
-            {
-                // instanciation datarow (=ligne datatable)
-                DataRow dr;
-                dr = this.dtAdherents.NewRow();
-                // affectation des 3 colonnes
-                dr[0] = unAdherent.NumAdherent;
-                dr[1] = unAdherent.Nom;
-                dr[2] = unAdherent.Prenom;
-                // ajouter la ligne à la datatable
-                this.dtAdherents.Rows.Add(dr);
-            } // fin de boucle remplissage datatable
-            // retourne la référence à la datatable
-            return this.dtAdherents;
-        }
-
         public void SupprimerAdherents()
         {
             this.lesAdherents.Clear();
         }
 
         /// <summary>
+        /// générer et retourner une datatable qui liste les numéros, noms et prénoms
+        /// de tous les adhérents de la collection
+        /// </summary>
+        /// <returns></returns>
+        public static DataTable ListerAdherents()
+        {
+            DataTable dtAdh = new DataTable();
+
+            // ajoute à la datatable 3 colonnes personnalisées pour les livres
+            dtAdh.Columns.Add(new DataColumn("Num adherent", typeof(System.String)));
+            dtAdh.Columns.Add(new DataColumn("Nom", typeof(System.String)));
+            dtAdh.Columns.Add(new DataColumn("Prénom", typeof(System.String)));
+
+            MySqlCommand cmd = ConnexionBase.GetConnexion().CreateCommand();
+            cmd.CommandText = "SELECT * FROM adherents";
+            MySqlDataReader reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                DataRow dr;
+                dr = dtAdh.NewRow();
+                // affectation des 3 colonnes
+                dr[0] = reader.GetString(0);
+                dr[1] = reader.GetString(2);
+                dr[2] = reader.GetString(3);
+                // ajoute la ligne à la datatable
+                dtAdh.Rows.Add(dr);
+            }
+            reader.Close();
+
+            // fin de la boucle de remplissage de la datatable
+            // retourne la référence à la datatable
+            return dtAdh;
+        }
+
+        /// <summary>
         /// méthode qui permet de sélectionner un adhérent dans l'application (lié à la base de données)
         /// </summary>
-        public static void SelectAdherents(MAdherents unAdherent)
+      /*  public static void SelectAdherents(MAdherents unAdherent)
         {
             MySqlCommand cmd = ConnexionBase.GetConnexion().CreateCommand();
             cmd.CommandText = "SELECT * FROM adherents WHERE num_adherent=@NumAdherent";
@@ -401,7 +411,7 @@ namespace projetBibliothequeCertif
             }
             // ferme le datareader
             dataReader.Close();
-        }
+        }*/
 
         /// <summary>
         /// méthode pour insérer un adhérent dans l'application ainsi que dans la base de données

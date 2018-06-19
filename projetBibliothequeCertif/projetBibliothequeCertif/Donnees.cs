@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Collections;
+using System.Data;
 
 namespace projetBibliothequeCertif
 {
@@ -18,33 +18,33 @@ namespace projetBibliothequeCertif
         /// <summary>
         /// collection d'objets MLivres
         /// </summary>
-        public static ArrayList arrayLivres = new ArrayList();
+        public static DataTable tableLivres = new DataTable();
 
-        public ArrayList ArrayLivres
+        public DataTable TableLvr
         {
-            get { return arrayLivres; }
-            set { arrayLivres = value; }
+            get { return tableLivres; }
+            set { tableLivres = value; }
         }
 
         /// <summary>
         /// collection d'objets MAdherents
         /// </summary>
-        public static ArrayList arrayAdherents = new ArrayList();
+        public static DataTable tableAdherents = new DataTable();
 
-        public ArrayList ArrayAdherents
+        public DataTable TableAdh
         {
-            get { return arrayAdherents; }
-            set { arrayAdherents = value; }
+            get { return tableAdherents; }
+            set { tableAdherents = value; }
         }
 
         public static object getLivreById(int id)
         {
-            return Donnees.arrayLivres[id];
+            return Donnees.tableLivres;
         }
 
         public static object getAdherentById(int id)
         {
-            return Donnees.arrayAdherents[id];
+            return Donnees.tableAdherents;
         }
     }
 }

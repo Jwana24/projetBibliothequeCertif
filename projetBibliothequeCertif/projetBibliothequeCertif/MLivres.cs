@@ -45,13 +45,6 @@ namespace projetBibliothequeCertif
             this.Titre = leTitre;
             // instancie la collection des livres
             lesLivres = new SortedDictionary<string, MLivres>();
-
-            // prépare la DataTable pour restituer la liste des livres
-            dtLivres = new DataTable();
-
-            // ajoute à la datatable 2 colonnes personnalisées pour les livres
-            this.dtLivres.Columns.Add(new DataColumn("Code livre", typeof(System.String)));
-            this.dtLivres.Columns.Add(new DataColumn("Titre", typeof(System.String)));
         }
 
         public MLivres(String leCode, String unIsbn, String leTitre, String laCategorie, String unAuteur, String unEditeur, DateTime laSortie)
@@ -67,15 +60,6 @@ namespace projetBibliothequeCertif
 
             // instancie la collection des livres
             lesLivres = new SortedDictionary<string, MLivres>();
-
-            // prépare la DataTable pour restituer la liste des livres
-            dtLivres = new DataTable();
-
-            // ajoute à la datatable 2 colonnes personnalisées pour les livres
-            this.dtLivres.Columns.Add(new DataColumn("Code livre", typeof(System.String)));
-            this.dtLivres.Columns.Add(new DataColumn("Titre", typeof(System.String)));
-            this.dtLivres.Columns.Add(new DataColumn("Categorie", typeof(System.String)));
-            this.dtLivres.Columns.Add(new DataColumn("Auteur", typeof(System.String)));
         }
 
         private String isbnLivre;
@@ -167,11 +151,6 @@ namespace projetBibliothequeCertif
         private SortedDictionary<String, MLivres> lesLivres;
 
         /// <summary>
-        /// DataTable à 2 colonnes pour restituer la liste des livres
-        /// </summary>
-        private DataTable dtLivres;
-
-        /// <summary>
         /// ajouter un livre à la collection
         /// (reçoit la référence au livre et en déduit la clé (= codeLivre) pour la collection)
         /// </summary>
@@ -254,18 +233,19 @@ namespace projetBibliothequeCertif
         /// de tous les livres de la collection
         /// </summary>
         /// <returns>une référence de datatable à 2 colonnes</returns>
-        public static DataTable ListerLivres()
+        public static DataTable ListerLivres(String recherche)
         {
             DataTable dtLvr = new DataTable();
 
             // ajoute à la datatable 4 colonnes personnalisées pour les livres
             dtLvr.Columns.Add(new DataColumn("Code livre", typeof(System.String)));
             dtLvr.Columns.Add(new DataColumn("Titre", typeof(System.String)));
-            dtLvr.Columns.Add(new DataColumn("Categorie", typeof(System.String)));
-            dtLvr.Columns.Add(new DataColumn("Auteur", typeof(System.String)));
+            dtLvr.Columns.Add(new DataColumn("Catégorie", typeof(System.String)));
+            dtLvr.Columns.Add(new DataColumn("Auteur(e)", typeof(System.String)));
 
             MySqlCommand cmd = ConnexionBase.GetConnexion().CreateCommand();
-            cmd.CommandText = "SELECT * FROM livres";
+            cmd.CommandText = "SELECT * FROM livres WHERE titre like @recherche";
+            cmd.Parameters.AddWithValue("@recherche", recherche + '%');
             MySqlDataReader reader = cmd.ExecuteReader();
 
             while (reader.Read())
