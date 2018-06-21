@@ -31,8 +31,6 @@
             this.lblRecherche = new System.Windows.Forms.Label();
             this.grdAdherents = new System.Windows.Forms.DataGridView();
             this.txtbRecherche = new System.Windows.Forms.TextBox();
-            this.btnRechercher = new System.Windows.Forms.Button();
-            this.btnTous = new System.Windows.Forms.Button();
             this.btnAjouter = new System.Windows.Forms.Button();
             this.btnFermer = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -57,36 +55,15 @@
             this.grdAdherents.RowTemplate.Height = 24;
             this.grdAdherents.Size = new System.Drawing.Size(781, 279);
             this.grdAdherents.TabIndex = 1;
-            this.grdAdherents.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdAdherents_CellContentClick);
             this.grdAdherents.DoubleClick += new System.EventHandler(this.grdAdherents_DoubleClick);
             // 
             // txtbRecherche
             // 
             this.txtbRecherche.Location = new System.Drawing.Point(198, 35);
             this.txtbRecherche.Name = "txtbRecherche";
-            this.txtbRecherche.Size = new System.Drawing.Size(391, 22);
+            this.txtbRecherche.Size = new System.Drawing.Size(534, 22);
             this.txtbRecherche.TabIndex = 2;
-            // 
-            // btnRechercher
-            // 
-            this.btnRechercher.Location = new System.Drawing.Point(632, 31);
-            this.btnRechercher.Name = "btnRechercher";
-            this.btnRechercher.Size = new System.Drawing.Size(98, 30);
-            this.btnRechercher.TabIndex = 3;
-            this.btnRechercher.Text = "Rechercher";
-            this.btnRechercher.UseVisualStyleBackColor = true;
-            this.btnRechercher.Click += new System.EventHandler(this.btnRechercher_Click);
-            // 
-            // btnTous
-            // 
-            this.btnTous.Enabled = false;
-            this.btnTous.Location = new System.Drawing.Point(750, 31);
-            this.btnTous.Name = "btnTous";
-            this.btnTous.Size = new System.Drawing.Size(62, 30);
-            this.btnTous.TabIndex = 4;
-            this.btnTous.Text = "Tous";
-            this.btnTous.UseVisualStyleBackColor = true;
-            this.btnTous.Click += new System.EventHandler(this.btnTous_Click);
+            this.txtbRecherche.TextChanged += new System.EventHandler(this.txtbRecherche_TextChanged);
             // 
             // btnAjouter
             // 
@@ -137,8 +114,6 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnFermer);
             this.Controls.Add(this.btnAjouter);
-            this.Controls.Add(this.btnTous);
-            this.Controls.Add(this.btnRechercher);
             this.Controls.Add(this.txtbRecherche);
             this.Controls.Add(this.grdAdherents);
             this.Controls.Add(this.lblRecherche);
@@ -155,8 +130,6 @@
         private System.Windows.Forms.Label lblRecherche;
         private System.Windows.Forms.DataGridView grdAdherents;
         private System.Windows.Forms.TextBox txtbRecherche;
-        private System.Windows.Forms.Button btnRechercher;
-        private System.Windows.Forms.Button btnTous;
         private System.Windows.Forms.Button btnAjouter;
         private System.Windows.Forms.Button btnFermer;
         private System.Windows.Forms.Label label1;

@@ -10,7 +10,7 @@ namespace projetBibliothequeCertif
 {
     public partial class frmModifierAdherent : projetBibliothequeCertif.frmAdherents
     {
-        private MAdherents unAdherent;
+        private MPersonnes unAdherent;
 
         public frmModifierAdherent()
         {
@@ -25,7 +25,6 @@ namespace projetBibliothequeCertif
             this.txtbCodePostal.Text = this.unAdherent.CodePostal.ToString();
             this.txtbVille.Text = this.unAdherent.Ville.ToString();
             this.txtbAdresse.Text = this.unAdherent.Adresse1.ToString();
-            this.txtbComplAdresse.Text = this.unAdherent.Adresse2.ToString();
             this.dateTimeInscription.Text = this.unAdherent.Inscription.ToString();
             this.txtbEmail.Text = this.unAdherent.Email.ToString();
             this.txtbTelephone.Text = this.unAdherent.Telephone.ToString();
@@ -51,9 +50,9 @@ namespace projetBibliothequeCertif
 
         private void frmModifierAdherent_Load(object sender, EventArgs e)
         {
-            DateTime myDateTime = DateTime.Parse(mtxtbCotisation.ToString());
+           /* DateTime myDateTime = DateTime.Parse(mtxtbCotisation.ToString());
             int totalDays = Convert.ToInt32((DateTime.UtcNow.Date - myDateTime.Date).TotalDays);
-            MessageBox.Show("Vous avez cotisé il y a " + " jours");
+            MessageBox.Show("Vous avez cotisé il y a " + " jours");*/
         }
     }
 }

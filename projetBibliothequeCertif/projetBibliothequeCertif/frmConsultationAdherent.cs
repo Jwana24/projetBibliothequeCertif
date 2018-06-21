@@ -11,10 +11,10 @@ namespace projetBibliothequeCertif
 {
     public partial class frmConsultationAdherent : projetBibliothequeCertif.frmAdherents
     {
-        protected MAdherents unAdherent;
+        protected MPersonnes unAdherent;
         private MLivres unLivre;
 
-        public frmConsultationAdherent(MAdherents adherent)
+        public frmConsultationAdherent(MPersonnes adherent)
         {
             this.unAdherent = adherent;
             InitializeComponent();
@@ -62,9 +62,9 @@ namespace projetBibliothequeCertif
 
         private void frmConsultationAdherent_Load(object sender, EventArgs e)
         {
-            DateTime myDateTime = DateTime.Parse(mtxtbCotisation.ToString());
+          /*  DateTime myDateTime = DateTime.Parse(dateti.ToString());
             int totalDays = Convert.ToInt32((DateTime.UtcNow.Date - myDateTime.Date).TotalDays);
-            MessageBox.Show("Vous avez cotisé il y a " + " jours");
+            MessageBox.Show("Vous avez cotisé il y a " + " jours");*/
             
         }
     }

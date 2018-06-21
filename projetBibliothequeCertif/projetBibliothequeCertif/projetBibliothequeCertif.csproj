@@ -133,9 +133,10 @@
     <Compile Include="frmScolaires.Designer.cs">
       <DependentUpon>frmScolaires.cs</DependentUpon>
     </Compile>
+    <Compile Include="MAdherents.cs" />
     <Compile Include="MBiblio.cs" />
     <Compile Include="MLivres.cs" />
-    <Compile Include="MAdherents.cs" />
+    <Compile Include="MPersonnes.cs" />
     <Compile Include="MScolaires.cs" />
     <Compile Include="Outils.cs" />
     <Compile Include="Program.cs" />

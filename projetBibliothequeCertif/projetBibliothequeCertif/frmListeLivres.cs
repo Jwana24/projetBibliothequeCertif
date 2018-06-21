@@ -44,8 +44,6 @@ namespace projetBibliothequeCertif
             {
                 afficheLivres();
             }
-
-            this.Close();
         }
 
         private void btnSupprimer_Click(object sender, EventArgs e)
@@ -78,7 +76,7 @@ namespace projetBibliothequeCertif
             Int32 iLivre;
             iLivre = this.grdLivres.CurrentRow.Index;
 
-            MLivres entrees = Donnees.getLivreById(iLivre) as MLivres;
+            MLivres livre = Donnees.getLivreById(iLivre) as MLivres;
             // Instancie form consultation recette
 
             frmConsultationLivre frmConsulter = new frmConsultationLivre(leLivre);

@@ -5,13 +5,14 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace projetBibliothequeCertif
 {
     public partial class frmNouveauLivre : projetBibliothequeCertif.frmLivres
     {
         private MLivres leLivre;
-        private String unISBN, leTitre, unAuteur, unEditeur, leCode;
+        private String unIsbn, leTitre, unAuteur, unEditeur, leCode, laCategorie;
         private DateTime laSortie;
         private int idLivre;
 
@@ -28,16 +29,38 @@ namespace projetBibliothequeCertif
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-            // contrôle les données saisies sur le form
-            if (this.controle())
+            // créer une référence d'objet MListeEntrees
+            MLivres nouveauLivre = new MLivres(leCode, unIsbn, leTitre, laCategorie, unAuteur, unEditeur, laSortie);
+
+            try
             {
-                //  instancie le bon objet MLivres et l'ajoute à la collection de sa section  
-                if (this.instancie())
-                {
-                    // si l'instanciation livres et son ajout en collection est OK : fermeture de la boite de dialogue par validation
-                    this.DialogResult = DialogResult.OK;
-                }
+                // affecter les données de l'objet MListeEntrees :
+                // variables simples, ou autres, ce qui déclenche alors 
+                // le code des méthodes set
+                nouveauLivre.CodeLivre = base.txtbCodeLivre.Text;
+                nouveauLivre.Isbn = base.txtbISBN.Text;
+                nouveauLivre.Titre = base.txtbTitre.Text;
+                nouveauLivre.Categorie = base.cbbCategorie.Text;
+                nouveauLivre.Auteur = base.txtbAuteur.Text;
+                nouveauLivre.Editeur = base.txtbEditeur.Text;
+                nouveauLivre.Sortie = DateTime.Parse(base.dateTimeSortie.Text);
+               // nouveauLivre.TypeRecette = 1;
+
+                // ajoute la référence d'objet MLivres dans la collection
+                Donnees.tableLivres.Rows.Add(nouveauLivre);
+                // invoque la méthode insert, écrite dans sa classe métier
+                MLivres.InsertLivre(nouveauLivre);
             }
+            catch (Exception ex)
+            {
+                nouveauLivre = null;
+                MessageBox.Show("Erreur : \n" + ex.Message, "Vous n'avez pas saisie de nouveau livre");
+            }
+            // incrémentation compteur de livres
+            MLivres.NLivres += 1;
+            // fermeture de la boite de dialogue par validation
+            this.DialogResult = DialogResult.OK;
+
         }
 
         /// <summary>

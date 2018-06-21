@@ -12,7 +12,8 @@ namespace projetBibliothequeCertif
     public partial class frmNouvelAdherent : projetBibliothequeCertif.frmAdherents
     {
         Int32 leNumero;
-        String leNom, lePrenom, leCodePostal, laVille, uneAdresse1, uneAdresse2, leTelephone, unEmail;
+        String leNom, lePrenom, leCodePostal, laVille, uneAdresse1, leTelephone, unEmail;
+        DateTime uneDate;
 
         private void grpCotisations_Enter(object sender, EventArgs e)
         {
@@ -42,8 +43,8 @@ namespace projetBibliothequeCertif
         {
             if (chkParticuliers.Checked == true)
             {
-                lblNumAdherent.Visible = true;
-                txtbNumAdherent.Visible = true;
+                lblNumPersonne.Visible = true;
+                txtbNumPersonne.Visible = true;
                 lblNom.Visible = true;
                 txtbNom.Visible = true;
                 lblPrenom.Visible = true;
@@ -54,8 +55,6 @@ namespace projetBibliothequeCertif
                 txtbVille.Visible = true;
                 lblAdresse1.Visible = true;
                 txtbAdresse.Visible = true;
-                lblAdresse2.Visible = true;
-                txtbComplAdresse.Visible = true;
                 lblDateInscription.Visible = true;
                 dateTimeInscription.Visible = true;
                 lblEmail.Visible = true;
@@ -69,8 +68,8 @@ namespace projetBibliothequeCertif
             }
             else
             {
-                lblNumAdherent.Visible = false;
-                txtbNumAdherent.Visible = false;
+                lblNumPersonne.Visible = false;
+                txtbNumPersonne.Visible = false;
                 lblNom.Visible = false;
                 txtbNom.Visible = false;
                 lblPrenom.Visible = false;
@@ -81,8 +80,6 @@ namespace projetBibliothequeCertif
                 txtbVille.Visible = false;
                 lblAdresse1.Visible = false;
                 txtbAdresse.Visible = false;
-                lblAdresse2.Visible = false;
-                txtbComplAdresse.Visible = false;
                 lblDateInscription.Visible = false;
                 dateTimeInscription.Visible = false;
                 lblEmail.Visible = false;
@@ -98,9 +95,9 @@ namespace projetBibliothequeCertif
 
         private void frmNouvelAdherent_Load(object sender, EventArgs e)
         {
-            DateTime myDateTime = DateTime.Parse(mtxtbCotisation.ToString());
+           /* DateTime myDateTime = DateTime.Parse(mtxtbCotisation.ToString());
             int totalDays = Convert.ToInt32((DateTime.UtcNow.Date - myDateTime.Date).TotalDays);
-            MessageBox.Show("Vous avez cotisé il y a " + " jours");
+            MessageBox.Show("Vous avez cotisé il y a " + " jours");*/
         }
 
         public frmNouvelAdherent()
@@ -115,32 +112,48 @@ namespace projetBibliothequeCertif
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-            // créer une référence d'objets MLivres
-            MAdherents nouvelAdherent = new MAdherents(leNumero, leNom, lePrenom, leCodePostal, laVille, uneAdresse1, uneAdresse2, leTelephone, unEmail);
+            MAdherents nouvelAdherent = new MAdherents();
+
+            nouvelAdherent.dateInscription = DateTime.Parse(base.dateTimeInscription.Text);
+            nouvelAdherent.dateCotisation = DateTime.Parse(base.dateTimeCotisation.Text);
+
+            MAdherents.InsertAdherent(nouvelAdherent);
+
+
+
+            // créer une référence d'objets MAdherents
+            MPersonnes nouvellePersonne = new MPersonnes(leNumero, leNom, lePrenom, uneAdresse1, leTelephone, unEmail, uneDate, leCodePostal, laVille);
 
             // affecter des variables/propriétés
-            nouvelAdherent.NumAdherent = Int32.Parse(base.txtbNumAdherent.Text);
-            nouvelAdherent.Nom = base.txtbNom.Text.ToUpper();
-            nouvelAdherent.Prenom = base.txtbPrenom.Text.ToLower();
-            nouvelAdherent.CodePostal = base.txtbCodePostal.Text;
-            nouvelAdherent.Ville = base.txtbVille.Text.ToUpper();
-            nouvelAdherent.Adresse1 = base.txtbAdresse.Text;
-            nouvelAdherent.Adresse2 = base.txtbComplAdresse.Text;
-            nouvelAdherent.Telephone = base.txtbTelephone.Text;
-            nouvelAdherent.Email = base.txtbEmail.Text;
+            nouvellePersonne.NumPersonne = Int32.Parse(base.txtbNumPersonne.Text);
+            nouvellePersonne.NumAdherent = (Int32)(MAdherents.LastInsertId());
+            nouvellePersonne.Nom = base.txtbNom.Text.ToUpper();
+            nouvellePersonne.Prenom = base.txtbPrenom.Text.ToLower();
+            nouvellePersonne.CodePostal = base.txtbCodePostal.Text;
+            nouvellePersonne.Ville = base.txtbVille.Text.ToUpper();
+            nouvellePersonne.Adresse1 = base.txtbAdresse.Text;
+            nouvellePersonne.Telephone = base.txtbTelephone.Text;
+            nouvellePersonne.Email = base.txtbEmail.Text;
+            nouvellePersonne.Naissance = DateTime.Parse(base.dateTimeNaissance.Text);
+
+            // Enregistrement du nouveau stagiaire dans la BDD
+            MPersonnes.InsertPersonne(nouvellePersonne);
 
             // numéro du livre
-            nouvelAdherent.IAdherent++;
+           // nouvelAdherent.IAdherent++;
 
-            //ajouter la référence d'objet MLivres dans la collection
-            Donnees.tableAdherents.Rows.Add(nouvelAdherent);
+            //ajouter la référence d'objet MPersonnes dans la collection
+            Donnees.tableAdherents = MPersonnes.ListerPersonnes("");
             // incrémentation compteur de clients
-            MAdherents.NAdherents++;
+            MPersonnes.NPersonnes += 1;
 
-            frmListeAdherents listeAdherents = new frmListeAdherents();
+            /*frmListeAdherents listeAdherents = new frmListeAdherents();
             listeAdherents.afficheAdherents();
-            listeAdherents.Show();
+            listeAdherents.Show();*/
             this.Close();
+
+            // fermeture de la boite de dialogue par validation
+            this.DialogResult = DialogResult.OK;
         }
     }
 }

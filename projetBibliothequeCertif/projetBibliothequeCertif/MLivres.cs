@@ -87,7 +87,7 @@ namespace projetBibliothequeCertif
                         System.Windows.Forms.MessageBox.Show(value.ToString() +
                         "\n"
                         + "n'est pas un isbn valide : uniquement des chiffres",
-                        "Erreur Classe MLivres", System.Windows.Forms.MessageBoxButtons.OK);
+                        "Erreur classe MLivres", System.Windows.Forms.MessageBoxButtons.OK);
                     }
                     else
                     {
@@ -215,7 +215,7 @@ namespace projetBibliothequeCertif
             this.lesLivres.Clear();
         }
 
-        public static void AlimenterCombobox(string query, ComboBox cbbCategorie, string contenuAAfficher)
+       /* public static void AlimenterCombobox(string query, ComboBox cbbCategorie, string contenuAAfficher)
         {
             MySqlCommand cmd = ConnexionBase.GetConnexion().CreateCommand();
             cmd.CommandText = query;
@@ -225,7 +225,7 @@ namespace projetBibliothequeCertif
                 cbbCategorie.Items.Add(dataReader[contenuAAfficher]);
             }
             dataReader.Close();
-        }
+        }*/
 
         /// <summary>
         /// générer et retourner une datatable
@@ -240,8 +240,7 @@ namespace projetBibliothequeCertif
             // ajoute à la datatable 4 colonnes personnalisées pour les livres
             dtLvr.Columns.Add(new DataColumn("Code livre", typeof(System.String)));
             dtLvr.Columns.Add(new DataColumn("Titre", typeof(System.String)));
-            dtLvr.Columns.Add(new DataColumn("Catégorie", typeof(System.String)));
-            dtLvr.Columns.Add(new DataColumn("Auteur(e)", typeof(System.String)));
+          //  dtLvr.Columns.Add(new DataColumn("Catégorie", typeof(System.String)));
 
             MySqlCommand cmd = ConnexionBase.GetConnexion().CreateCommand();
             cmd.CommandText = "SELECT * FROM livres WHERE titre like @recherche";
@@ -255,8 +254,7 @@ namespace projetBibliothequeCertif
                 // affectation des 4 colonnes
                 dr[0] = reader.GetString(0);
                 dr[1] = reader.GetString(2);
-                dr[2] = reader.GetString(3);
-                dr[3] = reader.GetString(4);
+             //   dr[2] = reader.GetString(4);
                 // ajoute la ligne à la datatable
                 dtLvr.Rows.Add(dr);
             }
@@ -300,12 +298,12 @@ namespace projetBibliothequeCertif
         /// <summary>
         /// méthode pour insérer un livre dans l'application ainsi que dans la base de données
         /// </summary>
-        /// <param name="ad"></param>
+        /// <param name="lvr"></param>
         public static void InsertLivre(MLivres lvr)
         {
             // crée la commande sql
             MySqlCommand cmd = ConnexionBase.GetConnexion().CreateCommand();
-            cmd.CommandText = "INSERT INTO livres(`code_livre`, `isbn`, `titre`, `date_sortie`) VALUES (@codeLivre, @isbn, @titre, @dateSortie)";
+            cmd.CommandText = "INSERT INTO livres(code_livre, isbn, titre, date_sortie) VALUES (@codeLivre, @isbn, @titre, @dateSortie)";
             // exécute la commande
             cmd.Parameters.AddWithValue("@codeLivre", lvr.CodeLivre);
             cmd.Parameters.AddWithValue("@isbn", lvr.Isbn);

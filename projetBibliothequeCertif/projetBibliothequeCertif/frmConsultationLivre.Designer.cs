@@ -79,8 +79,6 @@
             this.Controls.SetChildIndex(this.txtbAuteur, 0);
             this.Controls.SetChildIndex(this.txtbEditeur, 0);
             this.Controls.SetChildIndex(this.dateTimeSortie, 0);
-            this.Controls.SetChildIndex(this.lblIdLivre, 0);
-            this.Controls.SetChildIndex(this.txtbIdLivre, 0);
             this.Controls.SetChildIndex(this.btnFermer, 0);
             this.Controls.SetChildIndex(this.btnModifier, 0);
             this.ResumeLayout(false);

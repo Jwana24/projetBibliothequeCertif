@@ -12,7 +12,7 @@ namespace projetBibliothequeCertif
 {
     public partial class frmListeAdherents : Form
     {
-        private MAdherents unAdherent;
+        private MPersonnes unAdherent;
         String leCode, leTitre;
         int idLivre;
 
@@ -27,7 +27,7 @@ namespace projetBibliothequeCertif
         {
             // déterminer l'origine des données à afficher : appel de la méthode de la classe MAdherents qui alimente
             // et retourne une copie de sa collection des adherents sous forme de datatable
-            this.grdAdherents.DataSource = MAdherents.ListerAdherents();
+            this.grdAdherents.DataSource = MPersonnes.ListerPersonnes(txtbRecherche.Text);
             // rafraîchit l'affichage
             this.grdAdherents.Refresh();
         }
@@ -35,28 +35,6 @@ namespace projetBibliothequeCertif
         private void btnFermer_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void btnRechercher_Click(object sender, EventArgs e)
-        {
-            if (this.txtbRecherche != null)
-            {
-                ((DataView)(this.grdAdherents.DataSource)).RowFilter = "Nom, Titre like '%" + this.txtbRecherche.Text + "%'";
-            }
-        }
-
-        private void btnTous_Click(object sender, EventArgs e)
-        {
-            // le bouton "tous" est grisé dès l'ouverture de la fenêtre
-            this.btnTous.Enabled = false;
-            // si l'utilisateur tape une recherche, le bouton "tous" est dégrisé
-            if (this.txtbRecherche != null)
-            {
-                this.btnTous.Enabled = true;
-            }
-            // à partir du moment où il n'y a pas de recherche, tous les adherents sont affichés
-            this.txtbRecherche.Text = null;
-            ((DataView)(this.grdAdherents.DataSource)).RowFilter = null;
         }
 
         private void btnAjouter_Click(object sender, EventArgs e)
@@ -68,7 +46,6 @@ namespace projetBibliothequeCertif
             {
                 this.afficheAdherents();
             }
-            //this.Close();
         }
 
         private void btnSupprimer_Click(object sender, EventArgs e)
@@ -83,16 +60,17 @@ namespace projetBibliothequeCertif
                 if (MessageBox.Show("Voulez-vous supprimer l'adhérent numéro :" + cleAdherent.ToString(), "Suppression", MessageBoxButtons.YesNo,
                     MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    MAdherents.DeleteAdherent(cleAdherent);
+                    MPersonnes.DeletePersonne(cleAdherent);
                     // réaffiche la datagridview
                     afficheAdherents();
                 }
             }
         }
 
-        private void grdAdherents_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void txtbRecherche_TextChanged(object sender, EventArgs e)
         {
-
+            MPersonnes.ListerPersonnes(txtbRecherche.Text);
+            afficheAdherents();
         }
 
         /// <summary>
@@ -102,22 +80,16 @@ namespace projetBibliothequeCertif
         /// <param name="e"></param>
         private void grdAdherents_DoubleClick(object sender, EventArgs e)
         {
-            MAdherents adherent;
-            // clé primaire (numAdherent) de l'adhérent dans la collection
-            Int32 clePrimaire;
+            Int32 iAdherent;
+            iAdherent = this.grdAdherents.CurrentRow.Index;
 
-            // récupère la clé de l'adhérent cliqué en DataGridView
-            clePrimaire = (Int32)this.grdAdherents.CurrentRow.Cells[0].Value;
-            // instancie un objet adherant pointant vers l'adhérent d'origine dans la collection
-            adherent = this.unAdherent.RestituerAdherent(clePrimaire);
-            // instancie un form détail pour cet adhérent
-            frmConsultationAdherent consultationAdherent = new frmConsultationAdherent(adherent);
-            // personnalise le titre du form
-            consultationAdherent.Text = unAdherent.ToString();
-            // affiche le form détail en modal
-            consultationAdherent.ShowDialog();
+            MPersonnes adherent = Donnees.getLivreById(iAdherent) as MPersonnes;
+            // Instancie form consultation recette
 
-            // en sortie du form détail, rafraîchit la datagridview
+            frmConsultationAdherent frmConsulter = new frmConsultationAdherent(unAdherent);
+            // affiche le form de consultation d'une recette
+            frmConsulter.ShowDialog();
+            // rafaichit la datagriedview quand le form est fermée
             this.afficheAdherents();
         }
     }

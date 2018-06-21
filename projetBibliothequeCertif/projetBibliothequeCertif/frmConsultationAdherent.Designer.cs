@@ -46,10 +46,6 @@
             // 
             this.txtbAdresse.Size = new System.Drawing.Size(758, 22);
             // 
-            // txtbComplAdresse
-            // 
-            this.txtbComplAdresse.Size = new System.Drawing.Size(667, 22);
-            // 
             // txtbEmail
             // 
             this.txtbEmail.Size = new System.Drawing.Size(758, 22);
@@ -57,7 +53,7 @@
             // grdLivresEmpruntes
             // 
             this.grdLivresEmpruntes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grdLivresEmpruntes.Location = new System.Drawing.Point(27, 570);
+            this.grdLivresEmpruntes.Location = new System.Drawing.Point(27, 534);
             this.grdLivresEmpruntes.Name = "grdLivresEmpruntes";
             this.grdLivresEmpruntes.RowTemplate.Height = 24;
             this.grdLivresEmpruntes.Size = new System.Drawing.Size(842, 204);
@@ -66,7 +62,7 @@
             // lblLivresEmprunt
             // 
             this.lblLivresEmprunt.AutoSize = true;
-            this.lblLivresEmprunt.Location = new System.Drawing.Point(24, 551);
+            this.lblLivresEmprunt.Location = new System.Drawing.Point(24, 515);
             this.lblLivresEmprunt.Name = "lblLivresEmprunt";
             this.lblLivresEmprunt.Size = new System.Drawing.Size(117, 17);
             this.lblLivresEmprunt.TabIndex = 19;
@@ -74,7 +70,7 @@
             // 
             // btnFermer
             // 
-            this.btnFermer.Location = new System.Drawing.Point(784, 822);
+            this.btnFermer.Location = new System.Drawing.Point(784, 795);
             this.btnFermer.Name = "btnFermer";
             this.btnFermer.Size = new System.Drawing.Size(85, 29);
             this.btnFermer.TabIndex = 22;
@@ -84,7 +80,7 @@
             // 
             // btnSupprimerLivre
             // 
-            this.btnSupprimerLivre.Location = new System.Drawing.Point(27, 791);
+            this.btnSupprimerLivre.Location = new System.Drawing.Point(27, 755);
             this.btnSupprimerLivre.Name = "btnSupprimerLivre";
             this.btnSupprimerLivre.Size = new System.Drawing.Size(124, 29);
             this.btnSupprimerLivre.TabIndex = 23;
@@ -104,7 +100,7 @@
             // 
             // btnAjouterLivre
             // 
-            this.btnAjouterLivre.Location = new System.Drawing.Point(167, 791);
+            this.btnAjouterLivre.Location = new System.Drawing.Point(167, 755);
             this.btnAjouterLivre.Name = "btnAjouterLivre";
             this.btnAjouterLivre.Size = new System.Drawing.Size(101, 29);
             this.btnAjouterLivre.TabIndex = 25;
@@ -115,7 +111,7 @@
             // frmConsultationAdherent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.ClientSize = new System.Drawing.Size(905, 863);
+            this.ClientSize = new System.Drawing.Size(905, 847);
             this.Controls.Add(this.btnAjouterLivre);
             this.Controls.Add(this.btnModifierAdherent);
             this.Controls.Add(this.btnSupprimerLivre);
@@ -128,14 +124,13 @@
             this.Controls.SetChildIndex(this.grpCotisations, 0);
             this.Controls.SetChildIndex(this.lblDateNaissance, 0);
             this.Controls.SetChildIndex(this.dateTimeNaissance, 0);
-            this.Controls.SetChildIndex(this.lblNumAdherent, 0);
-            this.Controls.SetChildIndex(this.txtbNumAdherent, 0);
+            this.Controls.SetChildIndex(this.lblNumPersonne, 0);
+            this.Controls.SetChildIndex(this.txtbNumPersonne, 0);
             this.Controls.SetChildIndex(this.lblNom, 0);
             this.Controls.SetChildIndex(this.lblPrenom, 0);
             this.Controls.SetChildIndex(this.lblCodePostal, 0);
             this.Controls.SetChildIndex(this.lblVille, 0);
             this.Controls.SetChildIndex(this.lblAdresse1, 0);
-            this.Controls.SetChildIndex(this.lblAdresse2, 0);
             this.Controls.SetChildIndex(this.lblDateInscription, 0);
             this.Controls.SetChildIndex(this.lblEmail, 0);
             this.Controls.SetChildIndex(this.lblTelephone, 0);
@@ -144,7 +139,6 @@
             this.Controls.SetChildIndex(this.txtbCodePostal, 0);
             this.Controls.SetChildIndex(this.txtbVille, 0);
             this.Controls.SetChildIndex(this.txtbAdresse, 0);
-            this.Controls.SetChildIndex(this.txtbComplAdresse, 0);
             this.Controls.SetChildIndex(this.txtbEmail, 0);
             this.Controls.SetChildIndex(this.txtbTelephone, 0);
             this.Controls.SetChildIndex(this.dateTimeInscription, 0);
