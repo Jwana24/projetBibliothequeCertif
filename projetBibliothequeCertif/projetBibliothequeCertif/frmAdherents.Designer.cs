@@ -49,9 +49,9 @@
             this.lblNumPersonne = new System.Windows.Forms.Label();
             this.txtbNumPersonne = new System.Windows.Forms.TextBox();
             this.grpCotisations = new System.Windows.Forms.GroupBox();
+            this.dateTimeCotisation = new System.Windows.Forms.DateTimePicker();
             this.lblRetard = new System.Windows.Forms.Label();
             this.lblCotisations = new System.Windows.Forms.Label();
-            this.dateTimeCotisation = new System.Windows.Forms.DateTimePicker();
             this.grpCotisations.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -227,6 +227,13 @@
             this.grpCotisations.TabStop = false;
             this.grpCotisations.Text = "Cotisations";
             // 
+            // dateTimeCotisation
+            // 
+            this.dateTimeCotisation.Location = new System.Drawing.Point(41, 68);
+            this.dateTimeCotisation.Name = "dateTimeCotisation";
+            this.dateTimeCotisation.Size = new System.Drawing.Size(241, 22);
+            this.dateTimeCotisation.TabIndex = 4;
+            // 
             // lblRetard
             // 
             this.lblRetard.AutoSize = true;
@@ -248,18 +255,11 @@
             this.lblCotisations.Text = "à cotisé le :";
             this.lblCotisations.Click += new System.EventHandler(this.label1_Click);
             // 
-            // dateTimeCotisation
-            // 
-            this.dateTimeCotisation.Location = new System.Drawing.Point(41, 68);
-            this.dateTimeCotisation.Name = "dateTimeCotisation";
-            this.dateTimeCotisation.Size = new System.Drawing.Size(241, 22);
-            this.dateTimeCotisation.TabIndex = 4;
-            // 
             // frmAdherents
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(897, 517);
+            this.ClientSize = new System.Drawing.Size(907, 508);
             this.Controls.Add(this.grpCotisations);
             this.Controls.Add(this.txtbNumPersonne);
             this.Controls.Add(this.lblNumPersonne);

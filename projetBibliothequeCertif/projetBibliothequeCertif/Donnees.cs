@@ -16,35 +16,18 @@ namespace projetBibliothequeCertif
         public static MLivres Livres;
 
         /// <summary>
+        /// collection d'objets MPersonnes
+        /// </summary>
+        public static MPersonnes Personnes;
+
+        /// <summary>
         /// collection d'objets MLivres
         /// </summary>
         public static DataTable tableLivres = new DataTable();
 
-        public DataTable TableLvr
-        {
-            get { return tableLivres; }
-            set { tableLivres = value; }
-        }
-
         /// <summary>
-        /// collection d'objets MAdherents
+        /// collection d'objets MPersonnes
         /// </summary>
         public static DataTable tablePersonnes = new DataTable();
-
-        public DataTable TablePers
-        {
-            get { return tablePersonnes; }
-            set { tablePersonnes = value; }
-        }
-
-        public static object getLivreById(int id)
-        {
-            return Donnees.tableLivres;
-        }
-
-        public static object getPersonneById(int id)
-        {
-            return Donnees.tablePersonnes;
-        }
     }
 }

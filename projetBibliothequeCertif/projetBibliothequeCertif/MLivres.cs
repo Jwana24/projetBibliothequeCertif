@@ -49,6 +49,9 @@ namespace projetBibliothequeCertif
 
         public MLivres(String leCode, String unIsbn, String leTitre, String laCategorie, DateTime laSortie, String unAuteur, String unEditeur)
         {
+            // instancie la collection des livres
+            lesLivres = new SortedDictionary<string, MLivres>();
+
             // initialise code et nom de la section
             this.CodeLivre = leCode;
             this.Isbn = unIsbn;
@@ -57,9 +60,6 @@ namespace projetBibliothequeCertif
             this.Auteur = unAuteur;
             this.Editeur = unEditeur;
             this.Sortie = laSortie;
-
-            // instancie la collection des livres
-            lesLivres = new SortedDictionary<string, MLivres>();
         }
 
         private String isbnLivre;
@@ -219,6 +219,12 @@ namespace projetBibliothequeCertif
             dataReader.Close();
         }*/
 
+         /*   public void RechercherLivres()
+        {
+            DataTable tableLivres = new DataTable();
+            MLivres livres = Donnees.tableLivres(CodeLivre) as MLivres;
+        }*/
+
         /// <summary>
         /// générer et retourner une datatable
         /// qui liste les codeLivre, titreLivre, categorieLivre et auteurLivre
@@ -227,13 +233,13 @@ namespace projetBibliothequeCertif
         /// <returns>une référence de datatable à 2 colonnes</returns>
         public static DataTable ListerLivres(String recherche)
         {
-            DataTable dtLvr = new DataTable();
+            DataTable tableLivres = new DataTable();
 
             // ajoute à la datatable 4 colonnes personnalisées pour les livres
-            dtLvr.Columns.Add(new DataColumn("Code livre", typeof(System.String)));
-            dtLvr.Columns.Add(new DataColumn("Titre", typeof(System.String)));
-            dtLvr.Columns.Add(new DataColumn("Catégorie", typeof(System.String)));
-            dtLvr.Columns.Add(new DataColumn("Auteur", typeof(System.String)));
+            tableLivres.Columns.Add(new DataColumn("Code livre", typeof(System.String)));
+            tableLivres.Columns.Add(new DataColumn("Titre", typeof(System.String)));
+            tableLivres.Columns.Add(new DataColumn("Catégorie", typeof(System.String)));
+            tableLivres.Columns.Add(new DataColumn("Auteur", typeof(System.String)));
 
             MySqlCommand cmd = ConnexionBase.GetConnexion().CreateCommand();
             cmd.CommandText = "SELECT * FROM livres WHERE titre like @recherche";
@@ -243,51 +249,21 @@ namespace projetBibliothequeCertif
             while (reader.Read())
             {
                 DataRow dr;
-                dr = dtLvr.NewRow();
+                dr = tableLivres.NewRow();
                 // affectation des 4 colonnes
                 dr[0] = reader.GetString(0);
                 dr[1] = reader.GetString(2);
                 dr[2] = reader.GetString(3);
                 dr[3] = reader.GetString(5);
                 // ajoute la ligne à la datatable
-                dtLvr.Rows.Add(dr);
+                tableLivres.Rows.Add(dr);
             }
             reader.Close();
 
             // fin de la boucle de remplissage de la datatable
             // retourne la référence à la datatable
-            return dtLvr;
+            return tableLivres;
         }
-
-      /*  public static void SelectLivre(MLivres livres)
-        {
-            MySqlCommand cmd = ConnexionBase.GetConnexion().CreateCommand();
-            cmd.CommandText = "SELECT * FROM livres WHERE num_categorie=@NumCategorie AND num_editeur=@NumEditeur";
-            livres.SupprimerLivres();
-            cmd.Parameters.AddWithValue("@NumCategorie", livres.CodeLivre);
-            cmd.Parameters.AddWithValue("@NumEditeur", livres.CodeLivre);
-            // crée un dataReader et exécute la commande
-            MySqlDataReader dataReader = cmd.ExecuteReader();
-
-            // lit les données et les stocks dans la liste
-            while (dataReader.Read())
-            {
-                MLivres nvLivre = new MLivres(
-                dataReader["code"].ToString(),
-                dataReader["isbn"].ToString(),
-                dataReader["titre"].ToString(),
-                dataReader["categorie"].ToString(),
-                dataReader["auteur"].ToString(),
-                dataReader["editeur"].ToString(),
-                DateTime.ParseExact(dataReader["date_sortie"].ToString(), "dd/MM/yyyy hh:mm:ss", CultureInfo.InvariantCulture));
-
-                // ajout du nouveau livre
-                livres.Ajouter(nvLivre);
-                nvLivre = null;
-            }
-            // ferme le dataReader
-            dataReader.Close();
-        }*/
 
         /// <summary>
         /// méthode pour insérer un livre dans l'application ainsi que dans la base de données

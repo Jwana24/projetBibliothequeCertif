@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtbCodeSco = new System.Windows.Forms.TextBox();
+            this.lblCode = new System.Windows.Forms.Label();
             this.txtbPrenomProf = new System.Windows.Forms.TextBox();
             this.txtbNomProf = new System.Windows.Forms.TextBox();
             this.lblPrenomProf = new System.Windows.Forms.Label();
@@ -39,8 +41,6 @@
             this.txtbEcole = new System.Windows.Forms.TextBox();
             this.lblClasse = new System.Windows.Forms.Label();
             this.lblEcole = new System.Windows.Forms.Label();
-            this.lblCode = new System.Windows.Forms.Label();
-            this.txtbCodeSco = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,13 +58,28 @@
             this.groupBox1.Controls.Add(this.txtbEcole);
             this.groupBox1.Controls.Add(this.lblClasse);
             this.groupBox1.Controls.Add(this.lblEcole);
-            this.groupBox1.Enabled = false;
             this.groupBox1.Location = new System.Drawing.Point(28, 36);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(744, 407);
             this.groupBox1.TabIndex = 26;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Scolarité";
+            // 
+            // txtbCodeSco
+            // 
+            this.txtbCodeSco.Location = new System.Drawing.Point(247, 59);
+            this.txtbCodeSco.Name = "txtbCodeSco";
+            this.txtbCodeSco.Size = new System.Drawing.Size(211, 22);
+            this.txtbCodeSco.TabIndex = 11;
+            // 
+            // lblCode
+            // 
+            this.lblCode.AutoSize = true;
+            this.lblCode.Location = new System.Drawing.Point(57, 59);
+            this.lblCode.Name = "lblCode";
+            this.lblCode.Size = new System.Drawing.Size(94, 17);
+            this.lblCode.TabIndex = 10;
+            this.lblCode.Text = "Code scolaire";
             // 
             // txtbPrenomProf
             // 
@@ -151,22 +166,6 @@
             this.lblEcole.Size = new System.Drawing.Size(149, 17);
             this.lblEcole.TabIndex = 0;
             this.lblEcole.Text = "Etablissement scolaire";
-            // 
-            // lblCode
-            // 
-            this.lblCode.AutoSize = true;
-            this.lblCode.Location = new System.Drawing.Point(57, 59);
-            this.lblCode.Name = "lblCode";
-            this.lblCode.Size = new System.Drawing.Size(94, 17);
-            this.lblCode.TabIndex = 10;
-            this.lblCode.Text = "Code scolaire";
-            // 
-            // txtbCodeSco
-            // 
-            this.txtbCodeSco.Location = new System.Drawing.Point(247, 59);
-            this.txtbCodeSco.Name = "txtbCodeSco";
-            this.txtbCodeSco.Size = new System.Drawing.Size(211, 22);
-            this.txtbCodeSco.TabIndex = 11;
             // 
             // frmScolaires
             // 

@@ -97,24 +97,6 @@
     <Compile Include="frmMDI.Designer.cs">
       <DependentUpon>frmMDI.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmModifierLivre.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmModifierLivre.Designer.cs">
-      <DependentUpon>frmModifierLivre.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmModifierPersonne.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmModifierPersonne.Designer.cs">
-      <DependentUpon>frmModifierPersonne.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmModifierScolaire.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmModifierScolaire.Designer.cs">
-      <DependentUpon>frmModifierScolaire.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmNouveauLivre.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -140,7 +122,6 @@
       <DependentUpon>frmScolaires.cs</DependentUpon>
     </Compile>
     <Compile Include="MAdherents.cs" />
-    <Compile Include="MBiblio.cs" />
     <Compile Include="MLivres.cs" />
     <Compile Include="MPersonnes.cs" />
     <Compile Include="MScolaires.cs" />
@@ -170,15 +151,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMDI.resx">
       <DependentUpon>frmMDI.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmModifierLivre.resx">
-      <DependentUpon>frmModifierLivre.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmModifierPersonne.resx">
-      <DependentUpon>frmModifierPersonne.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmModifierScolaire.resx">
-      <DependentUpon>frmModifierScolaire.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmNouveauLivre.resx">
       <DependentUpon>frmNouveauLivre.cs</DependentUpon>

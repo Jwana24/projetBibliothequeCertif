@@ -34,6 +34,7 @@
             this.btnSupprimerLivre = new System.Windows.Forms.Button();
             this.btnModifier = new System.Windows.Forms.Button();
             this.btnAjouterLivre = new System.Windows.Forms.Button();
+            this.btnOk = new System.Windows.Forms.Button();
             this.grpCotisations.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdLivresEmpruntes)).BeginInit();
             this.SuspendLayout();
@@ -121,7 +122,7 @@
             // 
             // btnModifier
             // 
-            this.btnModifier.Location = new System.Drawing.Point(737, 435);
+            this.btnModifier.Location = new System.Drawing.Point(632, 401);
             this.btnModifier.Name = "btnModifier";
             this.btnModifier.Size = new System.Drawing.Size(132, 29);
             this.btnModifier.TabIndex = 24;
@@ -139,10 +140,20 @@
             this.btnAjouterLivre.UseVisualStyleBackColor = true;
             this.btnAjouterLivre.Click += new System.EventHandler(this.btnAjouterLivre_Click);
             // 
+            // btnOk
+            // 
+            this.btnOk.Location = new System.Drawing.Point(777, 401);
+            this.btnOk.Name = "btnOk";
+            this.btnOk.Size = new System.Drawing.Size(55, 29);
+            this.btnOk.TabIndex = 34;
+            this.btnOk.Text = "OK";
+            this.btnOk.UseVisualStyleBackColor = true;
+            // 
             // frmConsultationPersonne
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.ClientSize = new System.Drawing.Size(905, 847);
+            this.Controls.Add(this.btnOk);
             this.Controls.Add(this.btnAjouterLivre);
             this.Controls.Add(this.btnModifier);
             this.Controls.Add(this.btnSupprimerLivre);
@@ -179,6 +190,7 @@
             this.Controls.SetChildIndex(this.btnSupprimerLivre, 0);
             this.Controls.SetChildIndex(this.btnModifier, 0);
             this.Controls.SetChildIndex(this.btnAjouterLivre, 0);
+            this.Controls.SetChildIndex(this.btnOk, 0);
             this.grpCotisations.ResumeLayout(false);
             this.grpCotisations.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdLivresEmpruntes)).EndInit();
@@ -195,5 +207,6 @@
         private System.Windows.Forms.Button btnSupprimerLivre;
         private System.Windows.Forms.Button btnModifier;
         private System.Windows.Forms.Button btnAjouterLivre;
+        private System.Windows.Forms.Button btnOk;
     }
 }

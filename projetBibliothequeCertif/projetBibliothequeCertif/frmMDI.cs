@@ -27,30 +27,22 @@ namespace projetBibliothequeCertif
 
         private void consultationPersonneToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // on va instancier le form de saisie du nouveau client
+            // on instancie le form de saisie du nouveau livre
             frmConsultationPersonne consulterPer = new frmConsultationPersonne(personne);
+            // affichage en modal
+            consulterPer.ShowDialog();
+        }
 
-            // affichage en modal et contrôle que l'utilisateur
-            // en sort par OK
-            if (consulterPer.ShowDialog() == DialogResult.OK)
-            {
-                // recherche rang de l'adhérent saisi
-                //this.iClient = MClients.NClients - 1;
-            }
+        private void consultationScolaireToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmConsultationScolaire consultersco = new frmConsultationScolaire();
+            consultersco.ShowDialog();
         }
 
         private void consultationLivreToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // on va instancier le form de saisie du nouveau client
             frmConsultationLivre consulterLvr = new frmConsultationLivre(unLivre);
-
-            // affichage en modal et contrôle que l'utilisateur
-            // en sort par OK
-            if (consulterLvr.ShowDialog() == DialogResult.OK)
-            {
-                // recherche rang du client saisi
-                //this.iClient = MClients.NClients - 1;
-            }
+            consulterLvr.ShowDialog();
         }
 
         private void listeDesAdherentsToolStripMenuItem_Click(object sender, EventArgs e)

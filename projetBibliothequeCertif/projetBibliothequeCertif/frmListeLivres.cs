@@ -74,17 +74,16 @@ namespace projetBibliothequeCertif
         /// <param name="e"></param>
         private void grdLivres_DoubleClick(object sender, EventArgs e)
         {
-            Int32 iLivre;
+           /* Int32 iLivre;
             iLivre = this.grdLivres.CurrentRow.Index;
 
-            MLivres livre = Donnees.getLivreById(iLivre) as MLivres;
-            // Instancie form consultation recette
+            MLivres Lelivre = Donnees.getLivreById(iLivre) as MLivres;
 
             frmConsultationLivre frmConsulter = new frmConsultationLivre(leLivre);
             // affiche le form de consultation d'une recette
             frmConsulter.ShowDialog();
             // rafaichit la datagriedview quand le form est fermée
-            this.afficheLivres();
+            this.afficheLivres();*/
         }
 
         private void txtbRecherche_TextChanged(object sender, EventArgs e)

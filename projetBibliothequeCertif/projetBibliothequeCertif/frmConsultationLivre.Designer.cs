@@ -30,6 +30,7 @@
         {
             this.btnModifier = new System.Windows.Forms.Button();
             this.btnFermer = new System.Windows.Forms.Button();
+            this.btnOk = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtbCodeLivre
@@ -63,7 +64,7 @@
             // 
             // btnModifier
             // 
-            this.btnModifier.Location = new System.Drawing.Point(510, 407);
+            this.btnModifier.Location = new System.Drawing.Point(40, 407);
             this.btnModifier.Name = "btnModifier";
             this.btnModifier.Size = new System.Drawing.Size(89, 29);
             this.btnModifier.TabIndex = 26;
@@ -81,10 +82,21 @@
             this.btnFermer.UseVisualStyleBackColor = true;
             this.btnFermer.Click += new System.EventHandler(this.btnFermer_Click);
             // 
+            // btnOk
+            // 
+            this.btnOk.Location = new System.Drawing.Point(144, 407);
+            this.btnOk.Name = "btnOk";
+            this.btnOk.Size = new System.Drawing.Size(55, 29);
+            this.btnOk.TabIndex = 27;
+            this.btnOk.Text = "OK";
+            this.btnOk.UseVisualStyleBackColor = true;
+            this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
+            // 
             // frmConsultationLivre
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.ClientSize = new System.Drawing.Size(758, 459);
+            this.Controls.Add(this.btnOk);
             this.Controls.Add(this.btnModifier);
             this.Controls.Add(this.btnFermer);
             this.Name = "frmConsultationLivre";
@@ -106,6 +118,7 @@
             this.Controls.SetChildIndex(this.dateTimeSortie, 0);
             this.Controls.SetChildIndex(this.btnFermer, 0);
             this.Controls.SetChildIndex(this.btnModifier, 0);
+            this.Controls.SetChildIndex(this.btnOk, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -115,5 +128,6 @@
 
         private System.Windows.Forms.Button btnModifier;
         private System.Windows.Forms.Button btnFermer;
+        private System.Windows.Forms.Button btnOk;
     }
 }

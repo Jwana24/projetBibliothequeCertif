@@ -27,10 +27,7 @@ namespace projetBibliothequeCertif
 
         private void affichePersonnes(MPersonnes laPersonne)
         {
-           
-            
-            
-            /* txtbNumPersonne.Text = laPersonne.NumPersonne.ToString();
+            txtbNumPersonne.Text = laPersonne.NumPersonne.ToString();
             txtbNom.Text = laPersonne.Nom;
             txtbPrenom.Text = laPersonne.Prenom;
             txtbCodePostal.Text = laPersonne.CodePostal;
@@ -39,13 +36,39 @@ namespace projetBibliothequeCertif
             dateTimeInscription.Text = laPersonne.Inscription.ToString();
             txtbEmail.Text = laPersonne.Email;
             txtbTelephone.Text = laPersonne.Telephone;
-            dateTimeNaissance.Text = laPersonne.Naissance.ToString();*/
+            dateTimeNaissance.Text = laPersonne.Naissance.ToString();
         }
 
         private void btnModifier_Click(object sender, EventArgs e)
         {
-            frmModifierPersonne modifierPersonne = new frmModifierPersonne();
-            modifierPersonne.Show();
+            if (txtbNumPersonne.Enabled == false && txtbNom.Enabled == false && txtbPrenom.Enabled == false && txtbCodePostal.Enabled == false
+               && txtbVille.Enabled == false && txtbAdresse.Enabled == false && dateTimeInscription.Enabled == false && txtbEmail.Enabled == false
+               && txtbTelephone.Enabled == false && dateTimeNaissance.Enabled == false)
+            {
+                txtbNumPersonne.Enabled = true;
+                txtbNom.Enabled = true;
+                txtbPrenom.Enabled = true;
+                txtbCodePostal.Enabled = true;
+                txtbVille.Enabled = true;
+                txtbAdresse.Enabled = true;
+                dateTimeInscription.Enabled = true;
+                txtbEmail.Enabled = true;
+                txtbTelephone.Enabled = true;
+                dateTimeNaissance.Enabled = true;
+            }
+            else
+            {
+                txtbNumPersonne.Enabled = false;
+                txtbNom.Enabled = false;
+                txtbPrenom.Enabled = false;
+                txtbCodePostal.Enabled = false;
+                txtbVille.Enabled = false;
+                txtbAdresse.Enabled = false;
+                dateTimeInscription.Enabled = false;
+                txtbEmail.Enabled = false;
+                txtbTelephone.Enabled = false;
+                dateTimeNaissance.Enabled = false;
+            }
         }
 
         private void btnFermer_Click(object sender, EventArgs e)

@@ -12,6 +12,8 @@ namespace projetBibliothequeCertif
 {
     public partial class frmListePersonnes : Form
     {
+        private MPersonnes personne;
+
         public frmListePersonnes()
         {
             InitializeComponent();
@@ -77,15 +79,17 @@ namespace projetBibliothequeCertif
         private void grdPersonnes_DoubleClick(object sender, EventArgs e)
         {
             Int32 iPersonne;
-            iPersonne = this.grdPersonnes.CurrentRow.Index;
+            iPersonne = (Int32)this.grdPersonnes.CurrentRow.Cells[0].Value;
 
-            MPersonnes personne = Donnees.getPersonneById(iPersonne) as MPersonnes;
+            personne = Donnees.Personnes.RechercherPersonnes(iPersonne) as MPersonnes;
             // instancie le form consultation personne
             frmConsultationPersonne frmConsulter = new frmConsultationPersonne(personne);
             // affiche le form de consultation d'une personne
             frmConsulter.ShowDialog();
             // rafraîchit la datagriedview quand le form est fermé
             this.affichePersonnes();
+
+
         }
     }
 }

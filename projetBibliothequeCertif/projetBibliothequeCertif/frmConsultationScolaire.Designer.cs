@@ -34,6 +34,7 @@
             this.btnFermer = new System.Windows.Forms.Button();
             this.lblLivresEmprunt = new System.Windows.Forms.Label();
             this.grdLivresEmpruntes = new System.Windows.Forms.DataGridView();
+            this.btnOk = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdLivresEmpruntes)).BeginInit();
             this.SuspendLayout();
@@ -45,10 +46,12 @@
             // 
             // txtbPrenomProf
             // 
+            this.txtbPrenomProf.Enabled = false;
             this.txtbPrenomProf.Location = new System.Drawing.Point(247, 287);
             // 
             // txtbNomProf
             // 
+            this.txtbNomProf.Enabled = false;
             this.txtbNomProf.Location = new System.Drawing.Point(247, 239);
             // 
             // lblPrenomProf
@@ -61,19 +64,22 @@
             // 
             // txtbVilleEcole
             // 
-            this.txtbVilleEcole.Location = new System.Drawing.Point(138, 40);
+            this.txtbVilleEcole.Enabled = false;
+            this.txtbVilleEcole.Location = new System.Drawing.Point(140, 92);
             // 
             // lblVilleEcole
             // 
-            this.lblVilleEcole.Location = new System.Drawing.Point(57, 40);
+            this.lblVilleEcole.Location = new System.Drawing.Point(57, 92);
             // 
             // cbbClasse
             // 
+            this.cbbClasse.Enabled = false;
             this.cbbClasse.Location = new System.Drawing.Point(138, 189);
             this.cbbClasse.Size = new System.Drawing.Size(125, 24);
             // 
             // txtbEcole
             // 
+            this.txtbEcole.Enabled = false;
             this.txtbEcole.Location = new System.Drawing.Point(247, 140);
             // 
             // lblClasse
@@ -86,15 +92,17 @@
             // 
             // txtbCodeSco
             // 
-            this.txtbCodeSco.Location = new System.Drawing.Point(189, 89);
+            this.txtbCodeSco.Enabled = false;
+            this.txtbCodeSco.Location = new System.Drawing.Point(247, 41);
+            this.txtbCodeSco.Size = new System.Drawing.Size(213, 22);
             // 
             // lblCode
             // 
-            this.lblCode.Location = new System.Drawing.Point(57, 89);
+            this.lblCode.Location = new System.Drawing.Point(57, 41);
             // 
             // btnModifierScolaire
             // 
-            this.btnModifierScolaire.Location = new System.Drawing.Point(640, 361);
+            this.btnModifierScolaire.Location = new System.Drawing.Point(495, 351);
             this.btnModifierScolaire.Name = "btnModifierScolaire";
             this.btnModifierScolaire.Size = new System.Drawing.Size(132, 29);
             this.btnModifierScolaire.TabIndex = 27;
@@ -150,10 +158,21 @@
             this.grdLivresEmpruntes.Size = new System.Drawing.Size(744, 204);
             this.grdLivresEmpruntes.TabIndex = 28;
             // 
+            // btnOk
+            // 
+            this.btnOk.Location = new System.Drawing.Point(643, 351);
+            this.btnOk.Name = "btnOk";
+            this.btnOk.Size = new System.Drawing.Size(55, 29);
+            this.btnOk.TabIndex = 33;
+            this.btnOk.Text = "OK";
+            this.btnOk.UseVisualStyleBackColor = true;
+            this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
+            // 
             // frmConsultationScolaire
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.ClientSize = new System.Drawing.Size(800, 685);
+            this.Controls.Add(this.btnOk);
             this.Controls.Add(this.btnAjouterLivre);
             this.Controls.Add(this.btnSupprimerLivre);
             this.Controls.Add(this.btnFermer);
@@ -169,6 +188,7 @@
             this.Controls.SetChildIndex(this.btnFermer, 0);
             this.Controls.SetChildIndex(this.btnSupprimerLivre, 0);
             this.Controls.SetChildIndex(this.btnAjouterLivre, 0);
+            this.Controls.SetChildIndex(this.btnOk, 0);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdLivresEmpruntes)).EndInit();
@@ -185,5 +205,6 @@
         private System.Windows.Forms.Button btnFermer;
         private System.Windows.Forms.Label lblLivresEmprunt;
         private System.Windows.Forms.DataGridView grdLivresEmpruntes;
+        private System.Windows.Forms.Button btnOk;
     }
 }

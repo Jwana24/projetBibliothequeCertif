@@ -38,6 +38,7 @@
             this.listeDesAdherentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listeDesScolairesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listeDesLivresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.consultationScolaireToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -57,6 +58,7 @@
             // 
             this.fichierStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.consultationPersonneToolStripMenuItem,
+            this.consultationScolaireToolStripMenuItem,
             this.consultationLivreToolStripMenuItem,
             this.quitterLapplicationToolStripMenuItem});
             this.fichierStripMenuItem.Name = "fichierStripMenuItem";
@@ -114,6 +116,13 @@
             this.listeDesLivresToolStripMenuItem.Text = "Liste des livres";
             this.listeDesLivresToolStripMenuItem.Click += new System.EventHandler(this.listeDesLivresToolStripMenuItem_Click);
             // 
+            // consultationScolaireToolStripMenuItem
+            // 
+            this.consultationScolaireToolStripMenuItem.Name = "consultationScolaireToolStripMenuItem";
+            this.consultationScolaireToolStripMenuItem.Size = new System.Drawing.Size(232, 26);
+            this.consultationScolaireToolStripMenuItem.Text = "Consultation scolaire";
+            this.consultationScolaireToolStripMenuItem.Click += new System.EventHandler(this.consultationScolaireToolStripMenuItem_Click);
+            // 
             // frmMDI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -145,6 +154,7 @@
         private System.Windows.Forms.ToolStripMenuItem listeDesAdherentsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem listeDesLivresToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem listeDesScolairesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem consultationScolaireToolStripMenuItem;
     }
 }
 

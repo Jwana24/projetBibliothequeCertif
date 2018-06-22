@@ -57,9 +57,17 @@ namespace projetBibliothequeCertif
             set { numAdherent = value; }
         }
 
+        public MPersonnes()
+        {
+
+        }
+
         public MPersonnes(Int32 leNumero, String leNom, String lePrenom, String uneAdresse1,
             String leTelephone, String unEmail, DateTime uneDate, String leCode, String laVille)
         {
+            // instancie la collection des personnes
+            lesPersonnes = new SortedDictionary<Int32, MPersonnes>();
+
             leNumero = this.NumPersonne;
             leNom = this.Nom;
             lePrenom = this.Prenom;
@@ -257,27 +265,6 @@ namespace projetBibliothequeCertif
         }
 
         /// <summary>
-        /// datatable des personnes pour affichages en datagridview et pour exporter/importer en XML
-        /// </summary>
-        private DataTable dtPersonnes;
-
-        /// <summary>
-        /// Constructeur par défaut
-        /// (initialise la collection et le datatable)
-        /// </summary>
-        public MPersonnes()
-        {
-            // instancie la collection des personnes
-            lesPersonnes = new SortedDictionary<int, MPersonnes>();
-            // prépare la DataTable pour restituer la liste des personnes
-            dtPersonnes = new DataTable();
-            // ajout à la datatable de 3 colonnes personnalisées pour les personnes
-            this.dtPersonnes.Columns.Add(new DataColumn("Numéro personne", typeof(System.Int32)));
-            this.dtPersonnes.Columns.Add(new DataColumn("Nom", typeof(System.String)));
-            this.dtPersonnes.Columns.Add(new DataColumn("Prénom", typeof(System.String)));
-        }
-
-        /// <summary>
         /// ajouter une personne à la collection
         /// (reçoit la référence à la personne et en déduit la clé (= numPersonne) pour la collection)
         /// </summary>
@@ -341,6 +328,20 @@ namespace projetBibliothequeCertif
             this.lesPersonnes.Clear();
         }
 
+        public MPersonnes RechercherPersonnes(Int32 Numero)
+        {
+            MPersonnes personnes;
+            personnes = this.lesPersonnes[Numero] as MPersonnes;
+            if(personnes == null)
+            {
+                throw new Exception("Vous n'avez pas de personne sélectionnée");
+            }
+            else
+            {
+                return personnes;
+            }
+        }
+
         /// <summary>
         /// générer et retourner une datatable qui liste les numéros, noms, prénoms et dates d"inscription
         /// de toutes les personnes de la collection
@@ -348,13 +349,13 @@ namespace projetBibliothequeCertif
         /// <returns></returns>
         public static DataTable ListerPersonnes(String recherche)
         {
-            DataTable dtPers = new DataTable();
+            DataTable tablePersonnes = new DataTable();
 
             // ajoute à la datatable 4 colonnes personnalisées pour les personnes
-            dtPers.Columns.Add(new DataColumn("Num personne", typeof(System.String)));
-            dtPers.Columns.Add(new DataColumn("Nom", typeof(System.String)));
-            dtPers.Columns.Add(new DataColumn("Prénom", typeof(System.String)));
-            dtPers.Columns.Add(new DataColumn("Date inscription", typeof(System.String)));
+            tablePersonnes.Columns.Add(new DataColumn("Num personne", typeof(System.Int32)));
+            tablePersonnes.Columns.Add(new DataColumn("Nom", typeof(System.String)));
+            tablePersonnes.Columns.Add(new DataColumn("Prénom", typeof(System.String)));
+            tablePersonnes.Columns.Add(new DataColumn("Date inscription", typeof(System.String)));
 
             MySqlCommand cmd = ConnexionBase.GetConnexion().CreateCommand();
             cmd.CommandText = "SELECT * FROM personnes WHERE nom like @recherche";
@@ -364,58 +365,21 @@ namespace projetBibliothequeCertif
             while (reader.Read())
             {
                 DataRow dr;
-                dr = dtPers.NewRow();
+                dr = tablePersonnes.NewRow();
                 // affectation des 4 lignes
                 dr[0] = reader.GetString(0);
                 dr[1] = reader.GetString(1);
                 dr[2] = reader.GetString(2);
                 dr[3] = reader.GetString(3);
                 // ajoute les lignes à la datatable
-                dtPers.Rows.Add(dr);
+                tablePersonnes.Rows.Add(dr);
             }
             reader.Close();
 
             // fin de la boucle de remplissage de la datatable
             // retourne la référence à la datatable
-            return dtPers;
+            return tablePersonnes;
         }
-
-        /* /// <summary>
-         /// méthode qui permet de sélectionner un adhérent dans l'application (lié à la base de données)
-         /// </summary>
-         public static void SelectPersonne(MPersonnes unePersonne)
-         {
-             MySqlCommand cmd = ConnexionBase.GetConnexion().CreateCommand();
-             cmd.CommandText = "SELECT * FROM personne WHERE num_personne=@NumPersonne";
-             unePersonne.SupprimerPersonnes();
-
-             cmd.Parameters.AddWithValue("@NumPersonne", unePersonne.NumPersonne);
-
-             // créé un datareader et exécute la commande
-             MySqlDataReader dataReader = cmd.ExecuteReader();
-
-             // lit les données et les garde en mémoire dans la liste
-             while (dataReader.Read())
-             {
-                 MPersonnes nouvelPersonne;
-
-                 nouvelPersonne = new MPersonnes(
-                     int.Parse(dataReader["numero"].ToString()),
-                     dataReader["nom"].ToString(),
-                     dataReader["prenom"].ToString(),
-                     dataReader["adresse1"].ToString(),
-                     dataReader["telephone"].ToString(),
-                     dataReader["email"].ToString(),
-                     DateTime.ParseExact(dataReader["date_naissance"].ToString(), "dd/MM/yyyy hh:mm:ss", CultureInfo.InvariantCulture),
-                     dataReader["codepostal"].ToString(),
-                     dataReader["ville"].ToString());
-
-                 unePersonne.Ajouter(nouvelPersonne);
-                 nouvelPersonne = null;
-             }
-             // ferme le datareader
-             dataReader.Close();
-         }*/
 
         /// <summary>
         /// méthode pour insérer une personne dans l'application ainsi que dans la base de données

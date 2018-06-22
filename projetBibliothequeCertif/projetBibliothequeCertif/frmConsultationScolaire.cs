@@ -36,8 +36,25 @@ namespace projetBibliothequeCertif
 
         private void btnModifierScolaire_Click(object sender, EventArgs e)
         {
-            frmModifierScolaire modifierScolaire = new frmModifierScolaire();
-            modifierScolaire.Show();
+            if(txtbCodeSco.Enabled == false && txtbVilleEcole.Enabled == false && txtbEcole.Enabled == false && cbbClasse.Enabled == false
+                && txtbNomProf.Enabled == false && txtbPrenomProf.Enabled == false)
+            {
+                txtbCodeSco.Enabled = true;
+                txtbVilleEcole.Enabled = true;
+                txtbEcole.Enabled = true;
+                cbbClasse.Enabled = true;
+                txtbNomProf.Enabled = true;
+                txtbPrenomProf.Enabled = true;
+            }
+            else
+            {
+                txtbCodeSco.Enabled = false;
+                txtbVilleEcole.Enabled = false;
+                txtbEcole.Enabled = false;
+                cbbClasse.Enabled = false;
+                txtbNomProf.Enabled = false;
+                txtbPrenomProf.Enabled = false;
+            }
         }
 
         private void btnSupprimerLivre_Click(object sender, EventArgs e)
@@ -47,7 +64,7 @@ namespace projetBibliothequeCertif
 
         private void btnAjouterLivre_Click(object sender, EventArgs e)
         {
-         /*   frmNouveauLivre nouveauLivre = new frmNouveauLivre(unLivre);
+           /* frmNouveauLivre nouveauLivre = new frmNouveauLivre(unLivre);
 
             // Si on sort de la saisie par OK, régénère l'affichage du datagrid
             if (nouveauLivre.ShowDialog() == DialogResult.OK)
@@ -55,6 +72,11 @@ namespace projetBibliothequeCertif
                 this.afficheLivres();
             }
             this.Close();*/
+        }
+
+        private void btnOk_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

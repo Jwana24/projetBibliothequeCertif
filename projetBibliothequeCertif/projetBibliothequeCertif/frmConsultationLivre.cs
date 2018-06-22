@@ -26,8 +26,27 @@ namespace projetBibliothequeCertif
 
         private void btnModifier_Click(object sender, EventArgs e)
         {
-            frmModifierLivre modifierLivre = new frmModifierLivre();
-            modifierLivre.Show();
+            if(txtbCodeLivre.Enabled == false && txtbISBN.Enabled == false && txtbTitre.Enabled == false && cbbCategorie.Enabled == false &&
+                txtbAuteur.Enabled == false && txtbEditeur.Enabled == false && dateTimeSortie.Enabled == false)
+            {
+                txtbCodeLivre.Enabled = true;
+                txtbISBN.Enabled = true;
+                txtbTitre.Enabled = true;
+                cbbCategorie.Enabled = true;
+                txtbAuteur.Enabled = true;
+                txtbEditeur.Enabled = true;
+                dateTimeSortie.Enabled = true;
+            }
+            else
+            {
+                txtbCodeLivre.Enabled = false;
+                txtbISBN.Enabled = false;
+                txtbTitre.Enabled = false;
+                cbbCategorie.Enabled = false;
+                txtbAuteur.Enabled = false;
+                txtbEditeur.Enabled = false;
+                dateTimeSortie.Enabled = false;
+            }
         }
 
         private void frmConsultationLivre_Load(object sender, EventArgs e)
@@ -45,6 +64,11 @@ namespace projetBibliothequeCertif
             this.txtbAuteur.Text = this.leLivre.Auteur;
             this.txtbEditeur.Text = this.leLivre.Editeur;
             this.dateTimeSortie.Text = this.leLivre.Sortie.ToString();
+        }
+
+        private void btnOk_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
