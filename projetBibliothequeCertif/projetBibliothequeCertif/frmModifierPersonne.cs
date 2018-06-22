@@ -8,11 +8,11 @@ using System.Windows.Forms;
 
 namespace projetBibliothequeCertif
 {
-    public partial class frmModifierAdherent : projetBibliothequeCertif.frmAdherents
+    public partial class frmModifierPersonne : projetBibliothequeCertif.frmAdherents
     {
         private MPersonnes unAdherent;
 
-        public frmModifierAdherent()
+        public frmModifierPersonne()
         {
             InitializeComponent();
         }
@@ -38,7 +38,7 @@ namespace projetBibliothequeCertif
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-            frmModifierAdherent modifierAdherent = new frmModifierAdherent();
+            frmModifierPersonne modifierAdherent = new frmModifierPersonne();
             this.Close();
         }
 

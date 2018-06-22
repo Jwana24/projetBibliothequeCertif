@@ -29,12 +29,12 @@ namespace projetBibliothequeCertif
         /// <summary>
         /// collection d'objets MAdherents
         /// </summary>
-        public static DataTable tableAdherents = new DataTable();
+        public static DataTable tablePersonnes = new DataTable();
 
-        public DataTable TableAdh
+        public DataTable TablePers
         {
-            get { return tableAdherents; }
-            set { tableAdherents = value; }
+            get { return tablePersonnes; }
+            set { tablePersonnes = value; }
         }
 
         public static object getLivreById(int id)
@@ -42,9 +42,9 @@ namespace projetBibliothequeCertif
             return Donnees.tableLivres;
         }
 
-        public static object getAdherentById(int id)
+        public static object getPersonneById(int id)
         {
-            return Donnees.tableAdherents;
+            return Donnees.tablePersonnes;
         }
     }
 }

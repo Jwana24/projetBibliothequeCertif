@@ -143,7 +143,7 @@ namespace projetBibliothequeCertif
            // nouvelAdherent.IAdherent++;
 
             //ajouter la référence d'objet MPersonnes dans la collection
-            Donnees.tableAdherents = MPersonnes.ListerPersonnes("");
+            Donnees.tablePersonnes = MPersonnes.ListerPersonnes("");
             // incrémentation compteur de clients
             MPersonnes.NPersonnes += 1;
 

@@ -16,6 +16,7 @@ namespace projetBibliothequeCertif
         /// la section du livre gérée par ce form
         /// </summary>
         private MLivres leLivre;
+        private MPersonnes laPersonne;
 
         public frmListeLivres()
         {
@@ -39,7 +40,7 @@ namespace projetBibliothequeCertif
 
         private void btnAjouter_Click(object sender, EventArgs e)
         {
-            frmNouveauLivre nouveauLivre = new frmNouveauLivre(this.leLivre);
+            frmNouveauLivre nouveauLivre = new frmNouveauLivre(this.laPersonne);
             if (nouveauLivre.ShowDialog() == DialogResult.OK)
             {
                 afficheLivres();
@@ -52,8 +53,8 @@ namespace projetBibliothequeCertif
             if (this.grdLivres.CurrentRow != null)
             {
                 // récupère la clé du livre pointé
-                Int32 cleLivre;
-                cleLivre = (Int32)this.grdLivres.CurrentRow.Cells[0].Value;
+                String cleLivre;
+                cleLivre = (String)this.grdLivres.CurrentRow.Cells[0].Value;
                 // demande confirmation de la suppression
                 if (MessageBox.Show("Voulez-vous supprimer le livre numéro :" + cleLivre.ToString(), "Suppression", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
 

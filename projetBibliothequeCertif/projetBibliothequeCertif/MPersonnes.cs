@@ -30,7 +30,7 @@ namespace projetBibliothequeCertif
         /// <summary>
         /// rang de la personne
         /// </summary>
-        private int iPersonne;
+        private Int32 iPersonne;
 
         public Int32 IPersonne
         {
@@ -459,12 +459,12 @@ namespace projetBibliothequeCertif
         /// méthode pour supprimer une personne dans l'application ainsi que dans la base de données
         /// </summary>
         /// <param name="num"></param>
-        public static void DeletePersonne(Int32 num)
+        public static void DeletePersonne(Int32 numero)
         {
             MySqlCommand cmd = ConnexionBase.GetConnexion().CreateCommand();
-            cmd.CommandText = "DELETE FROM personnes WHERE num_adherent=@NumAdherent";
+            cmd.CommandText = "DELETE FROM personnes WHERE num_personne=@numPersonne";
             
-            cmd.Parameters.AddWithValue("@NumAdherent", num);
+            cmd.Parameters.AddWithValue("@numPersonne", numero);
             cmd.ExecuteNonQuery();
         }
     }

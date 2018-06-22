@@ -11,15 +11,15 @@ namespace projetBibliothequeCertif
 {
     public partial class frmNouveauLivre : projetBibliothequeCertif.frmLivres
     {
-        private MLivres leLivre;
+        private MPersonnes laPersonne;
         private String unIsbn, leTitre, unAuteur, unEditeur, leCode, laCategorie;
         private DateTime laSortie;
         private int idLivre;
 
-        public frmNouveauLivre(MLivres unLivre)
+        public frmNouveauLivre(MPersonnes personne)
         {
             InitializeComponent();
-            this.leLivre = unLivre;
+            this.laPersonne = personne;
         }
 
         private void btnAnnuler_Click(object sender, EventArgs e)
@@ -30,10 +30,8 @@ namespace projetBibliothequeCertif
         private void btnOK_Click(object sender, EventArgs e)
         {
             // créer une référence d'objet MListeEntrees
-            MLivres nouveauLivre = new MLivres(leCode, unIsbn, leTitre, laCategorie, unAuteur, unEditeur, laSortie);
+            MLivres nouveauLivre = new MLivres(leCode, unIsbn, leTitre, laCategorie, laSortie, unAuteur, unEditeur);
 
-            try
-            {
                 // affecter les données de l'objet MListeEntrees :
                 // variables simples, ou autres, ce qui déclenche alors 
                 // le code des méthodes set
@@ -41,26 +39,25 @@ namespace projetBibliothequeCertif
                 nouveauLivre.Isbn = base.txtbISBN.Text;
                 nouveauLivre.Titre = base.txtbTitre.Text;
                 nouveauLivre.Categorie = base.cbbCategorie.Text;
+                nouveauLivre.Sortie = DateTime.Parse(base.dateTimeSortie.Text);
                 nouveauLivre.Auteur = base.txtbAuteur.Text;
                 nouveauLivre.Editeur = base.txtbEditeur.Text;
-                nouveauLivre.Sortie = DateTime.Parse(base.dateTimeSortie.Text);
-               // nouveauLivre.TypeRecette = 1;
 
-                // ajoute la référence d'objet MLivres dans la collection
-                Donnees.tableLivres.Rows.Add(nouveauLivre);
                 // invoque la méthode insert, écrite dans sa classe métier
                 MLivres.InsertLivre(nouveauLivre);
-            }
-            catch (Exception ex)
-            {
-                nouveauLivre = null;
-                MessageBox.Show("Erreur : \n" + ex.Message, "Vous n'avez pas saisie de nouveau livre");
-            }
+
+                //ajouter la référence d'objet MPersonnes dans la collection
+                Donnees.tableLivres = MLivres.ListerLivres("");
+            
             // incrémentation compteur de livres
             MLivres.NLivres += 1;
             // fermeture de la boite de dialogue par validation
             this.DialogResult = DialogResult.OK;
 
+            this.Close();
+
+            // fermeture de la boite de dialogue par validation
+            this.DialogResult = DialogResult.OK;
         }
 
         /// <summary>
@@ -80,9 +77,9 @@ namespace projetBibliothequeCertif
                 base.txtbISBN.Text,
                 base.txtbTitre.Text,
                 base.cbbCategorie.Text,
+                DateTime.Parse(base.dateTimeSortie.Text),
                 base.txtbAuteur.Text,
-                base.txtbEditeur.Text,
-                DateTime.Parse(base.dateTimeSortie.Text));
+                base.txtbEditeur.Text);
 
                 MLivres.InsertLivre(nouveauLivre);
 

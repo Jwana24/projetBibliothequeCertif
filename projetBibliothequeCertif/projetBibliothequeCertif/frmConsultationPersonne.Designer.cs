@@ -1,6 +1,6 @@
 ﻿namespace projetBibliothequeCertif
 {
-    partial class frmConsultationAdherent
+    partial class frmConsultationPersonne
     {
         /// <summary>
         /// Variable nécessaire au concepteur.
@@ -32,23 +32,54 @@
             this.lblLivresEmprunt = new System.Windows.Forms.Label();
             this.btnFermer = new System.Windows.Forms.Button();
             this.btnSupprimerLivre = new System.Windows.Forms.Button();
-            this.btnModifierAdherent = new System.Windows.Forms.Button();
+            this.btnModifier = new System.Windows.Forms.Button();
             this.btnAjouterLivre = new System.Windows.Forms.Button();
             this.grpCotisations.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdLivresEmpruntes)).BeginInit();
             this.SuspendLayout();
             // 
+            // txtbNom
+            // 
+            this.txtbNom.Enabled = false;
+            // 
+            // txtbPrenom
+            // 
+            this.txtbPrenom.Enabled = false;
+            // 
+            // txtbCodePostal
+            // 
+            this.txtbCodePostal.Enabled = false;
+            // 
             // txtbVille
             // 
+            this.txtbVille.Enabled = false;
             this.txtbVille.Size = new System.Drawing.Size(407, 22);
             // 
             // txtbAdresse
             // 
+            this.txtbAdresse.Enabled = false;
             this.txtbAdresse.Size = new System.Drawing.Size(758, 22);
             // 
             // txtbEmail
             // 
+            this.txtbEmail.Enabled = false;
             this.txtbEmail.Size = new System.Drawing.Size(758, 22);
+            // 
+            // txtbTelephone
+            // 
+            this.txtbTelephone.Enabled = false;
+            // 
+            // dateTimeInscription
+            // 
+            this.dateTimeInscription.Enabled = false;
+            // 
+            // dateTimeNaissance
+            // 
+            this.dateTimeNaissance.Enabled = false;
+            // 
+            // txtbNumPersonne
+            // 
+            this.txtbNumPersonne.Enabled = false;
             // 
             // grdLivresEmpruntes
             // 
@@ -88,15 +119,15 @@
             this.btnSupprimerLivre.UseVisualStyleBackColor = true;
             this.btnSupprimerLivre.Click += new System.EventHandler(this.btnSupprimerLivre_Click);
             // 
-            // btnModifierAdherent
+            // btnModifier
             // 
-            this.btnModifierAdherent.Location = new System.Drawing.Point(737, 435);
-            this.btnModifierAdherent.Name = "btnModifierAdherent";
-            this.btnModifierAdherent.Size = new System.Drawing.Size(132, 29);
-            this.btnModifierAdherent.TabIndex = 24;
-            this.btnModifierAdherent.Text = "Modifier adhérent";
-            this.btnModifierAdherent.UseVisualStyleBackColor = true;
-            this.btnModifierAdherent.Click += new System.EventHandler(this.btnModifierAdherent_Click);
+            this.btnModifier.Location = new System.Drawing.Point(737, 435);
+            this.btnModifier.Name = "btnModifier";
+            this.btnModifier.Size = new System.Drawing.Size(132, 29);
+            this.btnModifier.TabIndex = 24;
+            this.btnModifier.Text = "Modifier personne";
+            this.btnModifier.UseVisualStyleBackColor = true;
+            this.btnModifier.Click += new System.EventHandler(this.btnModifier_Click);
             // 
             // btnAjouterLivre
             // 
@@ -108,19 +139,19 @@
             this.btnAjouterLivre.UseVisualStyleBackColor = true;
             this.btnAjouterLivre.Click += new System.EventHandler(this.btnAjouterLivre_Click);
             // 
-            // frmConsultationAdherent
+            // frmConsultationPersonne
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.ClientSize = new System.Drawing.Size(905, 847);
             this.Controls.Add(this.btnAjouterLivre);
-            this.Controls.Add(this.btnModifierAdherent);
+            this.Controls.Add(this.btnModifier);
             this.Controls.Add(this.btnSupprimerLivre);
             this.Controls.Add(this.btnFermer);
             this.Controls.Add(this.lblLivresEmprunt);
             this.Controls.Add(this.grdLivresEmpruntes);
-            this.Name = "frmConsultationAdherent";
-            this.Text = "Consultation de l\'adherent";
-            this.Load += new System.EventHandler(this.frmConsultationAdherent_Load);
+            this.Name = "frmConsultationPersonne";
+            this.Text = "Consultation de la personne";
+            this.Load += new System.EventHandler(this.frmConsultationPersonne_Load);
             this.Controls.SetChildIndex(this.grpCotisations, 0);
             this.Controls.SetChildIndex(this.lblDateNaissance, 0);
             this.Controls.SetChildIndex(this.dateTimeNaissance, 0);
@@ -146,7 +177,7 @@
             this.Controls.SetChildIndex(this.lblLivresEmprunt, 0);
             this.Controls.SetChildIndex(this.btnFermer, 0);
             this.Controls.SetChildIndex(this.btnSupprimerLivre, 0);
-            this.Controls.SetChildIndex(this.btnModifierAdherent, 0);
+            this.Controls.SetChildIndex(this.btnModifier, 0);
             this.Controls.SetChildIndex(this.btnAjouterLivre, 0);
             this.grpCotisations.ResumeLayout(false);
             this.grpCotisations.PerformLayout();
@@ -162,7 +193,7 @@
         private System.Windows.Forms.Label lblLivresEmprunt;
         private System.Windows.Forms.Button btnFermer;
         private System.Windows.Forms.Button btnSupprimerLivre;
-        private System.Windows.Forms.Button btnModifierAdherent;
+        private System.Windows.Forms.Button btnModifier;
         private System.Windows.Forms.Button btnAjouterLivre;
     }
 }

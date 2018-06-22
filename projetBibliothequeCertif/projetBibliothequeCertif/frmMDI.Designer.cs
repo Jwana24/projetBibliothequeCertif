@@ -31,11 +31,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMDI));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fichierStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.nouvelAdherentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.nouveauLivreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.consultationPersonneToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.consultationLivreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quitterLapplicationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fenetresStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listeDesAdherentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.listeDesScolairesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listeDesLivresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -55,31 +56,31 @@
             // fichierStripMenuItem
             // 
             this.fichierStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.nouvelAdherentToolStripMenuItem,
-            this.nouveauLivreToolStripMenuItem,
+            this.consultationPersonneToolStripMenuItem,
+            this.consultationLivreToolStripMenuItem,
             this.quitterLapplicationToolStripMenuItem});
             this.fichierStripMenuItem.Name = "fichierStripMenuItem";
             this.fichierStripMenuItem.Size = new System.Drawing.Size(64, 24);
             this.fichierStripMenuItem.Text = "Fichier";
             // 
-            // nouvelAdherentToolStripMenuItem
+            // consultationPersonneToolStripMenuItem
             // 
-            this.nouvelAdherentToolStripMenuItem.Name = "nouvelAdherentToolStripMenuItem";
-            this.nouvelAdherentToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
-            this.nouvelAdherentToolStripMenuItem.Text = "Nouvel adhérent";
-            this.nouvelAdherentToolStripMenuItem.Click += new System.EventHandler(this.nouvelAdherentToolStripMenuItem_Click);
+            this.consultationPersonneToolStripMenuItem.Name = "consultationPersonneToolStripMenuItem";
+            this.consultationPersonneToolStripMenuItem.Size = new System.Drawing.Size(232, 26);
+            this.consultationPersonneToolStripMenuItem.Text = "Consultation personne";
+            this.consultationPersonneToolStripMenuItem.Click += new System.EventHandler(this.consultationPersonneToolStripMenuItem_Click);
             // 
-            // nouveauLivreToolStripMenuItem
+            // consultationLivreToolStripMenuItem
             // 
-            this.nouveauLivreToolStripMenuItem.Name = "nouveauLivreToolStripMenuItem";
-            this.nouveauLivreToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
-            this.nouveauLivreToolStripMenuItem.Text = "Nouveau livre";
-            this.nouveauLivreToolStripMenuItem.Click += new System.EventHandler(this.nouveauLivreToolStripMenuItem_Click);
+            this.consultationLivreToolStripMenuItem.Name = "consultationLivreToolStripMenuItem";
+            this.consultationLivreToolStripMenuItem.Size = new System.Drawing.Size(232, 26);
+            this.consultationLivreToolStripMenuItem.Text = "Consultation livre";
+            this.consultationLivreToolStripMenuItem.Click += new System.EventHandler(this.consultationLivreToolStripMenuItem_Click);
             // 
             // quitterLapplicationToolStripMenuItem
             // 
             this.quitterLapplicationToolStripMenuItem.Name = "quitterLapplicationToolStripMenuItem";
-            this.quitterLapplicationToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.quitterLapplicationToolStripMenuItem.Size = new System.Drawing.Size(232, 26);
             this.quitterLapplicationToolStripMenuItem.Text = "Quitter l\'application";
             this.quitterLapplicationToolStripMenuItem.Click += new System.EventHandler(this.quitterLapplicationToolStripMenuItem_Click);
             // 
@@ -87,6 +88,7 @@
             // 
             this.fenetresStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.listeDesAdherentsToolStripMenuItem,
+            this.listeDesScolairesToolStripMenuItem,
             this.listeDesLivresToolStripMenuItem});
             this.fenetresStripMenuItem.Name = "fenetresStripMenuItem";
             this.fenetresStripMenuItem.Size = new System.Drawing.Size(76, 24);
@@ -98,6 +100,12 @@
             this.listeDesAdherentsToolStripMenuItem.Size = new System.Drawing.Size(210, 26);
             this.listeDesAdherentsToolStripMenuItem.Text = "Liste des adhérents";
             this.listeDesAdherentsToolStripMenuItem.Click += new System.EventHandler(this.listeDesAdherentsToolStripMenuItem_Click);
+            // 
+            // listeDesScolairesToolStripMenuItem
+            // 
+            this.listeDesScolairesToolStripMenuItem.Name = "listeDesScolairesToolStripMenuItem";
+            this.listeDesScolairesToolStripMenuItem.Size = new System.Drawing.Size(210, 26);
+            this.listeDesScolairesToolStripMenuItem.Text = "Liste des scolaires";
             // 
             // listeDesLivresToolStripMenuItem
             // 
@@ -130,12 +138,13 @@
 
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fichierStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem nouvelAdherentToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem nouveauLivreToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem consultationPersonneToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem consultationLivreToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem quitterLapplicationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fenetresStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem listeDesAdherentsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem listeDesLivresToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem listeDesScolairesToolStripMenuItem;
     }
 }
 

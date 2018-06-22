@@ -22,7 +22,7 @@ namespace projetBibliothequeCertif
         public Int32 ILivre
         {
             get { return iLivre; }
-            set { value = iLivre; }
+            set { iLivre = value; }
         }
 
         private String codeLivre;
@@ -30,7 +30,7 @@ namespace projetBibliothequeCertif
         public String CodeLivre
         {
             get { return codeLivre; }
-            set { value = codeLivre; }
+            set { codeLivre = value; }
         }
 
         /// <summary>
@@ -47,7 +47,7 @@ namespace projetBibliothequeCertif
             lesLivres = new SortedDictionary<string, MLivres>();
         }
 
-        public MLivres(String leCode, String unIsbn, String leTitre, String laCategorie, String unAuteur, String unEditeur, DateTime laSortie)
+        public MLivres(String leCode, String unIsbn, String leTitre, String laCategorie, DateTime laSortie, String unAuteur, String unEditeur)
         {
             // initialise code et nom de la section
             this.CodeLivre = leCode;
@@ -67,8 +67,8 @@ namespace projetBibliothequeCertif
         public String Isbn
         {
             get { return isbnLivre; }
-            set
-            {
+            set { isbnLivre = value; }
+           /* {
                 int i;
                 Boolean erreur = false;
 
@@ -92,7 +92,7 @@ namespace projetBibliothequeCertif
                     else
                     {
                         // tout est bon, on affecte la propriété
-                        isbnLivre = value.ToString();
+                        isbnLivre = value;
                     }
                 }
                 // il n'y a pas 13 caractères
@@ -102,7 +102,7 @@ namespace projetBibliothequeCertif
                     "n'est pas un isbn : 13 chiffres, pas plus, pas moins",
                         "ErreurClasse MLivres", System.Windows.Forms.MessageBoxButtons.OK);
                 }
-            }
+            }*/
         }
 
         private String titreLivre;
@@ -110,7 +110,7 @@ namespace projetBibliothequeCertif
         public String Titre
         {
             get { return titreLivre; }
-            set { value = titreLivre; }
+            set { titreLivre = value; }
         }
 
         private String categorieLivre;
@@ -118,31 +118,23 @@ namespace projetBibliothequeCertif
         public String Categorie
         {
             get { return categorieLivre; }
-            set { value = categorieLivre; }
+            set { categorieLivre = value; }
         }
 
         private String auteurLivre;
 
-        public String Auteur
-        {
-            get { return auteurLivre; }
-            set { auteurLivre = value.Trim().ToUpper(); }
-        }
+        public String Auteur { get; set; }
 
         private String editeurLivre;
 
-        public String Editeur
-        {
-            get { return editeurLivre; }
-            set { editeurLivre = value.Trim().ToUpper(); }
-        }
+        public String Editeur { get; set; }
 
         private DateTime sortieLivre;
 
         public DateTime Sortie
         {
             get { return sortieLivre; }
-            set { value = sortieLivre; }
+            set { sortieLivre = value; }
         }
 
         /// <summary>
@@ -240,7 +232,8 @@ namespace projetBibliothequeCertif
             // ajoute à la datatable 4 colonnes personnalisées pour les livres
             dtLvr.Columns.Add(new DataColumn("Code livre", typeof(System.String)));
             dtLvr.Columns.Add(new DataColumn("Titre", typeof(System.String)));
-          //  dtLvr.Columns.Add(new DataColumn("Catégorie", typeof(System.String)));
+            dtLvr.Columns.Add(new DataColumn("Catégorie", typeof(System.String)));
+            dtLvr.Columns.Add(new DataColumn("Auteur", typeof(System.String)));
 
             MySqlCommand cmd = ConnexionBase.GetConnexion().CreateCommand();
             cmd.CommandText = "SELECT * FROM livres WHERE titre like @recherche";
@@ -254,7 +247,8 @@ namespace projetBibliothequeCertif
                 // affectation des 4 colonnes
                 dr[0] = reader.GetString(0);
                 dr[1] = reader.GetString(2);
-             //   dr[2] = reader.GetString(4);
+                dr[2] = reader.GetString(3);
+                dr[3] = reader.GetString(5);
                 // ajoute la ligne à la datatable
                 dtLvr.Rows.Add(dr);
             }
@@ -265,7 +259,7 @@ namespace projetBibliothequeCertif
             return dtLvr;
         }
 
-        public static void SelectLivre(MLivres livres)
+      /*  public static void SelectLivre(MLivres livres)
         {
             MySqlCommand cmd = ConnexionBase.GetConnexion().CreateCommand();
             cmd.CommandText = "SELECT * FROM livres WHERE num_categorie=@NumCategorie AND num_editeur=@NumEditeur";
@@ -293,7 +287,7 @@ namespace projetBibliothequeCertif
             }
             // ferme le dataReader
             dataReader.Close();
-        }
+        }*/
 
         /// <summary>
         /// méthode pour insérer un livre dans l'application ainsi que dans la base de données
@@ -303,12 +297,16 @@ namespace projetBibliothequeCertif
         {
             // crée la commande sql
             MySqlCommand cmd = ConnexionBase.GetConnexion().CreateCommand();
-            cmd.CommandText = "INSERT INTO livres(code_livre, isbn, titre, date_sortie) VALUES (@codeLivre, @isbn, @titre, @dateSortie)";
+            cmd.CommandText = "INSERT INTO livres(code_livre, isbn, titre, categorie, date_sortie, auteur, editeur)" +
+                "VALUES (@codeLivre, @isbn, @titre, @categorie, @dateSortie, @auteur, @editeur)";
             // exécute la commande
             cmd.Parameters.AddWithValue("@codeLivre", lvr.CodeLivre);
             cmd.Parameters.AddWithValue("@isbn", lvr.Isbn);
             cmd.Parameters.AddWithValue("@titre", lvr.Titre);
+            cmd.Parameters.AddWithValue("@categorie", lvr.Categorie);
             cmd.Parameters.AddWithValue("@dateSortie", lvr.Sortie);
+            cmd.Parameters.AddWithValue("@auteur", lvr.Auteur);
+            cmd.Parameters.AddWithValue("@editeur", lvr.Editeur);
             // exécute la requête
             cmd.ExecuteNonQuery();
         }
@@ -320,7 +318,7 @@ namespace projetBibliothequeCertif
         public static void UpdateLivre(MLivres lvr)
         {
             MySqlCommand cmd = ConnexionBase.GetConnexion().CreateCommand();
-            cmd.CommandText = "UPDATE livres SET titre=@Titre, isbn=@Isbn WHERE num_categorie=@NumCategorie AND num_editeur=@NumEditeur";
+            cmd.CommandText = "UPDATE livres SET titre=@Titre, isbn=@Isbn";
 
             cmd.Parameters.AddWithValue("@Titre", lvr.Titre);
             cmd.Parameters.AddWithValue("@Isbn", lvr.Isbn);

@@ -9,6 +9,21 @@ namespace projetBibliothequeCertif
     public class MScolaires
     {
         /// <summary>
+        /// collection des scolaires de cette section sous forme de dictionnaire trié
+        /// </summary>
+        private SortedDictionary<Int32, MScolaires> lesScolaires;
+
+        public MScolaires (Int32 leCode, String laVille, String uneEcole, String uneClasse, String unNom, String unPrenom)
+        {
+            this.Code = leCode;
+            this.Ville = laVille;
+            this.Etablissement = uneEcole;
+            this.Classe = uneClasse;
+            this.Nom = unNom;
+            this.Prenom = unPrenom;
+        }
+
+        /// <summary>
         /// nombre de scolaires de la classe
         /// </summary>
         public static int NScolaires;
@@ -23,6 +38,7 @@ namespace projetBibliothequeCertif
         public Int32 Code
         {
             get { return codeScolaire; }
+            set { codeScolaire = value; }
         }
 
         private String villeScolaire;
@@ -46,7 +62,7 @@ namespace projetBibliothequeCertif
         public String Classe
         {
             get { return classeScolaire; }
-            set { value = classeScolaire; }
+            set { classeScolaire = value; }
         }
 
         private String nomProf;

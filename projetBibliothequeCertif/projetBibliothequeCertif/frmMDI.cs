@@ -13,6 +13,7 @@ namespace projetBibliothequeCertif
     public partial class frmMDI : Form
     {
         private MLivres unLivre;
+        private MPersonnes personne;
 
         public frmMDI()
         {
@@ -24,28 +25,28 @@ namespace projetBibliothequeCertif
             Application.Exit();
         }
 
-        private void nouvelAdherentToolStripMenuItem_Click(object sender, EventArgs e)
+        private void consultationPersonneToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // on va instancier le form de saisie du nouveau client
-            frmNouvelAdherent nouvelAdherent = new frmNouvelAdherent();
+            frmConsultationPersonne consulterPer = new frmConsultationPersonne(personne);
 
             // affichage en modal et contrôle que l'utilisateur
             // en sort par OK
-            if (nouvelAdherent.ShowDialog() == DialogResult.OK)
+            if (consulterPer.ShowDialog() == DialogResult.OK)
             {
                 // recherche rang de l'adhérent saisi
                 //this.iClient = MClients.NClients - 1;
             }
         }
 
-        private void nouveauLivreToolStripMenuItem_Click(object sender, EventArgs e)
+        private void consultationLivreToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // on va instancier le form de saisie du nouveau client
-            frmNouveauLivre nouveauLivre = new frmNouveauLivre(unLivre);
+            frmConsultationLivre consulterLvr = new frmConsultationLivre(unLivre);
 
             // affichage en modal et contrôle que l'utilisateur
             // en sort par OK
-            if (nouveauLivre.ShowDialog() == DialogResult.OK)
+            if (consulterLvr.ShowDialog() == DialogResult.OK)
             {
                 // recherche rang du client saisi
                 //this.iClient = MClients.NClients - 1;
@@ -54,7 +55,7 @@ namespace projetBibliothequeCertif
 
         private void listeDesAdherentsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmListeAdherents listeAdherents = new frmListeAdherents();
+            frmListePersonnes listeAdherents = new frmListePersonnes();
             listeAdherents.Show();
         }
 

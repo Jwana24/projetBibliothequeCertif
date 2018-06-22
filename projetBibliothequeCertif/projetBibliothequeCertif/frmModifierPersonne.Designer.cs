@@ -1,6 +1,6 @@
 ﻿namespace projetBibliothequeCertif
 {
-    partial class frmModifierAdherent
+    partial class frmModifierPersonne
     {
         /// <summary>
         /// Variable nécessaire au concepteur.
@@ -106,11 +106,11 @@
             // 
             this.dateTimeNaissance.Location = new System.Drawing.Point(202, 435);
             // 
-            // lblNumAdherent
+            // lblNumPersonne
             // 
             this.lblNumPersonne.Location = new System.Drawing.Point(24, 31);
             // 
-            // txtbNumAdherent
+            // txtbNumPersonne
             // 
             this.txtbNumPersonne.Location = new System.Drawing.Point(202, 31);
             // 
@@ -148,7 +148,7 @@
             this.btnEffacer.UseVisualStyleBackColor = true;
             this.btnEffacer.Click += new System.EventHandler(this.btnEffacer_Click);
             // 
-            // frmModifierAdherent
+            // frmModifierPersonne
             // 
             this.AcceptButton = this.btnOK;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -156,8 +156,8 @@
             this.Controls.Add(this.btnEffacer);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.btnFermer);
-            this.Name = "frmModifierAdherent";
-            this.Text = "Modifier l\'adhérent : ";
+            this.Name = "frmModifierPersonne";
+            this.Text = "Modifier la personne :";
             this.Load += new System.EventHandler(this.frmModifierAdherent_Load);
             this.Controls.SetChildIndex(this.grpCotisations, 0);
             this.Controls.SetChildIndex(this.lblNumPersonne, 0);

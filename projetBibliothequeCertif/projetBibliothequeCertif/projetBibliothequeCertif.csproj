@@ -55,11 +55,11 @@
     <Compile Include="frmConsultationLivre.Designer.cs">
       <DependentUpon>frmConsultationLivre.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmConsultationAdherent.cs">
+    <Compile Include="frmConsultationPersonne.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmConsultationAdherent.Designer.cs">
-      <DependentUpon>frmConsultationAdherent.cs</DependentUpon>
+    <Compile Include="frmConsultationPersonne.Designer.cs">
+      <DependentUpon>frmConsultationPersonne.cs</DependentUpon>
     </Compile>
     <Compile Include="frmConsultationScolaire.cs">
       <SubType>Form</SubType>
@@ -73,11 +73,17 @@
     <Compile Include="frmListeLivres.Designer.cs">
       <DependentUpon>frmListeLivres.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmListeAdherents.cs">
+    <Compile Include="frmListePersonnes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmListeAdherents.Designer.cs">
-      <DependentUpon>frmListeAdherents.cs</DependentUpon>
+    <Compile Include="frmListePersonnes.Designer.cs">
+      <DependentUpon>frmListePersonnes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmListeScolaires.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmListeScolaires.Designer.cs">
+      <DependentUpon>frmListeScolaires.cs</DependentUpon>
     </Compile>
     <Compile Include="frmLivres.cs">
       <SubType>Form</SubType>
@@ -97,11 +103,11 @@
     <Compile Include="frmModifierLivre.Designer.cs">
       <DependentUpon>frmModifierLivre.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmModifierAdherent.cs">
+    <Compile Include="frmModifierPersonne.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmModifierAdherent.Designer.cs">
-      <DependentUpon>frmModifierAdherent.cs</DependentUpon>
+    <Compile Include="frmModifierPersonne.Designer.cs">
+      <DependentUpon>frmModifierPersonne.cs</DependentUpon>
     </Compile>
     <Compile Include="frmModifierScolaire.cs">
       <SubType>Form</SubType>
@@ -144,8 +150,8 @@
     <EmbeddedResource Include="frmConsultationLivre.resx">
       <DependentUpon>frmConsultationLivre.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmConsultationAdherent.resx">
-      <DependentUpon>frmConsultationAdherent.cs</DependentUpon>
+    <EmbeddedResource Include="frmConsultationPersonne.resx">
+      <DependentUpon>frmConsultationPersonne.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmConsultationScolaire.resx">
       <DependentUpon>frmConsultationScolaire.cs</DependentUpon>
@@ -153,8 +159,11 @@
     <EmbeddedResource Include="frmListeLivres.resx">
       <DependentUpon>frmListeLivres.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmListeAdherents.resx">
-      <DependentUpon>frmListeAdherents.cs</DependentUpon>
+    <EmbeddedResource Include="frmListePersonnes.resx">
+      <DependentUpon>frmListePersonnes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmListeScolaires.resx">
+      <DependentUpon>frmListeScolaires.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLivres.resx">
       <DependentUpon>frmLivres.cs</DependentUpon>
@@ -165,8 +174,8 @@
     <EmbeddedResource Include="frmModifierLivre.resx">
       <DependentUpon>frmModifierLivre.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmModifierAdherent.resx">
-      <DependentUpon>frmModifierAdherent.cs</DependentUpon>
+    <EmbeddedResource Include="frmModifierPersonne.resx">
+      <DependentUpon>frmModifierPersonne.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmModifierScolaire.resx">
       <DependentUpon>frmModifierScolaire.cs</DependentUpon>

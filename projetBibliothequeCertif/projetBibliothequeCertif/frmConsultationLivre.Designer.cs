@@ -32,9 +32,34 @@
             this.btnFermer = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
+            // txtbCodeLivre
+            // 
+            this.txtbCodeLivre.Enabled = false;
+            // 
+            // txtbISBN
+            // 
+            this.txtbISBN.Enabled = false;
+            // 
+            // txtbTitre
+            // 
+            this.txtbTitre.Enabled = false;
+            // 
             // cbbCategorie
             // 
+            this.cbbCategorie.Enabled = false;
             this.cbbCategorie.Size = new System.Drawing.Size(237, 24);
+            // 
+            // txtbAuteur
+            // 
+            this.txtbAuteur.Enabled = false;
+            // 
+            // txtbEditeur
+            // 
+            this.txtbEditeur.Enabled = false;
+            // 
+            // dateTimeSortie
+            // 
+            this.dateTimeSortie.Enabled = false;
             // 
             // btnModifier
             // 
