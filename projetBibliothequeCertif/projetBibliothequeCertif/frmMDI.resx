@@ -1448,9 +1448,6 @@
   <data name="&gt;&gt;listeDesLivresToolStripMenuItem.Name" xml:space="preserve">
     <value>listeDesLivresToolStripMenuItem</value>
   </data>
-  <data name="&gt;&gt;listeDesAdherentsToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;consultationPersonneToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -1459,9 +1456,6 @@
   </data>
   <data name="&gt;&gt;consultationScolaireToolStripMenuItem.Name" xml:space="preserve">
     <value>consultationScolaireToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;listeDesAdherentsToolStripMenuItem.Name" xml:space="preserve">
-    <value>listeDesAdherentsToolStripMenuItem</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="menuStrip1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
@@ -1479,8 +1473,14 @@
   <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 4, 4, 4</value>
   </data>
+  <data name="&gt;&gt;fichierStripMenuItem.Name" xml:space="preserve">
+    <value>fichierStripMenuItem</value>
+  </data>
   <data name="consultationLivreToolStripMenuItem.Text" xml:space="preserve">
     <value>Consultation livre</value>
+  </data>
+  <data name="&gt;&gt;listeDesAdherentsToolStripMenuItem.Name" xml:space="preserve">
+    <value>listeDesAdherentsToolStripMenuItem</value>
   </data>
   <data name="&gt;&gt;quitterLapplicationToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -1488,8 +1488,8 @@
   <data name="listeDesScolairesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>210, 26</value>
   </data>
-  <data name="&gt;&gt;fichierStripMenuItem.Name" xml:space="preserve">
-    <value>fichierStripMenuItem</value>
+  <data name="fenetresStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>76, 24</value>
   </data>
   <data name="&gt;&gt;consultationScolaireToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -1498,8 +1498,8 @@
   <data name="menuStrip1.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
-  <data name="fenetresStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>76, 24</value>
+  <data name="&gt;&gt;listeDesAdherentsToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
     <value>Garamond, 12pt, style=Bold</value>
