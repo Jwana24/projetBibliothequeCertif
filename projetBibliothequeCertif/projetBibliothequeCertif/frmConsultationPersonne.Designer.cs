@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmConsultationPersonne));
             this.grdLivresEmpruntes = new System.Windows.Forms.DataGridView();
             this.lblLivresEmprunt = new System.Windows.Forms.Label();
             this.btnFermer = new System.Windows.Forms.Button();
@@ -160,6 +161,7 @@
             this.Controls.Add(this.btnFermer);
             this.Controls.Add(this.lblLivresEmprunt);
             this.Controls.Add(this.grdLivresEmpruntes);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmConsultationPersonne";
             this.Text = "Consultation de la personne";
             this.Load += new System.EventHandler(this.frmConsultationPersonne_Load);

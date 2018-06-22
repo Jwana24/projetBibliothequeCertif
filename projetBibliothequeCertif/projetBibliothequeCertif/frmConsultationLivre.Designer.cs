@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmConsultationLivre));
             this.btnModifier = new System.Windows.Forms.Button();
             this.btnFermer = new System.Windows.Forms.Button();
             this.btnOk = new System.Windows.Forms.Button();
@@ -99,6 +100,7 @@
             this.Controls.Add(this.btnOk);
             this.Controls.Add(this.btnModifier);
             this.Controls.Add(this.btnFermer);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmConsultationLivre";
             this.Text = "Consultation du livre";
             this.Load += new System.EventHandler(this.frmConsultationLivre_Load);

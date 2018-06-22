@@ -149,6 +149,9 @@
     <EmbeddedResource Include="frmLivres.resx">
       <DependentUpon>frmLivres.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmMDI.fr.resx">
+      <DependentUpon>frmMDI.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmMDI.resx">
       <DependentUpon>frmMDI.cs</DependentUpon>
     </EmbeddedResource>
@@ -185,6 +188,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="IconeBiblio.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmListePersonnes));
             this.lblRecherche = new System.Windows.Forms.Label();
             this.grdPersonnes = new System.Windows.Forms.DataGridView();
             this.txtbRecherche = new System.Windows.Forms.TextBox();
@@ -117,6 +118,7 @@
             this.Controls.Add(this.txtbRecherche);
             this.Controls.Add(this.grdPersonnes);
             this.Controls.Add(this.lblRecherche);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmListePersonnes";
             this.Text = "Liste des personnes";
             ((System.ComponentModel.ISupportInitialize)(this.grdPersonnes)).EndInit();

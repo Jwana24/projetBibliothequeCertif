@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmConsultationScolaire));
             this.btnModifierScolaire = new System.Windows.Forms.Button();
             this.btnAjouterLivre = new System.Windows.Forms.Button();
             this.btnSupprimerLivre = new System.Windows.Forms.Button();
@@ -179,6 +180,7 @@
             this.Controls.Add(this.lblLivresEmprunt);
             this.Controls.Add(this.grdLivresEmpruntes);
             this.Controls.Add(this.btnModifierScolaire);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmConsultationScolaire";
             this.Text = "Consultation des scolaires";
             this.Controls.SetChildIndex(this.groupBox1, 0);

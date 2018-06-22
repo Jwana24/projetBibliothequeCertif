@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmNouvelAdherent));
             this.btnAnnuler = new System.Windows.Forms.Button();
             this.btnOK = new System.Windows.Forms.Button();
             this.chkParticuliers = new System.Windows.Forms.CheckBox();
@@ -141,12 +142,12 @@
             this.dateTimeNaissance.Location = new System.Drawing.Point(202, 456);
             this.dateTimeNaissance.Visible = false;
             // 
-            // lblNumAdherent
+            // lblNumPersonne
             // 
             this.lblNumPersonne.Location = new System.Drawing.Point(24, 66);
             this.lblNumPersonne.Visible = false;
             // 
-            // txtbNumAdherent
+            // txtbNumPersonne
             // 
             this.txtbNumPersonne.Location = new System.Drawing.Point(202, 66);
             this.txtbNumPersonne.Visible = false;
@@ -157,6 +158,7 @@
             this.grpCotisations.Location = new System.Drawing.Point(550, 57);
             this.grpCotisations.Visible = false;
             this.grpCotisations.Enter += new System.EventHandler(this.grpCotisations_Enter);
+            this.grpCotisations.Controls.SetChildIndex(this.dateTimeCotisation, 0);
             this.grpCotisations.Controls.SetChildIndex(this.lblCotisations, 0);
             this.grpCotisations.Controls.SetChildIndex(this.lblRetard, 0);
             this.grpCotisations.Controls.SetChildIndex(this.dateTimeCotis, 0);
@@ -332,6 +334,7 @@
             this.Controls.Add(this.chkParticuliers);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.btnAnnuler);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmNouvelAdherent";
             this.Text = "Nouvel adhérent";
             this.Load += new System.EventHandler(this.frmNouvelAdherent_Load);
