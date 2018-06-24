@@ -16,7 +16,6 @@ namespace projetBibliothequeCertif
         /// la section du livre gérée par ce form
         /// </summary>
         private MLivres leLivre;
-        private MPersonnes laPersonne;
 
         public frmListeLivres()
         {
@@ -26,10 +25,10 @@ namespace projetBibliothequeCertif
 
         public void afficheLivres()
         {
-            // déterminer l'origine des données à afficher : appel de la méthode de la classe MLivres
-            // qui alimente et retourne copie de sa collection de livres sous forme de datatable
+            // détermine l'origine des données à afficher : appel de la méthode de la classe MLivres
+            // qui alimente et retourne la copie de sa collection de livres sous forme de datatable
             this.grdLivres.DataSource = MLivres.ListerLivres(txtbRecherche.Text);
-            // refraîchir l'affichage
+            // rafraîchit l'affichage
             this.grdLivres.Refresh();
         }
 
@@ -40,7 +39,7 @@ namespace projetBibliothequeCertif
 
         private void btnAjouter_Click(object sender, EventArgs e)
         {
-            frmNouveauLivre nouveauLivre = new frmNouveauLivre(this.laPersonne);
+            frmNouveauLivre nouveauLivre = new frmNouveauLivre();
             if (nouveauLivre.ShowDialog() == DialogResult.OK)
             {
                 afficheLivres();
@@ -74,16 +73,16 @@ namespace projetBibliothequeCertif
         /// <param name="e"></param>
         private void grdLivres_DoubleClick(object sender, EventArgs e)
         {
-           /* Int32 iLivre;
-            iLivre = this.grdLivres.CurrentRow.Index;
+            String iLivre;
+            iLivre = (String)this.grdLivres.CurrentRow.Cells[0].Value;
 
-            MLivres Lelivre = Donnees.getLivreById(iLivre) as MLivres;
+            leLivre = Donnees.Livres.RechercherLivres(iLivre) as MLivres;
 
             frmConsultationLivre frmConsulter = new frmConsultationLivre(leLivre);
-            // affiche le form de consultation d'une recette
+            // affiche le form de consultation d'un livre
             frmConsulter.ShowDialog();
-            // rafaichit la datagriedview quand le form est fermée
-            this.afficheLivres();*/
+            // rafraichît la datagridview quand le form est fermé
+            this.afficheLivres();
         }
 
         private void txtbRecherche_TextChanged(object sender, EventArgs e)

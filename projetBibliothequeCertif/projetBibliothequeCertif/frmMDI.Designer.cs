@@ -31,9 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMDI));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fichierStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.consultationPersonneToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.consultationScolaireToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.consultationLivreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.nouvelAdherentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.nouveauLivreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quitterLapplicationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fenetresStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listeDesAdherentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -55,35 +54,28 @@
             // 
             resources.ApplyResources(this.fichierStripMenuItem, "fichierStripMenuItem");
             this.fichierStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.consultationPersonneToolStripMenuItem,
-            this.consultationScolaireToolStripMenuItem,
-            this.consultationLivreToolStripMenuItem,
+            this.nouvelAdherentToolStripMenuItem,
+            this.nouveauLivreToolStripMenuItem,
             this.quitterLapplicationToolStripMenuItem});
             this.fichierStripMenuItem.Name = "fichierStripMenuItem";
             // 
-            // consultationPersonneToolStripMenuItem
+            // nouvelAdherentToolStripMenuItem
             // 
-            resources.ApplyResources(this.consultationPersonneToolStripMenuItem, "consultationPersonneToolStripMenuItem");
-            this.consultationPersonneToolStripMenuItem.Name = "consultationPersonneToolStripMenuItem";
-            this.consultationPersonneToolStripMenuItem.Click += new System.EventHandler(this.consultationPersonneToolStripMenuItem_Click);
+            resources.ApplyResources(this.nouvelAdherentToolStripMenuItem, "nouvelAdherentToolStripMenuItem");
+            this.nouvelAdherentToolStripMenuItem.Name = "nouvelAdherentToolStripMenuItem";
+            this.nouvelAdherentToolStripMenuItem.Click += new System.EventHandler(this.nouvelAdherentToolStripMenuItem_Click);
             // 
-            // consultationScolaireToolStripMenuItem
+            // nouveauLivreToolStripMenuItem
             // 
-            resources.ApplyResources(this.consultationScolaireToolStripMenuItem, "consultationScolaireToolStripMenuItem");
-            this.consultationScolaireToolStripMenuItem.Name = "consultationScolaireToolStripMenuItem";
-            this.consultationScolaireToolStripMenuItem.Click += new System.EventHandler(this.consultationScolaireToolStripMenuItem_Click);
-            // 
-            // consultationLivreToolStripMenuItem
-            // 
-            resources.ApplyResources(this.consultationLivreToolStripMenuItem, "consultationLivreToolStripMenuItem");
-            this.consultationLivreToolStripMenuItem.Name = "consultationLivreToolStripMenuItem";
-            this.consultationLivreToolStripMenuItem.Click += new System.EventHandler(this.consultationLivreToolStripMenuItem_Click);
+            resources.ApplyResources(this.nouveauLivreToolStripMenuItem, "nouveauLivreToolStripMenuItem");
+            this.nouveauLivreToolStripMenuItem.Name = "nouveauLivreToolStripMenuItem";
+            this.nouveauLivreToolStripMenuItem.Click += new System.EventHandler(this.nouveauLivreToolStripMenuItem_Click);
             // 
             // quitterLapplicationToolStripMenuItem
             // 
             resources.ApplyResources(this.quitterLapplicationToolStripMenuItem, "quitterLapplicationToolStripMenuItem");
             this.quitterLapplicationToolStripMenuItem.Name = "quitterLapplicationToolStripMenuItem";
-            this.quitterLapplicationToolStripMenuItem.Click += new System.EventHandler(this.quitterLapplicationToolStripMenuItem_Click);
+            this.quitterLapplicationToolStripMenuItem.Click += new System.EventHandler(this.quitterLapplicationToolStripMenuItem_Click_1);
             // 
             // fenetresStripMenuItem
             // 
@@ -104,6 +96,7 @@
             // 
             resources.ApplyResources(this.listeDesScolairesToolStripMenuItem, "listeDesScolairesToolStripMenuItem");
             this.listeDesScolairesToolStripMenuItem.Name = "listeDesScolairesToolStripMenuItem";
+            this.listeDesScolairesToolStripMenuItem.Click += new System.EventHandler(this.listeDesScolairesToolStripMenuItem_Click);
             // 
             // listeDesLivresToolStripMenuItem
             // 
@@ -132,14 +125,13 @@
 
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fichierStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem consultationPersonneToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem consultationLivreToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem quitterLapplicationToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem nouvelAdherentToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fenetresStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem listeDesAdherentsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem listeDesLivresToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem listeDesScolairesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem consultationScolaireToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem nouveauLivreToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem quitterLapplicationToolStripMenuItem;
     }
 }
 

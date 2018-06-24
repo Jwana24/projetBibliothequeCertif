@@ -44,5 +44,32 @@ namespace projetBibliothequeCertif
             reader.Close();
             return id;
         }
+
+        public static long LastUpdateID()
+        {
+            MySqlCommand cmd = ConnexionBase.GetConnexion().CreateCommand();
+            cmd.CommandText = "UPDATE last_update_id()";
+
+            long id = 0;
+            IDataReader reader = cmd.ExecuteReader();
+            if (reader != null && reader.Read())
+            {
+                id = reader.GetInt64(0);
+            }
+            reader.Close();
+            return id;
+        }
+
+        public static void UpdateAdherent(MAdherents adh)
+        {
+            // crée la commande sql
+            MySqlCommand cmd = ConnexionBase.GetConnexion().CreateCommand();
+            cmd.CommandText = "UPDATE adherents SET date_cotisation=@dateCotisation WHERE num_adherent=@numAdherent";
+
+            cmd.Parameters.AddWithValue("@numAdherent", adh.numAdherent);
+            cmd.Parameters.AddWithValue("@dateCotisation", adh.dateCotisation);
+            // exécute la requête
+            cmd.ExecuteNonQuery();
+        }
     }
 }

@@ -10,6 +10,9 @@ namespace projetBibliothequeCertif
 {
     public partial class frmConsultationLivre : projetBibliothequeCertif.frmLivres
     {
+        String leCode, unIsbn, leTitre, laCategorie, unAuteur, unEditeur;
+        DateTime laSortie;
+
         protected MLivres leLivre;
 
         public frmConsultationLivre(MLivres livre)
@@ -68,7 +71,30 @@ namespace projetBibliothequeCertif
 
         private void btnOk_Click(object sender, EventArgs e)
         {
+            MLivres modifierLivre = new MLivres(leCode, unIsbn, leTitre, laCategorie, laSortie, unAuteur, unEditeur);
 
+            // affecte des variables/propriétés
+            modifierLivre.CodeLivre = base.txtbCodeLivre.Text;
+            modifierLivre.Isbn = base.txtbISBN.Text;
+            modifierLivre.Titre = base.txtbTitre.Text;
+            modifierLivre.Categorie = base.cbbCategorie.Text;
+            modifierLivre.Sortie = DateTime.Parse(base.dateTimeSortie.Text);
+            modifierLivre.Auteur = base.txtbAuteur.Text;
+            modifierLivre.Editeur = base.txtbEditeur.Text;
+
+            // appelle la méthode insert, de la classe métier
+            MLivres.UpdateLivre(modifierLivre);
+
+            // ajoute la référence d'objet MLivres dans la collection
+            Donnees.tableLivres = MLivres.ListerLivres("");
+
+            // incrémentation du compteur de livres
+            MLivres.NLivres = 1;
+
+            this.Close();
+
+            // fermeture de la boite de dialogue par validation
+            this.DialogResult = DialogResult.OK;
         }
     }
 }

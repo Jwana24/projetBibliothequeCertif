@@ -132,7 +132,7 @@
             // 
             this.cbbCategorie.FormattingEnabled = true;
             this.cbbCategorie.Items.AddRange(new object[] {
-            "Science fiction",
+            "Science-fiction",
             "Fantastique",
             "Policier",
             "Romance",
@@ -160,7 +160,8 @@
             "Tourisme et voyages",
             "Contes",
             "Poésies",
-            "Biographies"});
+            "Biographies",
+            "Nouvelles"});
             this.cbbCategorie.Location = new System.Drawing.Point(121, 192);
             this.cbbCategorie.Name = "cbbCategorie";
             this.cbbCategorie.Size = new System.Drawing.Size(237, 24);

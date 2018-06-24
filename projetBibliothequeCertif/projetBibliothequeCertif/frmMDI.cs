@@ -12,7 +12,6 @@ namespace projetBibliothequeCertif
 {
     public partial class frmMDI : Form
     {
-        private MLivres unLivre;
         private MPersonnes personne;
 
         public frmMDI()
@@ -20,29 +19,18 @@ namespace projetBibliothequeCertif
             InitializeComponent();
         }
 
-        private void quitterLapplicationToolStripMenuItem_Click(object sender, EventArgs e)
+        private void nouvelAdherentToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Application.Exit();
-        }
-
-        private void consultationPersonneToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            // on instancie le form de saisie du nouveau livre
-            frmConsultationPersonne consulterPer = new frmConsultationPersonne(personne);
+            // on instancie le form de saisie du nouvel adhérent
+            frmNouvelAdherent nouvelPers = new frmNouvelAdherent();
             // affichage en modal
-            consulterPer.ShowDialog();
+            nouvelPers.ShowDialog();
         }
 
-        private void consultationScolaireToolStripMenuItem_Click(object sender, EventArgs e)
+        private void nouveauLivreToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmConsultationScolaire consultersco = new frmConsultationScolaire();
-            consultersco.ShowDialog();
-        }
-
-        private void consultationLivreToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmConsultationLivre consulterLvr = new frmConsultationLivre(unLivre);
-            consulterLvr.ShowDialog();
+            frmNouveauLivre nouveauLvr = new frmNouveauLivre();
+            nouveauLvr.ShowDialog();
         }
 
         private void listeDesAdherentsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -55,6 +43,17 @@ namespace projetBibliothequeCertif
         {
             frmListeLivres listeLivres = new frmListeLivres();
             listeLivres.Show();
+        }
+
+        private void quitterLapplicationToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void listeDesScolairesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmListeScolaires listeScolaires = new frmListeScolaires();
+            listeScolaires.Show();
         }
     }
 }

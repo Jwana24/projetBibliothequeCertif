@@ -11,8 +11,8 @@ namespace projetBibliothequeCertif
 {
     public partial class frmNouvelAdherent : projetBibliothequeCertif.frmAdherents
     {
-        Int32 leNumero;
-        String leNom, lePrenom, leCodePostal, laVille, uneAdresse1, leTelephone, unEmail;
+        Int32 leNumero, leCode;
+        String leNom, lePrenom, leCodePostal, laVille, uneAdresse1, leTelephone, unEmail, uneVille, uneEcole, uneClasse, unNom, unPrenom, unCP;
         DateTime uneDate;
 
         private void grpCotisations_Enter(object sender, EventArgs e)
@@ -112,44 +112,57 @@ namespace projetBibliothequeCertif
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-            MAdherents nouvelAdherent = new MAdherents();
+            if (chkParticuliers.Checked == true)
+            {
+                MAdherents nouvelAdherent = new MAdherents();
+                nouvelAdherent.dateInscription = DateTime.Parse(base.dateTimeInscription.Text);
+                nouvelAdherent.dateCotisation = DateTime.Parse(base.dateTimeCotisation.Text);
+                MAdherents.InsertAdherent(nouvelAdherent);
 
-            nouvelAdherent.dateInscription = DateTime.Parse(base.dateTimeInscription.Text);
-            nouvelAdherent.dateCotisation = DateTime.Parse(base.dateTimeCotisation.Text);
+                // crée une référence d'objets MAdherents
+                MPersonnes nouvellePersonne = new MPersonnes(leNumero, leNom, lePrenom, uneAdresse1, leTelephone, unEmail, uneDate, leCodePostal, laVille);
 
-            MAdherents.InsertAdherent(nouvelAdherent);
+                // affecte des variables/propriétés
+                nouvellePersonne.NumPersonne = Int32.Parse(base.txtbNumPersonne.Text);
+                nouvellePersonne.NumAdherent = (Int32)(MAdherents.LastInsertId());
+                nouvellePersonne.Nom = base.txtbNom.Text.ToUpper();
+                nouvellePersonne.Prenom = base.txtbPrenom.Text.ToLower();
+                nouvellePersonne.CodePostal = base.txtbCodePostal.Text;
+                nouvellePersonne.Ville = base.txtbVille.Text.ToUpper();
+                nouvellePersonne.Adresse1 = base.txtbAdresse.Text;
+                nouvellePersonne.Telephone = base.txtbTelephone.Text;
+                nouvellePersonne.Email = base.txtbEmail.Text;
+                nouvellePersonne.Naissance = DateTime.Parse(base.dateTimeNaissance.Text);
 
+                // enregistrement de la nouvelle personne dans la BDD
+                MPersonnes.InsertPersonne(nouvellePersonne);
 
+                // ajoute la référence d'objet MPersonnes dans la collection
+                Donnees.tablePersonnes = MPersonnes.ListerPersonnes("");
+                // incrémentation du compteur de personnes
+                MPersonnes.NPersonnes += 1;
+            }
+            else
+            {
+                chkScolaires.Checked = true;
+                MAdherents nouvelAdherent = new MAdherents();
+                nouvelAdherent.dateInscription = DateTime.Parse(base.dateTimeInscription.Text);
+                MAdherents.InsertAdherent(nouvelAdherent);
 
-            // créer une référence d'objets MAdherents
-            MPersonnes nouvellePersonne = new MPersonnes(leNumero, leNom, lePrenom, uneAdresse1, leTelephone, unEmail, uneDate, leCodePostal, laVille);
+                MScolaires nouveauScolaire = new MScolaires(leCode, uneVille, uneEcole, uneClasse, unNom, unPrenom, unCP);
 
-            // affecter des variables/propriétés
-            nouvellePersonne.NumPersonne = Int32.Parse(base.txtbNumPersonne.Text);
-            nouvellePersonne.NumAdherent = (Int32)(MAdherents.LastInsertId());
-            nouvellePersonne.Nom = base.txtbNom.Text.ToUpper();
-            nouvellePersonne.Prenom = base.txtbPrenom.Text.ToLower();
-            nouvellePersonne.CodePostal = base.txtbCodePostal.Text;
-            nouvellePersonne.Ville = base.txtbVille.Text.ToUpper();
-            nouvellePersonne.Adresse1 = base.txtbAdresse.Text;
-            nouvellePersonne.Telephone = base.txtbTelephone.Text;
-            nouvellePersonne.Email = base.txtbEmail.Text;
-            nouvellePersonne.Naissance = DateTime.Parse(base.dateTimeNaissance.Text);
+                nouveauScolaire.Code = Int32.Parse(base.txtbCodeSco.Text);
+                nouveauScolaire.Ville = base.txtbVilleEcole.Text;
+                nouveauScolaire.Etablissement = base.txtbEcole.Text;
+                nouveauScolaire.Classe = base.cbbClasse.Text;
+                nouveauScolaire.Nom = base.txtbNomProf.Text;
+                nouveauScolaire.Prenom = base.txtbPrenomProf.Text;
 
-            // Enregistrement du nouveau stagiaire dans la BDD
-            MPersonnes.InsertPersonne(nouvellePersonne);
+                MScolaires.InsertScolaire(nouveauScolaire);
 
-            // numéro du livre
-           // nouvelAdherent.IAdherent++;
-
-            //ajouter la référence d'objet MPersonnes dans la collection
-            Donnees.tablePersonnes = MPersonnes.ListerPersonnes("");
-            // incrémentation compteur de clients
-            MPersonnes.NPersonnes += 1;
-
-            /*frmListeAdherents listeAdherents = new frmListeAdherents();
-            listeAdherents.afficheAdherents();
-            listeAdherents.Show();*/
+                Donnees.tableScolaires = MScolaires.ListerScolaires("");
+                MScolaires.NScolaires += 1;
+            }
             this.Close();
 
             // fermeture de la boite de dialogue par validation

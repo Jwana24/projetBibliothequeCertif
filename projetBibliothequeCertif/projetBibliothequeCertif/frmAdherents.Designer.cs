@@ -52,7 +52,21 @@
             this.dateTimeCotisation = new System.Windows.Forms.DateTimePicker();
             this.lblRetard = new System.Windows.Forms.Label();
             this.lblCotisations = new System.Windows.Forms.Label();
+            this.grpScolarite = new System.Windows.Forms.GroupBox();
+            this.txtbCodeSco = new System.Windows.Forms.TextBox();
+            this.lblCode = new System.Windows.Forms.Label();
+            this.txtbPrenomProf = new System.Windows.Forms.TextBox();
+            this.txtbNomProf = new System.Windows.Forms.TextBox();
+            this.lblPrenomProf = new System.Windows.Forms.Label();
+            this.lblNomProf = new System.Windows.Forms.Label();
+            this.txtbVilleEcole = new System.Windows.Forms.TextBox();
+            this.lblVilleEcole = new System.Windows.Forms.Label();
+            this.cbbClasse = new System.Windows.Forms.ComboBox();
+            this.txtbEcole = new System.Windows.Forms.TextBox();
+            this.lblClasse = new System.Windows.Forms.Label();
+            this.lblEcole = new System.Windows.Forms.Label();
             this.grpCotisations.SuspendLayout();
+            this.grpScolarite.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblNom
@@ -255,11 +269,135 @@
             this.lblCotisations.Text = "à cotisé le :";
             this.lblCotisations.Click += new System.EventHandler(this.label1_Click);
             // 
+            // grpScolarite
+            // 
+            this.grpScolarite.Controls.Add(this.txtbCodeSco);
+            this.grpScolarite.Controls.Add(this.lblCode);
+            this.grpScolarite.Controls.Add(this.txtbPrenomProf);
+            this.grpScolarite.Controls.Add(this.txtbNomProf);
+            this.grpScolarite.Controls.Add(this.lblPrenomProf);
+            this.grpScolarite.Controls.Add(this.lblNomProf);
+            this.grpScolarite.Controls.Add(this.txtbVilleEcole);
+            this.grpScolarite.Controls.Add(this.lblVilleEcole);
+            this.grpScolarite.Controls.Add(this.cbbClasse);
+            this.grpScolarite.Controls.Add(this.txtbEcole);
+            this.grpScolarite.Controls.Add(this.lblClasse);
+            this.grpScolarite.Controls.Add(this.lblEcole);
+            this.grpScolarite.Location = new System.Drawing.Point(87, 53);
+            this.grpScolarite.Name = "grpScolarite";
+            this.grpScolarite.Size = new System.Drawing.Size(744, 407);
+            this.grpScolarite.TabIndex = 27;
+            this.grpScolarite.TabStop = false;
+            this.grpScolarite.Text = "Scolarité";
+            // 
+            // txtbCodeSco
+            // 
+            this.txtbCodeSco.Location = new System.Drawing.Point(247, 59);
+            this.txtbCodeSco.Name = "txtbCodeSco";
+            this.txtbCodeSco.Size = new System.Drawing.Size(211, 22);
+            this.txtbCodeSco.TabIndex = 11;
+            // 
+            // lblCode
+            // 
+            this.lblCode.AutoSize = true;
+            this.lblCode.Location = new System.Drawing.Point(57, 59);
+            this.lblCode.Name = "lblCode";
+            this.lblCode.Size = new System.Drawing.Size(94, 17);
+            this.lblCode.TabIndex = 10;
+            this.lblCode.Text = "Code scolaire";
+            // 
+            // txtbPrenomProf
+            // 
+            this.txtbPrenomProf.Location = new System.Drawing.Point(247, 325);
+            this.txtbPrenomProf.Name = "txtbPrenomProf";
+            this.txtbPrenomProf.Size = new System.Drawing.Size(370, 22);
+            this.txtbPrenomProf.TabIndex = 9;
+            // 
+            // txtbNomProf
+            // 
+            this.txtbNomProf.Location = new System.Drawing.Point(247, 268);
+            this.txtbNomProf.Name = "txtbNomProf";
+            this.txtbNomProf.Size = new System.Drawing.Size(370, 22);
+            this.txtbNomProf.TabIndex = 8;
+            // 
+            // lblPrenomProf
+            // 
+            this.lblPrenomProf.AutoSize = true;
+            this.lblPrenomProf.Location = new System.Drawing.Point(57, 325);
+            this.lblPrenomProf.Name = "lblPrenomProf";
+            this.lblPrenomProf.Size = new System.Drawing.Size(147, 17);
+            this.lblPrenomProf.TabIndex = 7;
+            this.lblPrenomProf.Text = "Prénom professeur(e)";
+            // 
+            // lblNomProf
+            // 
+            this.lblNomProf.AutoSize = true;
+            this.lblNomProf.Location = new System.Drawing.Point(57, 268);
+            this.lblNomProf.Name = "lblNomProf";
+            this.lblNomProf.Size = new System.Drawing.Size(127, 17);
+            this.lblNomProf.TabIndex = 6;
+            this.lblNomProf.Text = "Nom professeur(e)";
+            // 
+            // txtbVilleEcole
+            // 
+            this.txtbVilleEcole.Location = new System.Drawing.Point(138, 110);
+            this.txtbVilleEcole.Name = "txtbVilleEcole";
+            this.txtbVilleEcole.Size = new System.Drawing.Size(320, 22);
+            this.txtbVilleEcole.TabIndex = 5;
+            // 
+            // lblVilleEcole
+            // 
+            this.lblVilleEcole.AutoSize = true;
+            this.lblVilleEcole.Location = new System.Drawing.Point(57, 110);
+            this.lblVilleEcole.Name = "lblVilleEcole";
+            this.lblVilleEcole.Size = new System.Drawing.Size(34, 17);
+            this.lblVilleEcole.TabIndex = 4;
+            this.lblVilleEcole.Text = "Ville";
+            // 
+            // cbbClasse
+            // 
+            this.cbbClasse.FormattingEnabled = true;
+            this.cbbClasse.Items.AddRange(new object[] {
+            "6e",
+            "5e",
+            "4e",
+            "3e"});
+            this.cbbClasse.Location = new System.Drawing.Point(138, 206);
+            this.cbbClasse.Name = "cbbClasse";
+            this.cbbClasse.Size = new System.Drawing.Size(125, 24);
+            this.cbbClasse.TabIndex = 3;
+            // 
+            // txtbEcole
+            // 
+            this.txtbEcole.Location = new System.Drawing.Point(247, 155);
+            this.txtbEcole.Name = "txtbEcole";
+            this.txtbEcole.Size = new System.Drawing.Size(370, 22);
+            this.txtbEcole.TabIndex = 2;
+            // 
+            // lblClasse
+            // 
+            this.lblClasse.AutoSize = true;
+            this.lblClasse.Location = new System.Drawing.Point(54, 209);
+            this.lblClasse.Name = "lblClasse";
+            this.lblClasse.Size = new System.Drawing.Size(50, 17);
+            this.lblClasse.TabIndex = 1;
+            this.lblClasse.Text = "Classe";
+            // 
+            // lblEcole
+            // 
+            this.lblEcole.AutoSize = true;
+            this.lblEcole.Location = new System.Drawing.Point(54, 155);
+            this.lblEcole.Name = "lblEcole";
+            this.lblEcole.Size = new System.Drawing.Size(149, 17);
+            this.lblEcole.TabIndex = 0;
+            this.lblEcole.Text = "Etablissement scolaire";
+            // 
             // frmAdherents
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(907, 508);
+            this.Controls.Add(this.grpScolarite);
             this.Controls.Add(this.grpCotisations);
             this.Controls.Add(this.txtbNumPersonne);
             this.Controls.Add(this.lblNumPersonne);
@@ -285,6 +423,8 @@
             this.Text = "Adhérents";
             this.grpCotisations.ResumeLayout(false);
             this.grpCotisations.PerformLayout();
+            this.grpScolarite.ResumeLayout(false);
+            this.grpScolarite.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -315,5 +455,18 @@
         protected System.Windows.Forms.Label lblCotisations;
         protected System.Windows.Forms.Label lblRetard;
         protected System.Windows.Forms.DateTimePicker dateTimeCotisation;
+        protected System.Windows.Forms.GroupBox grpScolarite;
+        protected System.Windows.Forms.TextBox txtbCodeSco;
+        protected System.Windows.Forms.Label lblCode;
+        protected System.Windows.Forms.TextBox txtbPrenomProf;
+        protected System.Windows.Forms.TextBox txtbNomProf;
+        protected System.Windows.Forms.Label lblPrenomProf;
+        protected System.Windows.Forms.Label lblNomProf;
+        protected System.Windows.Forms.TextBox txtbVilleEcole;
+        protected System.Windows.Forms.Label lblVilleEcole;
+        protected System.Windows.Forms.ComboBox cbbClasse;
+        protected System.Windows.Forms.TextBox txtbEcole;
+        protected System.Windows.Forms.Label lblClasse;
+        protected System.Windows.Forms.Label lblEcole;
     }
 }

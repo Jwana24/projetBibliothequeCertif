@@ -15,6 +15,11 @@ namespace projetBibliothequeCertif
     /// </summary>
     public class MLivres
     {
+        /// <summary>
+        /// collection des objets MLivres
+        /// </summary>
+        private SortedDictionary<String, MLivres> lesLivres;
+
         public static Int32 NLivres;
 
         private Int32 iLivre;
@@ -138,11 +143,6 @@ namespace projetBibliothequeCertif
         }
 
         /// <summary>
-        /// collection des objets MLivres
-        /// </summary>
-        private SortedDictionary<String, MLivres> lesLivres;
-
-        /// <summary>
         /// ajouter un livre à la collection
         /// (reçoit la référence au livre et en déduit la clé (= codeLivre) pour la collection)
         /// </summary>
@@ -207,23 +207,37 @@ namespace projetBibliothequeCertif
             this.lesLivres.Clear();
         }
 
-       /* public static void AlimenterCombobox(string query, ComboBox cbbCategorie, string contenuAAfficher)
+        public MLivres RechercherLivres(String leCode)
         {
-            MySqlCommand cmd = ConnexionBase.GetConnexion().CreateCommand();
-            cmd.CommandText = query;
-            MySqlDataReader dataReader = cmd.ExecuteReader();
-            while (dataReader.Read())
+            MLivres livres;
+            livres = this.lesLivres[leCode] as MLivres;
+            if (livres == null)
             {
-                cbbCategorie.Items.Add(dataReader[contenuAAfficher]);
+                throw new Exception("Vous n'avez pas de livre sélectionné");
             }
-            dataReader.Close();
-        }*/
+            else
+            {
+                return livres;
+            }
+        }
 
-         /*   public void RechercherLivres()
-        {
-            DataTable tableLivres = new DataTable();
-            MLivres livres = Donnees.tableLivres(CodeLivre) as MLivres;
-        }*/
+        /* public static void AlimenterCombobox(string query, ComboBox cbbCategorie, string contenuAAfficher)
+         {
+             MySqlCommand cmd = ConnexionBase.GetConnexion().CreateCommand();
+             cmd.CommandText = query;
+             MySqlDataReader dataReader = cmd.ExecuteReader();
+             while (dataReader.Read())
+             {
+                 cbbCategorie.Items.Add(dataReader[contenuAAfficher]);
+             }
+             dataReader.Close();
+         }*/
+
+        /*   public void RechercherLivres()
+       {
+           DataTable tableLivres = new DataTable();
+           MLivres livres = Donnees.tableLivres(CodeLivre) as MLivres;
+       }*/
 
         /// <summary>
         /// générer et retourner une datatable

@@ -11,15 +11,14 @@ namespace projetBibliothequeCertif
 {
     public partial class frmNouveauLivre : projetBibliothequeCertif.frmLivres
     {
-        private MPersonnes laPersonne;
+       // private MPersonnes laPersonne;
         private String unIsbn, leTitre, unAuteur, unEditeur, leCode, laCategorie;
         private DateTime laSortie;
         private int idLivre;
 
-        public frmNouveauLivre(MPersonnes personne)
+        public frmNouveauLivre()
         {
             InitializeComponent();
-            this.laPersonne = personne;
         }
 
         private void btnAnnuler_Click(object sender, EventArgs e)

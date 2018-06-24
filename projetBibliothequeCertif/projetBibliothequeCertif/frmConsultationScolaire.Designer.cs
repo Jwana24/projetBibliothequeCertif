@@ -36,14 +36,14 @@
             this.lblLivresEmprunt = new System.Windows.Forms.Label();
             this.grdLivresEmpruntes = new System.Windows.Forms.DataGridView();
             this.btnOk = new System.Windows.Forms.Button();
-            this.groupBox1.SuspendLayout();
+            this.grpScolarite.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdLivresEmpruntes)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Location = new System.Drawing.Point(28, 17);
-            this.groupBox1.Size = new System.Drawing.Size(744, 328);
+            this.grpScolarite.Location = new System.Drawing.Point(28, 17);
+            this.grpScolarite.Size = new System.Drawing.Size(744, 328);
             // 
             // txtbPrenomProf
             // 
@@ -183,7 +183,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmConsultationScolaire";
             this.Text = "Consultation des scolaires";
-            this.Controls.SetChildIndex(this.groupBox1, 0);
+            this.Controls.SetChildIndex(this.grpScolarite, 0);
             this.Controls.SetChildIndex(this.btnModifierScolaire, 0);
             this.Controls.SetChildIndex(this.grdLivresEmpruntes, 0);
             this.Controls.SetChildIndex(this.lblLivresEmprunt, 0);
@@ -191,8 +191,8 @@
             this.Controls.SetChildIndex(this.btnSupprimerLivre, 0);
             this.Controls.SetChildIndex(this.btnAjouterLivre, 0);
             this.Controls.SetChildIndex(this.btnOk, 0);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.grpScolarite.ResumeLayout(false);
+            this.grpScolarite.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdLivresEmpruntes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

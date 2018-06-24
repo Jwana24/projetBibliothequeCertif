@@ -20,6 +20,8 @@ namespace projetBibliothequeCertif
         /// </summary>
         public static MPersonnes Personnes;
 
+        public static MScolaires Scolaires;
+
         /// <summary>
         /// collection d'objets MLivres
         /// </summary>
@@ -29,5 +31,7 @@ namespace projetBibliothequeCertif
         /// collection d'objets MPersonnes
         /// </summary>
         public static DataTable tablePersonnes = new DataTable();
+
+        public static DataTable tableScolaires = new DataTable();
     }
 }

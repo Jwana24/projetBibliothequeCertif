@@ -88,6 +88,7 @@
             // 
             // grdScolaires
             // 
+            this.grdScolaires.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.grdScolaires.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdScolaires.Location = new System.Drawing.Point(58, 87);
             this.grdScolaires.Name = "grdScolaires";

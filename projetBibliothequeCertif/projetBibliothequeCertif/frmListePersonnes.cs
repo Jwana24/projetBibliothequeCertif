@@ -23,8 +23,8 @@ namespace projetBibliothequeCertif
 
         public void affichePersonnes()
         {
-            // déterminer l'origine des données à afficher : appel de la méthode de la classe MPersonnes qui alimente
-            // et retourne une copie de sa collection des personnes sous forme de datatable
+            // détermine l'origine des données à afficher : appel de la méthode de la classe MPersonnes qui alimente
+            // et retourne une copie de la collection des personnes sous forme de datatable
             this.grdPersonnes.DataSource = MPersonnes.ListerPersonnes(txtbRecherche.Text);
             // rafraîchit l'affichage
             this.grdPersonnes.Refresh();
@@ -86,7 +86,7 @@ namespace projetBibliothequeCertif
             frmConsultationPersonne frmConsulter = new frmConsultationPersonne(personne);
             // affiche le form de consultation d'une personne
             frmConsulter.ShowDialog();
-            // rafraîchit la datagriedview quand le form est fermé
+            // rafraîchit la datagridview quand le form est fermé
             this.affichePersonnes();
 
 

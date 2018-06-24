@@ -24,7 +24,7 @@ namespace projetBibliothequeCertif
         {
             // déterminer l'origine des données à afficher : appel de la méthode de la classe MScolaires qui alimente
             // et retourne une copie de sa collection des scolaires sous forme de datatable
-           // this.grdScolaires.DataSource = MScolaires.ListerScolaires(txtbRecherche.Text);
+            this.grdScolaires.DataSource = MScolaires.ListerScolaires(txtbRecherche.Text);
             // rafraîchit l'affichage
             this.grdScolaires.Refresh();
         }
@@ -51,13 +51,13 @@ namespace projetBibliothequeCertif
             if (this.grdScolaires.CurrentRow != null)
             {
                 // récupère la clé du scolaire pointé
-                Int32 clePersonne;
-                clePersonne = (Int32)this.grdScolaires.CurrentRow.Cells[0].Value;
+                Int32 cleScolaire;
+                cleScolaire = (Int32)this.grdScolaires.CurrentRow.Cells[0].Value;
                 // demande confirmation de la suppression
-                if (MessageBox.Show("Voulez-vous supprimer le scolaire numéro :" + clePersonne.ToString(), "Suppression", MessageBoxButtons.YesNo,
+                if (MessageBox.Show("Voulez-vous supprimer le scolaire numéro :" + cleScolaire.ToString(), "Suppression", MessageBoxButtons.YesNo,
                     MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    MPersonnes.DeletePersonne(clePersonne);
+                    MScolaires.DeleteScolaire(cleScolaire);
                     // réaffiche la datagridview
                     afficheScolaires();
                 }

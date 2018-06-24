@@ -149,6 +149,7 @@
             this.btnOk.TabIndex = 34;
             this.btnOk.Text = "OK";
             this.btnOk.UseVisualStyleBackColor = true;
+            this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
             // 
             // frmConsultationPersonne
             // 

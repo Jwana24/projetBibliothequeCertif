@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.grpScolarite = new System.Windows.Forms.GroupBox();
             this.txtbCodeSco = new System.Windows.Forms.TextBox();
             this.lblCode = new System.Windows.Forms.Label();
             this.txtbPrenomProf = new System.Windows.Forms.TextBox();
@@ -41,29 +41,29 @@
             this.txtbEcole = new System.Windows.Forms.TextBox();
             this.lblClasse = new System.Windows.Forms.Label();
             this.lblEcole = new System.Windows.Forms.Label();
-            this.groupBox1.SuspendLayout();
+            this.grpScolarite.SuspendLayout();
             this.SuspendLayout();
             // 
-            // groupBox1
+            // grpScolarite
             // 
-            this.groupBox1.Controls.Add(this.txtbCodeSco);
-            this.groupBox1.Controls.Add(this.lblCode);
-            this.groupBox1.Controls.Add(this.txtbPrenomProf);
-            this.groupBox1.Controls.Add(this.txtbNomProf);
-            this.groupBox1.Controls.Add(this.lblPrenomProf);
-            this.groupBox1.Controls.Add(this.lblNomProf);
-            this.groupBox1.Controls.Add(this.txtbVilleEcole);
-            this.groupBox1.Controls.Add(this.lblVilleEcole);
-            this.groupBox1.Controls.Add(this.cbbClasse);
-            this.groupBox1.Controls.Add(this.txtbEcole);
-            this.groupBox1.Controls.Add(this.lblClasse);
-            this.groupBox1.Controls.Add(this.lblEcole);
-            this.groupBox1.Location = new System.Drawing.Point(28, 36);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(744, 407);
-            this.groupBox1.TabIndex = 26;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Scolarité";
+            this.grpScolarite.Controls.Add(this.txtbCodeSco);
+            this.grpScolarite.Controls.Add(this.lblCode);
+            this.grpScolarite.Controls.Add(this.txtbPrenomProf);
+            this.grpScolarite.Controls.Add(this.txtbNomProf);
+            this.grpScolarite.Controls.Add(this.lblPrenomProf);
+            this.grpScolarite.Controls.Add(this.lblNomProf);
+            this.grpScolarite.Controls.Add(this.txtbVilleEcole);
+            this.grpScolarite.Controls.Add(this.lblVilleEcole);
+            this.grpScolarite.Controls.Add(this.cbbClasse);
+            this.grpScolarite.Controls.Add(this.txtbEcole);
+            this.grpScolarite.Controls.Add(this.lblClasse);
+            this.grpScolarite.Controls.Add(this.lblEcole);
+            this.grpScolarite.Location = new System.Drawing.Point(46, 41);
+            this.grpScolarite.Name = "grpScolarite";
+            this.grpScolarite.Size = new System.Drawing.Size(744, 407);
+            this.grpScolarite.TabIndex = 28;
+            this.grpScolarite.TabStop = false;
+            this.grpScolarite.Text = "Scolarité";
             // 
             // txtbCodeSco
             // 
@@ -171,19 +171,21 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 476);
-            this.Controls.Add(this.groupBox1);
+            this.ClientSize = new System.Drawing.Size(831, 481);
+            this.Controls.Add(this.grpScolarite);
             this.Name = "frmScolaires";
-            this.Text = "Scolaires";
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.Text = "frmScolaires";
+            this.grpScolarite.ResumeLayout(false);
+            this.grpScolarite.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        protected System.Windows.Forms.GroupBox groupBox1;
+        protected System.Windows.Forms.GroupBox grpScolarite;
+        protected System.Windows.Forms.TextBox txtbCodeSco;
+        protected System.Windows.Forms.Label lblCode;
         protected System.Windows.Forms.TextBox txtbPrenomProf;
         protected System.Windows.Forms.TextBox txtbNomProf;
         protected System.Windows.Forms.Label lblPrenomProf;
@@ -194,7 +196,5 @@
         protected System.Windows.Forms.TextBox txtbEcole;
         protected System.Windows.Forms.Label lblClasse;
         protected System.Windows.Forms.Label lblEcole;
-        protected System.Windows.Forms.TextBox txtbCodeSco;
-        protected System.Windows.Forms.Label lblCode;
     }
 }
