@@ -37,6 +37,7 @@
             this.btnAjouterLivre = new System.Windows.Forms.Button();
             this.btnOk = new System.Windows.Forms.Button();
             this.grpCotisations.SuspendLayout();
+            this.grpScolarite.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdLivresEmpruntes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -82,6 +83,15 @@
             // txtbNumPersonne
             // 
             this.txtbNumPersonne.Enabled = false;
+            // 
+            // grpScolarite
+            // 
+            this.grpScolarite.Location = new System.Drawing.Point(67, 53);
+            this.grpScolarite.Visible = false;
+            // 
+            // cbbClasse
+            // 
+            this.cbbClasse.Size = new System.Drawing.Size(125, 24);
             // 
             // grdLivresEmpruntes
             // 
@@ -166,6 +176,7 @@
             this.Name = "frmConsultationPersonne";
             this.Text = "Consultation de la personne";
             this.Load += new System.EventHandler(this.frmConsultationPersonne_Load);
+            this.Controls.SetChildIndex(this.grpScolarite, 0);
             this.Controls.SetChildIndex(this.grpCotisations, 0);
             this.Controls.SetChildIndex(this.lblDateNaissance, 0);
             this.Controls.SetChildIndex(this.dateTimeNaissance, 0);
@@ -196,6 +207,8 @@
             this.Controls.SetChildIndex(this.btnOk, 0);
             this.grpCotisations.ResumeLayout(false);
             this.grpCotisations.PerformLayout();
+            this.grpScolarite.ResumeLayout(false);
+            this.grpScolarite.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdLivresEmpruntes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -309,13 +309,33 @@ namespace projetBibliothequeCertif
         /// </summary>
         /// <param name="unNumPersonne">le numéro (=la clé) de la personne à rechercher</param>
         /// <returns>la référence à la personne (ou bien lève une erreur)</returns>
-        public MPersonnes RestituerPersonne(Int32 unNumPersonne)
+        public static MPersonnes RestituerPersonne(Int32 recherche)
         {
-            MPersonnes unePersonne;
-            unePersonne = this.lesPersonnes[unNumPersonne];
+            MPersonnes unePersonne = null;
+            MySqlCommand cmd = ConnexionBase.GetConnexion().CreateCommand();
+            cmd.CommandText = "SELECT * FROM personnes WHERE num_personne=@recherche";
+            cmd.Parameters.AddWithValue("@recherche", recherche);
+            MySqlDataReader reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                unePersonne = new MPersonnes();
+                // affectation des 4 lignes
+                unePersonne.NumPersonne = reader.GetInt32(0);
+                unePersonne.Nom = reader.GetString(1);
+                unePersonne.Prenom = reader.GetString(2);
+                unePersonne.Naissance = reader.GetDateTime(3);
+                unePersonne.Adresse1 = reader.GetString(4);
+                unePersonne.Email = reader.GetString(5);
+                unePersonne.Telephone = reader.GetString(6);
+                unePersonne.CodePostal = reader.GetString("cp");
+                unePersonne.Ville = reader.GetString("ville");
+                unePersonne.NumAdherent = reader.GetInt32("num_adherent");
+            }
+            reader.Close();
             if (unePersonne == null)
             {
-                throw new Exception("Aucune personne pour le numéro " + unNumPersonne.ToString());
+                throw new Exception("Aucune personne pour le numéro " + recherche);
             }
             else
             {
