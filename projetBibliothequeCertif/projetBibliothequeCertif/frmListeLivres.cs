@@ -12,10 +12,7 @@ namespace projetBibliothequeCertif
 {
     public partial class frmListeLivres : Form
     {
-        /// <summary>
-        /// la section du livre gérée par ce form
-        /// </summary>
-        private MLivres leLivre;
+        private MLivres livre;
 
         public frmListeLivres()
         {
@@ -76,12 +73,12 @@ namespace projetBibliothequeCertif
             String iLivre;
             iLivre = (String)this.grdLivres.CurrentRow.Cells[0].Value;
 
-            leLivre = Donnees.Livres.RechercherLivres(iLivre) as MLivres;
-
-            frmConsultationLivre frmConsulter = new frmConsultationLivre(leLivre);
-            // affiche le form de consultation d'un livre
+            livre = MLivres.RestituerLivre(iLivre); // as MPersonnes;
+            // instancie le form consultation personne
+            frmConsultationLivre frmConsulter = new frmConsultationLivre(livre);
+            // affiche le form de consultation d'une personne
             frmConsulter.ShowDialog();
-            // rafraichît la datagridview quand le form est fermé
+            // rafraîchit la datagridview quand le form est fermé
             this.afficheLivres();
         }
 

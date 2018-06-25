@@ -80,28 +80,6 @@ namespace projetBibliothequeCertif
             this.Close();
         }
 
-        private void btnSupprimerLivre_Click(object sender, EventArgs e)
-        {
-            grdLivresEmpruntes.Rows.Remove(grdLivresEmpruntes.CurrentRow);
-        }
-
-        private void afficheLivres()
-        {
-           // this.grdLivresEmpruntes.DataSource() = MLivres.ListerLivres("");
-        }
-
-        private void btnAjouterLivre_Click(object sender, EventArgs e)
-        {
-           /* frmNouveauLivre nouveauLivre = new frmNouveauLivre(laPersonne);
-
-            // Si on sort de la saisie par OK, régénère l'affichage du datagrid
-            if (nouveauLivre.ShowDialog() == DialogResult.OK)
-            {
-                this.iLivre = MLivres.NLivres - 1;
-            }
-            this.Close();*/
-        }
-
         private void btnOk_Click(object sender, EventArgs e)
         {
             MAdherents modifierAdherent = new MAdherents();

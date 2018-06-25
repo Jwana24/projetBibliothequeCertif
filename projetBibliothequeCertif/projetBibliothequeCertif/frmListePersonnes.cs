@@ -81,7 +81,7 @@ namespace projetBibliothequeCertif
             Int32 iPersonne;
             iPersonne = (Int32)this.grdPersonnes.CurrentRow.Cells[0].Value;
 
-            personne = MPersonnes.RestituerPersonne(iPersonne); // as MPersonnes;
+            personne = MPersonnes.RestituerPersonne(iPersonne);
             // instancie le form consultation personne
             frmConsultationPersonne frmConsulter = new frmConsultationPersonne(personne);
             // affiche le form de consultation d'une personne

@@ -348,20 +348,6 @@ namespace projetBibliothequeCertif
             this.lesPersonnes.Clear();
         }
 
-        public MPersonnes RechercherPersonnes(Int32 Numero)
-        {
-            MPersonnes personnes;
-            personnes = this.lesPersonnes[Numero] as MPersonnes;
-            if(personnes == null)
-            {
-                throw new Exception("Vous n'avez pas de personne sélectionnée");
-            }
-            else
-            {
-                return personnes;
-            }
-        }
-
         /// <summary>
         /// générer et retourner une datatable qui liste les numéros, noms, prénoms et dates d"inscription
         /// de toutes les personnes de la collection

@@ -67,6 +67,11 @@ namespace projetBibliothequeCertif
             this.Sortie = laSortie;
         }
 
+        public MLivres()
+        {
+
+        }
+
         private String isbnLivre;
 
         public String Isbn
@@ -188,17 +193,34 @@ namespace projetBibliothequeCertif
         /// <param name="unCodeLivre">le codeLivre (=la clé) du livre à rechercher</param>
         /// <exception cref="Exception">Si codeLivre reçu non trouvé en collection</exception>
         /// <returns>la référence à un livre</returns>
-        public MLivres RestituerLivre(String codeLivre)
+        public static MLivres RestituerLivre(String recherche)
         {
-            MLivres leLivre;
-            leLivre = this.lesLivres[codeLivre] as MLivres;
-            if (leLivre == null)
+            MLivres unLivre = null;
+            MySqlCommand cmd = ConnexionBase.GetConnexion().CreateCommand();
+            cmd.CommandText = "SELECT * FROM livres WHERE code_livre=@recherche";
+            cmd.Parameters.AddWithValue("@recherche", recherche);
+            MySqlDataReader reader = cmd.ExecuteReader();
+
+            while (reader.Read())
             {
-                throw new Exception("Aucun livre trouvé pour le code livre " + codeLivre);
+                unLivre = new MLivres();
+                // affectation des 7 lignes
+                unLivre.CodeLivre = reader.GetString(0);
+                unLivre.Isbn = reader.GetString("isbn");
+                unLivre.Titre = reader.GetString("titre");
+                unLivre.Categorie = reader.GetString("categorie");
+                unLivre.Sortie = reader.GetDateTime("date_sortie");
+                unLivre.Auteur = reader.GetString("auteur");
+                unLivre.Editeur = reader.GetString("editeur");
+            }
+            reader.Close();
+            if (unLivre == null)
+            {
+                throw new Exception("Aucun livre pour le numéro " + recherche);
             }
             else
             {
-                return leLivre;
+                return unLivre;
             }
         }
 
@@ -206,38 +228,6 @@ namespace projetBibliothequeCertif
         {
             this.lesLivres.Clear();
         }
-
-        public MLivres RechercherLivres(String leCode)
-        {
-            MLivres livres;
-            livres = this.lesLivres[leCode] as MLivres;
-            if (livres == null)
-            {
-                throw new Exception("Vous n'avez pas de livre sélectionné");
-            }
-            else
-            {
-                return livres;
-            }
-        }
-
-        /* public static void AlimenterCombobox(string query, ComboBox cbbCategorie, string contenuAAfficher)
-         {
-             MySqlCommand cmd = ConnexionBase.GetConnexion().CreateCommand();
-             cmd.CommandText = query;
-             MySqlDataReader dataReader = cmd.ExecuteReader();
-             while (dataReader.Read())
-             {
-                 cbbCategorie.Items.Add(dataReader[contenuAAfficher]);
-             }
-             dataReader.Close();
-         }*/
-
-        /*   public void RechercherLivres()
-       {
-           DataTable tableLivres = new DataTable();
-           MLivres livres = Donnees.tableLivres(CodeLivre) as MLivres;
-       }*/
 
         /// <summary>
         /// générer et retourner une datatable

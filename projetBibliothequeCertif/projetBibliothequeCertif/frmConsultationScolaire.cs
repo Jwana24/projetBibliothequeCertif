@@ -36,18 +36,6 @@ namespace projetBibliothequeCertif
             dateTimeInscSco.Text = leScolaire.Inscription.ToString();
         }
 
-        private void afficheLivres()
-        {
-           // MLivres.ListerLivres();
-
-            // déterminer l'origine des données à afficher : 
-            // appel de la méthode de la classe MLivres qui alimente et retourne copie de sa 
-            // collection de livres sous forme de datatable
-           // this.grdLivresEmpruntes.DataSource = unLivre.ListerLivres();
-            // refraîchir l'affichage
-            this.grdLivresEmpruntes.Refresh();
-        }
-
         private void btnFermer_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -55,42 +43,29 @@ namespace projetBibliothequeCertif
 
         private void btnModifierScolaire_Click(object sender, EventArgs e)
         {
-            if(txtbCodeSco.Enabled == false && txtbVilleEcole.Enabled == false && txtbEcole.Enabled == false && cbbClasse.Enabled == false
-                && txtbNomProf.Enabled == false && txtbPrenomProf.Enabled == false)
+            if(txtbCodeSco.Enabled == false && txtbVilleEcole.Enabled == false && txtbCP.Enabled == false && txtbEcole.Enabled == false &&
+                cbbClasse.Enabled == false && txtbNomProf.Enabled == false && txtbPrenomProf.Enabled == false && dateTimeInscSco.Enabled == false)
             {
                 txtbCodeSco.Enabled = true;
                 txtbVilleEcole.Enabled = true;
+                txtbCP.Enabled = true;
                 txtbEcole.Enabled = true;
                 cbbClasse.Enabled = true;
                 txtbNomProf.Enabled = true;
                 txtbPrenomProf.Enabled = true;
+                dateTimeInscSco.Enabled = true;
             }
             else
             {
                 txtbCodeSco.Enabled = false;
                 txtbVilleEcole.Enabled = false;
+                txtbCP.Enabled = false;
                 txtbEcole.Enabled = false;
                 cbbClasse.Enabled = false;
                 txtbNomProf.Enabled = false;
                 txtbPrenomProf.Enabled = false;
+                dateTimeInscSco.Enabled = false;
             }
-        }
-
-        private void btnSupprimerLivre_Click(object sender, EventArgs e)
-        {
-            grdLivresEmpruntes.Rows.Remove(grdLivresEmpruntes.CurrentRow);
-        }
-
-        private void btnAjouterLivre_Click(object sender, EventArgs e)
-        {
-           /* frmNouveauLivre nouveauLivre = new frmNouveauLivre(unLivre);
-
-            // Si on sort de la saisie par OK, régénère l'affichage du datagrid
-            if (nouveauLivre.ShowDialog() == DialogResult.OK)
-            {
-                this.afficheLivres();
-            }
-            this.Close();*/
         }
 
         private void btnOk_Click(object sender, EventArgs e)
