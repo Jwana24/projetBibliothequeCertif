@@ -79,6 +79,18 @@
             // 
             this.txtbNumPersonne.Enabled = false;
             // 
+            // grpCotisations
+            // 
+            this.grpCotisations.Enter += new System.EventHandler(this.grpCotisations_Enter);
+            // 
+            // lblRetard
+            // 
+            this.lblRetard.Visible = false;
+            // 
+            // dateTimeCotisation
+            // 
+            this.dateTimeCotisation.Enabled = false;
+            // 
             // grpScolarite
             // 
             this.grpScolarite.Location = new System.Drawing.Point(67, 53);

@@ -162,7 +162,7 @@ namespace projetBibliothequeCertif
             set { adressePersonne = value; }
         }
 
-        private String email;
+        private String emailValidePattern;
 
         static Regex EmailValideRegex = CreerEmailValideRegex();
 
@@ -184,8 +184,8 @@ namespace projetBibliothequeCertif
 
         public String Email
         {
-            get { return email; }
-            set { email = value; }
+            get { return emailValidePattern; }
+            set { emailValidePattern = value; }
         }
 
         private DateTime inscriptionPersonne;
@@ -322,12 +322,12 @@ namespace projetBibliothequeCertif
                 unePersonne = new MPersonnes();
                 // affectation des 10 lignes
                 unePersonne.NumPersonne = reader.GetInt32(0);
-                unePersonne.Nom = reader.GetString(1);
-                unePersonne.Prenom = reader.GetString(2);
-                unePersonne.Naissance = reader.GetDateTime(3);
-                unePersonne.Adresse1 = reader.GetString(4);
-                unePersonne.Email = reader.GetString(5);
-                unePersonne.Telephone = reader.GetString(6);
+                unePersonne.Nom = reader.GetString("nom");
+                unePersonne.Prenom = reader.GetString("prenom");
+                unePersonne.Naissance = reader.GetDateTime("date_naissance");
+                unePersonne.Adresse1 = reader.GetString("adresse1");
+                unePersonne.Email = reader.GetString("email");
+                unePersonne.Telephone = reader.GetString("telephone");
                 unePersonne.CodePostal = reader.GetString("cp");
                 unePersonne.Ville = reader.GetString("ville");
                 unePersonne.NumAdherent = reader.GetInt32("num_adherent");
@@ -361,7 +361,6 @@ namespace projetBibliothequeCertif
             tablePersonnes.Columns.Add(new DataColumn("Num personne", typeof(System.Int32)));
             tablePersonnes.Columns.Add(new DataColumn("Nom", typeof(System.String)));
             tablePersonnes.Columns.Add(new DataColumn("Prénom", typeof(System.String)));
-            tablePersonnes.Columns.Add(new DataColumn("Date inscription", typeof(System.String)));
 
             MySqlCommand cmd = ConnexionBase.GetConnexion().CreateCommand();
             cmd.CommandText = "SELECT * FROM personnes WHERE nom like @recherche";
@@ -376,7 +375,6 @@ namespace projetBibliothequeCertif
                 dr[0] = reader.GetString(0);
                 dr[1] = reader.GetString(1);
                 dr[2] = reader.GetString(2);
-                dr[3] = reader.GetString(3);
                 // ajoute les lignes à la datatable
                 tablePersonnes.Rows.Add(dr);
             }

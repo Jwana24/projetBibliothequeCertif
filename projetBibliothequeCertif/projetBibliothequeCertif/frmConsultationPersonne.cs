@@ -18,6 +18,26 @@ namespace projetBibliothequeCertif
         private MPersonnes laPersonne;
         private MLivres unLivre;
 
+        private void grpCotisations_Enter(object sender, EventArgs e)
+        {
+            //  DateTime adhesion =new DateTime(2016, 1, 18);
+            DateTime adhesion = new DateTime(2018, 1, 18);
+            DateTime now = DateTime.Now;
+            DateTime after = adhesion.AddYears(1);
+            Console.WriteLine(adhesion + "  " + now + "  " + after);
+
+            if (now > after)
+            {
+                MessageBox.Show("vous devez vous réabonner");
+                lblRetard.Visible = true;
+            }
+            else
+            {
+                MessageBox.Show("votre abonnement est valide");
+                lblRetard.Visible = false;
+            }
+        }
+
         public frmConsultationPersonne(MPersonnes personne)
         {
             this.laPersonne = personne;
@@ -37,17 +57,19 @@ namespace projetBibliothequeCertif
             txtbCodePostal.Text = laPersonne.CodePostal;
             txtbVille.Text = laPersonne.Ville;
             txtbAdresse.Text = laPersonne.Adresse1;
-            dateTimeInscription.Text = laPersonne.Inscription.ToString();
+            dateTimeInscription.Value = laPersonne.Inscription;
             txtbEmail.Text = laPersonne.Email;
             txtbTelephone.Text = laPersonne.Telephone;
-            dateTimeNaissance.Text = laPersonne.Naissance.ToString();
+            dateTimeNaissance.Value = laPersonne.Naissance;
+            MessageBox.Show(dateTimeNaissance.Value.ToString());
+            dateTimeCotisation.Value = laPersonne.Cotisation;
         }
 
         private void btnModifier_Click(object sender, EventArgs e)
         {
             if (txtbNumPersonne.Enabled == false && txtbNom.Enabled == false && txtbPrenom.Enabled == false && txtbCodePostal.Enabled == false
                && txtbVille.Enabled == false && txtbAdresse.Enabled == false && dateTimeInscription.Enabled == false && txtbEmail.Enabled == false
-               && txtbTelephone.Enabled == false && dateTimeNaissance.Enabled == false)
+               && txtbTelephone.Enabled == false && dateTimeNaissance.Enabled == false && dateTimeCotisation.Enabled == false)
             {
                 txtbNumPersonne.Enabled = true;
                 txtbNom.Enabled = true;
@@ -59,6 +81,7 @@ namespace projetBibliothequeCertif
                 txtbEmail.Enabled = true;
                 txtbTelephone.Enabled = true;
                 dateTimeNaissance.Enabled = true;
+                dateTimeCotisation.Enabled = true;
             }
             else
             {
@@ -72,6 +95,7 @@ namespace projetBibliothequeCertif
                 txtbEmail.Enabled = false;
                 txtbTelephone.Enabled = false;
                 dateTimeNaissance.Enabled = false;
+                dateTimeCotisation.Enabled = false;
             }
         }
 
@@ -98,8 +122,8 @@ namespace projetBibliothequeCertif
             modifierPersonne.CodePostal = base.txtbCodePostal.Text;
             modifierPersonne.Ville = base.txtbVille.Text.ToUpper();
             modifierPersonne.Adresse1 = base.txtbAdresse.Text;
-            modifierPersonne.Telephone = base.txtbTelephone.Text;
             modifierPersonne.Email = base.txtbEmail.Text;
+            modifierPersonne.Telephone = base.txtbTelephone.Text;
             modifierPersonne.Naissance = DateTime.Parse(base.dateTimeNaissance.Text);
 
             // enregistrement de la modification de la personne dans la BDD
