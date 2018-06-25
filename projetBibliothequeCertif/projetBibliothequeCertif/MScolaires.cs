@@ -15,17 +15,22 @@ namespace projetBibliothequeCertif
         /// </summary>
         private SortedDictionary<Int32, MScolaires> lesScolaires;
 
-        public MScolaires (Int32 leCode, String uneVille, String uneEcole, String uneClasse, String unNom, String unPrenom, String unCP)
+        public MScolaires (Int32 leCode, String uneVille, String uneEcole, String uneClasse, String unCP, String unNom, String unPrenom)
         {
             lesScolaires = new SortedDictionary<Int32, MScolaires>();
 
-            this.Code = leCode;
-            this.Ville = uneVille;
-            this.Etablissement = uneEcole;
-            this.Classe = uneClasse;
-            this.Nom = unNom;
-            this.Prenom = unPrenom;
-            this.CodePostal = unCP;
+            leCode = this.Code;
+            uneVille = this.Ville;
+            uneEcole = this.Etablissement;
+            uneClasse = this.Classe;
+            unCP = this.CodePostal;
+            unNom = this.Nom;
+            unPrenom = this.Prenom;
+        }
+
+        public MScolaires()
+        {
+
         }
 
         /// <summary>
@@ -120,6 +125,10 @@ namespace projetBibliothequeCertif
 
         public String Prenom { get; set; }
 
+        public DateTime inscriptionScolaire;
+
+        public DateTime Inscription { get; set; }
+
         public void Ajouter(MScolaires unScolaire)
         {
             this.lesScolaires.Add(unScolaire.Code, unScolaire);
@@ -144,13 +153,31 @@ namespace projetBibliothequeCertif
             this.lesScolaires[unScolaire.Code] = unScolaire;
         }
 
-        public MScolaires RestituerScolaire(Int32 unCodeScolaire)
+        public static MScolaires RestituerScolaire(Int32 recherche)
         {
-            MScolaires unScolaire;
-            unScolaire = this.lesScolaires[unCodeScolaire];
+            MScolaires unScolaire = null;
+            MySqlCommand cmd = ConnexionBase.GetConnexion().CreateCommand();
+            cmd.CommandText = "SELECT * FROM classes_scolaire WHERE code_scolaire=@recherche";
+            cmd.Parameters.AddWithValue("@recherche", recherche);
+            MySqlDataReader reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                unScolaire = new MScolaires();
+                // affectation des 9 lignes
+                unScolaire.Code = reader.GetInt32(0);
+                unScolaire.Classe = reader.GetString("libelle");
+                unScolaire.NumAdherent = reader.GetInt32("num_adherent");
+                unScolaire.Etablissement = reader.GetString("nom_ecole");
+                unScolaire.CodePostal = reader.GetString("cp");
+                unScolaire.Ville = reader.GetString("ville");
+                unScolaire.Nom = reader.GetString("nom_prof");
+                unScolaire.Prenom = reader.GetString("prenom_prof");
+            }
+            reader.Close();
             if (unScolaire == null)
             {
-                throw new Exception("Aucun scolaire pour le numéro " + unCodeScolaire.ToString());
+                throw new Exception("Aucun scolaire pour le numéro " + recherche);
             }
             else
             {
@@ -215,15 +242,16 @@ namespace projetBibliothequeCertif
         {
             // crée la commande sql
             MySqlCommand cmd = ConnexionBase.GetConnexion().CreateCommand();
-            cmd.CommandText = "INSERT INTO classes_scolaire(code_scolaire, libelle, num_adherent, nom_ecole, cp, ville) " +
-                "VALUES (@codeScolaire, @libelle, @numAdherent, @nomEcole, @cp, @ville)";
+            cmd.CommandText = "INSERT INTO classes_scolaire(code_scolaire, libelle, num_adherent, nom_ecole, cp, ville, nom_prof, prenom_prof) " +
+                "VALUES (@codeScolaire, @libelle, @numAdherent, @nomEcole, @cp, @ville, @nomProf, @prenomProf)";
 
             cmd.Parameters.AddWithValue("@codeScolaire", sco.Code);
             cmd.Parameters.AddWithValue("@libelle", sco.Classe);
             cmd.Parameters.AddWithValue("@numAdherent", sco.NumAdherent);
             cmd.Parameters.AddWithValue("@nomEcole", sco.Etablissement);
             cmd.Parameters.AddWithValue("@cp", sco.CodePostal);
-            cmd.Parameters.AddWithValue("@ville", sco.Ville);
+            cmd.Parameters.AddWithValue("@nomProf", sco.Nom);
+            cmd.Parameters.AddWithValue("@prenomProf", sco.Prenom);
             // exécute la requête
             cmd.ExecuteNonQuery();
         }

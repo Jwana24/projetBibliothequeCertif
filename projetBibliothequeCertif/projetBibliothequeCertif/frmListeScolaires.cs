@@ -63,5 +63,19 @@ namespace projetBibliothequeCertif
                 }
             }
         }
+
+        private void grdScolaires_DoubleClick(object sender, EventArgs e)
+        {
+            Int32 iScolaire;
+            iScolaire = (Int32)this.grdScolaires.CurrentRow.Cells[0].Value;
+
+            unScolaire = MScolaires.RestituerScolaire(iScolaire); // as MPersonnes;
+            // instancie le form consultation personne
+            frmConsultationScolaire frmConsulter = new frmConsultationScolaire(unScolaire);
+            // affiche le form de consultation d'une personne
+            frmConsulter.ShowDialog();
+            // rafraîchit la datagridview quand le form est fermé
+            this.afficheScolaires();
+        }
     }
 }

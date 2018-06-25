@@ -11,10 +11,29 @@ namespace projetBibliothequeCertif
     public partial class frmConsultationScolaire : projetBibliothequeCertif.frmScolaires
     {
         private MLivres unLivre;
+        private MScolaires leScolaire;
 
-        public frmConsultationScolaire()
+        public frmConsultationScolaire(MScolaires scolaire)
         {
             InitializeComponent();
+            this.leScolaire = scolaire;
+        }
+
+        private void frmConsultationScolaire_Load(object sender, EventArgs e)
+        {
+            this.afficheScolaires(this.leScolaire);
+        }
+
+        private void afficheScolaires(MScolaires leScolaire)
+        {
+            txtbCodeSco.Text = leScolaire.Code.ToString();
+            txtbVilleEcole.Text = leScolaire.Ville;
+            txtbCP.Text = leScolaire.CodePostal;
+            txtbEcole.Text = leScolaire.Etablissement;
+            cbbClasse.Text = leScolaire.Classe;
+            txtbNomProf.Text = leScolaire.Nom;
+            txtbPrenomProf.Text = leScolaire.Prenom;
+            dateTimeInscSco.Text = leScolaire.Inscription.ToString();
         }
 
         private void afficheLivres()

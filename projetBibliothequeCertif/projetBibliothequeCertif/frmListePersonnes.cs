@@ -88,8 +88,6 @@ namespace projetBibliothequeCertif
             frmConsulter.ShowDialog();
             // rafraîchit la datagridview quand le form est fermé
             this.affichePersonnes();
-
-
         }
     }
 }

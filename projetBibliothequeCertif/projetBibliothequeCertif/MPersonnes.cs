@@ -320,7 +320,7 @@ namespace projetBibliothequeCertif
             while (reader.Read())
             {
                 unePersonne = new MPersonnes();
-                // affectation des 4 lignes
+                // affectation des 10 lignes
                 unePersonne.NumPersonne = reader.GetInt32(0);
                 unePersonne.Nom = reader.GetString(1);
                 unePersonne.Prenom = reader.GetString(2);

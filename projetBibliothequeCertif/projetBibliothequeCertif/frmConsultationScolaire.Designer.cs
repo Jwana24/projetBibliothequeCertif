@@ -40,10 +40,20 @@
             ((System.ComponentModel.ISupportInitialize)(this.grdLivresEmpruntes)).BeginInit();
             this.SuspendLayout();
             // 
-            // groupBox1
+            // grpScolarite
             // 
             this.grpScolarite.Location = new System.Drawing.Point(28, 17);
-            this.grpScolarite.Size = new System.Drawing.Size(744, 328);
+            this.grpScolarite.Size = new System.Drawing.Size(744, 406);
+            // 
+            // txtbCodeSco
+            // 
+            this.txtbCodeSco.Enabled = false;
+            this.txtbCodeSco.Location = new System.Drawing.Point(247, 41);
+            this.txtbCodeSco.Size = new System.Drawing.Size(213, 22);
+            // 
+            // lblCode
+            // 
+            this.lblCode.Location = new System.Drawing.Point(57, 41);
             // 
             // txtbPrenomProf
             // 
@@ -81,7 +91,6 @@
             // txtbEcole
             // 
             this.txtbEcole.Enabled = false;
-            this.txtbEcole.Location = new System.Drawing.Point(247, 140);
             // 
             // lblClasse
             // 
@@ -91,15 +100,13 @@
             // 
             this.lblEcole.Location = new System.Drawing.Point(57, 140);
             // 
-            // txtbCodeSco
+            // dateTimeInscSco
             // 
-            this.txtbCodeSco.Enabled = false;
-            this.txtbCodeSco.Location = new System.Drawing.Point(247, 41);
-            this.txtbCodeSco.Size = new System.Drawing.Size(213, 22);
+            this.dateTimeInscSco.Location = new System.Drawing.Point(247, 335);
             // 
-            // lblCode
+            // lblDateInscr
             // 
-            this.lblCode.Location = new System.Drawing.Point(57, 41);
+            this.lblDateInscr.Location = new System.Drawing.Point(57, 334);
             // 
             // btnModifierScolaire
             // 
@@ -183,6 +190,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmConsultationScolaire";
             this.Text = "Consultation des scolaires";
+            this.Load += new System.EventHandler(this.frmConsultationScolaire_Load);
             this.Controls.SetChildIndex(this.grpScolarite, 0);
             this.Controls.SetChildIndex(this.btnModifierScolaire, 0);
             this.Controls.SetChildIndex(this.grdLivresEmpruntes, 0);

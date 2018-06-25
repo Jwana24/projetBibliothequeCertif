@@ -95,6 +95,7 @@
             this.grdScolaires.RowTemplate.Height = 24;
             this.grdScolaires.Size = new System.Drawing.Size(781, 279);
             this.grdScolaires.TabIndex = 18;
+            this.grdScolaires.DoubleClick += new System.EventHandler(this.grdScolaires_DoubleClick);
             // 
             // lblRecherche
             // 
