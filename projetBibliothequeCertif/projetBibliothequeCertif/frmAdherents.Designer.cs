@@ -283,7 +283,7 @@
             this.grpScolarite.Controls.Add(this.txtbEcole);
             this.grpScolarite.Controls.Add(this.lblClasse);
             this.grpScolarite.Controls.Add(this.lblEcole);
-            this.grpScolarite.Location = new System.Drawing.Point(87, 53);
+            this.grpScolarite.Location = new System.Drawing.Point(56, 32);
             this.grpScolarite.Name = "grpScolarite";
             this.grpScolarite.Size = new System.Drawing.Size(744, 407);
             this.grpScolarite.TabIndex = 27;

@@ -33,7 +33,6 @@
             this.btnOK = new System.Windows.Forms.Button();
             this.chkParticuliers = new System.Windows.Forms.CheckBox();
             this.chkScolaires = new System.Windows.Forms.CheckBox();
-            this.dateTimeCotis = new System.Windows.Forms.DateTimePicker();
             this.grpCotisations.SuspendLayout();
             this.grpScolarite.SuspendLayout();
             this.SuspendLayout();
@@ -143,23 +142,18 @@
             // 
             // grpCotisations
             // 
-            this.grpCotisations.Controls.Add(this.dateTimeCotis);
             this.grpCotisations.Location = new System.Drawing.Point(550, 57);
             this.grpCotisations.Visible = false;
             this.grpCotisations.Enter += new System.EventHandler(this.grpCotisations_Enter);
-            this.grpCotisations.Controls.SetChildIndex(this.dateTimeCotisation, 0);
-            this.grpCotisations.Controls.SetChildIndex(this.lblCotisations, 0);
-            this.grpCotisations.Controls.SetChildIndex(this.lblRetard, 0);
-            this.grpCotisations.Controls.SetChildIndex(this.dateTimeCotis, 0);
             // 
             // lblRetard
             // 
             this.lblRetard.Visible = false;
             // 
-            // groupBox1
+            // grpScolarite
             // 
-            this.grpScolarite.Location = new System.Drawing.Point(27, 57);
-            this.grpScolarite.Size = new System.Drawing.Size(854, 435);
+            this.grpScolarite.Location = new System.Drawing.Point(27, 78);
+            this.grpScolarite.Size = new System.Drawing.Size(842, 422);
             // 
             // cbbClasse
             // 
@@ -207,13 +201,6 @@
             this.chkScolaires.Text = "scolaires";
             this.chkScolaires.UseVisualStyleBackColor = true;
             this.chkScolaires.CheckedChanged += new System.EventHandler(this.chkScolaires_CheckedChanged);
-            // 
-            // dateTimeCotis
-            // 
-            this.dateTimeCotis.Location = new System.Drawing.Point(113, 33);
-            this.dateTimeCotis.Name = "dateTimeCotis";
-            this.dateTimeCotis.Size = new System.Drawing.Size(200, 22);
-            this.dateTimeCotis.TabIndex = 4;
             // 
             // frmNouvelAdherent
             // 
@@ -269,6 +256,5 @@
         private System.Windows.Forms.Button btnOK;
         private System.Windows.Forms.CheckBox chkParticuliers;
         private System.Windows.Forms.CheckBox chkScolaires;
-        private System.Windows.Forms.DateTimePicker dateTimeCotis;
     }
 }
