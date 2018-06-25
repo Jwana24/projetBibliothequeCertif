@@ -33,6 +33,8 @@
             this.btnOK = new System.Windows.Forms.Button();
             this.chkParticuliers = new System.Windows.Forms.CheckBox();
             this.chkScolaires = new System.Windows.Forms.CheckBox();
+            this.dateTimeInscSco = new System.Windows.Forms.DateTimePicker();
+            this.lblDateInscr = new System.Windows.Forms.Label();
             this.grpCotisations.SuspendLayout();
             this.grpScolarite.SuspendLayout();
             this.SuspendLayout();
@@ -152,8 +154,26 @@
             // 
             // grpScolarite
             // 
-            this.grpScolarite.Location = new System.Drawing.Point(27, 78);
-            this.grpScolarite.Size = new System.Drawing.Size(842, 422);
+            this.grpScolarite.Controls.Add(this.dateTimeInscSco);
+            this.grpScolarite.Controls.Add(this.lblDateInscr);
+            this.grpScolarite.Location = new System.Drawing.Point(25, 94);
+            this.grpScolarite.Size = new System.Drawing.Size(842, 431);
+            this.grpScolarite.Controls.SetChildIndex(this.lblDateInscriptionSco, 0);
+            this.grpScolarite.Controls.SetChildIndex(this.dateTimeInscriptionSco, 0);
+            this.grpScolarite.Controls.SetChildIndex(this.lblEcole, 0);
+            this.grpScolarite.Controls.SetChildIndex(this.lblClasse, 0);
+            this.grpScolarite.Controls.SetChildIndex(this.txtbEcole, 0);
+            this.grpScolarite.Controls.SetChildIndex(this.cbbClasse, 0);
+            this.grpScolarite.Controls.SetChildIndex(this.lblVilleEcole, 0);
+            this.grpScolarite.Controls.SetChildIndex(this.txtbVilleEcole, 0);
+            this.grpScolarite.Controls.SetChildIndex(this.lblNomProf, 0);
+            this.grpScolarite.Controls.SetChildIndex(this.lblPrenomProf, 0);
+            this.grpScolarite.Controls.SetChildIndex(this.txtbNomProf, 0);
+            this.grpScolarite.Controls.SetChildIndex(this.txtbPrenomProf, 0);
+            this.grpScolarite.Controls.SetChildIndex(this.lblCode, 0);
+            this.grpScolarite.Controls.SetChildIndex(this.txtbCodeSco, 0);
+            this.grpScolarite.Controls.SetChildIndex(this.lblDateInscr, 0);
+            this.grpScolarite.Controls.SetChildIndex(this.dateTimeInscSco, 0);
             // 
             // cbbClasse
             // 
@@ -162,7 +182,7 @@
             // btnAnnuler
             // 
             this.btnAnnuler.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnAnnuler.Location = new System.Drawing.Point(792, 545);
+            this.btnAnnuler.Location = new System.Drawing.Point(792, 523);
             this.btnAnnuler.Name = "btnAnnuler";
             this.btnAnnuler.Size = new System.Drawing.Size(75, 29);
             this.btnAnnuler.TabIndex = 19;
@@ -172,7 +192,7 @@
             // 
             // btnOK
             // 
-            this.btnOK.Location = new System.Drawing.Point(711, 545);
+            this.btnOK.Location = new System.Drawing.Point(711, 523);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(61, 29);
             this.btnOK.TabIndex = 20;
@@ -202,12 +222,28 @@
             this.chkScolaires.UseVisualStyleBackColor = true;
             this.chkScolaires.CheckedChanged += new System.EventHandler(this.chkScolaires_CheckedChanged);
             // 
+            // dateTimeInscSco
+            // 
+            this.dateTimeInscSco.Location = new System.Drawing.Point(247, 383);
+            this.dateTimeInscSco.Name = "dateTimeInscSco";
+            this.dateTimeInscSco.Size = new System.Drawing.Size(244, 22);
+            this.dateTimeInscSco.TabIndex = 15;
+            // 
+            // lblDateInscr
+            // 
+            this.lblDateInscr.AutoSize = true;
+            this.lblDateInscr.Location = new System.Drawing.Point(57, 383);
+            this.lblDateInscr.Name = "lblDateInscr";
+            this.lblDateInscr.Size = new System.Drawing.Size(106, 17);
+            this.lblDateInscr.TabIndex = 14;
+            this.lblDateInscr.Text = "Date inscription";
+            // 
             // frmNouvelAdherent
             // 
             this.AcceptButton = this.btnOK;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.CancelButton = this.btnAnnuler;
-            this.ClientSize = new System.Drawing.Size(911, 596);
+            this.ClientSize = new System.Drawing.Size(911, 569);
             this.Controls.Add(this.chkScolaires);
             this.Controls.Add(this.chkParticuliers);
             this.Controls.Add(this.btnOK);
@@ -256,5 +292,7 @@
         private System.Windows.Forms.Button btnOK;
         private System.Windows.Forms.CheckBox chkParticuliers;
         private System.Windows.Forms.CheckBox chkScolaires;
+        private System.Windows.Forms.DateTimePicker dateTimeInscSco;
+        private System.Windows.Forms.Label lblDateInscr;
     }
 }

@@ -53,6 +53,8 @@
             this.lblRetard = new System.Windows.Forms.Label();
             this.lblCotisations = new System.Windows.Forms.Label();
             this.grpScolarite = new System.Windows.Forms.GroupBox();
+            this.dateTimeInscriptionSco = new System.Windows.Forms.DateTimePicker();
+            this.lblDateInscriptionSco = new System.Windows.Forms.Label();
             this.txtbCodeSco = new System.Windows.Forms.TextBox();
             this.lblCode = new System.Windows.Forms.Label();
             this.txtbPrenomProf = new System.Windows.Forms.TextBox();
@@ -65,6 +67,8 @@
             this.txtbEcole = new System.Windows.Forms.TextBox();
             this.lblClasse = new System.Windows.Forms.Label();
             this.lblEcole = new System.Windows.Forms.Label();
+            this.lblCPSco = new System.Windows.Forms.Label();
+            this.txtbCP = new System.Windows.Forms.TextBox();
             this.grpCotisations.SuspendLayout();
             this.grpScolarite.SuspendLayout();
             this.SuspendLayout();
@@ -271,6 +275,10 @@
             // 
             // grpScolarite
             // 
+            this.grpScolarite.Controls.Add(this.txtbCP);
+            this.grpScolarite.Controls.Add(this.lblCPSco);
+            this.grpScolarite.Controls.Add(this.dateTimeInscriptionSco);
+            this.grpScolarite.Controls.Add(this.lblDateInscriptionSco);
             this.grpScolarite.Controls.Add(this.txtbCodeSco);
             this.grpScolarite.Controls.Add(this.lblCode);
             this.grpScolarite.Controls.Add(this.txtbPrenomProf);
@@ -283,12 +291,28 @@
             this.grpScolarite.Controls.Add(this.txtbEcole);
             this.grpScolarite.Controls.Add(this.lblClasse);
             this.grpScolarite.Controls.Add(this.lblEcole);
-            this.grpScolarite.Location = new System.Drawing.Point(56, 32);
+            this.grpScolarite.Location = new System.Drawing.Point(56, 16);
             this.grpScolarite.Name = "grpScolarite";
-            this.grpScolarite.Size = new System.Drawing.Size(744, 407);
+            this.grpScolarite.Size = new System.Drawing.Size(744, 438);
             this.grpScolarite.TabIndex = 27;
             this.grpScolarite.TabStop = false;
             this.grpScolarite.Text = "Scolarité";
+            // 
+            // dateTimeInscriptionSco
+            // 
+            this.dateTimeInscriptionSco.Location = new System.Drawing.Point(247, 383);
+            this.dateTimeInscriptionSco.Name = "dateTimeInscriptionSco";
+            this.dateTimeInscriptionSco.Size = new System.Drawing.Size(244, 22);
+            this.dateTimeInscriptionSco.TabIndex = 15;
+            // 
+            // lblDateInscriptionSco
+            // 
+            this.lblDateInscriptionSco.AutoSize = true;
+            this.lblDateInscriptionSco.Location = new System.Drawing.Point(57, 383);
+            this.lblDateInscriptionSco.Name = "lblDateInscriptionSco";
+            this.lblDateInscriptionSco.Size = new System.Drawing.Size(106, 17);
+            this.lblDateInscriptionSco.TabIndex = 14;
+            this.lblDateInscriptionSco.Text = "Date inscription";
             // 
             // txtbCodeSco
             // 
@@ -310,14 +334,14 @@
             // 
             this.txtbPrenomProf.Location = new System.Drawing.Point(247, 325);
             this.txtbPrenomProf.Name = "txtbPrenomProf";
-            this.txtbPrenomProf.Size = new System.Drawing.Size(370, 22);
+            this.txtbPrenomProf.Size = new System.Drawing.Size(450, 22);
             this.txtbPrenomProf.TabIndex = 9;
             // 
             // txtbNomProf
             // 
             this.txtbNomProf.Location = new System.Drawing.Point(247, 268);
             this.txtbNomProf.Name = "txtbNomProf";
-            this.txtbNomProf.Size = new System.Drawing.Size(370, 22);
+            this.txtbNomProf.Size = new System.Drawing.Size(450, 22);
             this.txtbNomProf.TabIndex = 8;
             // 
             // lblPrenomProf
@@ -371,7 +395,7 @@
             // 
             this.txtbEcole.Location = new System.Drawing.Point(247, 155);
             this.txtbEcole.Name = "txtbEcole";
-            this.txtbEcole.Size = new System.Drawing.Size(370, 22);
+            this.txtbEcole.Size = new System.Drawing.Size(450, 22);
             this.txtbEcole.TabIndex = 2;
             // 
             // lblClasse
@@ -391,6 +415,22 @@
             this.lblEcole.Size = new System.Drawing.Size(149, 17);
             this.lblEcole.TabIndex = 0;
             this.lblEcole.Text = "Etablissement scolaire";
+            // 
+            // lblCPSco
+            // 
+            this.lblCPSco.AutoSize = true;
+            this.lblCPSco.Location = new System.Drawing.Point(479, 110);
+            this.lblCPSco.Name = "lblCPSco";
+            this.lblCPSco.Size = new System.Drawing.Size(26, 17);
+            this.lblCPSco.TabIndex = 16;
+            this.lblCPSco.Text = "CP";
+            // 
+            // txtbCP
+            // 
+            this.txtbCP.Location = new System.Drawing.Point(535, 110);
+            this.txtbCP.Name = "txtbCP";
+            this.txtbCP.Size = new System.Drawing.Size(162, 22);
+            this.txtbCP.TabIndex = 17;
             // 
             // frmAdherents
             // 
@@ -468,5 +508,9 @@
         protected System.Windows.Forms.TextBox txtbEcole;
         protected System.Windows.Forms.Label lblClasse;
         protected System.Windows.Forms.Label lblEcole;
+        protected System.Windows.Forms.DateTimePicker dateTimeInscriptionSco;
+        protected System.Windows.Forms.Label lblDateInscriptionSco;
+        protected System.Windows.Forms.TextBox txtbCP;
+        protected System.Windows.Forms.Label lblCPSco;
     }
 }

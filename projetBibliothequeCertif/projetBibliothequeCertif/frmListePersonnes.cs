@@ -55,7 +55,7 @@ namespace projetBibliothequeCertif
                 Int32 clePersonne;
                 clePersonne = Int32.Parse(this.grdPersonnes.CurrentRow.Cells[0].Value.ToString());
                 // demande confirmation de la suppression
-                if (MessageBox.Show("Voulez-vous supprimer la personne numéro :" + clePersonne.ToString(), "Suppression", MessageBoxButtons.YesNo,
+                if (MessageBox.Show("Voulez-vous supprimer la personne numéro : " + clePersonne.ToString(), "Suppression", MessageBoxButtons.YesNo,
                     MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     MPersonnes.DeletePersonne(clePersonne);

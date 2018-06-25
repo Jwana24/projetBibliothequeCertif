@@ -64,19 +64,15 @@ namespace projetBibliothequeCertif
 
         private String etablissementScolaire;
 
-        public String Etablissement
-        {
-            get { return etablissementScolaire; }
-            set { etablissementScolaire = value.Trim().ToUpper(); }
-        }
+        public String Etablissement { get; set; }
 
         private String codePostalScolaire;
 
         public String CodePostal
         {
             get { return codePostalScolaire; }
-            set
-            {
+            set { codePostalScolaire = value; }
+            /*{
                 // variable de boucle
                 Int32 i;
                 // indicateur d'erreur
@@ -109,32 +105,20 @@ namespace projetBibliothequeCertif
                     "ErreurClasse MUsagers",
                     System.Windows.Forms.MessageBoxButtons.OK);
                 }
-            }
+            }*/
         }
 
         private String villeScolaire;
 
-        public String Ville
-        {
-            get { return villeScolaire; }
-            set { villeScolaire = value.Trim().ToUpper(); }
-        }
+        public String Ville { get; set; }
 
         private String nomProf;
 
-        public String Nom
-        {
-            get { return nomProf; }
-            set { nomProf = value.Trim().ToUpper(); }
-        }
+        public String Nom { get; set; }
 
         private String prenomProf;
 
-        public String Prenom
-        {
-            get { return prenomProf; }
-            set { prenomProf = value.Trim().ToLower(); }
-        }
+        public String Prenom { get; set; }
 
         public void Ajouter(MScolaires unScolaire)
         {
@@ -256,7 +240,7 @@ namespace projetBibliothequeCertif
         public static void DeleteScolaire(Int32 code)
         {
             MySqlCommand cmd = ConnexionBase.GetConnexion().CreateCommand();
-            cmd.CommandText = "DELETE FROM classes-scolaire WHERE code_scolaire=@codeScolaire";
+            cmd.CommandText = "DELETE FROM classes_scolaire WHERE code_scolaire=@codeScolaire";
 
             cmd.Parameters.AddWithValue("@codeScolaire", code);
             cmd.ExecuteNonQuery();

@@ -54,7 +54,7 @@ namespace projetBibliothequeCertif
                 Int32 cleScolaire;
                 cleScolaire = (Int32)this.grdScolaires.CurrentRow.Cells[0].Value;
                 // demande confirmation de la suppression
-                if (MessageBox.Show("Voulez-vous supprimer le scolaire numéro :" + cleScolaire.ToString(), "Suppression", MessageBoxButtons.YesNo,
+                if (MessageBox.Show("Voulez-vous supprimer le scolaire numéro : " + cleScolaire.ToString(), "Suppression", MessageBoxButtons.YesNo,
                     MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     MScolaires.DeleteScolaire(cleScolaire);

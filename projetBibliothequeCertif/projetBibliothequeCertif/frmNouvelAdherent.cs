@@ -106,7 +106,6 @@ namespace projetBibliothequeCertif
             }
             
             
-            
             /* DateTime myDateTime = DateTime.Parse(mtxtbCotisation.ToString());
             int totalDays = Convert.ToInt32((DateTime.UtcNow.Date - myDateTime.Date).TotalDays);
             MessageBox.Show("Vous avez cotisé il y a " + " jours");*/
@@ -132,7 +131,8 @@ namespace projetBibliothequeCertif
                 MAdherents.InsertAdherent(nouvelAdherent);
 
                 // crée une référence d'objets MAdherents
-                MPersonnes nouvellePersonne = new MPersonnes(leNumero, leNom, lePrenom, uneAdresse1, leTelephone, unEmail, uneDate, leCodePostal, laVille);
+                MPersonnes nouvellePersonne = new MPersonnes(leNumero, leNom, lePrenom, uneAdresse1, leTelephone, unEmail, uneDate, leCodePostal,
+                    laVille);
 
                 // affecte des variables/propriétés
                 nouvellePersonne.NumPersonne = Int32.Parse(base.txtbNumPersonne.Text);
@@ -158,13 +158,15 @@ namespace projetBibliothequeCertif
             {
                 chkScolaires.Checked = true;
                 MAdherents nouvelAdherent = new MAdherents();
-                nouvelAdherent.dateInscription = DateTime.Parse(base.dateTimeInscription.Text);
+                nouvelAdherent.dateInscription = DateTime.Parse(base.dateTimeInscriptionSco.Text);
                 MAdherents.InsertAdherent(nouvelAdherent);
 
                 MScolaires nouveauScolaire = new MScolaires(leCode, uneVille, uneEcole, uneClasse, unNom, unPrenom, unCP);
 
                 nouveauScolaire.Code = Int32.Parse(base.txtbCodeSco.Text);
+                nouveauScolaire.NumAdherent = (Int32)(MAdherents.LastInsertId());
                 nouveauScolaire.Ville = base.txtbVilleEcole.Text;
+                nouveauScolaire.CodePostal = base.txtbCP.Text;
                 nouveauScolaire.Etablissement = base.txtbEcole.Text;
                 nouveauScolaire.Classe = base.cbbClasse.Text;
                 nouveauScolaire.Nom = base.txtbNomProf.Text;
