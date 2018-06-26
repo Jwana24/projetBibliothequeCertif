@@ -45,21 +45,28 @@ namespace projetBibliothequeCertif
 
         private void btnSupprimer_Click(object sender, EventArgs e)
         {
-            // si un livre est pointé dans la datagridview
-            if (this.grdLivres.CurrentRow != null)
+            try
             {
-                // récupère la clé du livre pointé
-                String cleLivre;
-                cleLivre = (String)this.grdLivres.CurrentRow.Cells[0].Value;
-                // demande confirmation de la suppression
-                if (MessageBox.Show("Voulez-vous supprimer le livre numéro :" + cleLivre.ToString(), "Suppression", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-
+                // si un livre est pointé dans la datagridview
+                if (this.grdLivres.CurrentRow != null)
                 {
-                    MLivres.DeleteLivre(cleLivre.ToString());
+                    // récupère la clé du livre pointé
+                    String cleLivre;
+                    cleLivre = (String)this.grdLivres.CurrentRow.Cells[0].Value;
+                    // demande confirmation de la suppression
+                    if (MessageBox.Show("Voulez-vous supprimer le livre numéro :" + cleLivre.ToString(), "Suppression", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
 
-                    // réaffiche la datagridview
-                    afficheLivres();
+                    {
+                        MLivres.DeleteLivre(cleLivre.ToString());
+
+                        // réaffiche la datagridview
+                        afficheLivres();
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Une erreur est survenue \n" + ex.Message);
             }
         }
 
@@ -70,16 +77,23 @@ namespace projetBibliothequeCertif
         /// <param name="e"></param>
         private void grdLivres_DoubleClick(object sender, EventArgs e)
         {
-            String iLivre;
-            iLivre = (String)this.grdLivres.CurrentRow.Cells[0].Value;
+            try
+            {
+                String iLivre;
+                iLivre = (String)this.grdLivres.CurrentRow.Cells[0].Value;
 
-            livre = MLivres.RestituerLivre(iLivre); // as MPersonnes;
-            // instancie le form consultation personne
-            frmConsultationLivre frmConsulter = new frmConsultationLivre(livre);
-            // affiche le form de consultation d'une personne
-            frmConsulter.ShowDialog();
-            // rafraîchit la datagridview quand le form est fermé
-            this.afficheLivres();
+                livre = MLivres.RestituerLivre(iLivre); // as MPersonnes;
+                                                        // instancie le form consultation personne
+                frmConsultationLivre frmConsulter = new frmConsultationLivre(livre);
+                // affiche le form de consultation d'une personne
+                frmConsulter.ShowDialog();
+                // rafraîchit la datagridview quand le form est fermé
+                this.afficheLivres();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Une erreur est survenue \n" + ex.Message);
+            }
         }
 
         private void txtbRecherche_TextChanged(object sender, EventArgs e)

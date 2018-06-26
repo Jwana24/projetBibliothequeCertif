@@ -47,39 +47,53 @@ namespace projetBibliothequeCertif
 
         private void btnSupprimer_Click(object sender, EventArgs e)
         {
-            // si un scolaire est pointé dans la datagridview
-            if (this.grdScolaires.CurrentRow != null)
+            try
             {
-                Int32 cleScolaire;
-                cleScolaire = (Int32)this.grdScolaires.CurrentRow.Cells[0].Value;
-
-                unScolaire = MScolaires.RestituerScolaire(cleScolaire);
-
-                cleScolaire = Int32.Parse(this.grdScolaires.CurrentRow.Cells[0].Value.ToString());
-                // demande confirmation de la suppression
-                if (MessageBox.Show("Voulez-vous supprimer le scolaire numéro : " + cleScolaire.ToString(), "Suppression", MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Question) == DialogResult.Yes)
+                // si un scolaire est pointé dans la datagridview
+                if (this.grdScolaires.CurrentRow != null)
                 {
-                    MScolaires.DeleteScolaire(cleScolaire);
-                    MAdherents.DeleteAdherent(unScolaire.NumAdherent);
-                    // réaffiche la datagridview
-                    afficheScolaires();
+                    Int32 cleScolaire;
+                    cleScolaire = (Int32)this.grdScolaires.CurrentRow.Cells[0].Value;
+
+                    unScolaire = MScolaires.RestituerScolaire(cleScolaire);
+
+                    cleScolaire = Int32.Parse(this.grdScolaires.CurrentRow.Cells[0].Value.ToString());
+                    // demande confirmation de la suppression
+                    if (MessageBox.Show("Voulez-vous supprimer le scolaire numéro : " + cleScolaire.ToString(), "Suppression", MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        MScolaires.DeleteScolaire(cleScolaire);
+                        MAdherents.DeleteAdherent(unScolaire.NumAdherent);
+                        // réaffiche la datagridview
+                        afficheScolaires();
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Une erreur est survenue \n" + ex.Message);
             }
         }
 
         private void grdScolaires_DoubleClick(object sender, EventArgs e)
         {
-            Int32 iScolaire;
-            iScolaire = (Int32)this.grdScolaires.CurrentRow.Cells[0].Value;
+            try
+            {
+                Int32 iScolaire;
+                iScolaire = (Int32)this.grdScolaires.CurrentRow.Cells[0].Value;
 
-            unScolaire = MScolaires.RestituerScolaire(iScolaire); // as MPersonnes;
-            // instancie le form consultation personne
-            frmConsultationScolaire frmConsulter = new frmConsultationScolaire(unScolaire);
-            // affiche le form de consultation d'une personne
-            frmConsulter.ShowDialog();
-            // rafraîchit la datagridview quand le form est fermé
-            this.afficheScolaires();
+                unScolaire = MScolaires.RestituerScolaire(iScolaire);
+                // instancie le form consultation personne
+                frmConsultationScolaire frmConsulter = new frmConsultationScolaire(unScolaire);
+                // affiche le form de consultation d'une personne
+                frmConsulter.ShowDialog();
+                // rafraîchit la datagridview quand le form est fermé
+                this.afficheScolaires();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Une erreur est survenue \n" + ex.Message);
+            }
         }
     }
 }

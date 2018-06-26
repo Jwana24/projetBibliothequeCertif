@@ -38,20 +38,6 @@ namespace projetBibliothequeCertif
             set { codeLivre = value; }
         }
 
-        /// <summary>
-        /// constructeur 
-        /// </summary>
-        /// <param name="leCode">le code de la section</param>
-        /// <param name="leNom">le libellé de la section</param>
-        public MLivres(String leCode, String leTitre)
-        {
-            // initialise code et nom de la section
-            this.CodeLivre = leCode;
-            this.Titre = leTitre;
-            // instancie la collection des livres
-            lesLivres = new SortedDictionary<string, MLivres>();
-        }
-
         public MLivres(String leCode, String unIsbn, String leTitre, String laCategorie, DateTime laSortie, String unAuteur, String unEditeur)
         {
             // instancie la collection des livres
@@ -77,8 +63,8 @@ namespace projetBibliothequeCertif
         public String Isbn
         {
             get { return isbnLivre; }
-            set { isbnLivre = value; }
-           /* {
+            set
+           {
                 int i;
                 Boolean erreur = false;
 
@@ -112,7 +98,7 @@ namespace projetBibliothequeCertif
                     "n'est pas un isbn : 13 chiffres, pas plus, pas moins",
                         "ErreurClasse MLivres", System.Windows.Forms.MessageBoxButtons.OK);
                 }
-            }*/
+            }
         }
 
         private String titreLivre;
@@ -298,10 +284,11 @@ namespace projetBibliothequeCertif
         public static void UpdateLivre(MLivres lvr)
         {
             MySqlCommand cmd = ConnexionBase.GetConnexion().CreateCommand();
-            cmd.CommandText = "UPDATE livres SET titre=@Titre, isbn=@Isbn";
+            cmd.CommandText = "UPDATE livres SET isbn=@Isbn, editeur=@Edtieur";
 
             cmd.Parameters.AddWithValue("@Titre", lvr.Titre);
             cmd.Parameters.AddWithValue("@Isbn", lvr.Isbn);
+            cmd.Parameters.AddWithValue("@Editeur", lvr.Isbn);
             cmd.ExecuteNonQuery();
         }
 

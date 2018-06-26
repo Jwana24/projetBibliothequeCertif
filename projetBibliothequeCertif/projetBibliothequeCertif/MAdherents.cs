@@ -64,21 +64,6 @@ namespace projetBibliothequeCertif
             return id;
         }
 
-      /*  public static long LastUpdateID()
-        {
-            MySqlCommand cmd = ConnexionBase.GetConnexion().CreateCommand();
-            cmd.CommandText = "UPDATE last_update_id()";
-
-            long id = 0;
-            IDataReader reader = cmd.ExecuteReader();
-            if (reader != null && reader.Read())
-            {
-                id = reader.GetInt64(0);
-            }
-            reader.Close();
-            return id;
-        }*/
-
         public static void UpdateCotisation(MAdherents adh)
         {
             // crée la commande sql

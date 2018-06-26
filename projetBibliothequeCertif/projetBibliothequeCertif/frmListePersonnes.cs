@@ -48,24 +48,31 @@ namespace projetBibliothequeCertif
 
         private void btnSupprimer_Click(object sender, EventArgs e)
         {
-            // si une personne est pointée dans la datagridview
-            if (this.grdPersonnes.CurrentRow != null)
+            try
             {
-                Int32 clePersonne;
-                clePersonne = (Int32)this.grdPersonnes.CurrentRow.Cells[0].Value;
-
-                personne = MPersonnes.RestituerPersonne(clePersonne);
-
-                clePersonne = Int32.Parse(this.grdPersonnes.CurrentRow.Cells[0].Value.ToString());
-                // demande confirmation de la suppression
-                if (MessageBox.Show("Voulez-vous supprimer la personne numéro : " + clePersonne.ToString(), "Suppression", MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Question) == DialogResult.Yes)
+                // si une personne est pointée dans la datagridview
+                if (this.grdPersonnes.CurrentRow != null)
                 {
-                    MPersonnes.DeletePersonne(clePersonne);
-                    MAdherents.DeleteAdherent(personne.NumAdherent);
-                    // réaffiche la datagridview
-                    affichePersonnes();
+                    Int32 clePersonne;
+                    clePersonne = (Int32)this.grdPersonnes.CurrentRow.Cells[0].Value;
+
+                    personne = MPersonnes.RestituerPersonne(clePersonne);
+
+                    clePersonne = Int32.Parse(this.grdPersonnes.CurrentRow.Cells[0].Value.ToString());
+                    // demande confirmation de la suppression
+                    if (MessageBox.Show("Voulez-vous supprimer la personne numéro : " + clePersonne.ToString(), "Suppression", MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        MPersonnes.DeletePersonne(clePersonne);
+                        MAdherents.DeleteAdherent(personne.NumAdherent);
+                        // réaffiche la datagridview
+                        affichePersonnes();
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Une erreur est survenue \n" + ex.Message);
             }
         }
 

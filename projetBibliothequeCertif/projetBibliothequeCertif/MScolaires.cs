@@ -76,8 +76,8 @@ namespace projetBibliothequeCertif
         public String CodePostal
         {
             get { return codePostalScolaire; }
-            set { codePostalScolaire = value; }
-            /*{
+            set
+            {
                 // variable de boucle
                 Int32 i;
                 // indicateur d'erreur
@@ -110,7 +110,7 @@ namespace projetBibliothequeCertif
                     "ErreurClasse MUsagers",
                     System.Windows.Forms.MessageBoxButtons.OK);
                 }
-            }*/
+            }
         }
 
         private String villeScolaire;
@@ -250,6 +250,7 @@ namespace projetBibliothequeCertif
             cmd.Parameters.AddWithValue("@numAdherent", sco.NumAdherent);
             cmd.Parameters.AddWithValue("@nomEcole", sco.Etablissement);
             cmd.Parameters.AddWithValue("@cp", sco.CodePostal);
+            cmd.Parameters.AddWithValue("@ville", sco.Ville);
             cmd.Parameters.AddWithValue("@nomProf", sco.Nom);
             cmd.Parameters.AddWithValue("@prenomProf", sco.Prenom);
             // exécute la requête
@@ -259,9 +260,12 @@ namespace projetBibliothequeCertif
         public static void UpdateScolaire(MScolaires sco)
         {
             MySqlCommand cmd = ConnexionBase.GetConnexion().CreateCommand();
-            cmd.CommandText = "UPDATE classes_scolaire SET libelle=@libelle WHERE num_adherent=@NumAdherent";
+            cmd.CommandText = "UPDATE classes_scolaire SET libelle=@libelle, nom_prof=@NomProf, prenom_prof=@PrenomProf" +
+                "WHERE num_adherent=@NumAdherent";
 
             cmd.Parameters.AddWithValue("@libelle", sco.Classe);
+            cmd.Parameters.AddWithValue("@NomProf", sco.Nom);
+            cmd.Parameters.AddWithValue("@PrenomProf", sco.Prenom);
             cmd.ExecuteNonQuery();
         }
 

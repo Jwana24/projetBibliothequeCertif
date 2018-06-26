@@ -10,8 +10,13 @@ namespace projetBibliothequeCertif
 {
     public partial class frmConsultationScolaire : projetBibliothequeCertif.frmScolaires
     {
+        Int32 leCode;
+        String uneVille, uneEcole, uneClasse, unCP, unNom, unPrenom;
+       
         private MLivres unLivre;
         private MScolaires leScolaire;
+
+        private MAdherents adherents;
 
         public frmConsultationScolaire(MScolaires scolaire)
         {
@@ -21,6 +26,7 @@ namespace projetBibliothequeCertif
 
         private void frmConsultationScolaire_Load(object sender, EventArgs e)
         {
+            this.adherents = MAdherents.ChercherAdherent(leScolaire.NumAdherent);
             this.afficheScolaires();
         }
 
@@ -33,7 +39,7 @@ namespace projetBibliothequeCertif
             cbbClasse.Text = leScolaire.Classe;
             txtbNomProf.Text = leScolaire.Nom;
             txtbPrenomProf.Text = leScolaire.Prenom;
-            dateTimeInscSco.Text = leScolaire.Inscription.ToString();
+            dateTimeInscSco.Value = leScolaire.Inscription;
         }
 
         private void btnFermer_Click(object sender, EventArgs e)
@@ -70,7 +76,38 @@ namespace projetBibliothequeCertif
 
         private void btnOk_Click(object sender, EventArgs e)
         {
+            try
+            {
+                // crée une référence d'objets MScolaires
+                MScolaires modifierScolaire = new MScolaires(leCode, uneVille, uneEcole, uneClasse, unCP, unNom, unPrenom);
 
+                // affecte des variables/propriétés
+                modifierScolaire.Code = Int32.Parse(base.txtbCodeSco.Text);
+                modifierScolaire.Ville = base.txtbVilleEcole.Text;
+                modifierScolaire.CodePostal = base.txtbCP.Text;
+                modifierScolaire.Etablissement = base.txtbEcole.Text.ToUpper();
+                modifierScolaire.Classe = base.cbbClasse.Text;
+                modifierScolaire.Nom = base.txtbNomProf.Text.ToUpper();
+                modifierScolaire.Prenom = base.txtbPrenomProf.Text.ToLower();
+                modifierScolaire.Inscription = DateTime.Parse(base.dateTimeInscSco.Text);
+
+                // enregistrement de la modification du scolaires dans la BDD
+                MScolaires.UpdateScolaire(modifierScolaire);
+
+                // ajoute la référence d'objet MScolaires dans la collection
+                Donnees.tableScolaires = MScolaires.ListerScolaires("");
+                // incrémentation du compteur de scolaires
+                MScolaires.NScolaires = 1;
+
+                this.Close();
+
+                // fermeture de la boite de dialogue par validation
+                this.DialogResult = DialogResult.OK;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Une erreur est survenue \n" + ex.Message);
+            }
         }
     }
 }

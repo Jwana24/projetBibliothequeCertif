@@ -28,11 +28,6 @@ namespace projetBibliothequeCertif
             InitializeComponent();
         }
 
-        private void grpCotisations_Enter(object sender, EventArgs e)
-        {
-           
-        }
-
         private void frmConsultationPersonne_Load(object sender, EventArgs e)
         {
             this.adherents = MAdherents.ChercherAdherent(laPersonne.NumAdherent);
@@ -108,39 +103,44 @@ namespace projetBibliothequeCertif
 
         private void btnOk_Click(object sender, EventArgs e)
         {
-            MAdherents modifierAdherent = new MAdherents();
-          //  modifierAdherent.dateInscription = DateTime.Parse(base.dateTimeInscription.Text);
-            modifierAdherent.dateCotisation = DateTime.Parse(base.dateTimeCotisation.Text);
-            modifierAdherent.numAdherent = (MPersonnes.RestituerPersonne(Int32.Parse(base.txtbNumPersonne.Text))).NumAdherent;
-            MAdherents.UpdateCotisation(modifierAdherent);
+            try
+            {
+                MAdherents modifierAdherent = new MAdherents();
+                modifierAdherent.dateCotisation = DateTime.Parse(base.dateTimeCotisation.Text);
+                modifierAdherent.numAdherent = (MPersonnes.RestituerPersonne(Int32.Parse(base.txtbNumPersonne.Text))).NumAdherent;
+                MAdherents.UpdateCotisation(modifierAdherent);
 
-            // crée une référence d'objets MPersonnes
-            MPersonnes modifierPersonne = new MPersonnes(leNumero, leNom, lePrenom, uneAdresse1, leTelephone, unEmail, uneDate, leCodePostal, laVille);
+                // crée une référence d'objets MPersonnes
+                MPersonnes modifierPersonne = new MPersonnes(leNumero, leNom, lePrenom, uneAdresse1, leTelephone, unEmail, uneDate, leCodePostal, laVille);
 
-            // affecte des variables/propriétés
-            modifierPersonne.NumPersonne = Int32.Parse(base.txtbNumPersonne.Text);
-           // modifierPersonne.NumAdherent = (Int32)(MAdherents.LastUpdateID());
-            modifierPersonne.Nom = base.txtbNom.Text.ToUpper();
-            modifierPersonne.Prenom = base.txtbPrenom.Text.ToLower();
-            modifierPersonne.CodePostal = base.txtbCodePostal.Text;
-            modifierPersonne.Ville = base.txtbVille.Text.ToUpper();
-            modifierPersonne.Adresse1 = base.txtbAdresse.Text;
-            modifierPersonne.Email = base.txtbEmail.Text;
-            modifierPersonne.Telephone = base.txtbTelephone.Text;
-            modifierPersonne.Naissance = DateTime.Parse(base.dateTimeNaissance.Text);
+                // affecte des variables/propriétés
+                modifierPersonne.NumPersonne = Int32.Parse(base.txtbNumPersonne.Text);
+                modifierPersonne.Nom = base.txtbNom.Text.ToUpper();
+                modifierPersonne.Prenom = base.txtbPrenom.Text.ToLower();
+                modifierPersonne.CodePostal = base.txtbCodePostal.Text;
+                modifierPersonne.Ville = base.txtbVille.Text.ToUpper();
+                modifierPersonne.Adresse1 = base.txtbAdresse.Text;
+                modifierPersonne.Email = base.txtbEmail.Text;
+                modifierPersonne.Telephone = base.txtbTelephone.Text;
+                modifierPersonne.Naissance = DateTime.Parse(base.dateTimeNaissance.Text);
 
-            // enregistrement de la modification de la personne dans la BDD
-            MPersonnes.UpdatePersonne(modifierPersonne);
+                // enregistrement de la modification de la personne dans la BDD
+                MPersonnes.UpdatePersonne(modifierPersonne);
 
-            // ajoute la référence d'objet MPersonnes dans la collection
-            Donnees.tablePersonnes = MPersonnes.ListerPersonnes("");
-            // incrémentation du compteur de personnes
-            MPersonnes.NPersonnes = 1;
+                // ajoute la référence d'objet MPersonnes dans la collection
+                Donnees.tablePersonnes = MPersonnes.ListerPersonnes("");
+                // incrémentation du compteur de personnes
+                MPersonnes.NPersonnes = 1;
 
-            this.Close();
+                this.Close();
 
-            // fermeture de la boite de dialogue par validation
-            this.DialogResult = DialogResult.OK;
+                // fermeture de la boite de dialogue par validation
+                this.DialogResult = DialogResult.OK;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Une erreur est survenue \n" + ex.Message);
+            }
         }
     }
 }

@@ -417,9 +417,15 @@ namespace projetBibliothequeCertif
         public static void UpdatePersonne(MPersonnes pers)
         {
             MySqlCommand cmd = ConnexionBase.GetConnexion().CreateCommand();
-            cmd.CommandText = "UPDATE personnes SET adresse1=@adresse WHERE num_personne=@numPersonne";
-            
+            cmd.CommandText = "UPDATE personnes SET nom=@nom, adresse1=@adresse, email=@email, telephone=@telephone, cp=@cp, ville=@ville" +
+                "WHERE num_personne=@numPersonne";
+
+            cmd.Parameters.AddWithValue("@nom", pers.Nom);
             cmd.Parameters.AddWithValue("@adresse", pers.Adresse1);
+            cmd.Parameters.AddWithValue("@email", pers.Email);
+            cmd.Parameters.AddWithValue("@telephone", pers.Telephone);
+            cmd.Parameters.AddWithValue("@cp", pers.CodePostal);
+            cmd.Parameters.AddWithValue("@ville", pers.Ville);
             cmd.Parameters.AddWithValue("@numPersonne", pers.NumPersonne);
             cmd.ExecuteNonQuery();
         }

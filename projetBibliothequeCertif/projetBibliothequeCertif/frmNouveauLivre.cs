@@ -11,7 +11,7 @@ namespace projetBibliothequeCertif
 {
     public partial class frmNouveauLivre : projetBibliothequeCertif.frmLivres
     {
-       // private MPersonnes laPersonne;
+        // private MPersonnes laPersonne;
         private String unIsbn, leTitre, unAuteur, unEditeur, leCode, laCategorie;
         private DateTime laSortie;
         private int idLivre;
@@ -28,8 +28,10 @@ namespace projetBibliothequeCertif
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-            // créer une référence d'objet MListeEntrees
-            MLivres nouveauLivre = new MLivres(leCode, unIsbn, leTitre, laCategorie, laSortie, unAuteur, unEditeur);
+            try
+            {
+                // créer une référence d'objet MListeEntrees
+                MLivres nouveauLivre = new MLivres(leCode, unIsbn, leTitre, laCategorie, laSortie, unAuteur, unEditeur);
 
                 // affecter les données de l'objet MListeEntrees :
                 // variables simples, ou autres, ce qui déclenche alors 
@@ -47,16 +49,18 @@ namespace projetBibliothequeCertif
 
                 //ajouter la référence d'objet MPersonnes dans la collection
                 Donnees.tableLivres = MLivres.ListerLivres("");
-            
-            // incrémentation compteur de livres
-            MLivres.NLivres += 1;
-            // fermeture de la boite de dialogue par validation
-            this.DialogResult = DialogResult.OK;
 
-            this.Close();
+                // incrémentation compteur de livres
+                MLivres.NLivres += 1;
 
-            // fermeture de la boite de dialogue par validation
-            this.DialogResult = DialogResult.OK;
+                this.Close();
+                // fermeture de la boite de dialogue par validation
+                this.DialogResult = DialogResult.OK;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Une erreur est survenue \n" + ex.Message);
+            }
         }
 
         /// <summary>

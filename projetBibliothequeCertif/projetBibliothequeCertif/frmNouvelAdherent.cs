@@ -15,19 +15,9 @@ namespace projetBibliothequeCertif
         String leNom, lePrenom, leCodePostal, laVille, uneAdresse1, leTelephone, unEmail, uneVille, uneEcole, uneClasse, unNom, unPrenom, unCP;
         DateTime uneDate;
 
-        private void grpCotisations_Enter(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void txtbDateCotisation_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
-
         private void chkScolaires_CheckedChanged(object sender, EventArgs e)
         {
-            if(chkScolaires.Checked == true)
+            if (chkScolaires.Checked == true)
             {
                 grpScolarite.Visible = true;
                 chkParticuliers.Visible = false;
@@ -95,20 +85,15 @@ namespace projetBibliothequeCertif
 
         private void frmNouvelAdherent_Load(object sender, EventArgs e)
         {
-           if (chkParticuliers.Checked == false && chkScolaires.Checked == false)
+            if (chkParticuliers.Checked == false && chkScolaires.Checked == false)
             {
                 grpScolarite.Visible = false;
             }
-           else
+            else
             {
                 chkScolaires.Checked = true;
                 grpScolarite.Visible = true;
             }
-            
-            
-            /* DateTime myDateTime = DateTime.Parse(mtxtbCotisation.ToString());
-            int totalDays = Convert.ToInt32((DateTime.UtcNow.Date - myDateTime.Date).TotalDays);
-            MessageBox.Show("Vous avez cotisé il y a " + " jours");*/
         }
 
         public frmNouvelAdherent()
@@ -123,64 +108,71 @@ namespace projetBibliothequeCertif
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-            if (chkParticuliers.Checked == true)
+            try
             {
-                MAdherents nouvelAdherent = new MAdherents();
-                nouvelAdherent.dateInscription = DateTime.Parse(base.dateTimeInscription.Text);
-                nouvelAdherent.dateCotisation = DateTime.Parse(base.dateTimeCotisation.Text);
-                MAdherents.InsertAdherent(nouvelAdherent);
+                if (chkParticuliers.Checked == true)
+                {
+                    MAdherents nouvelAdherent = new MAdherents();
+                    nouvelAdherent.dateInscription = DateTime.Parse(base.dateTimeInscription.Text);
+                    nouvelAdherent.dateCotisation = DateTime.Parse(base.dateTimeCotisation.Text);
+                    MAdherents.InsertAdherent(nouvelAdherent);
 
-                // crée une référence d'objets MAdherents
-                MPersonnes nouvellePersonne = new MPersonnes(leNumero, leNom, lePrenom, uneAdresse1, leTelephone, unEmail, uneDate, leCodePostal,
-                    laVille);
+                    // crée une référence d'objets MAdherents
+                    MPersonnes nouvellePersonne = new MPersonnes(leNumero, leNom, lePrenom, uneAdresse1, leTelephone, unEmail, uneDate, leCodePostal,
+                        laVille);
 
-                // affecte des variables/propriétés
-                nouvellePersonne.NumPersonne = Int32.Parse(base.txtbNumPersonne.Text);
-                nouvellePersonne.NumAdherent = (Int32)(MAdherents.LastInsertId());
-                nouvellePersonne.Nom = base.txtbNom.Text.ToUpper();
-                nouvellePersonne.Prenom = base.txtbPrenom.Text.ToLower();
-                nouvellePersonne.CodePostal = base.txtbCodePostal.Text;
-                nouvellePersonne.Ville = base.txtbVille.Text.ToUpper();
-                nouvellePersonne.Adresse1 = base.txtbAdresse.Text;
-                nouvellePersonne.Telephone = base.txtbTelephone.Text;
-                nouvellePersonne.Email = base.txtbEmail.Text;
-                nouvellePersonne.Naissance = DateTime.Parse(base.dateTimeNaissance.Text);
+                    // affecte des variables/propriétés
+                    nouvellePersonne.NumPersonne = Int32.Parse(base.txtbNumPersonne.Text);
+                    nouvellePersonne.NumAdherent = (Int32)(MAdherents.LastInsertId());
+                    nouvellePersonne.Nom = base.txtbNom.Text.ToUpper();
+                    nouvellePersonne.Prenom = base.txtbPrenom.Text.ToLower();
+                    nouvellePersonne.CodePostal = base.txtbCodePostal.Text;
+                    nouvellePersonne.Ville = base.txtbVille.Text.ToUpper();
+                    nouvellePersonne.Adresse1 = base.txtbAdresse.Text;
+                    nouvellePersonne.Telephone = base.txtbTelephone.Text;
+                    nouvellePersonne.Email = base.txtbEmail.Text;
+                    nouvellePersonne.Naissance = DateTime.Parse(base.dateTimeNaissance.Text);
 
-                // enregistrement de la nouvelle personne dans la BDD
-                MPersonnes.InsertPersonne(nouvellePersonne);
+                    // enregistrement de la nouvelle personne dans la BDD
+                    MPersonnes.InsertPersonne(nouvellePersonne);
 
-                // ajoute la référence d'objet MPersonnes dans la collection
-                Donnees.tablePersonnes = MPersonnes.ListerPersonnes("");
-                // incrémentation du compteur de personnes
-                MPersonnes.NPersonnes += 1;
+                    // ajoute la référence d'objet MPersonnes dans la collection
+                    Donnees.tablePersonnes = MPersonnes.ListerPersonnes("");
+                    // incrémentation du compteur de personnes
+                    MPersonnes.NPersonnes += 1;
+                }
+                else
+                {
+                    chkScolaires.Checked = true;
+                    MAdherents nouvelAdherent = new MAdherents();
+                    nouvelAdherent.dateInscription = DateTime.Parse(base.dateTimeInscriptionSco.Text);
+                    MAdherents.InsertAdherent(nouvelAdherent);
+
+                    MScolaires nouveauScolaire = new MScolaires(leCode, uneVille, uneEcole, uneClasse, unNom, unPrenom, unCP);
+
+                    nouveauScolaire.Code = Int32.Parse(base.txtbCodeSco.Text);
+                    nouveauScolaire.NumAdherent = (Int32)(MAdherents.LastInsertId());
+                    nouveauScolaire.Ville = base.txtbVilleEcole.Text;
+                    nouveauScolaire.CodePostal = base.txtbCP.Text;
+                    nouveauScolaire.Etablissement = base.txtbEcole.Text;
+                    nouveauScolaire.Classe = base.cbbClasse.Text;
+                    nouveauScolaire.Nom = base.txtbNomProf.Text;
+                    nouveauScolaire.Prenom = base.txtbPrenomProf.Text;
+
+                    MScolaires.InsertScolaire(nouveauScolaire);
+
+                    Donnees.tableScolaires = MScolaires.ListerScolaires("");
+                    MScolaires.NScolaires += 1;
+                }
+                this.Close();
+
+                // fermeture de la boite de dialogue par validation
+                this.DialogResult = DialogResult.OK;
             }
-            else
+            catch (Exception ex)
             {
-                chkScolaires.Checked = true;
-                MAdherents nouvelAdherent = new MAdherents();
-                nouvelAdherent.dateInscription = DateTime.Parse(base.dateTimeInscriptionSco.Text);
-                MAdherents.InsertAdherent(nouvelAdherent);
-
-                MScolaires nouveauScolaire = new MScolaires(leCode, uneVille, uneEcole, uneClasse, unNom, unPrenom, unCP);
-
-                nouveauScolaire.Code = Int32.Parse(base.txtbCodeSco.Text);
-                nouveauScolaire.NumAdherent = (Int32)(MAdherents.LastInsertId());
-                nouveauScolaire.Ville = base.txtbVilleEcole.Text;
-                nouveauScolaire.CodePostal = base.txtbCP.Text;
-                nouveauScolaire.Etablissement = base.txtbEcole.Text;
-                nouveauScolaire.Classe = base.cbbClasse.Text;
-                nouveauScolaire.Nom = base.txtbNomProf.Text;
-                nouveauScolaire.Prenom = base.txtbPrenomProf.Text;
-
-                MScolaires.InsertScolaire(nouveauScolaire);
-
-                Donnees.tableScolaires = MScolaires.ListerScolaires("");
-                MScolaires.NScolaires += 1;
+                MessageBox.Show("Une erreur est survenue \n" + ex.Message);
             }
-            this.Close();
-
-            // fermeture de la boite de dialogue par validation
-            this.DialogResult = DialogResult.OK;
         }
     }
 }

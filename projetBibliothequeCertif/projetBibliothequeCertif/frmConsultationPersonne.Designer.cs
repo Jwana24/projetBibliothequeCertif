@@ -79,10 +79,6 @@
             // 
             this.txtbNumPersonne.Enabled = false;
             // 
-            // grpCotisations
-            // 
-            this.grpCotisations.Enter += new System.EventHandler(this.grpCotisations_Enter);
-            // 
             // lblRetard
             // 
             this.lblRetard.Visible = false;

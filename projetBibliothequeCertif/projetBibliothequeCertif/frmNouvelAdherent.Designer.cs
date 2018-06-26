@@ -146,7 +146,6 @@
             // 
             this.grpCotisations.Location = new System.Drawing.Point(550, 57);
             this.grpCotisations.Visible = false;
-            this.grpCotisations.Enter += new System.EventHandler(this.grpCotisations_Enter);
             // 
             // lblRetard
             // 
@@ -156,8 +155,10 @@
             // 
             this.grpScolarite.Controls.Add(this.dateTimeInscSco);
             this.grpScolarite.Controls.Add(this.lblDateInscr);
-            this.grpScolarite.Location = new System.Drawing.Point(25, 94);
+            this.grpScolarite.Location = new System.Drawing.Point(25, 65);
             this.grpScolarite.Size = new System.Drawing.Size(842, 431);
+            this.grpScolarite.Controls.SetChildIndex(this.lblCPSco, 0);
+            this.grpScolarite.Controls.SetChildIndex(this.txtbCP, 0);
             this.grpScolarite.Controls.SetChildIndex(this.lblDateInscriptionSco, 0);
             this.grpScolarite.Controls.SetChildIndex(this.dateTimeInscriptionSco, 0);
             this.grpScolarite.Controls.SetChildIndex(this.lblEcole, 0);
