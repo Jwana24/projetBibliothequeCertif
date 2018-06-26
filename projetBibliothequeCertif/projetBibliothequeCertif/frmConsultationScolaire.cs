@@ -21,10 +21,10 @@ namespace projetBibliothequeCertif
 
         private void frmConsultationScolaire_Load(object sender, EventArgs e)
         {
-            this.afficheScolaires(this.leScolaire);
+            this.afficheScolaires();
         }
 
-        private void afficheScolaires(MScolaires leScolaire)
+        private void afficheScolaires()
         {
             txtbCodeSco.Text = leScolaire.Code.ToString();
             txtbVilleEcole.Text = leScolaire.Ville;

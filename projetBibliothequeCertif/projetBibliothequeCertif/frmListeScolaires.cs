@@ -50,14 +50,18 @@ namespace projetBibliothequeCertif
             // si un scolaire est pointé dans la datagridview
             if (this.grdScolaires.CurrentRow != null)
             {
-                // récupère la clé du scolaire pointé
                 Int32 cleScolaire;
                 cleScolaire = (Int32)this.grdScolaires.CurrentRow.Cells[0].Value;
+
+                unScolaire = MScolaires.RestituerScolaire(cleScolaire);
+
+                cleScolaire = Int32.Parse(this.grdScolaires.CurrentRow.Cells[0].Value.ToString());
                 // demande confirmation de la suppression
                 if (MessageBox.Show("Voulez-vous supprimer le scolaire numéro : " + cleScolaire.ToString(), "Suppression", MessageBoxButtons.YesNo,
                     MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     MScolaires.DeleteScolaire(cleScolaire);
+                    MAdherents.DeleteAdherent(unScolaire.NumAdherent);
                     // réaffiche la datagridview
                     afficheScolaires();
                 }
