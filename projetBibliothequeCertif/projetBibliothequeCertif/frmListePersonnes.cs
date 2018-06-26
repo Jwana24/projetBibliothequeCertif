@@ -82,16 +82,23 @@ namespace projetBibliothequeCertif
         /// <param name="e"></param>
         private void grdPersonnes_DoubleClick(object sender, EventArgs e)
         {
-            Int32 iPersonne;
-            iPersonne = (Int32)this.grdPersonnes.CurrentRow.Cells[0].Value;
+            try
+            {
+                Int32 iPersonne;
+                iPersonne = (Int32)this.grdPersonnes.CurrentRow.Cells[0].Value;
 
-            personne = MPersonnes.RestituerPersonne(iPersonne);
-            // instancie le form consultation personne
-            frmConsultationPersonne frmConsulter = new frmConsultationPersonne(personne);
-            // affiche le form de consultation d'une personne
-            frmConsulter.ShowDialog();
-            // rafraîchit la datagridview quand le form est fermé
-            this.affichePersonnes();
+                personne = MPersonnes.RestituerPersonne(iPersonne);
+                // instancie le form consultation personne
+                frmConsultationPersonne frmConsulter = new frmConsultationPersonne(personne);
+                // affiche le form de consultation d'une personne
+                frmConsulter.ShowDialog();
+                // rafraîchit la datagridview quand le form est fermé
+                this.affichePersonnes();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Une erreur est survenue \n" + ex.Message);
+            }
         }
     }
 }

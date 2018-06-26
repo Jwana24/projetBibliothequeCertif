@@ -79,7 +79,7 @@ namespace projetBibliothequeCertif
             return id;
         }*/
 
-        public static void UpdateAdherent(MAdherents adh)
+        public static void UpdateCotisation(MAdherents adh)
         {
             // crée la commande sql
             MySqlCommand cmd = ConnexionBase.GetConnexion().CreateCommand();

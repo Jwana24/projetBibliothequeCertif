@@ -109,16 +109,17 @@ namespace projetBibliothequeCertif
         private void btnOk_Click(object sender, EventArgs e)
         {
             MAdherents modifierAdherent = new MAdherents();
-            modifierAdherent.dateInscription = DateTime.Parse(base.dateTimeInscription.Text);
+          //  modifierAdherent.dateInscription = DateTime.Parse(base.dateTimeInscription.Text);
             modifierAdherent.dateCotisation = DateTime.Parse(base.dateTimeCotisation.Text);
-            MAdherents.UpdateAdherent(modifierAdherent);
+            modifierAdherent.numAdherent = (MPersonnes.RestituerPersonne(Int32.Parse(base.txtbNumPersonne.Text))).NumAdherent;
+            MAdherents.UpdateCotisation(modifierAdherent);
 
             // crée une référence d'objets MPersonnes
             MPersonnes modifierPersonne = new MPersonnes(leNumero, leNom, lePrenom, uneAdresse1, leTelephone, unEmail, uneDate, leCodePostal, laVille);
 
             // affecte des variables/propriétés
             modifierPersonne.NumPersonne = Int32.Parse(base.txtbNumPersonne.Text);
-            modifierPersonne.NumAdherent = (Int32)(MAdherents.LastUpdateID());
+           // modifierPersonne.NumAdherent = (Int32)(MAdherents.LastUpdateID());
             modifierPersonne.Nom = base.txtbNom.Text.ToUpper();
             modifierPersonne.Prenom = base.txtbPrenom.Text.ToLower();
             modifierPersonne.CodePostal = base.txtbCodePostal.Text;
