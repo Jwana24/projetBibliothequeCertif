@@ -18,6 +18,12 @@ namespace projetBibliothequeCertif
         private MPersonnes laPersonne;
         private MLivres unLivre;
 
+        public frmConsultationPersonne(MPersonnes personne)
+        {
+            this.laPersonne = personne;
+            InitializeComponent();
+        }
+
         private void grpCotisations_Enter(object sender, EventArgs e)
         {
             //  DateTime adhesion =new DateTime(2016, 1, 18);
@@ -36,12 +42,6 @@ namespace projetBibliothequeCertif
                 MessageBox.Show("votre abonnement est valide");
                 lblRetard.Visible = false;
             }
-        }
-
-        public frmConsultationPersonne(MPersonnes personne)
-        {
-            this.laPersonne = personne;
-            InitializeComponent();
         }
 
         private void frmConsultationPersonne_Load(object sender, EventArgs e)

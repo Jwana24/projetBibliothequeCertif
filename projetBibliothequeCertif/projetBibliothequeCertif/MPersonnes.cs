@@ -313,7 +313,9 @@ namespace projetBibliothequeCertif
         {
             MPersonnes unePersonne = null;
             MySqlCommand cmd = ConnexionBase.GetConnexion().CreateCommand();
-            cmd.CommandText = "SELECT * FROM personnes WHERE num_personne=@recherche";
+            cmd.CommandText = "SELECT`num_personne`,`nom`,`prenom`,`date_naissance`,`adresse1`,`email`,`telephone`,personnes.num_adherent," +
+                "`cp`,`ville`,`date_inscription`,`date_cotisation` FROM personnes JOIN adherents on personnes.num_adherent = adherents.num_adherent" +
+                "WHERE num_personne = @recherche";
             cmd.Parameters.AddWithValue("@recherche", recherche);
             MySqlDataReader reader = cmd.ExecuteReader();
 
