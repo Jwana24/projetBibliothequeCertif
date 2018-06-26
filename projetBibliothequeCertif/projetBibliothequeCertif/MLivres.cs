@@ -284,11 +284,12 @@ namespace projetBibliothequeCertif
         public static void UpdateLivre(MLivres lvr)
         {
             MySqlCommand cmd = ConnexionBase.GetConnexion().CreateCommand();
-            cmd.CommandText = "UPDATE livres SET isbn=@Isbn, editeur=@Edtieur";
+            cmd.CommandText = "UPDATE livres SET isbn=@Isbn, editeur=@Editeur WHERE code_livre=@CodeLivre";
 
             cmd.Parameters.AddWithValue("@Titre", lvr.Titre);
             cmd.Parameters.AddWithValue("@Isbn", lvr.Isbn);
             cmd.Parameters.AddWithValue("@Editeur", lvr.Isbn);
+            cmd.Parameters.AddWithValue("@CodeLivre", lvr.Isbn);
             cmd.ExecuteNonQuery();
         }
 

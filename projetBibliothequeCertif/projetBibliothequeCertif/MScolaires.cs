@@ -260,7 +260,7 @@ namespace projetBibliothequeCertif
         public static void UpdateScolaire(MScolaires sco)
         {
             MySqlCommand cmd = ConnexionBase.GetConnexion().CreateCommand();
-            cmd.CommandText = "UPDATE classes_scolaire SET libelle=@libelle, nom_prof=@NomProf, prenom_prof=@PrenomProf" +
+            cmd.CommandText = "UPDATE classes_scolaire SET libelle=@libelle, nom_prof=@NomProf, prenom_prof=@PrenomProf " +
                 "WHERE num_adherent=@NumAdherent";
 
             cmd.Parameters.AddWithValue("@libelle", sco.Classe);

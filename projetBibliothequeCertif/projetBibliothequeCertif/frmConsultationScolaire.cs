@@ -10,9 +10,6 @@ namespace projetBibliothequeCertif
 {
     public partial class frmConsultationScolaire : projetBibliothequeCertif.frmScolaires
     {
-        Int32 leCode;
-        String uneVille, uneEcole, uneClasse, unCP, unNom, unPrenom;
-       
         private MLivres unLivre;
         private MScolaires leScolaire;
 
@@ -79,7 +76,7 @@ namespace projetBibliothequeCertif
             try
             {
                 // crée une référence d'objets MScolaires
-                MScolaires modifierScolaire = new MScolaires(leCode, uneVille, uneEcole, uneClasse, unCP, unNom, unPrenom);
+                MScolaires modifierScolaire = new MScolaires();
 
                 // affecte des variables/propriétés
                 modifierScolaire.Code = Int32.Parse(base.txtbCodeSco.Text);

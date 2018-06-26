@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.grpScolarite = new System.Windows.Forms.GroupBox();
+            this.txtbCP = new System.Windows.Forms.TextBox();
+            this.lblCPSco = new System.Windows.Forms.Label();
             this.dateTimeInscSco = new System.Windows.Forms.DateTimePicker();
             this.lblDateInscr = new System.Windows.Forms.Label();
             this.txtbCodeSco = new System.Windows.Forms.TextBox();
@@ -43,8 +45,6 @@
             this.txtbEcole = new System.Windows.Forms.TextBox();
             this.lblClasse = new System.Windows.Forms.Label();
             this.lblEcole = new System.Windows.Forms.Label();
-            this.txtbCP = new System.Windows.Forms.TextBox();
-            this.lblCPSco = new System.Windows.Forms.Label();
             this.grpScolarite.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -66,12 +66,28 @@
             this.grpScolarite.Controls.Add(this.txtbEcole);
             this.grpScolarite.Controls.Add(this.lblClasse);
             this.grpScolarite.Controls.Add(this.lblEcole);
-            this.grpScolarite.Location = new System.Drawing.Point(46, 41);
+            this.grpScolarite.Location = new System.Drawing.Point(46, 48);
             this.grpScolarite.Name = "grpScolarite";
             this.grpScolarite.Size = new System.Drawing.Size(744, 416);
             this.grpScolarite.TabIndex = 28;
             this.grpScolarite.TabStop = false;
             this.grpScolarite.Text = "Scolarité";
+            // 
+            // txtbCP
+            // 
+            this.txtbCP.Location = new System.Drawing.Point(534, 98);
+            this.txtbCP.Name = "txtbCP";
+            this.txtbCP.Size = new System.Drawing.Size(162, 22);
+            this.txtbCP.TabIndex = 19;
+            // 
+            // lblCPSco
+            // 
+            this.lblCPSco.AutoSize = true;
+            this.lblCPSco.Location = new System.Drawing.Point(478, 98);
+            this.lblCPSco.Name = "lblCPSco";
+            this.lblCPSco.Size = new System.Drawing.Size(26, 17);
+            this.lblCPSco.TabIndex = 18;
+            this.lblCPSco.Text = "CP";
             // 
             // dateTimeInscSco
             // 
@@ -190,22 +206,6 @@
             this.lblEcole.Size = new System.Drawing.Size(149, 17);
             this.lblEcole.TabIndex = 0;
             this.lblEcole.Text = "Etablissement scolaire";
-            // 
-            // txtbCP
-            // 
-            this.txtbCP.Location = new System.Drawing.Point(534, 98);
-            this.txtbCP.Name = "txtbCP";
-            this.txtbCP.Size = new System.Drawing.Size(162, 22);
-            this.txtbCP.TabIndex = 19;
-            // 
-            // lblCPSco
-            // 
-            this.lblCPSco.AutoSize = true;
-            this.lblCPSco.Location = new System.Drawing.Point(478, 98);
-            this.lblCPSco.Name = "lblCPSco";
-            this.lblCPSco.Size = new System.Drawing.Size(26, 17);
-            this.lblCPSco.TabIndex = 18;
-            this.lblCPSco.Text = "CP";
             // 
             // frmScolaires
             // 

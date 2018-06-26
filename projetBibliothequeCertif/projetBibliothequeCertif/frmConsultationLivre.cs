@@ -10,9 +10,6 @@ namespace projetBibliothequeCertif
 {
     public partial class frmConsultationLivre : projetBibliothequeCertif.frmLivres
     {
-        String leCode, unIsbn, leTitre, laCategorie, unAuteur, unEditeur;
-        DateTime laSortie;
-
         protected MLivres leLivre;
 
         public frmConsultationLivre(MLivres livre)
@@ -73,7 +70,7 @@ namespace projetBibliothequeCertif
         {
             try
             {
-                MLivres modifierLivre = new MLivres(leCode, unIsbn, leTitre, laCategorie, laSortie, unAuteur, unEditeur);
+                MLivres modifierLivre = new MLivres();
 
                 // affecte des variables/propriétés
                 modifierLivre.CodeLivre = base.txtbCodeLivre.Text;

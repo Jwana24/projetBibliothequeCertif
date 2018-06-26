@@ -255,15 +255,6 @@ namespace projetBibliothequeCertif
             set { dateCotisation = value; }
         }
 
-       /* /// <summary>
-        /// obtient un libellé en clair (numPersonne + date_inscription et date_cotisation)
-        /// </summary>
-        /// <returns></returns>
-        public override String ToString()
-        {
-            return "Personne " + this.NumPersonne + " : " + this.Inscription + " " + this.Cotisation;
-        }*/
-
         /// <summary>
         /// ajouter une personne à la collection
         /// (reçoit la référence à la personne et en déduit la clé (= numPersonne) pour la collection)
@@ -371,7 +362,7 @@ namespace projetBibliothequeCertif
             {
                 DataRow dr;
                 dr = tablePersonnes.NewRow();
-                // affectation des 4 lignes
+                // affectation des 3 lignes
                 dr[0] = reader.GetString(0);
                 dr[1] = reader.GetString(1);
                 dr[2] = reader.GetString(2);
@@ -417,7 +408,7 @@ namespace projetBibliothequeCertif
         public static void UpdatePersonne(MPersonnes pers)
         {
             MySqlCommand cmd = ConnexionBase.GetConnexion().CreateCommand();
-            cmd.CommandText = "UPDATE personnes SET nom=@nom, adresse1=@adresse, email=@email, telephone=@telephone, cp=@cp, ville=@ville" +
+            cmd.CommandText = "UPDATE personnes SET nom=@nom, adresse1=@adresse, email=@email, telephone=@telephone, cp=@cp, ville=@ville " +
                 "WHERE num_personne=@numPersonne";
 
             cmd.Parameters.AddWithValue("@nom", pers.Nom);

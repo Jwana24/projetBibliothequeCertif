@@ -11,10 +11,6 @@ namespace projetBibliothequeCertif
 {
     public partial class frmConsultationPersonne : projetBibliothequeCertif.frmAdherents
     {
-        String leNom, lePrenom, uneAdresse1, leTelephone, unEmail, leCodePostal, laVille;
-        Int32 leNumero;
-        DateTime uneDate;
-
         private MPersonnes laPersonne;
         private MLivres unLivre;
 
@@ -111,7 +107,7 @@ namespace projetBibliothequeCertif
                 MAdherents.UpdateCotisation(modifierAdherent);
 
                 // crée une référence d'objets MPersonnes
-                MPersonnes modifierPersonne = new MPersonnes(leNumero, leNom, lePrenom, uneAdresse1, leTelephone, unEmail, uneDate, leCodePostal, laVille);
+                MPersonnes modifierPersonne = new MPersonnes();
 
                 // affecte des variables/propriétés
                 modifierPersonne.NumPersonne = Int32.Parse(base.txtbNumPersonne.Text);
