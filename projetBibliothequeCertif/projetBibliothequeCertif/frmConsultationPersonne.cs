@@ -18,6 +18,10 @@ namespace projetBibliothequeCertif
         private MPersonnes laPersonne;
         private MLivres unLivre;
 
+        private MAdherents adherents;
+        DateTime now;
+        DateTime valide;
+
         public frmConsultationPersonne(MPersonnes personne)
         {
             this.laPersonne = personne;
@@ -26,30 +30,29 @@ namespace projetBibliothequeCertif
 
         private void grpCotisations_Enter(object sender, EventArgs e)
         {
-            //  DateTime adhesion =new DateTime(2016, 1, 18);
-            DateTime adhesion = new DateTime(2018, 1, 18);
-            DateTime now = DateTime.Now;
-            DateTime after = adhesion.AddYears(1);
-            Console.WriteLine(adhesion + "  " + now + "  " + after);
-
-            if (now > after)
-            {
-                MessageBox.Show("vous devez vous réabonner");
-                lblRetard.Visible = true;
-            }
-            else
-            {
-                MessageBox.Show("votre abonnement est valide");
-                lblRetard.Visible = false;
-            }
+           
         }
 
         private void frmConsultationPersonne_Load(object sender, EventArgs e)
         {
-            this.affichePersonnes(this.laPersonne);
+            this.adherents = MAdherents.ChercherAdherent(laPersonne.NumAdherent);
+            this.affichePersonnes();
+            now = DateTime.Now;
+            valide = adherents.dateCotisation.AddYears(1);
+
+            if (now > valide)
+            {
+
+                lblRetard.Visible = true;
+            }
+            else
+            {
+
+                lblRetard.Visible = false;
+            }
         }
 
-        private void affichePersonnes(MPersonnes laPersonne)
+        private void affichePersonnes()
         {
             txtbNumPersonne.Text = laPersonne.NumPersonne.ToString();
             txtbNom.Text = laPersonne.Nom;
@@ -57,12 +60,11 @@ namespace projetBibliothequeCertif
             txtbCodePostal.Text = laPersonne.CodePostal;
             txtbVille.Text = laPersonne.Ville;
             txtbAdresse.Text = laPersonne.Adresse1;
-            dateTimeInscription.Value = laPersonne.Inscription;
+            dateTimeInscription.Value = adherents.dateInscription;
             txtbEmail.Text = laPersonne.Email;
             txtbTelephone.Text = laPersonne.Telephone;
             dateTimeNaissance.Value = laPersonne.Naissance;
-            MessageBox.Show(dateTimeNaissance.Value.ToString());
-            dateTimeCotisation.Value = laPersonne.Cotisation;
+            dateTimeCotisation.Value = adherents.dateCotisation;
         }
 
         private void btnModifier_Click(object sender, EventArgs e)

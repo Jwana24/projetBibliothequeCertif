@@ -51,14 +51,18 @@ namespace projetBibliothequeCertif
             // si une personne est pointée dans la datagridview
             if (this.grdPersonnes.CurrentRow != null)
             {
-                // récupère la clé de la personne pointée
                 Int32 clePersonne;
+                clePersonne = (Int32)this.grdPersonnes.CurrentRow.Cells[0].Value;
+
+                personne = MPersonnes.RestituerPersonne(clePersonne);
+
                 clePersonne = Int32.Parse(this.grdPersonnes.CurrentRow.Cells[0].Value.ToString());
                 // demande confirmation de la suppression
                 if (MessageBox.Show("Voulez-vous supprimer la personne numéro : " + clePersonne.ToString(), "Suppression", MessageBoxButtons.YesNo,
                     MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     MPersonnes.DeletePersonne(clePersonne);
+                    MAdherents.DeleteAdherent(personne.NumAdherent);
                     // réaffiche la datagridview
                     affichePersonnes();
                 }

@@ -16,6 +16,25 @@ namespace projetBibliothequeCertif
 
         public DateTime dateCotisation;
 
+        public static MAdherents ChercherAdherent(Int32 num)
+        {
+            MAdherents adh = null;
+            MySqlCommand cmd = ConnexionBase.GetConnexion().CreateCommand();
+            cmd.CommandText = "SELECT * from adherents where num_adherent=@num";
+            cmd.Parameters.AddWithValue("@num", num);
+            MySqlDataReader reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                adh = new MAdherents();
+
+                adh.dateCotisation = reader.GetDateTime("date_cotisation");
+                adh.dateInscription = reader.GetDateTime("date_inscription");
+            }
+            reader.Close();
+            return adh;
+        }
+
         public static void InsertAdherent(MAdherents adh)
         {
             // crée la commande sql
@@ -45,7 +64,7 @@ namespace projetBibliothequeCertif
             return id;
         }
 
-        public static long LastUpdateID()
+      /*  public static long LastUpdateID()
         {
             MySqlCommand cmd = ConnexionBase.GetConnexion().CreateCommand();
             cmd.CommandText = "UPDATE last_update_id()";
@@ -58,7 +77,7 @@ namespace projetBibliothequeCertif
             }
             reader.Close();
             return id;
-        }
+        }*/
 
         public static void UpdateAdherent(MAdherents adh)
         {
@@ -69,6 +88,15 @@ namespace projetBibliothequeCertif
             cmd.Parameters.AddWithValue("@numAdherent", adh.numAdherent);
             cmd.Parameters.AddWithValue("@dateCotisation", adh.dateCotisation);
             // exécute la requête
+            cmd.ExecuteNonQuery();
+        }
+
+        public static void DeleteAdherent(Int32 numero)
+        {
+            MySqlCommand cmd = ConnexionBase.GetConnexion().CreateCommand();
+            cmd.CommandText = "DELETE FROM adherents WHERE num_adherent=@numAdherent";
+
+            cmd.Parameters.AddWithValue("@numAdherent", numero);
             cmd.ExecuteNonQuery();
         }
     }
