@@ -147,7 +147,7 @@
             this.Controls.Add(this.btnModifierScolaire);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmConsultationScolaire";
-            this.Text = "Consultation des scolaires";
+            this.Text = "Consultation du scolaire";
             this.Load += new System.EventHandler(this.frmConsultationScolaire_Load);
             this.Controls.SetChildIndex(this.grpScolarite, 0);
             this.Controls.SetChildIndex(this.btnModifierScolaire, 0);

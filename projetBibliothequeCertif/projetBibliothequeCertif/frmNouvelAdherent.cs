@@ -15,6 +15,11 @@ namespace projetBibliothequeCertif
         String leNom, lePrenom, leCodePostal, laVille, uneAdresse1, leTelephone, unEmail, uneVille, uneEcole, uneClasse, unNom, unPrenom, unCP;
         DateTime uneDate;
 
+        public frmNouvelAdherent()
+        {
+            InitializeComponent();
+        }
+
         private void chkScolaires_CheckedChanged(object sender, EventArgs e)
         {
             if (chkScolaires.Checked == true)
@@ -94,11 +99,6 @@ namespace projetBibliothequeCertif
                 chkScolaires.Checked = true;
                 grpScolarite.Visible = true;
             }
-        }
-
-        public frmNouvelAdherent()
-        {
-            InitializeComponent();
         }
 
         private void btnAnnuler_Click(object sender, EventArgs e)
