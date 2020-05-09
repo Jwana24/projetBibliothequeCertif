@@ -3,7 +3,7 @@
 
 ### What is this project ?
 
-A c# application create in 2018 for "Developpeur client-serveur" training.
+A c# application : Library management project, create in 2018 for "Developpeur client-serveur" training.
 
 
 ### What's in this application ?
